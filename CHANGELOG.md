@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.10.0
+
+- **Why an item is better:** item tooltips now list, stat by stat, what makes the difference with what you wear, and
+  what each point is worth: "+81 Armor -> +31 effective HP (0.38 each)", "+2 Strength -> +0.22 DPS (0.11 each)".
+  The totals show both damage (or healing) per second and effective HP; tanks see effective HP first, then damage.
+- **What 1 point of each stat does for you,** in the Formulas tab: what +1 Strength, Agility, Stamina, Intellect or
+  Spirit changes on your character sheet (like "+2 armor, +2 ranged attack power, +0.3% melee crit"), what it's worth
+  to your build at your level, and the same worth for every other stat (attack power, crit rating, defense...).
+- **Effective health** in the Formulas tab: how much damage you can take, worked out from your health, armor, dodge,
+  parry and block. It's what the tooltips mean by "effective HP".
+
 ## 0.9.0
 
 - **Upgrade or downgrade on item tooltips:** hover any item (in your bags, on your character, loot, vendors, links in

@@ -1,6 +1,8 @@
 -- Kor'kron Planner: the Formulas tab of the /kp window. How the planner website works out your character sheet's
 -- numbers (Data/Formulas.lua, written from the website's own math): each formula in words, worked out with your own
--- numbers, and the game's number next to it, with a tick when they agree. Then the rules of combat for your class.
+-- numbers, and the game's number next to it, with a tick when they agree. Then what 1 point of each stat does: what
+-- it changes on your character sheet (the same formulas with 1 more) and what the planner says it's worth to your
+-- build (Data/Weights.lua). Last, the rules of combat for your class.
 local _, KP = ...
 
 local Pane = {}
@@ -9,11 +11,16 @@ KP.FormulasPane = Pane
 Pane.Create = KP.ScrollList.Create
 
 local TICK = "|TInterface\\RaidFrame\\ReadyCheck-Ready:14|t"
--- what each input of a formula is called in "Your numbers"
-local INPUTS = { "level", "str", "agi", "sta", "int", "spi", "gearArmor", "armor", "baseHealth", "baseMana", "hpPerSta" }
+-- what each input of a formula is called in "Your numbers" (and its decimals there)
+local INPUTS = { "level", "str", "agi", "sta", "int", "spi", "gearArmor", "armor", "health", "dodge", "parry", "block",
+  "baseHealth", "baseMana", "hpPerSta" }
 local LABEL = { level = "level", str = "Strength", agi = "Agility", sta = "Stamina", int = "Intellect", spi = "Spirit",
-  gearArmor = "armor on your gear", armor = "your armor", baseHealth = "base health", baseMana = "base mana",
-  hpPerSta = "health per Stamina" }
+  gearArmor = "armor on your gear", armor = "your armor", health = "your health", dodge = "dodge %", parry = "parry %",
+  block = "block %", baseHealth = "base health", baseMana = "base mana", hpPerSta = "health per Stamina" }
+local DIGITS = { dodge = 2, parry = 2, block = 2 }
+-- the main stats, by their names in the formulas and in the stat weights
+local MAIN_STATS = { { "str", "strength" }, { "agi", "agility" }, { "sta", "stamina" }, { "int", "intellect" },
+  { "spi", "spirit" } }
 
 -- a number the game gives, or nil when it's missing or hidden
 local function Readable(v)
@@ -30,7 +37,9 @@ local function Inputs(class)
     inputs[key] = Readable(effective)
   end
   local _, armor = UnitArmor("player")
-  inputs.armor = Readable(armor)
+  inputs.armor, inputs.health = Readable(armor), Readable(UnitHealthMax("player"))
+  inputs.dodge, inputs.parry = Readable(GetDodgeChance()), Readable(GetParryChance())
+  inputs.block = Readable(GetBlockChance())
   local gearArmor = 0
   for slot = 1, 19 do
     local id = Readable(GetInventoryItemID("player", slot))
@@ -72,7 +81,9 @@ end
 local function YourNumbers(expr, inputs)
   local used = {}
   for _, key in ipairs(INPUTS) do
-    if expr:find("%f[%w]" .. key .. "%f[%W]") then table.insert(used, LABEL[key] .. " " .. KP.Num(inputs[key], 0)) end
+    if expr:find("%f[%w]" .. key .. "%f[%W]") then
+      table.insert(used, LABEL[key] .. " " .. KP.Num(inputs[key], DIGITS[key] or 0))
+    end
   end
   return "Your numbers: " .. table.concat(used, ", ")
 end
@@ -89,7 +100,55 @@ local function ResultLine(f, value, game)
   return text .. (f.estimate and "   game: " or "   |cffff9933game: ") .. shown .. (f.estimate and "" or "|r")
 end
 
-function Pane.Refresh(pane)
+-- what 1 more point of a main stat changes on your character sheet, by the same formulas:
+-- { "+2 armor", "+0.3% melee crit (estimate)" }
+local function SheetChanges(list, inputs, key)
+  local more = setmetatable({ [key] = inputs[key] + 1 }, { __index = inputs })
+  local out = {}
+  for _, f in ipairs(list) do
+    if f.expr and f.game then
+      local change = Work(f.expr, more) - Work(f.expr, inputs)
+      if math.abs(change) >= 0.5 * 10 ^ -(f.digits or 0) then
+        local unit = f.unit or ""
+        local what = unit:sub(1, 1) == " " and unit or (unit .. " " .. f.name:lower())
+        table.insert(out, "+" .. KP.Num(change, f.digits or 0) .. what .. (f.estimate and " (estimate)" or ""))
+      end
+    end
+  end
+  return out
+end
+
+-- What 1 point of each stat does: on your character sheet (main stats) and to the build you follow
+local function StatSection(L, list, inputs, build)
+  L.text("What 1 point of each stat does for you", "GameFontNormalLarge", 0, 16)
+  local W = build and KP.Build.ForLevel(KP.Weights, build.key, UnitLevel("player"))
+  L.text(W and ("Worth = what the planner says 1 point adds for " .. build.name .. " at your level.")
+    or "Choose one of the planner's builds on the left to see what each point is worth to it.", "GameFontDisableSmall", 0, 2)
+  local function Worth(key)
+    return W and KP.Upgrade.Describe(KP.Upgrade.Value(W, key, 1), build.role, 0.0005)
+  end
+  for _, stat in ipairs(MAIN_STATS) do
+    L.text(LABEL[stat[1]], "GameFontNormal", 0, 10)
+    local changes = inputs and SheetChanges(list, inputs, stat[1]) or {}
+    L.text(#changes > 0 and table.concat(changes, ", ") or "Nothing on your character sheet.", "GameFontHighlightSmall", 0, 2)
+    local worth = Worth(stat[2])
+    if worth then L.text("Worth " .. worth, "GameFontHighlightSmall", 0, 2) end
+  end
+  if not W then return end
+  local others = {}
+  for i = #MAIN_STATS + 1, #KP.Upgrade.STATS do
+    local key, name = KP.Upgrade.STATS[i][1], KP.Upgrade.STATS[i][2]
+    local worth = Worth(key)
+    if worth then table.insert(others, name .. ": " .. worth) end
+  end
+  if #others > 0 then
+    L.text("Other stats, 1 point each", "GameFontNormal", 0, 10)
+    for _, line in ipairs(others) do L.text(line, "GameFontHighlightSmall", 0, 2) end
+  end
+end
+
+-- build: the chosen build (nil when none), for what each stat is worth
+function Pane.Refresh(pane, build)
   local L = KP.ScrollList.Layout(pane)
   local _, class = UnitClass("player")
   local list = KP.Formulas[class]
@@ -112,6 +171,7 @@ function Pane.Refresh(pane)
       table.insert(rules, f)
     end
   end
+  StatSection(L, list, inputs, build)
   L.text("Rules of combat", "GameFontNormalLarge", 0, 16)
   for _, f in ipairs(rules) do
     L.text("|cffffd100" .. f.name .. ":|r " .. f.text, "GameFontHighlightSmall", 0, 6)

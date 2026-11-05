@@ -246,7 +246,7 @@ function Window.Refresh()
   elseif tab == "gear" then
     KP.GearPane.Refresh(frame.panes.gear, build)
   elseif tab == "formulas" then
-    KP.FormulasPane.Refresh(frame.panes.formulas)
+    KP.FormulasPane.Refresh(frame.panes.formulas, build)
   else
     RefreshBuildPane(build, why, saved)
   end
