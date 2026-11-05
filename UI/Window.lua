@@ -11,6 +11,30 @@ local RIGHT = 262    -- where the build's column starts
 
 local frame
 
+-- a point of the path: the talent's tooltip at the rank it gives, the planner's reason for it, the talent's note
+local function ShowPointTooltip(row)
+  local t = KP.Build.Talent(row.step.id)
+  GameTooltip:SetOwner(row, "ANCHOR_RIGHT")
+  GameTooltip:AddLine(KP.Build.Describe(row.step))
+  GameTooltip:AddLine(t.desc[row.step.rank], 1, 1, 1, true)
+  if row.why then GameTooltip:AddLine("Why: " .. row.why, 0.4, 0.8, 1, true) end
+  if t.note then GameTooltip:AddLine(t.note, 0.75, 0.75, 0.75, true) end
+  GameTooltip:Show()
+end
+
+local function ShowSummaryTooltip(owner)
+  local build = KP.Build.Current()
+  if not (build and build.summary) then return end
+  GameTooltip:SetOwner(owner, "ANCHOR_RIGHT")
+  GameTooltip:AddLine(build.name)
+  GameTooltip:AddLine(build.summary, 1, 1, 1, true)
+  GameTooltip:Show()
+end
+
+local function HideTooltip()
+  GameTooltip:Hide()
+end
+
 local function Text(parent, font, width)
   local fs = parent:CreateFontString(nil, "OVERLAY", font)
   fs:SetJustifyH("LEFT")
@@ -77,6 +101,12 @@ local function Create()
   -- the build's column: name, provisional note, points, next talent, the points after it, points off the build
   frame.heading = Text(frame, "GameFontNormalLarge", 280)
   frame.heading:SetPoint("TOPLEFT", RIGHT, -34)
+  -- hovering the build's name shows its summary (a font string can't take the mouse, so a frame lies over it)
+  frame.headingHover = CreateFrame("Frame", nil, frame)
+  frame.headingHover:SetAllPoints(frame.heading)
+  frame.headingHover:EnableMouse(true)
+  frame.headingHover:SetScript("OnEnter", function(self) KP.Safe(ShowSummaryTooltip, self) end)
+  frame.headingHover:SetScript("OnLeave", HideTooltip)
   frame.note = Text(frame, "GameFontHighlightSmall", 280)
   frame.note:SetPoint("TOPLEFT", frame.heading, "BOTTOMLEFT", 0, -4)
   frame.status = Text(frame, "GameFontHighlight", 280)
@@ -93,6 +123,9 @@ local function Create()
     row.level:SetPoint("LEFT", 0, 0)
     row.name = Text(row, "GameFontHighlight", 220)
     row.name:SetPoint("LEFT", row.icon, "RIGHT", 6, 0)
+    row:EnableMouse(true)
+    row:SetScript("OnEnter", function(self) KP.Safe(ShowPointTooltip, self) end)
+    row:SetScript("OnLeave", HideTooltip)
     frame.rows[i] = row
   end
   frame.off = Text(frame, "GameFontHighlightSmall", 280)
@@ -111,13 +144,15 @@ local function ShowBuildButtons(chosenKey)
   end
 end
 
--- the upcoming points: the first not taken is "Next", the rest follow in the build's order
-local function ShowRows(steps)
+-- the upcoming points: the first not taken is "Next", the rest follow in the build's order. why = the planner's
+-- reason for each point (a suggested build's; a pasted link has none)
+local function ShowRows(steps, why)
   local shown = 0
-  for _, step in ipairs(steps) do
+  for i, step in ipairs(steps) do
     if not step.done and shown < ROWS then
       shown = shown + 1
       local row, t = frame.rows[shown], KP.Build.Talent(step.id)
+      row.step, row.why = step, why and why[i]
       row.level:SetText(shown == 1 and "|cffffd100Next|r" or ("Lv " .. step.level))
       row.icon:SetTexture(t.icon)
       row.name:SetText(KP.Build.Describe(step))
@@ -160,7 +195,7 @@ function Window.Refresh()
   else
     frame.status:SetText(("All %d talent points spent."):format(spent))
   end
-  if ShowRows(KP.Build.Steps(build.order, ranks)) == 0 then frame.status:SetText("Build complete!") end
+  if ShowRows(KP.Build.Steps(build.order, ranks), build.why) == 0 then frame.status:SetText("Build complete!") end
   local off = {}
   for _, o in ipairs(KP.Build.OffBuild(build.order, ranks)) do
     table.insert(off, ("%s +%d"):format(KP.Build.Talent(o.id).name, o.extra))

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.0
+
+- **Why each talent:** in the `/kp` window, hover a point of your build to see the talent's tooltip at that rank,
+  why the planner put it there (like "+3.1 damage per second" or "needed for Mortal Strike") and, for many talents,
+  a note on what it's good for. Hover the build's name to read what the build is about.
+
 ## 0.3.1
 
 - The suggested builds now count Forever's new launch talents: Shank and its talents (Flash of Steel, Boot Knife,
