@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.1
+
+- The suggested builds now count Forever's new launch talents: Shank and its talents (Flash of Steel, Boot Knife,
+  Venom), Reckless Swings, Improved Whirlwind, Lightning Overload and Lightning Mastery, and Warriors' extra rage from
+  critical strikes. Only the Subtlety Rogue builds keep their **\***: Death Mark's damage can't be worked out yet.
+- Fury leveling no longer takes Reckless Swings: alone, its health cost means more eating than its rage saves.
+
 ## 0.3.0
 
 - **Follow a build in game:** `/kp` opens a window where you pick one of the planner's suggested builds for your class

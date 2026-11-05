@@ -14,8 +14,7 @@ The in-game companion to the Kor'kron Guard talent planner: https://korkronguard
   level), so the planner can only estimate them. This addon shares your character's real numbers with the Guard, and
   together they replace the estimates.
 
-Builds marked **\*** are provisional: rewritten for Forever's launch talent trees before the planner's math knew the
-new talents. The window says what isn't counted yet.
+Builds marked **\*** have a talent the planner's math can't put a number on yet; the window says which.
 
 ## What is shared
 
