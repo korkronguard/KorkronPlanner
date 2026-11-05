@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.11.0
+
+- **Cleaner item tooltips:** two columns, the stat on the left and what it does for your build on the right (green when
+  it goes up, red when down), a short header, and "Upgrade overall" or "Downgrade overall" when one number goes up and
+  another down (more damage but less survival, say).
+- **What the stats do, right on the tooltip:** under Strength, Agility, Stamina, Intellect and Spirit, a grey line says
+  what those points change on your character sheet, like "+0.37% crit, +4 armor, +4 ranged attack power".
+- **The Formulas tab starts with "What each stat does for you":** for each stat, every effect of one point on its own
+  line with what it means ("crit chance: hits for double damage", "dodge chance: a melee hit misses you completely"),
+  from the game's own numbers where it gives them and the planner's estimates otherwise (marked), and what the point is
+  worth to your build. The formulas below are shorter, and "what your armor stops" is checked against the game.
+- Shared stats now include what the game says your Agility and Intellect give (crit, spell crit, dodge), so the
+  planner can learn the real numbers for every class and level.
+
 ## 0.10.0
 
 - **Why an item is better:** item tooltips now list, stat by stat, what makes the difference with what you wear, and

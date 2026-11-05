@@ -12,6 +12,8 @@ local FUNCTIONS = {
   "GetCritChance", "GetRangedCritChance", "GetSpellCritChance", "GetHitModifier", "GetSpellHitModifier",
   "GetSpellBonusDamage", "GetSpellBonusHealing", "GetCombatRating", "GetCombatRatingBonus", "GetDodgeChance",
   "GetParryChance", "GetBlockChance", "GetManaRegen", "UnitPowerMax", "UnitHealthMax",
+  -- what a stat gives, as the game's own character sheet shows it (Core/Sheet.lua uses them when they're there)
+  "GetCritChanceFromAgility", "GetSpellCritChanceFromIntellect", "GetDodgeChanceFromAgility", "GetAttackPowerForStat",
   -- other
   "GetSpellInfo", "IsSpellKnown", "GetShapeshiftFormID", "InCombatLockdown", "issecretvalue",
 }
@@ -101,6 +103,13 @@ function KP:Probe()
   for _, name in ipairs({ "GetCritChance", "GetRangedCritChance", "GetHitModifier", "GetSpellHitModifier",
     "GetDodgeChance", "GetParryChance", "GetBlockChance", "GetManaRegen" }) do
     if p.functions[name] then p.stats[name] = try(_G[name]) end
+  end
+  for _, name in ipairs({ "GetCritChanceFromAgility", "GetSpellCritChanceFromIntellect", "GetDodgeChanceFromAgility" }) do
+    if p.functions[name] then p.stats[name] = try(_G[name], "player") end
+  end
+  if p.functions.GetAttackPowerForStat and p.functions.UnitStat then
+    local _, strength = UnitStat("player", 1)
+    p.stats.GetAttackPowerForStat = try(_G.GetAttackPowerForStat, 1, strength)
   end
   if p.functions.GetSpellCritChance then p.stats.spellCrit = try(GetSpellCritChance, 2) end
   if p.functions.GetSpellBonusDamage then p.stats.spellDamage = try(GetSpellBonusDamage, 2) end

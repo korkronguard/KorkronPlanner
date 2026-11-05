@@ -21,13 +21,16 @@ local OFF_HAND_WEAPON = { oneHand = true, offHand = true }
 -- the five main stats come from the game's own reading of the item, which includes random bonuses ("of the Bear")
 local PRIMARY = { strength = "ITEM_MOD_STRENGTH_SHORT", agility = "ITEM_MOD_AGILITY_SHORT",
   stamina = "ITEM_MOD_STAMINA_SHORT", intellect = "ITEM_MOD_INTELLECT_SHORT", spirit = "ITEM_MOD_SPIRIT_SHORT" }
--- what the tooltips show for each kind of build: which weight (Data/Weights.lua), its name, and the smallest change
--- worth showing. A tank's v mixes survival and damage, so its two parts are shown instead (and v decides).
+-- what the tooltips show for each kind of build: which weight (Data/Weights.lua), its name, the smallest change worth
+-- showing, and the short name for the tooltip's right column. A tank's v mixes survival and damage, so its two parts
+-- are shown instead (and v decides).
 local MEASURES = {
-  dps = { { "v", "DPS", 0.01 }, { "e", "effective HP", 0.5 } },
-  heal = { { "v", "HPS", 0.01 }, { "e", "effective HP", 0.5 } },
-  tank = { { "e", "effective HP", 0.5 }, { "d", "DPS", 0.01 } },
+  dps = { { "v", "DPS", 0.01, "DPS" }, { "e", "effective HP", 0.5, "eff. HP" } },
+  heal = { { "v", "HPS", 0.01, "HPS" }, { "e", "effective HP", 0.5, "eff. HP" } },
+  tank = { { "e", "effective HP", 0.5, "eff. HP" }, { "d", "DPS", 0.01, "DPS" } },
 }
+-- the main stats' names in Core/Sheet.lua, for what a point of them does
+local SHEET_KEY = { strength = "str", agility = "agi", stamina = "sta", intellect = "int", spirit = "spi" }
 -- the stats the planner counts, in the order the Formulas tab lists them
 Upgrade.STATS = {
   { "strength", "Strength" }, { "agility", "Agility" }, { "stamina", "Stamina" }, { "intellect", "Intellect" },
@@ -49,6 +52,7 @@ Upgrade.STATS = {
 local STAT_NAME = {}
 for _, s in ipairs(Upgrade.STATS) do STAT_NAME[s[1]] = s[2] end
 local GREEN, RED, GREY, WHITE = { 0.1, 1, 0.1 }, { 1, 0.25, 0.25 }, { 0.6, 0.6, 0.6 }, { 0.9, 0.9, 0.9 }
+local GOLD = { 1, 0.82, 0 }
 
 -- "+31", "+1.4", "+0.61", "-0.027": two figures for small numbers, so a point's worth still shows
 function Upgrade.Number(x)
@@ -66,14 +70,30 @@ function Upgrade.Value(W, key, amount)
   return { v = amount * (W.v[key] or 0), e = amount * (W.e[key] or 0), d = amount * ((W.d or {})[key] or 0) }
 end
 
--- "+31 effective HP, +0.4 DPS" for a role (nil when each is too small to show); small: show smaller changes too
-function Upgrade.Describe(values, role, small)
+-- the role's measures big enough to show: { { value, measure }, ... }; small: show smaller changes too
+local function Shown(values, role, small)
   local out = {}
   for _, m in ipairs(MEASURES[role] or MEASURES.dps) do
     local x = values[m[1]]
-    if math.abs(x) >= (small or m[3]) then table.insert(out, Upgrade.Number(x) .. " " .. m[2]) end
+    if math.abs(x) >= (small or m[3]) then table.insert(out, { x, m }) end
   end
-  return #out > 0 and table.concat(out, ", ") or nil, #out
+  return out
+end
+
+-- "+31 effective HP, +0.4 DPS" for a role (nil when each is too small to show)
+function Upgrade.Describe(values, role, small)
+  local out = {}
+  for _, s in ipairs(Shown(values, role, small)) do table.insert(out, Upgrade.Number(s[1]) .. " " .. s[2][2]) end
+  return #out > 0 and table.concat(out, ", ") or nil
+end
+
+-- the same for a tooltip's right column: short names, green when it goes up, red when down ("" when nothing shows)
+local function Colored(values, role)
+  local out = {}
+  for _, s in ipairs(Shown(values, role)) do
+    table.insert(out, (s[1] > 0 and "|cff33ff33" or "|cffff5555") .. Upgrade.Number(s[1]) .. " " .. s[2][4] .. "|r")
+  end
+  return table.concat(out, "  ")
 end
 
 local function ItemID(link)
@@ -186,10 +206,11 @@ local function OneHandSlot(id, link, W, mainWorn)
   return "mainHand", mainWorn
 end
 
--- the line saying better or worse: by the build's number, or by survival when that doesn't move (a tank: its v)
+-- the word for the whole change: by the build's number, or by survival when that doesn't move (a tank: its own v).
+-- "overall" when some of the numbers shown go the other way. nil: too small to show.
 local function Verdict(total, role)
-  local text = Upgrade.Describe(total, role)
-  if not text then return "About the same as what you wear", GREY end
+  local shown = Shown(total, role)
+  if #shown == 0 then return nil end
   local main = (MEASURES[role] or MEASURES.dps)[1]
   local up
   if role == "tank" then
@@ -199,46 +220,51 @@ local function Verdict(total, role)
   else
     up = total.e > 0
   end
-  return (up and "Upgrade: " or "Downgrade: ") .. text, up and GREEN or RED
+  local mixed = false
+  for _, s in ipairs(shown) do mixed = mixed or (s[1] > 0) ~= up end
+  return (up and "Upgrade" or "Downgrade") .. (mixed and " overall" or ""), up
 end
 
--- "  +81 Armor -> +31 effective HP (0.38 each)": what each stat that differs adds, biggest first
-local function Breakdown(diff, W, role)
-  local lines = {}
+-- What each stat that differs adds, biggest first: { left = "+2 Agility", right = coloured numbers, what = what those
+-- points do on your character sheet (main stats; nil when the game hides your numbers) }
+local function Breakdown(diff, W, role, class, inputs)
+  local rows = {}
+  local first = (MEASURES[role] or MEASURES.dps)[1][1]
   for key, amount in pairs(diff) do
     local value = Upgrade.Value(W, key, amount)
-    local text, shown = Upgrade.Describe(value, role)
-    if text and amount ~= 0 then
-      local label = ((WEAPON[key] and "%+.1f %s") or "%+.0f %s"):format(amount, STAT_NAME[key] or key)
-      if shown == 1 and math.abs(amount) ~= 1 then
-        for _, m in ipairs(MEASURES[role] or MEASURES.dps) do
-          if math.abs(value[m[1]]) >= m[3] then
-            text = text .. " (" .. Upgrade.Number(value[m[1]] / amount):gsub("^%+", "") .. " each)"
-          end
+    local right = Colored(value, role)
+    if right ~= "" and amount ~= 0 then
+      local row = { left = ((WEAPON[key] and "%+.1f %s") or "%+.0f %s"):format(amount, STAT_NAME[key] or key),
+        right = right, size = math.abs(value[first]) + math.abs(value.e) / 1000 }
+      if SHEET_KEY[key] and inputs then
+        local what = {}
+        for _, effect in ipairs(KP.Sheet.Effects(class, inputs, SHEET_KEY[key])) do
+          table.insert(what, KP.Sheet.EffectText(effect, amount))
         end
+        row.what = #what > 0 and table.concat(what, ", ") or nil
       end
-      local first = (MEASURES[role] or MEASURES.dps)[1][1]
-      table.insert(lines, { "  " .. label .. " -> " .. text, math.abs(value[first]) + math.abs(value.e) / 1000 })
+      table.insert(rows, row)
     end
   end
-  table.sort(lines, function(a, b) return a[2] > b[2] end)
-  return lines
+  table.sort(rows, function(a, b) return a.size > b.size end)
+  return rows
 end
 
--- The tooltip lines for an item link, as { text, colour } (nil: nothing to say)
+-- The tooltip lines for an item link: { text, colour } or, in two columns, { text, colour, right = text } (nil:
+-- nothing to say)
 function Upgrade.Lines(link)
   local build = KP.Build.Current()
   local id = ItemID(link)
   local item = id and KP.Items[id]
   if not (build and item) then return nil end
-  local _, _, classID = UnitClass("player")
+  local _, class, classID = UnitClass("player")
   local can = false
   for _, c in ipairs(item.c) do can = can or c == classID end
   if not can then return nil end
   local level = UnitLevel("player")
   local W = KP.Build.ForLevel(KP.Weights, build.key, level)
   if not W then return nil end
-  local lines = { { "Kor'kron Planner (" .. build.name .. ")", { 1, 0.82, 0 } } }
+  local lines = { { "Kor'kron Planner", GOLD, right = "|cff999999" .. build.name:gsub(" %b()", "") .. "|r" } }
   local replaced, why = Replaced(item, link, W)
   if why == "worn" then return nil end
   if why == "twoHand" then
@@ -248,12 +274,20 @@ function Upgrade.Lines(link)
   local hand = HAND[INV[item[1]][1]]
   if item[1] == "oneHand" then hand, replaced = OneHandSlot(id, link, W, replaced) end
   local diff = Combine(Parts(id, link, hand), replaced.parts, -1)
-  local text, colour = Verdict(Total(W, diff), build.role)
+  local total = Total(W, diff)
+  local word, up = Verdict(total, build.role)
   local from = (item.late and item.late[classID]) or math.max(1, item[2])
-  if from > level then text = ("From level %d: %s"):format(from, text) end
-  table.insert(lines, { text, colour })
-  for _, line in ipairs(Breakdown(diff, W, build.role)) do table.insert(lines, { line[1], WHITE }) end
-  table.insert(lines, { replaced.name and ("compared with your " .. replaced.name) or "your slot is empty", GREY })
+  local when = from > level and (" from level " .. from) or ""
+  if word then
+    table.insert(lines, { word .. when, up and GREEN or RED, right = Colored(total, build.role) })
+  else
+    table.insert(lines, { "About the same as what you wear" .. when, GREY })
+  end
+  for _, row in ipairs(Breakdown(diff, W, build.role, class, KP.Sheet.Inputs(class))) do
+    table.insert(lines, { "  " .. row.left, WHITE, right = row.right })
+    if row.what then table.insert(lines, { "      " .. row.what, GREY }) end
+  end
+  table.insert(lines, { replaced.name and ("vs. your " .. replaced.name) or "Your slot is empty.", GREY })
   if item.fx then table.insert(lines, { "Its special effect isn't counted.", GREY }) end
   if item.set then table.insert(lines, { "Its set bonus isn't counted.", GREY }) end
   return lines
@@ -266,7 +300,12 @@ local function OnItemTooltip(tooltip)
   if not lines then return end
   tooltip:AddLine(" ")
   for _, line in ipairs(lines) do
-    tooltip:AddLine(line[1], line[2][1], line[2][2], line[2][3], true)
+    local r, g, b = line[2][1], line[2][2], line[2][3]
+    if line.right then
+      tooltip:AddDoubleLine(line[1], line.right, r, g, b, 1, 1, 1)
+    else
+      tooltip:AddLine(line[1], r, g, b, true)
+    end
   end
 end
 

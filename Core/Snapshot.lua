@@ -4,11 +4,13 @@
 -- inside an instance (the game can hide values there, and group buffs would skew them). A snapshot that matches the
 -- one already kept for that level is not kept again.
 --
--- Text format, version 2, fields separated by ";":
---   2;guid;stamp;CLASS;RACE;level;str;agi;sta;int;spi;maxHealth;maxMana;crit;rangedCrit;spellCrit;hit;spellHit;
---   dodge;parry;block;attackPower;rangedAttackPower;spellDamage;healing;armor;manaRegen;ratings;items;talents;raceID
+-- Text format, version 3, fields separated by ";":
+--   3;guid;stamp;CLASS;RACE;level;str;agi;sta;int;spi;maxHealth;maxMana;crit;rangedCrit;spellCrit;hit;spellHit;
+--   dodge;parry;block;attackPower;rangedAttackPower;spellDamage;healing;armor;manaRegen;ratings;items;talents;raceID;
+--   critFromAgility;spellCritFromIntellect;dodgeFromAgility
 -- Version 2 added raceID (UnitRace's 3rd value, the game's race ID: both Skyborne races give the RACE "Skyborne").
--- A snapshot kept before then and sent later has no raceID.
+-- Version 3 added what the game's own character sheet says the whole of Agility / Intellect gives (empty when the
+-- client has no such function). A snapshot kept before a version and sent later lacks its fields.
 -- The first six fields keep their place in every version (the collector reads them). stamp = server time in
 -- seconds. A field for a game function lists every number it returns, comma-separated: UnitStat base,effective,
 -- plus,minus; UnitAttackPower base,plus,minus; UnitArmor and GetManaRegen as the game gives them. spellCrit and
@@ -22,7 +24,7 @@ local _, KP = ...
 local Snapshot = {}
 KP.Snapshot = Snapshot
 
-local VERSION = 2
+local VERSION = 3
 local DELAY = 5 -- seconds: lets stats settle (UnitLevel still gives the old level during PLAYER_LEVEL_UP)
 local SCHOOLS = { 2, 3, 4, 5, 6, 7 }
 local RATINGS = { "CR_DEFENSE_SKILL", "CR_DODGE", "CR_PARRY", "CR_BLOCK", "CR_HIT_MELEE", "CR_HIT_RANGED",
@@ -83,6 +85,15 @@ local function Talents()
   return table.concat(out, ",")
 end
 
+-- what the game says a whole stat gives ("" when the client has no such function; which ones Forever has isn't known
+-- yet, so a failing one goes to /kp errors and the rest of the snapshot is still kept)
+local function FromStat(name)
+  local fn = _G[name]
+  if type(fn) ~= "function" then return "" end
+  local ok, value = KP.Safe(fn, "player")
+  return ok and num(value) or ""
+end
+
 -- everything after the stamp
 local function Body()
   local _, class = UnitClass("player")
@@ -102,6 +113,7 @@ local function Body()
     PerSchool(GetSpellBonusDamage), num(GetSpellBonusHealing()),
     All(UnitArmor("player")), All(GetManaRegen()),
     Ratings(), Items(), ok and talents or "", num(raceID),
+    FromStat("GetCritChanceFromAgility"), FromStat("GetSpellCritChanceFromIntellect"), FromStat("GetDodgeChanceFromAgility"),
   }, ";")
 end
 
