@@ -12,6 +12,7 @@ KP:On("ADDON_LOADED", function(name)
   end
   KorkronPlannerCharDB = KorkronPlannerCharDB or {}
   KorkronPlannerCharDB.snapshots = KorkronPlannerCharDB.snapshots or {}
+  KorkronPlannerCharDB.gear = KorkronPlannerCharDB.gear or {} -- your own gear choices (UI/Gear.lua)
 end)
 
 local HELP = {

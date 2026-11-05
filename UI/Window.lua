@@ -58,6 +58,7 @@ local function CreatePicker()
     b:SetSize(232, 22)
     b:SetPoint("TOPLEFT", 14, -52 - (i - 1) * 25)
     b:SetNormalFontObject("GameFontNormalSmall")
+    b:SetHighlightFontObject("GameFontHighlightSmall") -- the chosen build is highlighted: same size, so it fits
     b:SetScript("OnClick", function(self)
       KP.Safe(function()
         KP.Build.Choose(self.key)

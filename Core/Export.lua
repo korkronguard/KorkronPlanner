@@ -40,35 +40,6 @@ function KP:ExportCode()
   return table.concat(fields, "|")
 end
 
--- a small window with the code selected, ready for Ctrl+C
-local window
 function KP:ShowExport()
-  if not window then
-    window = CreateFrame("Frame", "KorkronPlannerExport", UIParent, "BasicFrameTemplateWithInset")
-    window:SetSize(520, 130)
-    window:SetPoint("CENTER")
-    window:SetMovable(true)
-    window:EnableMouse(true)
-    window:RegisterForDrag("LeftButton")
-    window:SetScript("OnDragStart", window.StartMoving)
-    window:SetScript("OnDragStop", window.StopMovingOrSizing)
-    window.title = window:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-    window.title:SetPoint("TOP", 0, -5)
-    window.title:SetText("Kor'kron Planner: your stats")
-    local hint = window:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
-    hint:SetPoint("TOPLEFT", 14, -32)
-    hint:SetText("Press Ctrl+C to copy, then paste it into the planner website.")
-    local box = CreateFrame("EditBox", nil, window, "InputBoxTemplate")
-    box:SetSize(480, 24)
-    box:SetPoint("TOPLEFT", 20, -60)
-    box:SetAutoFocus(true)
-    box:SetScript("OnEscapePressed", function() window:Hide() end)
-    box:SetScript("OnTextChanged", function(self, user) if user then self:SetText(window.code); self:HighlightText() end end)
-    window.box = box
-  end
-  window.code = self:ExportCode()
-  window.box:SetText(window.code)
-  window:Show()
-  window.box:SetFocus()
-  window.box:HighlightText()
+  KP.CopyBox("Kor'kron Planner: your stats", "Press Ctrl+C to copy, then paste it into the planner website.", self:ExportCode())
 end

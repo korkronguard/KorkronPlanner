@@ -14,7 +14,9 @@ The in-game companion to the Kor'kron Guard talent planner: https://korkronguard
 - **What to press.** The window's **Priority** tab shows the planner's rotation for your build at your level: what to
   keep up, what to use on cooldown, builders, finishers and cooldowns.
 - **What to wear.** The **Gear** tab shows the planner's best item for each slot for your build at your level, where
-  it comes from, and ticks what you already wear. Hover an item for its tooltip.
+  it comes from, and ticks what you already wear. Hover an item for its tooltip. Click a slot to see the next best
+  items for it and how close each comes, and choose your own. **Link** gives the item's page on Wowhead's WoW: Forever
+  database to copy into your browser, with the quest, the boss or the vendor it comes from.
 - **Brings your real stats into the planner.** Type **/kp export**, copy the code, and paste it into the planner's
   "Import from the addon" box (under base stats): your base stats, race and level fill in.
 - **Makes the planner match the game.** WoW: Forever keeps some numbers on its servers (like your base stats at each

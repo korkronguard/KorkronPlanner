@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.8.0
+
+- **More gear options:** click a slot in the Gear tab to see up to five items for it, the planner's best first, each
+  with how close it comes to the best (like "85%"). Click one to make it your choice for that slot: the tab then shows
+  it (the slot's name turns gold) and ticks it when you wear it. Your choices are kept per character, build and level
+  range; pick the best one again to go back to the planner's.
+- **Wowhead links:** a **Link** button on each item opens a small box with the item's page on Wowhead's WoW: Forever
+  database, ready to copy (Ctrl+C) and paste into your browser. The page says where the item comes from.
+- Fixed: the game's placeholder and test items ("DNT HEAD", "[TMP] ...", "Twain's Shoulder" and about 50 others) no
+  longer show up anywhere, and items that add nothing the planner counts (like Insignia of the Horde, which also
+  showed up twice) are no longer suggested.
+- Fixed: items the planner had no icon for now show the game's icon.
+- Fixed: the chosen build's name no longer runs out of its button.
+
 ## 0.7.0
 
 - **Talents tab** in the `/kp` window: your class's three talent trees with your points, and the build's next to them.
