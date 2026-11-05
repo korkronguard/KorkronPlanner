@@ -71,22 +71,11 @@ local function Items()
   return table.concat(out, ",")
 end
 
-local function Rank(v)
-  return KP.Readable(v) and tonumber(v) or 0
-end
-
 local function Talents()
-  local configID = C_ClassTalents.GetActiveConfigID()
-  if not (KP.Readable(configID) and type(configID) == "number") then return "" end
-  local info = C_Traits.GetConfigInfo(configID)
-  local treeID = info and info.treeIDs and info.treeIDs[1]
-  if not (KP.Readable(treeID) and type(treeID) == "number") then return "" end
   local out = {}
-  for _, nodeID in ipairs(C_Traits.GetTreeNodes(treeID)) do
-    local node = C_Traits.GetNodeInfo(configID, nodeID)
-    local purchased, current, active = Rank(node.ranksPurchased), Rank(node.currentRank), Rank(node.activeRank)
-    if purchased + current + active > 0 then
-      table.insert(out, table.concat({ nodeID, purchased, current, active }, ":"))
+  for _, n in ipairs(KP.TalentNodes() or {}) do
+    if n.purchased + n.current + n.active > 0 then
+      table.insert(out, table.concat({ n.id, n.purchased, n.current, n.active }, ":"))
     end
   end
   return table.concat(out, ",")

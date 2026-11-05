@@ -4,13 +4,18 @@ The in-game companion to the Kor'kron Guard talent planner: https://korkronguard
 
 ## What it does
 
+- **Follow a build while you level.** Type **/kp** and pick one of the planner's suggested builds for your class, or
+  paste the link to your own build from the planner website (its **Copy link** button). The window shows the talent to
+  take next, the points after it with their levels, and any points you've spent outside the build. When you level up
+  and have a point to spend, a line in chat names the next talent.
+- **Brings your real stats into the planner.** Type **/kp export**, copy the code, and paste it into the planner's
+  "Import from the addon" box (under base stats): your base stats, race and level fill in.
 - **Makes the planner match the game.** WoW: Forever keeps some numbers on its servers (like your base stats at each
   level), so the planner can only estimate them. This addon shares your character's real numbers with the Guard, and
   together they replace the estimates.
-- **/kp export** shows your character's stats as a code for the planner website (the website's import box is coming
-  soon).
-- Coming later: load a build from the website, see which talent to take next, and (optionally) spend points
-  automatically as you level.
+
+Builds marked **\*** are provisional: rewritten for Forever's launch talent trees before the planner's math knew the
+new talents. The window says what isn't counted yet.
 
 ## What is shared
 
@@ -33,8 +38,10 @@ on, and **/kp share** shows the setting.
 
 | Command | What it does |
 |---|---|
-| `/kp share` | Shows whether your stats are shared (`/kp share off` stops it, `/kp share on` starts it again) |
+| `/kp` | Your build: the next talent to take and the points after it |
 | `/kp export` | Your stats as a code for the planner website |
+| `/kp share` | Shows whether your stats are shared (`/kp share off` stops it, `/kp share on` starts it again) |
 | `/kp errors` | Shows any errors the addon ran into (`/kp errors clear` empties the list) |
+| `/kp help` | Lists the commands |
 
 Made for WoW: Forever by Grimscar of the Kor'kron Guard.

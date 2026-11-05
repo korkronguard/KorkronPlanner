@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.3.0
+
+- **Follow a build in game:** `/kp` opens a window where you pick one of the planner's suggested builds for your class
+  or paste a link to your own build from the planner website. It shows the next talent to take, the points after it
+  with their levels, and any points spent outside the build.
+- When you level up with a point to spend, a line in chat names the build's next talent.
+- The builds and talent trees are Forever's launch ones (4 November). Warrior Arms and Fury, every Rogue build and
+  Elemental Shaman are marked provisional (**\***) until the planner's math knows the new talents.
+- `/kp export`'s code can now be pasted into the planner website ("Import from the addon", under base stats).
+- `/kp` used to list the commands; that's `/kp help` now.
+
 ## 0.2.0
 
 - First release.

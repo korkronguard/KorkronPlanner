@@ -15,6 +15,7 @@ KP:On("ADDON_LOADED", function(name)
 end)
 
 local HELP = {
+  "/kp - your build: the next talent to take and the points after it",
   "/kp export - your stats as a code for the planner website",
   "/kp share - whether your stats are shared with the guild planner (/kp share off stops it, /kp share on starts it)",
   "/kp probe - check what the game lets the addon read (for the addon's author)",
@@ -27,7 +28,11 @@ SLASH_KORKRONPLANNER1 = "/kp"
 SlashCmdList.KORKRONPLANNER = function(msg)
   local cmd = strlower(strtrim(msg or ""))
   local word, rest = cmd:match("^(%S*)%s*(.-)$")
-  if cmd == "export" then
+  if cmd == "" then
+    KP.Safe(KP.Window.Toggle)
+  elseif cmd == "learn" then -- the owner's level-10 test (Core/Build.lua), not in the help yet
+    KP.Safe(KP.Build.LearnNext)
+  elseif cmd == "export" then
     KP.Safe(KP.ShowExport, KP)
   elseif cmd == "probe" then
     KP.Safe(KP.Probe, KP)
