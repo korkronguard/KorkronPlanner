@@ -9,24 +9,6 @@ KP.PriorityPane = Pane
 local SCROLLBAR = 26 -- room for the scroll bar on the right
 local ICON = 18
 
--- A build's list for a level: the last one that starts at or below it (below level 10, the first), or nil. A level 60
--- build has only a list for 60, so below that its leveling build's list (the one whose pair it is) is used.
-function Pane.ListFor(class, key, level)
-  local all = KP.Priority[class] or {}
-  local lists = key and all[key]
-  if not lists then return nil end
-  if lists[1].level > level then
-    for _, b in ipairs(KP.Builds[class] or {}) do
-      if b.pair == key and all[b.key] then lists = all[b.key] end
-    end
-  end
-  local found = lists[1]
-  for _, list in ipairs(lists) do
-    if list.level <= level then found = list end
-  end
-  return found
-end
-
 function Pane.Create(parent, width, height)
   local pane = CreateFrame("Frame", nil, parent)
   pane:SetSize(width, height)
@@ -83,9 +65,7 @@ end
 -- build: the chosen build (nil when none)
 function Pane.Refresh(pane, build)
   local L = Layout(pane)
-  local _, class = UnitClass("player")
-  local level = UnitLevel("player")
-  local list = build and Pane.ListFor(KP.Text(class), build.key, level)
+  local list = build and KP.Build.ForLevel(KP.Priority, build.key, UnitLevel("player"))
   if not list then
     L.text(build and "The Priority tab follows the planner's suggested builds: choose one on the left."
       or "Choose a build on the left.", "GameFontHighlight", 0, 0)

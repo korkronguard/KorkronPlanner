@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.6.0
+
+- **Gear tab** in the `/kp` window: the planner's best item for each slot for your build at your level (the website's
+  "Equip BiS", with the build's own kind of weapons), where it comes from (quest, drop, vendor, crafted), and a green
+  tick on what you're already wearing. Hover an item to see its tooltip. It updates as you level and change gear.
+- Horde gear only (the Guard is Horde). Profession items, other classes' tier sets and unconfirmed weapons are left out,
+  like on the website.
+
 ## 0.5.0
 
 - **Priority tab:** the `/kp` window now has tabs. **Priority** shows the planner website's "what to press" list for

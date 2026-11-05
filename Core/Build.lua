@@ -37,6 +37,26 @@ function Build.Describe(step)
   return ("%s %d/%d"):format(t.name, step.rank, t.ranks)
 end
 
+-- A build's entry for your level in per-level data (KP.Priority, KP.Gear: [class][build key] = { { level, ... } }):
+-- the last one that starts at or below the level (below the first, the first), or nil. A level 60 build only has 60,
+-- so below that its leveling build's entries are used (the one whose pair it is).
+function Build.ForLevel(data, key, level)
+  local class = MyClass()
+  local all = data[class] or {}
+  local list = key and all[key]
+  if not list then return nil end
+  if list[1].level > level then
+    for _, b in ipairs(Build.Suggested()) do
+      if b.pair == key and all[b.key] then list = all[b.key] end
+    end
+  end
+  local found = list[1]
+  for _, entry in ipairs(list) do
+    if entry.level <= level then found = entry end
+  end
+  return found
+end
+
 -- The chosen build: { name, order, provisional, summary }, or nil and why not
 function Build.Current()
   local saved = KorkronPlannerCharDB.build

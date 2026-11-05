@@ -1,6 +1,6 @@
 -- Kor'kron Planner: the /kp window. On the left you pick one of your class's suggested builds or paste a planner
--- link; on the right, tabs: Build (the next talent, the points after it, points spent outside the build) and Priority
--- (UI/Priority.lua).
+-- link; on the right, tabs: Build (the next talent, the points after it, points spent outside the build), Priority
+-- (UI/Priority.lua) and Gear (UI/Gear.lua).
 local _, KP = ...
 
 local Window = {}
@@ -10,7 +10,7 @@ local MAX_BUILDS = 8 -- Druids have the most: four specs, each with a level 60 a
 local ROWS = 10      -- upcoming points shown
 local RIGHT = 262    -- where the tabs start
 local PANE_W, PANE_H = 362, 388
-local TABS = { { key = "build", label = "Build" }, { key = "priority", label = "Priority" } }
+local TABS = { { key = "build", label = "Build" }, { key = "priority", label = "Priority" }, { key = "gear", label = "Gear" } }
 
 local frame
 local tab = "build"
@@ -145,13 +145,14 @@ local function Create()
   title:SetText("Kor'kron Planner")
 
   CreatePicker()
-  frame.panes = { build = CreateBuildPane(), priority = KP.PriorityPane.Create(frame, PANE_W, PANE_H) }
+  frame.panes = { build = CreateBuildPane(), priority = KP.PriorityPane.Create(frame, PANE_W, PANE_H),
+    gear = KP.GearPane.Create(frame, PANE_W, PANE_H) }
   for _, pane in pairs(frame.panes) do pane:SetPoint("TOPLEFT", RIGHT, -62) end
   frame.tabButtons = {}
   for i, t in ipairs(TABS) do
     local b = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
-    b:SetSize(90, 22)
-    b:SetPoint("TOPLEFT", RIGHT + (i - 1) * 94, -30)
+    b:SetSize(86, 22)
+    b:SetPoint("TOPLEFT", RIGHT + (i - 1) * 88, -30)
     b:SetText(t.label)
     b:SetScript("OnClick", function() KP.Safe(Window.ShowTab, t.key) end)
     frame.tabButtons[t.key] = b
@@ -236,6 +237,8 @@ function Window.Refresh()
   local build, why = KP.Build.Current()
   if tab == "priority" then
     KP.PriorityPane.Refresh(frame.panes.priority, build)
+  elseif tab == "gear" then
+    KP.GearPane.Refresh(frame.panes.gear, build)
   else
     RefreshBuildPane(build, why, saved)
   end
@@ -251,6 +254,6 @@ function Window.Toggle()
   frame:SetShown(not frame:IsShown())
 end
 
-for _, event in ipairs({ "TRAIT_CONFIG_UPDATED", "PLAYER_TALENT_UPDATE", "PLAYER_LEVEL_UP" }) do
+for _, event in ipairs({ "TRAIT_CONFIG_UPDATED", "PLAYER_TALENT_UPDATE", "PLAYER_LEVEL_UP", "PLAYER_EQUIPMENT_CHANGED" }) do
   KP:On(event, function() KP.After(2, Window.Refresh) end) -- the game's numbers settle a moment after these
 end
