@@ -15,8 +15,9 @@ local INDENT = 10
 -- what each input of a formula is called in "Your numbers" (and its decimals there)
 local LABEL = { level = "level", str = "Strength", agi = "Agility", sta = "Stamina", int = "Intellect", spi = "Spirit",
   gearArmor = "armor on your gear", armor = "your armor", health = "your health", dodge = "dodge %", parry = "parry %",
-  block = "block %", baseHealth = "base health", baseMana = "base mana", hpPerSta = "health per Stamina" }
-local DIGITS = { dodge = 2, parry = 2, block = 2 }
+  block = "block %", baseHealth = "base health", baseMana = "base mana", hpPerSta = "health per Stamina",
+  hit = "your average main-hand hit" }
+local DIGITS = { dodge = 2, parry = 2, block = 2, hit = 1 }
 -- the main stats, by their names in the formulas and in the stat weights
 local MAIN_STATS = { { "str", "strength" }, { "agi", "agility" }, { "sta", "stamina" }, { "int", "intellect" },
   { "spi", "spirit" } }
@@ -42,6 +43,15 @@ local function ResultLine(f, value, game)
   local shown = KP.Num(game, digits) .. unit
   if same then return text .. "   |cffffffffgame: " .. shown .. "|r " .. TICK end
   return text .. (f.estimate and "   |cffffffffgame: " or "   |cffff9933game: ") .. shown .. "|r"
+end
+
+-- Each number in a formula or rule: what it is and where it comes from (the game files, the original game's rule,
+-- Forever's patch notes, the planner's estimate...)
+local function Numbers(L, f, indent)
+  L.text("Where the numbers come from:", "GameFontDisableSmall", indent, 4)
+  for _, n in ipairs(f.numbers) do
+    L.text("|cffffd100" .. n[1] .. ":|r " .. n[2] .. ". |cff999999From: " .. n[3] .. ".|r", "GameFontHighlightSmall", indent + INDENT, 2)
+  end
 end
 
 -- What 1 point of each stat does: on your character sheet (main stats) and to the build you follow
@@ -90,6 +100,10 @@ function Pane.Refresh(pane, build)
   StatSection(L, class, inputs, build)
   L.text("How your numbers are worked out", "GameFontNormalLarge", 0, 18)
   L.text("The planner website's formulas, with your numbers. " .. TICK .. " = the game agrees.", "GameFontDisableSmall", 0, 2)
+  L.text("Under each formula, where its numbers come from. Forever's game files: read from the game itself. The " ..
+    "original game's rule: worked out by the game's server, so it isn't in the files; it's how WoW has always worked, " ..
+    "and Classic servers use the same. Checked on Forever: matched against real characters. Patch notes: Forever's own. " ..
+    "Estimate: the planner's best guess until real characters show the game's rule.", "GameFontDisableSmall", 0, 4)
   local game = KP.Sheet.GameNumbers()
   local rules = {}
   for _, f in ipairs(list) do
@@ -98,6 +112,7 @@ function Pane.Refresh(pane, build)
       L.text(f.text, "GameFontHighlightSmall", INDENT, 2)
       L.text(YourNumbers(f.expr, inputs), "GameFontDisableSmall", INDENT, 2)
       if f.note then L.text(f.note, "GameFontDisableSmall", INDENT, 2) end
+      Numbers(L, f, INDENT)
     elseif not f.expr then
       table.insert(rules, f)
     end
@@ -105,6 +120,7 @@ function Pane.Refresh(pane, build)
   L.text("Rules of combat", "GameFontNormalLarge", 0, 18)
   for _, f in ipairs(rules) do
     L.text("|cffffd100" .. f.name .. ":|r " .. f.text, "GameFontHighlightSmall", 0, 6)
+    Numbers(L, f, INDENT)
   end
   L.finish()
 end

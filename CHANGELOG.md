@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.13.0
+
+- **New: a rotation helper (Warriors first).** Type **/kp helper**, or tick "Rotation helper" in the `/kp` window: a
+  small bar shows what to press now (the big icon) and the next two, each with the game's own cooldown swirl. Hover an
+  icon to see why it's there. It follows your suggested build at your level, shows in combat or when you target an
+  enemy (Charge, Bloodrage and your shouts come up before the pull), and against elites and bosses adds your big
+  cooldowns. Drag it where you like; **/kp helper lock** keeps it there. WoW: Forever hides your rage, your buff timers
+  and your target's health from addons during a fight, so the helper keeps its own notes of what you cast and never
+  suggests Heroic Strike: use that yourself when you have rage to spare. Other classes will follow.
+- **Better Warrior priorities** (the Priority tab and the helper): attacks are ordered by how much damage each point of
+  rage buys, so Fury uses Whirlwind before Bloodthirst and Arms puts Overpower and Slam ahead of Mortal Strike. In the
+  Execute phase, attacks that still beat Execute stay ahead of it. Protection opens with Shield Block (it doesn't
+  use the global cooldown) and adds Thunder Clap and Rend; every Warrior gets Charge and Bloodrage before the pull and
+  Victory Rush while leveling.
+- **The Formulas tab explains every number:** under each formula and rule, what each number is and where it comes
+  from: the game's files, the original game's rules, checked against real Forever characters, Forever's patch notes,
+  or the planner's estimate. Rage now shows its conversion value and the rage your own average hit gives.
+- **Data straight from the game:** the planner now reads its data from the WoW: Forever game itself, with the
+  server's latest changes: about 2,100 more items in the Gear tab and the upgrade tooltips.
+
 ## 0.12.0
 
 - **Better builds:** every suggested build was compared with the popular WoW: Forever guides (Icy Veins) and checked

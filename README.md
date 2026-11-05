@@ -13,6 +13,10 @@ The in-game companion to the Kor'kron Guard talent planner: https://korkronguard
   gold where the build wants more, green where you're done, red for points it doesn't use, white for the next one.
 - **What to press.** The window's **Priority** tab shows the planner's rotation for your build at your level: what to
   keep up, what to use on cooldown, builders, finishers and cooldowns.
+- **What to press next, while you fight (Warriors first).** Type **/kp helper**: a small bar shows the ability to
+  press now and the next two, with their cooldowns, from your build's priority. It shows in combat or when you target
+  an enemy; drag it where you like, and **/kp helper lock** keeps it there. The game hides your rage from addons in a
+  fight, so it never suggests Heroic Strike: use that when you have rage to spare.
 - **What to wear.** The **Gear** tab shows the planner's best item for each slot for your build at your level, where
   it comes from, and ticks what you already wear. Hover an item for its tooltip. Click a slot to see the next best
   items for it and how close each comes, and choose your own. **Link** gives the item's page on Wowhead's WoW: Forever
@@ -21,8 +25,9 @@ The in-game companion to the Kor'kron Guard talent planner: https://korkronguard
   tooltip says whether it beats what you wear for your build, by how much damage or healing per second and effective
   HP, and why: what each stat that differs adds, and what one point of it is worth.
 - **How your numbers are worked out.** The **Formulas** tab shows the formula behind your health, mana, attack power,
-  crit, armor, mana regen and effective health, with your own numbers and the game's next to them; what 1 point of
-  each stat does for you and your build; and your class's rules of combat.
+  crit, armor, mana regen, rage and effective health, with your own numbers and the game's next to them, and for every
+  number in it what it is and where it comes from; what 1 point of each stat does for you and your build; and your
+  class's rules of combat.
 - **Brings your real stats into the planner.** Type **/kp export**, copy the code, and paste it into the planner's
   "Import from the addon" box (under base stats): your base stats, race and level fill in.
 - **Makes the planner match the game.** WoW: Forever keeps some numbers on its servers (like your base stats at each
@@ -53,6 +58,7 @@ on, and **/kp share** shows the setting.
 | Command | What it does |
 |---|---|
 | `/kp` | Your build: the next talent to take and the points after it |
+| `/kp helper` | The rotation helper on or off (`/kp helper lock` keeps it in place, `/kp helper unlock` lets you move it) |
 | `/kp export` | Your stats as a code for the planner website |
 | `/kp share` | Shows whether your stats are shared (`/kp share off` stops it, `/kp share on` starts it again) |
 | `/kp errors` | Shows any errors the addon ran into (`/kp errors clear` empties the list) |
