@@ -16,8 +16,8 @@ local INDENT = 10
 local LABEL = { level = "level", str = "Strength", agi = "Agility", sta = "Stamina", int = "Intellect", spi = "Spirit",
   gearArmor = "armor on your gear", armor = "your armor", health = "your health", dodge = "dodge %", parry = "parry %",
   block = "block %", baseHealth = "base health", baseMana = "base mana", hpPerSta = "health per Stamina",
-  hit = "your average main-hand hit" }
-local DIGITS = { dodge = 2, parry = 2, block = 2, hit = 1 }
+  hit = "your average main-hand hit", agiPerCrit = "Agility per 1% crit at your level" }
+local DIGITS = { dodge = 2, parry = 2, block = 2, hit = 1, agiPerCrit = 2 }
 -- the main stats, by their names in the formulas and in the stat weights
 local MAIN_STATS = { { "str", "strength" }, { "agi", "agility" }, { "sta", "stamina" }, { "int", "intellect" },
   { "spi", "spirit" } }
@@ -34,15 +34,16 @@ local function YourNumbers(expr, inputs)
 end
 
 -- "Attack power = 106   game: 106 ✓"
-local function ResultLine(f, value, game)
+local function ResultLine(f, value, game, level)
   local digits, unit = f.digits or 0, f.unit or ""
+  local estimate = KP.Sheet.IsEstimate(f, level)
   local text = f.name .. " = " .. KP.Num(value, digits) .. unit
-  if f.estimate then text = text .. "  |cff999999(estimate)|r" end
+  if estimate then text = text .. "  |cff999999(estimate)|r" end
   if not f.game or game == nil then return text end
   local same = math.abs(value - game) <= 0.5 * 10 ^ -digits + 1e-9
   local shown = KP.Num(game, digits) .. unit
   if same then return text .. "   |cffffffffgame: " .. shown .. "|r " .. TICK end
-  return text .. (f.estimate and "   |cffffffffgame: " or "   |cffff9933game: ") .. shown .. "|r"
+  return text .. (estimate and "   |cffffffffgame: " or "   |cffff9933game: ") .. shown .. "|r"
 end
 
 -- Each number in a formula or rule: what it is and where it comes from (the game files, the original game's rule,
@@ -108,7 +109,7 @@ function Pane.Refresh(pane, build)
   local rules = {}
   for _, f in ipairs(list) do
     if f.expr and inputs then
-      L.text(ResultLine(f, KP.Sheet.Work(f.expr, inputs), f.game and game[f.game]), "GameFontNormal", 0, 10)
+      L.text(ResultLine(f, KP.Sheet.Work(f.expr, inputs), f.game and game[f.game], inputs.level), "GameFontNormal", 0, 10)
       L.text(f.text, "GameFontHighlightSmall", INDENT, 2)
       L.text(YourNumbers(f.expr, inputs), "GameFontDisableSmall", INDENT, 2)
       if f.note then L.text(f.note, "GameFontDisableSmall", INDENT, 2) end

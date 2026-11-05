@@ -8,7 +8,7 @@ KP.Sheet = Sheet
 
 -- the numbers a formula can use (Data/Formulas.lua says which)
 Sheet.INPUTS = { "level", "str", "agi", "sta", "int", "spi", "gearArmor", "armor", "health", "dodge", "parry", "block",
-  "baseHealth", "baseMana", "hpPerSta", "hit" }
+  "baseHealth", "baseMana", "hpPerSta", "hit", "agiPerCrit" }
 -- what each character sheet number is called: short (tooltips) and with what it does (Formulas tab)
 Sheet.EFFECTS = {
   health = { "health", "health" },
@@ -39,7 +39,8 @@ end
 function Sheet.Inputs(class)
   local level = UnitLevel("player")
   local inputs = { level = level, hpPerSta = KP.LevelTables.hpPerSta[level],
-    baseHealth = KP.LevelTables.baseHealth[class][level], baseMana = KP.LevelTables.baseMana[class][level] }
+    baseHealth = KP.LevelTables.baseHealth[class][level], baseMana = KP.LevelTables.baseMana[class][level],
+    agiPerCrit = KP.LevelTables.agiPerCrit[class][level] }
   for i, key in ipairs({ "str", "agi", "sta", "int", "spi" }) do
     local _, effective = UnitStat("player", i)
     inputs[key] = Readable(effective)
@@ -81,7 +82,12 @@ function Sheet.GameNumbers()
   return { health = Readable(UnitHealthMax("player")), mana = Readable(UnitPowerMax("player", 0)),
     ap = Readable((UnitAttackPower("player"))), rap = Readable((UnitRangedAttackPower("player"))),
     crit = Readable(GetCritChance()), spellCrit = spellCrit, armor = armor, regen = Readable((GetManaRegen())),
-    armorStops = stops }
+    armorStops = stops, dodge = Readable(GetDodgeChance()) }
+end
+
+-- whether a formula's result is the planner's estimate at this level: marked so, or measured only up to a lower level
+function Sheet.IsEstimate(f, level)
+  return f.estimate or (f.estimateAbove ~= nil and level > f.estimateAbove)
 end
 
 local compiled = {}
@@ -113,7 +119,7 @@ function Sheet.Effects(class, inputs, key)
     if f.expr and Sheet.EFFECTS[f.game] then
       local change = Sheet.Work(f.expr, more) - Sheet.Work(f.expr, inputs)
       if math.abs(change) > 1e-9 then
-        table.insert(out, { game = f.game, value = change, digits = f.digits or 0, estimate = f.estimate })
+        table.insert(out, { game = f.game, value = change, digits = f.digits or 0, estimate = Sheet.IsEstimate(f, inputs.level) })
         at[f.game] = #out
       end
     end

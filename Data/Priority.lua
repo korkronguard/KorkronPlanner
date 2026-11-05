@@ -1964,7 +1964,7 @@ KP.Priority = {
           { name = "Smite", tag = "Filler", text = "", icon = 135924 },
         } },
       } },
-      { level = 30, title = "Discipline Priest, dealing damage", sections = {
+      { level = 30, title = "Shadow Priest", sections = {
         { title = "Buffs and protection", note = "", items = {
           { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
@@ -1973,6 +1973,7 @@ KP.Priority = {
           { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
           { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
           { name = "Devouring Plague", tag = "Keep up", text = "", icon = 252997 },
+          { name = "Mind Flay", tag = "Keep up", text = "", icon = 136208 },
         } },
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
@@ -1980,7 +1981,7 @@ KP.Priority = {
           { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
         } },
       } },
-      { level = 35, title = "Discipline Priest, dealing damage", sections = {
+      { level = 35, title = "Shadow Priest", sections = {
         { title = "Buffs and protection", note = "", items = {
           { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
@@ -1998,7 +1999,7 @@ KP.Priority = {
           { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
         } },
       } },
-      { level = 40, title = "Shadow Priest", sections = {
+      { level = 40, title = "Discipline Priest, dealing damage", sections = {
         { title = "Buffs and protection", note = "", items = {
           { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },

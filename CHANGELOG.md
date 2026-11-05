@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.13.1
+
+- **Real numbers from the Guard's own characters** (thank you for sharing your stats):
+  - Mana regen from Spirit is WoW: Forever's own: **Spirit ÷ 4 every second**, for every class (the guild's Priest,
+    Druid and Paladin all show exactly this). At level 60 that's more than the old estimate, so Mage, Hunter and
+    Enhancement Shaman builds and gear picks shift a little.
+  - Warriors: crit and dodge from Agility follow a real Warrior, level by level (about 4.4 Agility per 1% at level 2
+    and 6.5 at level 16), and **dodge from Agility now counts**, so Agility is worth more to Warriors and the leveling
+    builds rest less.
+  - Warrior and Priest base stats follow real characters level by level.
+- **Formulas tab:** Warriors get a "Dodge from Agility" line, and crit shows the Agility per 1% at your level. Lines
+  past the levels measured so far are marked as estimates.
+
 ## 0.13.0
 
 - **New: a rotation helper (Warriors first).** Type **/kp helper**, or tick "Rotation helper" in the `/kp` window: a
