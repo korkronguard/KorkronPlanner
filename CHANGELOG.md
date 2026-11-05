@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.7.0
+
+- **Talents tab** in the `/kp` window: your class's three talent trees with your points, and the build's next to them.
+  Gold frame: the build wants (more) points there. Green: you've taken all it wants. Red: points the build doesn't
+  use. White: the build's next point. Each tree shows your points and the build's. Hover a talent for its tooltip,
+  what it needs and (for many) a note on what it's good for.
+
 ## 0.6.0
 
 - **Gear tab** in the `/kp` window: the planner's best item for each slot for your build at your level (the website's

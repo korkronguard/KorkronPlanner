@@ -9,6 +9,8 @@ The in-game companion to the Kor'kron Guard talent planner: https://korkronguard
   take next, the points after it with their levels, and any points you've spent outside the build. Hover a point to see
   the talent's tooltip and why the planner picked it; hover the build's name for what the build is about. When you
   level up and have a point to spend, a line in chat names the next talent.
+- **Your trees at a glance.** The **Talents** tab shows your three talent trees with your points and the build's:
+  gold where the build wants more, green where you're done, red for points it doesn't use, white for the next one.
 - **What to press.** The window's **Priority** tab shows the planner's rotation for your build at your level: what to
   keep up, what to use on cooldown, builders, finishers and cooldowns.
 - **What to wear.** The **Gear** tab shows the planner's best item for each slot for your build at your level, where

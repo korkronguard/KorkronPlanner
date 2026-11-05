@@ -1,6 +1,6 @@
 -- Kor'kron Planner: the /kp window. On the left you pick one of your class's suggested builds or paste a planner
--- link; on the right, tabs: Build (the next talent, the points after it, points spent outside the build), Priority
--- (UI/Priority.lua) and Gear (UI/Gear.lua).
+-- link; on the right, tabs: Build (the next talent, the points after it, points spent outside the build), Talents
+-- (UI/Talents.lua), Priority (UI/Priority.lua) and Gear (UI/Gear.lua).
 local _, KP = ...
 
 local Window = {}
@@ -10,7 +10,8 @@ local MAX_BUILDS = 8 -- Druids have the most: four specs, each with a level 60 a
 local ROWS = 10      -- upcoming points shown
 local RIGHT = 262    -- where the tabs start
 local PANE_W, PANE_H = 362, 388
-local TABS = { { key = "build", label = "Build" }, { key = "priority", label = "Priority" }, { key = "gear", label = "Gear" } }
+local TABS = { { key = "build", label = "Build" }, { key = "talents", label = "Talents" }, { key = "priority", label = "Priority" },
+  { key = "gear", label = "Gear" } }
 
 local frame
 local tab = "build"
@@ -145,8 +146,8 @@ local function Create()
   title:SetText("Kor'kron Planner")
 
   CreatePicker()
-  frame.panes = { build = CreateBuildPane(), priority = KP.PriorityPane.Create(frame, PANE_W, PANE_H),
-    gear = KP.GearPane.Create(frame, PANE_W, PANE_H) }
+  frame.panes = { build = CreateBuildPane(), talents = KP.TalentsPane.Create(frame, PANE_W, PANE_H),
+    priority = KP.PriorityPane.Create(frame, PANE_W, PANE_H), gear = KP.GearPane.Create(frame, PANE_W, PANE_H) }
   for _, pane in pairs(frame.panes) do pane:SetPoint("TOPLEFT", RIGHT, -62) end
   frame.tabButtons = {}
   for i, t in ipairs(TABS) do
@@ -235,7 +236,9 @@ function Window.Refresh()
     if key == tab then b:LockHighlight() else b:UnlockHighlight() end
   end
   local build, why = KP.Build.Current()
-  if tab == "priority" then
+  if tab == "talents" then
+    KP.TalentsPane.Refresh(frame.panes.talents, build)
+  elseif tab == "priority" then
     KP.PriorityPane.Refresh(frame.panes.priority, build)
   elseif tab == "gear" then
     KP.GearPane.Refresh(frame.panes.gear, build)
