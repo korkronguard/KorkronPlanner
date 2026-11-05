@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.12.0
+
+- **Better builds:** every suggested build was compared with the popular WoW: Forever guides (Icy Veins) and checked
+  with the planner's math; 38 of the 56 builds now take better talents. A few: Destruction sacrifices its Imp for +15%
+  Shadow damage, Affliction takes Suppression and Agonizing Flames, Elemental keeps a longer Flame Shock up, Warriors
+  take Enrage, Beast Mastery adds Careful Aim and Rapid Killing.
+- **Faster leveling orders for healers and Mages:** they may start with another tree's damage talents when that levels
+  faster (a Restoration Druid starts with Balance's cheaper Wrath, for example), so their 31-point talent can come
+  after level 40.
+- **Sharper math behind the builds:** Enrage counts while you're the one being hit (tanking, or solo), Demonic
+  Sacrifice's bonus counts, a damage-over-time spell recast on its cooldown (Flame Shock) no longer counts the ticks it
+  cuts off, and a Warlock who sacrifices the demon takes the hits it used to take while leveling.
+- **A bigger `/kp` window:** wider tabs, bigger talent icons, the next 14 talent points instead of 10, and room for
+  long build and item names.
+- The Gear and Priority tabs and the upgrade tooltips follow the new builds.
+
 ## 0.11.0
 
 - **Cleaner item tooltips:** two columns, the stat on the left and what it does for your build on the right (green when

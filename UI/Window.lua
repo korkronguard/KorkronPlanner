@@ -7,12 +7,13 @@ local Window = {}
 KP.Window = Window
 
 local MAX_BUILDS = 8 -- Druids have the most: four specs, each with a level 60 and a leveling build
-local ROWS = 10      -- upcoming points shown
-local RIGHT = 262    -- where the tabs start
-local PANE_W, PANE_H = 362, 388
+local ROWS = 14      -- upcoming points shown
+local RIGHT = 282    -- where the tabs start
+local PICK_W = 252   -- the build buttons on the left
+local PANE_W, PANE_H = 520, 470
 local TABS = { { key = "build", label = "Build" }, { key = "talents", label = "Talents" }, { key = "priority", label = "Priority" },
   { key = "gear", label = "Gear" }, { key = "formulas", label = "Formulas" } }
-local TAB_W = 70 -- five tabs across the pane
+local TAB_W = 100 -- five tabs across the pane
 
 local frame
 local tab = "build"
@@ -56,7 +57,7 @@ local function CreatePicker()
   frame.buildButtons = {}
   for i = 1, MAX_BUILDS do
     local b = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
-    b:SetSize(232, 22)
+    b:SetSize(PICK_W, 22)
     b:SetPoint("TOPLEFT", 14, -52 - (i - 1) * 25)
     b:SetNormalFontObject("GameFontNormalSmall")
     b:SetHighlightFontObject("GameFontHighlightSmall") -- the chosen build is highlighted: same size, so it fits
@@ -73,7 +74,7 @@ local function CreatePicker()
   linkLabel:SetPoint("TOPLEFT", 16, -262)
   linkLabel:SetText("Or paste a planner link")
   local box = CreateFrame("EditBox", nil, frame, "InputBoxTemplate")
-  box:SetSize(170, 22)
+  box:SetSize(PICK_W - 62, 22)
   box:SetPoint("TOPLEFT", 22, -280)
   box:SetAutoFocus(false)
   box:SetScript("OnEscapePressed", box.ClearFocus)
@@ -81,7 +82,7 @@ local function CreatePicker()
   use:SetSize(52, 22)
   use:SetPoint("LEFT", box, "RIGHT", 6, 0)
   use:SetText("Use")
-  local linkNote = Text(frame, "GameFontHighlightSmall", 232)
+  local linkNote = Text(frame, "GameFontHighlightSmall", PICK_W)
   linkNote:SetPoint("TOPLEFT", 16, -308)
   use:SetScript("OnClick", function()
     KP.Safe(function()

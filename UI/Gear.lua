@@ -25,7 +25,7 @@ local QUALITY = { [0] = "9d9d9d", [1] = "ffffff", [2] = "1eff00", [3] = "0070dd"
 local SOURCE = { quest = "Quest", drop = "Drop", vendor = "Vendor", crafted = "Crafted" }
 local TICK = "|TInterface\\RaidFrame\\ReadyCheck-Ready:14|t"
 local WOWHEAD = "https://www.wowhead.com/forever/item=%d" -- Wowhead's WoW: Forever database, as on the website
-local ROW, OPTION, PAD = 19, 20, 10
+local ROW, OPTION, PAD = 22, 20, 10
 local MENU_BACKDROP = {
   bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
   tile = true, tileSize = 16, edgeSize = 16, insets = { left = 4, right = 4, top = 4, bottom = 4 },

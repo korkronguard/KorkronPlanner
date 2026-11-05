@@ -134,42 +134,41 @@ KP.Priority = {
           { name = "Growl", tag = "Then", text = "Taunt the boss.", icon = 132270 },
         } },
       } },
-      { level = 15, title = "Feral Druid, Cat Form damage", sections = {
-        { title = "Off-tanking: when you have to take the boss", note = "Turn on Tank mode above to see the threat priority.", items = {
-          { name = "Bear Form", tag = "Swap", text = "Shift to Bear Form. Furor gives you 10 rage when you do.", icon = 132276 },
-          { name = "Growl", tag = "Then", text = "Taunt the boss.", icon = 132270 },
+      { level = 20, title = "Feral Druid, Bear Form tank", sections = {
+        { title = "Keep up", note = "", items = {
+          { name = "Bear Form", tag = "Form", text = "Your tanking form.", icon = 132276 },
+          { name = "Faerie Fire", tag = "Keep up", text = "Castable in Bear Form in Forever (game data). Less armor on the boss for everyone.", icon = 136033 },
+          { name = "Demoralizing Roar", tag = "Keep up", text = "Lowers the boss's attack power.", icon = 132121 },
+        } },
+        { title = "Threat priority", note = "Press the first one that's ready.", items = {
+          { name = "Maul", tag = "Rage dump", text = "On your next swing, whenever you have spare rage.", icon = 132136 },
+          { name = "Swipe", tag = "2+ enemies", text = "Hits nearby enemies.", icon = 134296 },
+        } },
+        { title = "Rage", note = "Where your rage comes from besides getting hit.", items = {
+          { name = "Enrage", tag = "On cooldown", text = "Rage now and over 10 sec, but lowers your armor for the duration (game data).", icon = 132126 },
+        } },
+        { title = "When things go wrong", note = "", items = {
+          { name = "Growl", tag = "Lost aggro", text = "Taunts the target back.", icon = 132270 },
+          { name = "Bash", tag = "Interrupt", text = "Stuns the target for 4 sec.", icon = 132114 },
         } },
       } },
-      { level = 20, title = "Feral Druid, Cat Form damage", sections = {
+      { level = 30, title = "Feral Druid, Bear Form tank", sections = {
         { title = "Keep up", note = "", items = {
-          { name = "Cat Form", tag = "Form", text = "Your damage form.", icon = 132115 },
-          { name = "Faerie Fire", tag = "If no other Druid", text = "Castable in Cat Form in Forever (game data). Less armor on the boss.", icon = 136033 },
+          { name = "Bear Form", tag = "Form", text = "Your tanking form.", icon = 132276 },
+          { name = "Faerie Fire", tag = "Keep up", text = "Castable in Bear Form in Forever (game data). Less armor on the boss for everyone.", icon = 136033 },
+          { name = "Demoralizing Roar", tag = "Keep up", text = "Lowers the boss's attack power.", icon = 132121 },
         } },
-        { title = "Combo points", note = "Build to 5 points, then spend.", items = {
-          { name = "Shred", tag = "Builder", text = "Your builder from behind.", icon = 136231 },
-          { name = "Claw", tag = "Builder", text = "When you can't get behind the target.", icon = 132140 },
-          { name = "Rip", tag = "Finisher", text = "At 5 points when it isn't on the target: a bleed that scales with attack power.", icon = 132152 },
+        { title = "Threat priority", note = "Press the first one that's ready.", items = {
+          { name = "Maul", tag = "Rage dump", text = "On your next swing, whenever you have spare rage.", icon = 132136 },
+          { name = "Swipe", tag = "2+ enemies", text = "Hits nearby enemies.", icon = 134296 },
         } },
-        { title = "Off-tanking: when you have to take the boss", note = "Turn on Tank mode above to see the threat priority.", items = {
-          { name = "Bear Form", tag = "Swap", text = "Shift to Bear Form. Furor gives you 10 rage when you do.", icon = 132276 },
-          { name = "Growl", tag = "Then", text = "Taunt the boss.", icon = 132270 },
+        { title = "Rage", note = "Where your rage comes from besides getting hit.", items = {
+          { name = "Enrage", tag = "On cooldown", text = "Rage now and over 10 sec, but lowers your armor for the duration (game data).", icon = 132126 },
         } },
-      } },
-      { level = 25, title = "Feral Druid, Cat Form damage", sections = {
-        { title = "Keep up", note = "", items = {
-          { name = "Cat Form", tag = "Form", text = "Your damage form.", icon = 132115 },
-          { name = "Faerie Fire", tag = "If no other Druid", text = "Castable in Cat Form in Forever (game data). Less armor on the boss.", icon = 136033 },
-          { name = "Rake", tag = "Keep up", text = "Bleed: armor doesn't reduce it.", icon = 132122 },
-        } },
-        { title = "Combo points", note = "Build to 5 points, then spend.", items = {
-          { name = "Shred", tag = "Builder", text = "Your builder from behind.", icon = 136231 },
-          { name = "Claw", tag = "Builder", text = "When you can't get behind the target.", icon = 132140 },
-          { name = "Rip", tag = "Finisher", text = "At 5 points when it isn't on the target: a bleed that scales with attack power.", icon = 132152 },
-          { name = "Ferocious Bite", tag = "Finisher", text = "At 5 points while Rip is up. Predatory Discipline: it no longer spends your extra energy but still adds damage for it, so bite as soon as you have 5 points.", icon = 132127 },
-        } },
-        { title = "Off-tanking: when you have to take the boss", note = "Turn on Tank mode above to see the threat priority.", items = {
-          { name = "Bear Form", tag = "Swap", text = "Shift to Bear Form. Furor gives you 10 rage when you do.", icon = 132276 },
-          { name = "Growl", tag = "Then", text = "Taunt the boss.", icon = 132270 },
+        { title = "When things go wrong", note = "", items = {
+          { name = "Growl", tag = "Lost aggro", text = "Taunts the target back.", icon = 132270 },
+          { name = "Challenging Roar", tag = "Many loose", text = "Every enemy nearby attacks you for 6 sec.", icon = 132117 },
+          { name = "Bash", tag = "Interrupt", text = "Stuns the target for 4 sec.", icon = 132114 },
         } },
       } },
       { level = 35, title = "Feral Druid, Bear Form tank", sections = {
@@ -184,7 +183,7 @@ KP.Priority = {
         } },
         { title = "Rage", note = "Where your rage comes from besides getting hit.", items = {
           { name = "Enrage", tag = "On cooldown", text = "Rage now and over 10 sec, but lowers your armor for the duration (game data).", icon = 132126 },
-          { name = "Furor", tag = "Talent", text = "Gives you a 100% chance to gain 10 Rage when shapeshifting into Bear Form or Dire Bear Form.", icon = 135881 },
+          { name = "Blood Frenzy", tag = "Talent", text = "Gives you a 100% chance to gain an additional 5 Rage any time you get a critical strike while in Bear Form or Dire Bear Form.", icon = 132152 },
         } },
         { title = "When things go wrong", note = "", items = {
           { name = "Growl", tag = "Lost aggro", text = "Taunts the target back.", icon = 132270 },
@@ -204,7 +203,7 @@ KP.Priority = {
         } },
         { title = "Rage", note = "Where your rage comes from besides getting hit.", items = {
           { name = "Enrage", tag = "On cooldown", text = "Rage now and over 10 sec, but lowers your armor for the duration (game data).", icon = 132126 },
-          { name = "Furor", tag = "Talent", text = "Gives you a 100% chance to gain 10 Rage when shapeshifting into Bear Form or Dire Bear Form.", icon = 135881 },
+          { name = "Blood Frenzy", tag = "Talent", text = "Gives you a 100% chance to gain an additional 5 Rage any time you get a critical strike while in Bear Form or Dire Bear Form.", icon = 132152 },
         } },
         { title = "When things go wrong", note = "", items = {
           { name = "Growl", tag = "Lost aggro", text = "Taunts the target back.", icon = 132270 },
@@ -225,7 +224,7 @@ KP.Priority = {
         } },
         { title = "Rage", note = "Where your rage comes from besides getting hit.", items = {
           { name = "Enrage", tag = "On cooldown", text = "Rage now and over 10 sec, but lowers your armor for the duration (game data).", icon = 132126 },
-          { name = "Furor", tag = "Talent", text = "Gives you a 100% chance to gain 10 Rage when shapeshifting into Bear Form or Dire Bear Form.", icon = 135881 },
+          { name = "Natural Reaction", tag = "Talent", text = "Increases your dodge chance by 1%, and gives you a 20% chance to gain 5 Rage each time you dodge.", icon = 132091 },
           { name = "Blood Frenzy", tag = "Talent", text = "Gives you a 100% chance to gain an additional 5 Rage any time you get a critical strike while in Bear Form or Dire Bear Form.", icon = 132152 },
         } },
         { title = "When things go wrong", note = "", items = {
@@ -243,126 +242,101 @@ KP.Priority = {
           { name = "Growl", tag = "Then", text = "Taunt the boss.", icon = 132270 },
         } },
       } },
-      { level = 15, title = "Feral Druid, Cat Form damage", sections = {
+      { level = 20, title = "Feral Druid, Cat Form damage", sections = {
+        { title = "Keep up", note = "", items = {
+          { name = "Cat Form", tag = "Form", text = "Your damage form.", icon = 132115 },
+          { name = "Faerie Fire", tag = "If no other Druid", text = "Castable in Cat Form in Forever (game data). Less armor on the boss.", icon = 136033 },
+        } },
+        { title = "Combo points", note = "Build to 5 points, then spend.", items = {
+          { name = "Shred", tag = "Builder", text = "Your builder from behind.", icon = 136231 },
+          { name = "Claw", tag = "Builder", text = "When you can't get behind the target.", icon = 132140 },
+          { name = "Rip", tag = "Finisher", text = "At 5 points when it isn't on the target: a bleed that scales with attack power.", icon = 132152 },
+        } },
         { title = "Off-tanking: when you have to take the boss", note = "Turn on Tank mode above to see the threat priority.", items = {
-          { name = "Bear Form", tag = "Swap", text = "Shift to Bear Form. Furor gives you 10 rage when you do.", icon = 132276 },
+          { name = "Bear Form", tag = "Swap", text = "Shift to Bear Form.", icon = 132276 },
           { name = "Growl", tag = "Then", text = "Taunt the boss.", icon = 132270 },
         } },
       } },
-      { level = 20, title = "Feral Druid, Bear Form tank", sections = {
+      { level = 25, title = "Feral Druid, Cat Form damage", sections = {
         { title = "Keep up", note = "", items = {
-          { name = "Bear Form", tag = "Form", text = "Your tanking form.", icon = 132276 },
-          { name = "Faerie Fire", tag = "Keep up", text = "Castable in Bear Form in Forever (game data). Less armor on the boss for everyone.", icon = 136033 },
-          { name = "Demoralizing Roar", tag = "Keep up", text = "Lowers the boss's attack power.", icon = 132121 },
+          { name = "Cat Form", tag = "Form", text = "Your damage form.", icon = 132115 },
+          { name = "Faerie Fire", tag = "If no other Druid", text = "Castable in Cat Form in Forever (game data). Less armor on the boss.", icon = 136033 },
+          { name = "Rake", tag = "Keep up", text = "Bleed: armor doesn't reduce it.", icon = 132122 },
         } },
-        { title = "Threat priority", note = "Press the first one that's ready.", items = {
-          { name = "Maul", tag = "Rage dump", text = "On your next swing, whenever you have spare rage.", icon = 132136 },
-          { name = "Swipe", tag = "2+ enemies", text = "Hits nearby enemies.", icon = 134296 },
+        { title = "Combo points", note = "Build to 5 points, then spend.", items = {
+          { name = "Shred", tag = "Builder", text = "Your builder from behind. Shredding Attacks: −6 energy.", icon = 136231 },
+          { name = "Claw", tag = "Builder", text = "When you can't get behind the target.", icon = 132140 },
+          { name = "Rip", tag = "Finisher", text = "At 5 points when it isn't on the target: a bleed that scales with attack power.", icon = 132152 },
+          { name = "Ferocious Bite", tag = "Finisher", text = "At 5 points while Rip is up.", icon = 132127 },
         } },
-        { title = "Rage", note = "Where your rage comes from besides getting hit.", items = {
-          { name = "Enrage", tag = "On cooldown", text = "Rage now and over 10 sec, but lowers your armor for the duration (game data).", icon = 132126 },
-          { name = "Furor", tag = "Talent", text = "Gives you a 40% chance to gain 10 Rage when shapeshifting into Bear Form or Dire Bear Form.", icon = 135881 },
-        } },
-        { title = "When things go wrong", note = "", items = {
-          { name = "Growl", tag = "Lost aggro", text = "Taunts the target back.", icon = 132270 },
-          { name = "Bash", tag = "Interrupt", text = "Stuns the target for 4 sec.", icon = 132114 },
+        { title = "Off-tanking: when you have to take the boss", note = "Turn on Tank mode above to see the threat priority.", items = {
+          { name = "Bear Form", tag = "Swap", text = "Shift to Bear Form.", icon = 132276 },
+          { name = "Growl", tag = "Then", text = "Taunt the boss.", icon = 132270 },
         } },
       } },
-      { level = 25, title = "Feral Druid, Bear Form tank", sections = {
+      { level = 35, title = "Feral Druid, Cat Form damage", sections = {
         { title = "Keep up", note = "", items = {
-          { name = "Bear Form", tag = "Form", text = "Your tanking form.", icon = 132276 },
-          { name = "Faerie Fire", tag = "Keep up", text = "Castable in Bear Form in Forever (game data). Less armor on the boss for everyone.", icon = 136033 },
-          { name = "Demoralizing Roar", tag = "Keep up", text = "Lowers the boss's attack power.", icon = 132121 },
+          { name = "Cat Form", tag = "Form", text = "Your damage form.", icon = 132115 },
+          { name = "Faerie Fire", tag = "If no other Druid", text = "Castable in Cat Form in Forever (game data). Less armor on the boss.", icon = 136033 },
+          { name = "Rake", tag = "Keep up", text = "Bleed: armor doesn't reduce it.", icon = 132122 },
         } },
-        { title = "Threat priority", note = "Press the first one that's ready.", items = {
-          { name = "Lacerate", tag = "Stack to 5", text = "Build 5 stacks, then refresh before it runs out. Causes a high amount of threat (a Feral talent in Forever).", icon = 132131 },
-          { name = "Maul", tag = "Rage dump", text = "On your next swing, whenever you have spare rage.", icon = 132136 },
-          { name = "Swipe", tag = "2+ enemies", text = "Hits nearby enemies. Feral Instinct: +10% damage.", icon = 134296 },
+        { title = "Opener", note = "", items = {
+          { name = "Ravage", tag = "From Prowl", text = "Prowl, get behind the target, open with Ravage.", icon = 132141 },
         } },
-        { title = "Rage", note = "Where your rage comes from besides getting hit.", items = {
-          { name = "Enrage", tag = "On cooldown", text = "Rage now and over 10 sec, but lowers your armor for the duration (game data).", icon = 132126 },
-          { name = "Furor", tag = "Talent", text = "Gives you a 40% chance to gain 10 Rage when shapeshifting into Bear Form or Dire Bear Form.", icon = 135881 },
+        { title = "Combo points", note = "Build to 5 points, then spend.", items = {
+          { name = "Shred", tag = "Builder", text = "Your builder from behind. Shredding Attacks: −18 energy.", icon = 136231 },
+          { name = "Claw", tag = "Builder", text = "When you can't get behind the target.", icon = 132140 },
+          { name = "Rip", tag = "Finisher", text = "At 5 points when it isn't on the target: a bleed that scales with attack power.", icon = 132152 },
+          { name = "Ferocious Bite", tag = "Finisher", text = "At 5 points while Rip is up.", icon = 132127 },
         } },
-        { title = "When things go wrong", note = "", items = {
-          { name = "Growl", tag = "Lost aggro", text = "Taunts the target back.", icon = 132270 },
-          { name = "Bash", tag = "Interrupt", text = "Stuns the target for 4 sec.", icon = 132114 },
+        { title = "Off-tanking: when you have to take the boss", note = "Turn on Tank mode above to see the threat priority.", items = {
+          { name = "Bear Form", tag = "Swap", text = "Shift to Bear Form.", icon = 132276 },
+          { name = "Growl", tag = "Then", text = "Taunt the boss.", icon = 132270 },
         } },
       } },
-      { level = 30, title = "Feral Druid, Bear Form tank", sections = {
+      { level = 40, title = "Feral Druid, Cat Form damage", sections = {
         { title = "Keep up", note = "", items = {
-          { name = "Bear Form", tag = "Form", text = "Your tanking form.", icon = 132276 },
-          { name = "Faerie Fire", tag = "Keep up", text = "Castable in Bear Form in Forever (game data). Less armor on the boss for everyone.", icon = 136033 },
-          { name = "Demoralizing Roar", tag = "Keep up", text = "Lowers the boss's attack power.", icon = 132121 },
+          { name = "Cat Form", tag = "Form", text = "Your damage form.", icon = 132115 },
+          { name = "Faerie Fire", tag = "If no other Druid", text = "Castable in Cat Form in Forever (game data). Less armor on the boss.", icon = 136033 },
+          { name = "Rake", tag = "Keep up", text = "Bleed: armor doesn't reduce it. Rend and Tear: +9% damage on bleeding targets, so keep one up.", icon = 132122 },
         } },
-        { title = "Threat priority", note = "Press the first one that's ready.", items = {
-          { name = "Lacerate", tag = "Stack to 5", text = "Build 5 stacks, then refresh before it runs out. Causes a high amount of threat (a Feral talent in Forever).", icon = 132131 },
-          { name = "Maul", tag = "Rage dump", text = "On your next swing, whenever you have spare rage.", icon = 132136 },
-          { name = "Swipe", tag = "2+ enemies", text = "Hits nearby enemies. Feral Instinct: +10% damage.", icon = 134296 },
+        { title = "Opener", note = "", items = {
+          { name = "Ravage", tag = "From Prowl", text = "Prowl, get behind the target, open with Ravage.", icon = 132141 },
         } },
-        { title = "Rage", note = "Where your rage comes from besides getting hit.", items = {
-          { name = "Enrage", tag = "On cooldown", text = "Rage now and over 10 sec, but lowers your armor for the duration (game data).", icon = 132126 },
-          { name = "Furor", tag = "Talent", text = "Gives you a 40% chance to gain 10 Rage when shapeshifting into Bear Form or Dire Bear Form.", icon = 135881 },
-          { name = "Blood Frenzy", tag = "Talent", text = "Gives you a 50% chance to gain an additional 5 Rage any time you get a critical strike while in Bear Form or Dire Bear Form.", icon = 132152 },
+        { title = "Combo points", note = "Build to 5 points, then spend.", items = {
+          { name = "Shred", tag = "Builder", text = "Your builder from behind. Shredding Attacks: −18 energy.", icon = 136231 },
+          { name = "Claw", tag = "Builder", text = "When you can't get behind the target.", icon = 132140 },
+          { name = "Rip", tag = "Finisher", text = "At 5 points when it isn't on the target: a bleed that scales with attack power.", icon = 132152 },
+          { name = "Ferocious Bite", tag = "Finisher", text = "At 5 points while Rip is up.", icon = 132127 },
         } },
-        { title = "When things go wrong", note = "", items = {
-          { name = "Growl", tag = "Lost aggro", text = "Taunts the target back.", icon = 132270 },
-          { name = "Challenging Roar", tag = "Many loose", text = "Every enemy nearby attacks you for 6 sec.", icon = 132117 },
-          { name = "Bash", tag = "Interrupt", text = "Stuns the target for 4 sec.", icon = 132114 },
+        { title = "Off-tanking: when you have to take the boss", note = "Turn on Tank mode above to see the threat priority.", items = {
+          { name = "Dire Bear Form", tag = "Swap", text = "Shift to Bear Form.", icon = 132276 },
+          { name = "Growl", tag = "Then", text = "Taunt the boss.", icon = 132270 },
         } },
       } },
-      { level = 40, title = "Feral Druid, Bear Form tank", sections = {
+      { level = 45, title = "Feral Druid, Cat Form damage", sections = {
         { title = "Keep up", note = "", items = {
-          { name = "Dire Bear Form", tag = "Form", text = "Your tanking form.", icon = 132276 },
-          { name = "Faerie Fire", tag = "Keep up", text = "Castable in Bear Form in Forever (game data). Less armor on the boss for everyone.", icon = 136033 },
-          { name = "Demoralizing Roar", tag = "Keep up", text = "Lowers the boss's attack power.", icon = 132121 },
+          { name = "Cat Form", tag = "Form", text = "Your damage form.", icon = 132115 },
+          { name = "Faerie Fire", tag = "If no other Druid", text = "Castable in Cat Form in Forever (game data). Less armor on the boss.", icon = 136033 },
+          { name = "Rake", tag = "Keep up", text = "Bleed: armor doesn't reduce it. Rend and Tear: +15% damage on bleeding targets, so keep one up.", icon = 132122 },
         } },
-        { title = "Threat priority", note = "Press the first one that's ready.", items = {
-          { name = "Primal Bite", tag = "On cooldown", text = "Weapon damage plus a high amount of threat (Feral's 31-point talent in Forever).", icon = 132278 },
-          { name = "Lacerate", tag = "Stack to 5", text = "Build 5 stacks, then refresh before it runs out. Causes a high amount of threat (a Feral talent in Forever).", icon = 132131 },
-          { name = "Maul", tag = "Rage dump", text = "On your next swing, whenever you have spare rage.", icon = 132136 },
-          { name = "Swipe", tag = "2+ enemies", text = "Hits nearby enemies. Feral Instinct: +10% damage.", icon = 134296 },
+        { title = "Opener", note = "", items = {
+          { name = "Ravage", tag = "From Prowl", text = "Prowl, get behind the target, open with Ravage.", icon = 132141 },
         } },
-        { title = "Rage", note = "Where your rage comes from besides getting hit.", items = {
-          { name = "Enrage", tag = "On cooldown", text = "Rage now and over 10 sec, but lowers your armor for the duration (game data).", icon = 132126 },
-          { name = "Furor", tag = "Talent", text = "Gives you a 40% chance to gain 10 Rage when shapeshifting into Bear Form or Dire Bear Form.", icon = 135881 },
-          { name = "Natural Reaction", tag = "Talent", text = "Increases your dodge chance by 4%, and gives you a 80% chance to gain 5 Rage each time you dodge.", icon = 132091 },
-          { name = "Blood Frenzy", tag = "Talent", text = "Gives you a 50% chance to gain an additional 5 Rage any time you get a critical strike while in Bear Form or Dire Bear Form.", icon = 132152 },
+        { title = "Combo points", note = "Build to 5 points, then spend.", items = {
+          { name = "Shred", tag = "Builder", text = "Your builder from behind. Shredding Attacks: −18 energy.", icon = 136231 },
+          { name = "Claw", tag = "Builder", text = "When you can't get behind the target.", icon = 132140 },
+          { name = "Rip", tag = "Finisher", text = "At 5 points when it isn't on the target: a bleed that scales with attack power.", icon = 132152 },
+          { name = "Ferocious Bite", tag = "Finisher", text = "At 5 points while Rip is up.", icon = 132127 },
         } },
-        { title = "When things go wrong", note = "", items = {
-          { name = "Growl", tag = "Lost aggro", text = "Taunts the target back.", icon = 132270 },
-          { name = "Challenging Roar", tag = "Many loose", text = "Every enemy nearby attacks you for 6 sec.", icon = 132117 },
-          { name = "Frenzied Regeneration", tag = "Emergency", text = "Turns rage into health for 10 sec.", icon = 132091 },
-          { name = "Bash", tag = "Interrupt", text = "Stuns the target for 4 sec.", icon = 132114 },
-        } },
-      } },
-      { level = 45, title = "Feral Druid, Bear Form tank", sections = {
-        { title = "Keep up", note = "", items = {
-          { name = "Dire Bear Form", tag = "Form", text = "Your tanking form.", icon = 132276 },
-          { name = "Faerie Fire", tag = "Keep up", text = "Castable in Bear Form in Forever (game data). Less armor on the boss for everyone.", icon = 136033 },
-          { name = "Demoralizing Roar", tag = "Keep up", text = "Lowers the boss's attack power.", icon = 132121 },
-        } },
-        { title = "Threat priority", note = "Press the first one that's ready.", items = {
-          { name = "Primal Bite", tag = "On cooldown", text = "Weapon damage plus a high amount of threat (Feral's 31-point talent in Forever).", icon = 132278 },
-          { name = "Lacerate", tag = "Stack to 5", text = "Build 5 stacks, then refresh before it runs out. Causes a high amount of threat (a Feral talent in Forever).", icon = 132131 },
-          { name = "Maul", tag = "Rage dump", text = "On your next swing, whenever you have spare rage.", icon = 132136 },
-          { name = "Swipe", tag = "2+ enemies", text = "Hits nearby enemies. Feral Instinct: +30% damage.", icon = 134296 },
-        } },
-        { title = "Rage", note = "Where your rage comes from besides getting hit.", items = {
-          { name = "Enrage", tag = "On cooldown", text = "Rage now and over 10 sec, but lowers your armor for the duration (game data).", icon = 132126 },
-          { name = "Furor", tag = "Talent", text = "Gives you a 40% chance to gain 10 Rage when shapeshifting into Bear Form or Dire Bear Form.", icon = 135881 },
-          { name = "Natural Reaction", tag = "Talent", text = "Increases your dodge chance by 5%, and gives you a 100% chance to gain 5 Rage each time you dodge.", icon = 132091 },
-          { name = "Blood Frenzy", tag = "Talent", text = "Gives you a 100% chance to gain an additional 5 Rage any time you get a critical strike while in Bear Form or Dire Bear Form.", icon = 132152 },
-        } },
-        { title = "When things go wrong", note = "", items = {
-          { name = "Growl", tag = "Lost aggro", text = "Taunts the target back.", icon = 132270 },
-          { name = "Challenging Roar", tag = "Many loose", text = "Every enemy nearby attacks you for 6 sec.", icon = 132117 },
-          { name = "Frenzied Regeneration", tag = "Emergency", text = "Turns rage into health for 10 sec.", icon = 132091 },
-          { name = "Bash", tag = "Interrupt", text = "Stuns the target for 4 sec.", icon = 132114 },
+        { title = "Off-tanking: when you have to take the boss", note = "Turn on Tank mode above to see the threat priority.", items = {
+          { name = "Dire Bear Form", tag = "Swap", text = "Shift to Bear Form.", icon = 132276 },
+          { name = "Growl", tag = "Then", text = "Taunt the boss.", icon = 132270 },
         } },
       } },
     },
     ["resto-lvl"] = {
-      { level = 10, title = "Restoration Druid, dealing damage", sections = {
+      { level = 10, title = "Balance Druid", sections = {
         { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
           { name = "Moonfire", tag = "Keep up", text = "", icon = 136096 },
         } },
@@ -370,72 +344,65 @@ KP.Priority = {
           { name = "Wrath", tag = "Filler", text = "", icon = 136006 },
         } },
       } },
-      { level = 20, title = "Restoration Druid, dealing damage", sections = {
+      { level = 20, title = "Balance Druid", sections = {
         { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
           { name = "Moonfire", tag = "Keep up", text = "", icon = 136096 },
+        } },
+        { title = "Then", note = "Ordered by damage per second of casting.", items = {
+          { name = "Wrath", tag = "Filler", text = "", icon = 136006 },
+          { name = "Starfire", tag = "Filler", text = "", icon = 135753 },
+        } },
+      } },
+      { level = 25, title = "Balance Druid", sections = {
+        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
+          { name = "Moonfire", tag = "Keep up", text = "", icon = 136096 },
+          { name = "Insect Swarm", tag = "Keep up", text = "", icon = 136045 },
+        } },
+        { title = "Then", note = "Ordered by damage per second of casting.", items = {
+          { name = "Wrath", tag = "Filler", text = "", icon = 136006 },
+          { name = "Starfire", tag = "Filler", text = "", icon = 135753 },
+        } },
+      } },
+      { level = 35, title = "Balance Druid", sections = {
+        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
+          { name = "Moonfire", tag = "Keep up", text = "", icon = 136096 },
+          { name = "Insect Swarm", tag = "Keep up", text = "", icon = 136045 },
         } },
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Starfire", tag = "Filler", text = "", icon = 135753 },
           { name = "Wrath", tag = "Filler", text = "", icon = 136006 },
         } },
       } },
-      { level = 30, title = "Restoration Druid", sections = {
-        { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
-          { name = "Regrowth", tag = "Main heal", text = "", icon = 136085 },
-          { name = "Healing Touch", tag = "Heal", text = "", icon = 136041 },
-          { name = "Rejuvenation", tag = "Heal", text = "", icon = 136081 },
-        } },
-        { title = "Group healing", note = "Not in the one-target estimate: use these when several people are hurt.", items = {
-          { name = "Tranquility", tag = "Group", text = "Regenerates all nearby party members within 20 yards for $??[570][285] every 2 sec for 10 sec.", icon = 136107 },
-        } },
-      } },
-      { level = 35, title = "Restoration Druid", sections = {
+      { level = 50, title = "Restoration Druid", sections = {
         { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
           { name = "Regrowth", tag = "Main heal", text = "", icon = 136085 },
           { name = "Healing Touch", tag = "Heal", text = "", icon = 136041 },
           { name = "Rejuvenation", tag = "Heal", text = "", icon = 136081 },
         } },
         { title = "When someone is about to die", note = "", items = {
-          { name = "Swiftmend", tag = "Emergency", text = "Instantly heals a target with your active Rejuvenation or Regrowth effect for an amount equal to the full duration of the periodic effect of the consumed spell.", icon = 134914 },
-        } },
-        { title = "Group healing", note = "Not in the one-target estimate: use these when several people are hurt.", items = {
-          { name = "Tranquility", tag = "Group", text = "Regenerates all nearby party members within 20 yards for $??[570][285] every 2 sec for 10 sec.", icon = 136107 },
-        } },
-      } },
-      { level = 40, title = "Restoration Druid", sections = {
-        { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
-          { name = "Regrowth", tag = "Main heal", text = "", icon = 136085 },
-          { name = "Healing Touch", tag = "Heal", text = "", icon = 136041 },
-          { name = "Rejuvenation", tag = "Heal", text = "", icon = 136081 },
-        } },
-        { title = "When someone is about to die", note = "", items = {
-          { name = "Swiftmend", tag = "Emergency", text = "Instantly heals a target with your active Rejuvenation or Regrowth effect for an amount equal to the full duration of the periodic effect of the consumed spell.", icon = 134914 },
-          { name = "Nature's Swiftness", tag = "Emergency", text = "When activated, your next Nature spell becomes an instant cast spell.", icon = 136076 },
-        } },
-        { title = "Mana", note = "", items = {
-          { name = "Innervate", tag = "Mana", text = "Increases the target's Mana regeneration by 400% and allows 100% of the target's Mana regeneration to continue while casting.", icon = 136048 },
-        } },
-        { title = "Group healing", note = "Not in the one-target estimate: use these when several people are hurt.", items = {
-          { name = "Wild Growth", tag = "Group", text = "Heals the target and their party for 679 over 7 sec.", icon = 236153 },
-          { name = "Tranquility", tag = "Group", text = "Regenerates all nearby party members within 20 yards for $??[570][285] every 2 sec for 10 sec.", icon = 136107 },
-        } },
-      } },
-      { level = 45, title = "Restoration Druid", sections = {
-        { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
-          { name = "Regrowth", tag = "Main heal", text = "", icon = 136085 },
-          { name = "Healing Touch", tag = "Heal", text = "", icon = 136041 },
-          { name = "Rejuvenation", tag = "Heal", text = "", icon = 136081 },
-        } },
-        { title = "When someone is about to die", note = "", items = {
-          { name = "Swiftmend", tag = "Emergency", text = "Instantly heals a target with your active Rejuvenation or Regrowth effect for an amount equal to the full duration of the periodic effect of the consumed spell.", icon = 134914 },
-          { name = "Nature's Swiftness", tag = "Emergency", text = "When activated, your next Nature spell becomes an instant cast spell.", icon = 136076 },
           { name = "Barkskin", tag = "Emergency", text = "Your skin becomes as tough as bark.", icon = 136097 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Innervate", tag = "Mana", text = "Increases the target's Mana regeneration by 400% and allows 100% of the target's Mana regeneration to continue while casting.", icon = 136048 },
         } },
         { title = "Group healing", note = "Not in the one-target estimate: use these when several people are hurt.", items = {
-          { name = "Wild Growth", tag = "Group", text = "Heals the target and their party for 679 over 7 sec.", icon = 236153 },
+          { name = "Tranquility", tag = "Group", text = "Regenerates all nearby party members within 20 yards for $??[570][285] every 2 sec for 10 sec.", icon = 136107 },
+        } },
+      } },
+      { level = 55, title = "Restoration Druid", sections = {
+        { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
+          { name = "Regrowth", tag = "Main heal", text = "", icon = 136085 },
+          { name = "Healing Touch", tag = "Heal", text = "", icon = 136041 },
+          { name = "Rejuvenation", tag = "Heal", text = "", icon = 136081 },
+        } },
+        { title = "When someone is about to die", note = "", items = {
+          { name = "Swiftmend", tag = "Emergency", text = "Instantly heals a target with your active Rejuvenation or Regrowth effect for an amount equal to the full duration of the periodic effect of the consumed spell.", icon = 134914 },
+          { name = "Barkskin", tag = "Emergency", text = "Your skin becomes as tough as bark.", icon = 136097 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Innervate", tag = "Mana", text = "Increases the target's Mana regeneration by 400% and allows 100% of the target's Mana regeneration to continue while casting.", icon = 136048 },
+        } },
+        { title = "Group healing", note = "Not in the one-target estimate: use these when several people are hurt.", items = {
           { name = "Tranquility", tag = "Group", text = "Regenerates all nearby party members within 20 yards for $??[570][285] every 2 sec for 10 sec.", icon = 136107 },
         } },
       } },
@@ -514,7 +481,6 @@ KP.Priority = {
           { name = "Raptor Strike", tag = "On cooldown", text = "Every 6 sec (it goes on your next swing).", icon = 132223 },
           { name = "Strider Kick", tag = "On cooldown", text = "100% weapon damage.", icon = 132198 },
           { name = "Lacerate", tag = "Keep up", text = "Keep the bleed on the target.", icon = 132155 },
-          { name = "Counterattack", tag = "When it lights up", text = "After you parry. Can't be dodged.", icon = 132336 },
           { name = "Serpent Sting", tag = "At range", text = "When you have to step out of melee.", icon = 132204 },
         } },
         { title = "Cooldowns", note = "", items = {
@@ -536,16 +502,6 @@ KP.Priority = {
         } },
       } },
       { level = 20, title = "Beast Mastery Hunter, ranged", sections = {
-        { title = "Before the pull", note = "", items = {
-          { name = "Aspect of the Hawk", tag = "Keep up", text = "Your ranged aspect.", icon = 136076 },
-          { name = "Call Pet", tag = "Pet out", text = "Send the pet in first." },
-          { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
-        } },
-        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Shots that share a cooldown are compared with your numbers.", items = {
-          { name = "Immolation Trap", tag = "Optional", text = "Usable in combat in Forever: worth it when the boss is tanked close enough to reach its feet.", icon = 135813 },
-        } },
-      } },
-      { level = 25, title = "Beast Mastery Hunter, ranged", sections = {
         { title = "Before the pull", note = "", items = {
           { name = "Aspect of the Hawk", tag = "Keep up", text = "Your ranged aspect.", icon = 136076 },
           { name = "Call Pet", tag = "Pet out", text = "Send the pet in first. Focused Fire: +2% damage for you and the pet while it's out." },
@@ -576,6 +532,7 @@ KP.Priority = {
           { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
         } },
         { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Shots that share a cooldown are compared with your numbers.", items = {
+          { name = "Summon Hawk", tag = "On cooldown", text = "Shares its cooldown with Arcane Shot. Your Unleashed Fury and Ferocity make hawks stronger, so favour the hawk (2 at a time).", icon = 132158 },
           { name = "Immolation Trap", tag = "Optional", text = "Usable in combat in Forever: worth it when the boss is tanked close enough to reach its feet.", icon = 135813 },
         } },
         { title = "Cooldowns", note = "", items = {
@@ -853,10 +810,10 @@ KP.Priority = {
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
           { name = "Arcane Blast", tag = "Filler", text = "", icon = 135735 },
+          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
           { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
           { name = "Arcane Wrath", tag = "On cooldown", text = "", icon = 236222 },
           { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
           { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
           { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
         } },
@@ -917,11 +874,11 @@ KP.Priority = {
       { level = 40, title = "Mage: basic list", sections = {
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
           { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
+          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
           { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
           { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
+          { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
           { name = "Ice Lance", tag = "On cooldown", text = "", icon = 135844 },
         } },
       } },
@@ -931,8 +888,8 @@ KP.Priority = {
           { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
           { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
           { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
           { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
+          { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
           { name = "Ice Lance", tag = "On cooldown", text = "", icon = 135844 },
         } },
       } },
@@ -1017,9 +974,8 @@ KP.Priority = {
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
           { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
           { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Pyroblast", tag = "Filler", text = "", icon = 135808 },
+          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
           { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
         } },
       } },
@@ -1030,7 +986,6 @@ KP.Priority = {
           { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
           { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
           { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
-          { name = "Pyroblast", tag = "Filler", text = "", icon = 135808 },
           { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
         } },
       } },
@@ -1041,7 +996,6 @@ KP.Priority = {
           { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
           { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
           { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
-          { name = "Pyroblast", tag = "Filler", text = "", icon = 135808 },
           { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
         } },
       } },
@@ -1091,60 +1045,45 @@ KP.Priority = {
       { level = 15, title = "Mage: basic list", sections = {
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
           { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
+          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
+          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
+        } },
+      } },
+      { level = 20, title = "Mage: basic list", sections = {
+        { title = "Then", note = "Ordered by damage per second of casting.", items = {
+          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
+          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
+          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
           { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
         } },
       } },
       { level = 25, title = "Mage: basic list", sections = {
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-        } },
-      } },
-      { level = 30, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Arcane Blast", tag = "Filler", text = "", icon = 135735 },
           { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
           { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
           { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-        } },
-      } },
-      { level = 35, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Arcane Blast", tag = "Filler", text = "", icon = 135735 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
           { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
         } },
       } },
       { level = 40, title = "Mage: basic list", sections = {
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
           { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Arcane Blast", tag = "Filler", text = "", icon = 135735 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
           { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
           { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-          { name = "Arcane Wrath", tag = "On cooldown", text = "", icon = 236222 },
           { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
+          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
         } },
       } },
       { level = 45, title = "Mage: basic list", sections = {
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Arcane Blast", tag = "Filler", text = "", icon = 135735 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
           { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Arcane Wrath", tag = "On cooldown", text = "", icon = 236222 },
+          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
+          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
+          { name = "Arcane Blast", tag = "Filler", text = "", icon = 135735 },
           { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
           { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
         } },
@@ -1152,36 +1091,36 @@ KP.Priority = {
       { level = 50, title = "Mage: basic list", sections = {
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Arcane Blast", tag = "Filler", text = "", icon = 135735 },
           { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
-          { name = "Arcane Wrath", tag = "On cooldown", text = "", icon = 236222 },
           { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
+          { name = "Arcane Blast", tag = "Filler", text = "", icon = 135735 },
+          { name = "Arcane Wrath", tag = "On cooldown", text = "", icon = 236222 },
           { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
+          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
+          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
         } },
       } },
       { level = 55, title = "Mage: basic list", sections = {
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Arcane Blast", tag = "Filler", text = "", icon = 135735 },
           { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
+          { name = "Arcane Blast", tag = "Filler", text = "", icon = 135735 },
           { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
           { name = "Arcane Wrath", tag = "On cooldown", text = "", icon = 236222 },
           { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
           { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
+          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
         } },
       } },
       { level = 60, title = "Mage: basic list", sections = {
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
           { name = "Arcane Blast", tag = "Filler", text = "", icon = 135735 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
           { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
+          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
           { name = "Arcane Wrath", tag = "On cooldown", text = "", icon = 236222 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
           { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
+          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
           { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
         } },
       } },
@@ -1321,8 +1260,36 @@ KP.Priority = {
           { name = "Divine Protection", tag = "Last resort", text = "Immune for 8 sec, but you can't attack: the boss may leave you.", icon = 135954 },
         } },
       } },
+      { level = 25, title = "Protection Paladin, tanking", sections = {
+        { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Sword and board.", items = {
+          { name = "Shield Specialization", tag = "Counts", text = "Works with this setup.", icon = 134952 },
+        } },
+        { title = "Keep up", note = "", items = {
+          { name = "Righteous Fury", tag = "Keep up", text = "Always on while you tank (lasts 30 min).", icon = 135962 },
+          { name = "Seal of Fury", tag = "Keep up", text = "Your tanking Seal: Holy damage on every hit, and with a shield each hit also gives you an absorb shield.", icon = 135957 },
+          { name = "Devotion Aura", tag = "Keep up", text = "Armor for you and your party.", icon = 135893 },
+          { name = "Blessing of Kings", tag = "On yourself", text = "Or Might if another Paladin gives Kings.", icon = 135995 },
+        } },
+        { title = "Threat priority", note = "Press the first one that's ready. Holy damage is boosted by Righteous Fury, so your Holy abilities lead.", items = {
+          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003 },
+          { name = "Judgement", tag = "On cooldown", text = "Judges your Seal on the target (the Seal stays).", icon = 135959 },
+          { name = "Swift Judgement", tag = "On cooldown", text = "A second Judgement with its own cooldown: it doesn't wait for Judgement and costs no mana (game data).", icon = 236258 },
+          { name = "Consecration", tag = "Packs", text = "Holy damage on the ground: best when you hold several enemies (mana heavy).", icon = 135926 },
+          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903 },
+        } },
+        { title = "Mana", note = "Paladin tanks run on mana: these keep it going.", items = {
+          { name = "Blessing of Wisdom", tag = "If no one else", text = "Mana every 5 sec.", icon = 135970 },
+          { name = "Shield Specialization", tag = "Talent", text = "Your blocks give back 4% of your maximum mana.", icon = 134952 },
+        } },
+        { title = "When things go wrong", note = "", items = {
+          { name = "Templar's Bulwark", tag = "Emergency", text = "An absorb shield as big as your health for 8 sec.", icon = 236264 },
+          { name = "Lay on Hands", tag = "Emergency", text = "Heals you to full (uses all your mana).", icon = 135928 },
+          { name = "Divine Protection", tag = "Last resort", text = "Immune for 8 sec, but you can't attack: the boss may leave you.", icon = 135954 },
+        } },
+      } },
       { level = 30, title = "Protection Paladin, tanking", sections = {
         { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Sword and board.", items = {
+          { name = "Shield Specialization", tag = "Counts", text = "Works with this setup.", icon = 134952 },
           { name = "Holy Shield", tag = "Counts", text = "Works with this setup.", icon = 135880 },
         } },
         { title = "Keep up", note = "", items = {
@@ -1335,13 +1302,16 @@ KP.Priority = {
           { name = "Holy Shield", tag = "Keep up", text = "Refresh it as it runs out: more blocks, and every block hits back.", icon = 135880 },
           { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003 },
           { name = "Judgement", tag = "On cooldown", text = "Judges your Seal on the target (the Seal stays).", icon = 135959 },
+          { name = "Swift Judgement", tag = "On cooldown", text = "A second Judgement with its own cooldown: it doesn't wait for Judgement and costs no mana (game data).", icon = 236258 },
           { name = "Consecration", tag = "Packs", text = "Holy damage on the ground: best when you hold several enemies (mana heavy).", icon = 135926 },
           { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903 },
         } },
         { title = "Mana", note = "Paladin tanks run on mana: these keep it going.", items = {
           { name = "Blessing of Wisdom", tag = "If no one else", text = "Mana every 5 sec.", icon = 135970 },
+          { name = "Shield Specialization", tag = "Talent", text = "Your blocks give back 4% of your maximum mana.", icon = 134952 },
         } },
         { title = "When things go wrong", note = "", items = {
+          { name = "Templar's Bulwark", tag = "Emergency", text = "An absorb shield as big as your health for 8 sec.", icon = 236264 },
           { name = "Lay on Hands", tag = "Emergency", text = "Heals you to full (uses all your mana).", icon = 135928 },
           { name = "Divine Protection", tag = "Last resort", text = "Immune for 8 sec, but you can't attack: the boss may leave you.", icon = 135954 },
         } },
@@ -1361,6 +1331,7 @@ KP.Priority = {
           { name = "Holy Shield", tag = "Keep up", text = "Refresh it as it runs out: more blocks, and every block hits back.", icon = 135880 },
           { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003 },
           { name = "Judgement", tag = "On cooldown", text = "Judges your Seal on the target (the Seal stays).", icon = 135959 },
+          { name = "Swift Judgement", tag = "On cooldown", text = "A second Judgement with its own cooldown: it doesn't wait for Judgement and costs no mana (game data).", icon = 236258 },
           { name = "Consecration", tag = "Packs", text = "Holy damage on the ground: best when you hold several enemies (mana heavy).", icon = 135926 },
           { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903 },
         } },
@@ -1369,6 +1340,7 @@ KP.Priority = {
           { name = "Shield Specialization", tag = "Talent", text = "Your blocks give back 4% of your maximum mana.", icon = 134952 },
         } },
         { title = "When things go wrong", note = "", items = {
+          { name = "Templar's Bulwark", tag = "Emergency", text = "An absorb shield as big as your health for 8 sec.", icon = 236264 },
           { name = "Lay on Hands", tag = "Emergency", text = "Heals you to full (uses all your mana).", icon = 135928 },
           { name = "Divine Protection", tag = "Last resort", text = "Immune for 8 sec, but you can't attack: the boss may leave you.", icon = 135954 },
           { name = "Divine Shield", tag = "Last resort", text = "Immune for 12 sec but deal 50% less damage (game data): expect to lose threat.", icon = 135896 },
@@ -1540,21 +1512,33 @@ KP.Priority = {
           { name = "Consecration", tag = "Packs", text = "Several enemies only (mana heavy).", icon = 135926 },
         } },
       } },
-      { level = 30, title = "Holy Paladin", sections = {
-        { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
-          { name = "Holy Light", tag = "Main heal", text = "", icon = 135920 },
-          { name = "Flash of Light", tag = "Heal", text = "", icon = 135907 },
+      { level = 30, title = "Retribution Paladin", sections = {
+        { title = "Keep up", note = "", items = {
+          { name = "Seal of Command", tag = "Keep up", text = "Your damage Seal: extra Holy hits worth 70% of your weapon damage (slow weapons proc as often but hit harder). Its Judgement does full damage only on a stunned target: judge right after Hammer of Justice.", icon = 132347 },
+          { name = "Blessing of Might", tag = "On yourself", text = "Melee attack power (or Kings if another Paladin gives Might).", icon = 135906 },
+          { name = "Retribution Aura", tag = "Aura", text = "If no other Paladin runs an aura, otherwise Devotion.", icon = 135873 },
         } },
-        { title = "When someone is about to die", note = "", items = {
-          { name = "Holy Shock", tag = "Emergency", text = "Blasts the target with Holy energy, causing 334 to 362 Holy damage to an enemy, or 307 to 333 healing to an ally.", icon = 135972 },
-          { name = "Divine Favor", tag = "Emergency", text = "When activated, gives your next Flash of Light, Holy Light, or Holy Shock spell a 100% critical effect chance.", icon = 135915 },
-          { name = "Lay on Hands", tag = "Emergency", text = "Heals a friendly target for an amount equal to the Paladin's maximum health and restores 550 of their mana.", icon = 135928 },
-        } },
-        { title = "Mana", note = "", items = {
-          { name = "Blessing of Wisdom", tag = "Mana", text = "Places a Blessing on the friendly target, restoring 40 mana every 5 seconds for 1 hr.", icon = 135970 },
+        { title = "Attack priority", note = "Press the first one that's ready.", items = {
+          { name = "Judgement", tag = "On cooldown", text = "Judge your Seal, then keep the Seal up.", icon = 135959 },
+          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003 },
+          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903 },
+          { name = "Consecration", tag = "Packs", text = "Several enemies only (mana heavy).", icon = 135926 },
         } },
       } },
-      { level = 35, title = "Holy Paladin", sections = {
+      { level = 40, title = "Holy Paladin, dealing damage", sections = {
+        { title = "Keep up", note = "", items = {
+          { name = "Seal of Command", tag = "Keep up", text = "Your damage Seal: extra Holy hits worth 70% of your weapon damage (slow weapons proc as often but hit harder). Its Judgement does full damage only on a stunned target: judge right after Hammer of Justice.", icon = 132347 },
+          { name = "Blessing of Might", tag = "On yourself", text = "Melee attack power (or Kings if another Paladin gives Might).", icon = 135906 },
+          { name = "Retribution Aura", tag = "Aura", text = "If no other Paladin runs an aura, otherwise Devotion.", icon = 135873 },
+        } },
+        { title = "Attack priority", note = "Press the first one that's ready.", items = {
+          { name = "Judgement", tag = "On cooldown", text = "Judge your Seal, then keep the Seal up.", icon = 135959 },
+          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003 },
+          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903 },
+          { name = "Consecration", tag = "Packs", text = "Several enemies only (mana heavy).", icon = 135926 },
+        } },
+      } },
+      { level = 45, title = "Holy Paladin", sections = {
         { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
           { name = "Holy Light", tag = "Main heal", text = "", icon = 135920 },
           { name = "Flash of Light", tag = "Heal", text = "", icon = 135907 },
@@ -1569,7 +1553,7 @@ KP.Priority = {
           { name = "Blessing of Wisdom", tag = "Mana", text = "Places a Blessing on the friendly target, restoring 40 mana every 5 seconds for 1 hr.", icon = 135970 },
         } },
       } },
-      { level = 40, title = "Holy Paladin", sections = {
+      { level = 60, title = "Holy Paladin", sections = {
         { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
           { name = "Holy Light", tag = "Main heal", text = "", icon = 135920 },
           { name = "Flash of Light", tag = "Heal", text = "", icon = 135907 },
@@ -1635,14 +1619,11 @@ KP.Priority = {
     },
     ["disc"] = {
       { level = 60, title = "Discipline Priest", sections = {
-        { title = "Keep up and use on cooldown", note = "From the healing estimate: worth their time and mana for you.", items = {
-          { name = "Renew", tag = "Keep up", text = "", icon = 135953 },
-        } },
         { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
           { name = "Lesser Heal", tag = "Heal", text = "", icon = 135929 },
-          { name = "Renew", tag = "Heal", text = "", icon = 135953 },
           { name = "Heal", tag = "Heal", text = "", icon = 135915 },
           { name = "Greater Heal", tag = "Main heal", text = "", icon = 135913 },
+          { name = "Renew", tag = "Heal", text = "", icon = 135953 },
           { name = "Flash Heal", tag = "Heal", text = "", icon = 135907 },
           { name = "Power Word: Shield", tag = "Heal", text = "", icon = 135940 },
         } },
@@ -1657,6 +1638,7 @@ KP.Priority = {
         } },
         { title = "Group healing", note = "Not in the one-target estimate: use these when several people are hurt.", items = {
           { name = "Prayer of Healing", tag = "Group", text = "A powerful prayer that heals the target and their party for 631 to 667.", icon = 135943 },
+          { name = "Holy Nova", tag = "Group", text = "Causes an explosion of holy light around the caster, causing 174 to 200 Holy damage to all enemy targets within 10 yards and healing all party members within 10 yards for 288 to 334.", icon = 135922 },
         } },
       } },
     },
@@ -1820,7 +1802,7 @@ KP.Priority = {
       } },
     },
     ["holy-lvl"] = {
-      { level = 10, title = "Holy Priest, dealing damage", sections = {
+      { level = 10, title = "Discipline Priest, dealing damage", sections = {
         { title = "Buffs and protection", note = "", items = {
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
@@ -1863,49 +1845,30 @@ KP.Priority = {
           { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
         } },
       } },
-      { level = 30, title = "Holy Priest", sections = {
-        { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
-          { name = "Lesser Heal", tag = "Main heal", text = "", icon = 135929 },
-          { name = "Heal", tag = "Heal", text = "", icon = 135915 },
-          { name = "Renew", tag = "Heal", text = "", icon = 135953 },
-          { name = "Flash Heal", tag = "Heal", text = "", icon = 135907 },
-          { name = "Power Word: Shield", tag = "Cooldown", text = "", icon = 135940 },
+      { level = 35, title = "Holy Priest, dealing damage", sections = {
+        { title = "Buffs and protection", note = "", items = {
+          { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
+          { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
-        { title = "When someone is about to die", note = "", items = {
-          { name = "Power Word: Shield", tag = "Emergency", text = "Draws on the soul of the party member to shield them, absorbing 928 damage.", icon = 135940 },
-          { name = "Desperate Prayer", tag = "Emergency", text = "Instantly heals the caster for 1284 to 1515.", icon = 135954 },
+        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
+          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
+          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
+          { name = "Devouring Plague", tag = "Keep up", text = "", icon = 252997 },
         } },
-        { title = "Group healing", note = "Not in the one-target estimate: use these when several people are hurt.", items = {
-          { name = "Prayer of Healing", tag = "Group", text = "A powerful prayer that heals the target and their party for 631 to 667.", icon = 135943 },
-          { name = "Holy Nova", tag = "Group", text = "Causes an explosion of holy light around the caster, causing 174 to 200 Holy damage to all enemy targets within 10 yards and healing all party members within 10 yards for 288 to 334.", icon = 135922 },
-        } },
-      } },
-      { level = 40, title = "Holy Priest", sections = {
-        { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
-          { name = "Lesser Heal", tag = "Main heal", text = "", icon = 135929 },
-          { name = "Heal", tag = "Heal", text = "", icon = 135915 },
-          { name = "Greater Heal", tag = "Heal", text = "", icon = 135913 },
-          { name = "Renew", tag = "Heal", text = "", icon = 135953 },
-          { name = "Flash Heal", tag = "Heal", text = "", icon = 135907 },
-          { name = "Power Word: Shield", tag = "Cooldown", text = "", icon = 135940 },
-        } },
-        { title = "When someone is about to die", note = "", items = {
-          { name = "Power Word: Shield", tag = "Emergency", text = "Draws on the soul of the party member to shield them, absorbing 928 damage.", icon = 135940 },
-          { name = "Desperate Prayer", tag = "Emergency", text = "Instantly heals the caster for 1284 to 1515.", icon = 135954 },
-        } },
-        { title = "Group healing", note = "Not in the one-target estimate: use these when several people are hurt.", items = {
-          { name = "Prayer of Healing", tag = "Group", text = "A powerful prayer that heals the target and their party for 631 to 667.", icon = 135943 },
-          { name = "Holy Nova", tag = "Group", text = "Causes an explosion of holy light around the caster, causing 174 to 200 Holy damage to all enemy targets within 10 yards and healing all party members within 10 yards for 288 to 334.", icon = 135922 },
-          { name = "Prayer of Mending", tag = "Group", text = "Places a spell on the target that heals them for (413 + 42.9% of healing power) the next time they take damage or receive non-periodic healing.", icon = 135944 },
+        { title = "Then", note = "Ordered by damage per second of casting.", items = {
+          { name = "Shadow Word: Death", tag = "On cooldown", text = "", icon = 136149 },
+          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
+          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
+          { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
         } },
       } },
-      { level = 45, title = "Holy Priest", sections = {
+      { level = 50, title = "Holy Priest", sections = {
         { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
           { name = "Lesser Heal", tag = "Main heal", text = "", icon = 135929 },
           { name = "Greater Heal", tag = "Heal", text = "", icon = 135913 },
           { name = "Heal", tag = "Heal", text = "", icon = 135915 },
-          { name = "Flash Heal", tag = "Heal", text = "", icon = 135907 },
           { name = "Renew", tag = "Heal", text = "", icon = 135953 },
+          { name = "Flash Heal", tag = "Heal", text = "", icon = 135907 },
           { name = "Power Word: Shield", tag = "Cooldown", text = "", icon = 135940 },
         } },
         { title = "When someone is about to die", note = "", items = {
@@ -1915,10 +1878,27 @@ KP.Priority = {
         { title = "Group healing", note = "Not in the one-target estimate: use these when several people are hurt.", items = {
           { name = "Prayer of Healing", tag = "Group", text = "A powerful prayer that heals the target and their party for 631 to 667.", icon = 135943 },
           { name = "Holy Nova", tag = "Group", text = "Causes an explosion of holy light around the caster, causing 174 to 200 Holy damage to all enemy targets within 10 yards and healing all party members within 10 yards for 288 to 334.", icon = 135922 },
-          { name = "Prayer of Mending", tag = "Group", text = "Places a spell on the target that heals them for (413 + 42.9% of healing power) the next time they take damage or receive non-periodic healing.", icon = 135944 },
         } },
       } },
       { level = 55, title = "Holy Priest", sections = {
+        { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
+          { name = "Lesser Heal", tag = "Heal", text = "", icon = 135929 },
+          { name = "Greater Heal", tag = "Main heal", text = "", icon = 135913 },
+          { name = "Heal", tag = "Heal", text = "", icon = 135915 },
+          { name = "Renew", tag = "Heal", text = "", icon = 135953 },
+          { name = "Flash Heal", tag = "Heal", text = "", icon = 135907 },
+          { name = "Power Word: Shield", tag = "Cooldown", text = "", icon = 135940 },
+        } },
+        { title = "When someone is about to die", note = "", items = {
+          { name = "Power Word: Shield", tag = "Emergency", text = "Draws on the soul of the party member to shield them, absorbing 928 damage.", icon = 135940 },
+          { name = "Desperate Prayer", tag = "Emergency", text = "Instantly heals the caster for 1284 to 1515.", icon = 135954 },
+        } },
+        { title = "Group healing", note = "Not in the one-target estimate: use these when several people are hurt.", items = {
+          { name = "Prayer of Healing", tag = "Group", text = "A powerful prayer that heals the target and their party for 631 to 667.", icon = 135943 },
+          { name = "Holy Nova", tag = "Group", text = "Causes an explosion of holy light around the caster, causing 174 to 200 Holy damage to all enemy targets within 10 yards and healing all party members within 10 yards for 288 to 334.", icon = 135922 },
+        } },
+      } },
+      { level = 60, title = "Holy Priest", sections = {
         { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
           { name = "Lesser Heal", tag = "Heal", text = "", icon = 135929 },
           { name = "Greater Heal", tag = "Main heal", text = "", icon = 135913 },
@@ -1982,68 +1962,74 @@ KP.Priority = {
           { name = "Smite", tag = "Filler", text = "", icon = 135924 },
         } },
       } },
-      { level = 30, title = "Discipline Priest", sections = {
-        { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
-          { name = "Lesser Heal", tag = "Main heal", text = "", icon = 135929 },
-          { name = "Renew", tag = "Heal", text = "", icon = 135953 },
-          { name = "Heal", tag = "Heal", text = "", icon = 135915 },
-          { name = "Flash Heal", tag = "Heal", text = "", icon = 135907 },
-          { name = "Power Word: Shield", tag = "Cooldown", text = "", icon = 135940 },
+      { level = 30, title = "Discipline Priest, dealing damage", sections = {
+        { title = "Buffs and protection", note = "", items = {
+          { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
+          { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
-        { title = "When someone is about to die", note = "", items = {
-          { name = "Power Word: Shield", tag = "Emergency", text = "Draws on the soul of the party member to shield them, absorbing 928 damage.", icon = 135940 },
-          { name = "Penance", tag = "Emergency", text = "Launches a volley of holy light at the target, causing 92 Holy damage to an enemy, or 425 healing to an ally, instantly and every 1 sec for 2 sec.", icon = 237545 },
-          { name = "Desperate Prayer", tag = "Emergency", text = "Instantly heals the caster for 1284 to 1515.", icon = 135954 },
+        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
+          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
+          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
+          { name = "Devouring Plague", tag = "Keep up", text = "", icon = 252997 },
         } },
-        { title = "Mana", note = "", items = {
-          { name = "Inner Focus", tag = "Mana", text = "When activated, reduces the Mana cost of your next spell by 100% and increases its critical effect chance by 25% if it is a non-periodic spell and capable of a critical effect.", icon = 135863 },
-        } },
-        { title = "Group healing", note = "Not in the one-target estimate: use these when several people are hurt.", items = {
-          { name = "Prayer of Healing", tag = "Group", text = "A powerful prayer that heals the target and their party for 631 to 667.", icon = 135943 },
+        { title = "Then", note = "Ordered by damage per second of casting.", items = {
+          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
+          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
+          { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
         } },
       } },
-      { level = 40, title = "Discipline Priest", sections = {
-        { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
-          { name = "Lesser Heal", tag = "Main heal", text = "", icon = 135929 },
-          { name = "Heal", tag = "Heal", text = "", icon = 135915 },
-          { name = "Greater Heal", tag = "Heal", text = "", icon = 135913 },
-          { name = "Renew", tag = "Heal", text = "", icon = 135953 },
-          { name = "Flash Heal", tag = "Heal", text = "", icon = 135907 },
-          { name = "Power Word: Shield", tag = "Heal", text = "", icon = 135940 },
+      { level = 35, title = "Discipline Priest, dealing damage", sections = {
+        { title = "Buffs and protection", note = "", items = {
+          { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
+          { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
-        { title = "When someone is about to die", note = "", items = {
-          { name = "Power Word: Shield", tag = "Emergency", text = "Draws on the soul of the party member to shield them, absorbing 928 damage.", icon = 135940 },
-          { name = "Penance", tag = "Emergency", text = "Launches a volley of holy light at the target, causing 92 Holy damage to an enemy, or 425 healing to an ally, instantly and every 1 sec for 2 sec.", icon = 237545 },
-          { name = "Desperate Prayer", tag = "Emergency", text = "Instantly heals the caster for 1284 to 1515.", icon = 135954 },
-          { name = "Power Infusion", tag = "Emergency", text = "Infuses the target with power, increasing their spell damage and healing done by 20% for 15 sec.", icon = 135939 },
+        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
+          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
+          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
+          { name = "Devouring Plague", tag = "Keep up", text = "", icon = 252997 },
+          { name = "Mind Flay", tag = "Keep up", text = "", icon = 136208 },
         } },
-        { title = "Mana", note = "", items = {
-          { name = "Inner Focus", tag = "Mana", text = "When activated, reduces the Mana cost of your next spell by 100% and increases its critical effect chance by 25% if it is a non-periodic spell and capable of a critical effect.", icon = 135863 },
-        } },
-        { title = "Group healing", note = "Not in the one-target estimate: use these when several people are hurt.", items = {
-          { name = "Prayer of Healing", tag = "Group", text = "A powerful prayer that heals the target and their party for 631 to 667.", icon = 135943 },
+        { title = "Then", note = "Ordered by damage per second of casting.", items = {
+          { name = "Shadow Word: Death", tag = "On cooldown", text = "", icon = 136149 },
+          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
+          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
+          { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
         } },
       } },
-      { level = 45, title = "Discipline Priest", sections = {
-        { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
-          { name = "Lesser Heal", tag = "Main heal", text = "", icon = 135929 },
-          { name = "Greater Heal", tag = "Heal", text = "", icon = 135913 },
-          { name = "Heal", tag = "Heal", text = "", icon = 135915 },
-          { name = "Renew", tag = "Heal", text = "", icon = 135953 },
-          { name = "Flash Heal", tag = "Heal", text = "", icon = 135907 },
-          { name = "Power Word: Shield", tag = "Heal", text = "", icon = 135940 },
+      { level = 40, title = "Shadow Priest", sections = {
+        { title = "Buffs and protection", note = "", items = {
+          { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
+          { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
-        { title = "When someone is about to die", note = "", items = {
-          { name = "Power Word: Shield", tag = "Emergency", text = "Draws on the soul of the party member to shield them, absorbing 928 damage.", icon = 135940 },
-          { name = "Penance", tag = "Emergency", text = "Launches a volley of holy light at the target, causing 92 Holy damage to an enemy, or 425 healing to an ally, instantly and every 1 sec for 2 sec.", icon = 237545 },
-          { name = "Desperate Prayer", tag = "Emergency", text = "Instantly heals the caster for 1284 to 1515.", icon = 135954 },
-          { name = "Power Infusion", tag = "Emergency", text = "Infuses the target with power, increasing their spell damage and healing done by 20% for 15 sec.", icon = 135939 },
+        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
+          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
+          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
+          { name = "Devouring Plague", tag = "Keep up", text = "", icon = 252997 },
+          { name = "Mind Flay", tag = "Keep up", text = "", icon = 136208 },
         } },
-        { title = "Mana", note = "", items = {
-          { name = "Inner Focus", tag = "Mana", text = "When activated, reduces the Mana cost of your next spell by 100% and increases its critical effect chance by 25% if it is a non-periodic spell and capable of a critical effect.", icon = 135863 },
+        { title = "Then", note = "Ordered by damage per second of casting.", items = {
+          { name = "Shadow Word: Death", tag = "On cooldown", text = "", icon = 136149 },
+          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
+          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
+          { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
         } },
-        { title = "Group healing", note = "Not in the one-target estimate: use these when several people are hurt.", items = {
-          { name = "Prayer of Healing", tag = "Group", text = "A powerful prayer that heals the target and their party for 631 to 667.", icon = 135943 },
+      } },
+      { level = 45, title = "Discipline Priest, dealing damage", sections = {
+        { title = "Buffs and protection", note = "", items = {
+          { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
+          { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
+        } },
+        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
+          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
+          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
+          { name = "Devouring Plague", tag = "Keep up", text = "", icon = 252997 },
+          { name = "Mind Flay", tag = "Keep up", text = "", icon = 136208 },
+        } },
+        { title = "Then", note = "Ordered by damage per second of casting.", items = {
+          { name = "Shadow Word: Death", tag = "On cooldown", text = "", icon = 136149 },
+          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
+          { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
+          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
         } },
       } },
       { level = 50, title = "Discipline Priest", sections = {
@@ -2052,14 +2038,13 @@ KP.Priority = {
           { name = "Greater Heal", tag = "Heal", text = "", icon = 135913 },
           { name = "Heal", tag = "Heal", text = "", icon = 135915 },
           { name = "Renew", tag = "Heal", text = "", icon = 135953 },
-          { name = "Power Word: Shield", tag = "Heal", text = "", icon = 135940 },
           { name = "Flash Heal", tag = "Heal", text = "", icon = 135907 },
+          { name = "Power Word: Shield", tag = "Cooldown", text = "", icon = 135940 },
         } },
         { title = "When someone is about to die", note = "", items = {
           { name = "Power Word: Shield", tag = "Emergency", text = "Draws on the soul of the party member to shield them, absorbing 928 damage.", icon = 135940 },
           { name = "Penance", tag = "Emergency", text = "Launches a volley of holy light at the target, causing 92 Holy damage to an enemy, or 425 healing to an ally, instantly and every 1 sec for 2 sec.", icon = 237545 },
           { name = "Desperate Prayer", tag = "Emergency", text = "Instantly heals the caster for 1284 to 1515.", icon = 135954 },
-          { name = "Power Infusion", tag = "Emergency", text = "Infuses the target with power, increasing their spell damage and healing done by 20% for 15 sec.", icon = 135939 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Inner Focus", tag = "Mana", text = "When activated, reduces the Mana cost of your next spell by 100% and increases its critical effect chance by 25% if it is a non-periodic spell and capable of a critical effect.", icon = 135863 },
@@ -2081,7 +2066,6 @@ KP.Priority = {
           { name = "Power Word: Shield", tag = "Emergency", text = "Draws on the soul of the party member to shield them, absorbing 928 damage.", icon = 135940 },
           { name = "Penance", tag = "Emergency", text = "Launches a volley of holy light at the target, causing 92 Holy damage to an enemy, or 425 healing to an ally, instantly and every 1 sec for 2 sec.", icon = 237545 },
           { name = "Desperate Prayer", tag = "Emergency", text = "Instantly heals the caster for 1284 to 1515.", icon = 135954 },
-          { name = "Power Infusion", tag = "Emergency", text = "Infuses the target with power, increasing their spell damage and healing done by 20% for 15 sec.", icon = 135939 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Inner Focus", tag = "Mana", text = "When activated, reduces the Mana cost of your next spell by 100% and increases its critical effect chance by 25% if it is a non-periodic spell and capable of a critical effect.", icon = 135863 },
@@ -2155,8 +2139,8 @@ KP.Priority = {
         } },
         { title = "Combo point builders", note = "Use the best one you can (order = damage per energy with your gear).", items = {
           { name = "Shank", tag = "On cooldown", text = "An off-hand stab that gives back more energy than it costs and a combo point; Venom then boosts your poisons for 6 sec.", icon = 132323 },
-          { name = "Backstab", tag = "Your main builder", text = "From behind, with a dagger.", icon = 132090 },
-          { name = "Mutilate", tag = "Builder", text = "Needs daggers in both hands; 2 combo points.", icon = 236270 },
+          { name = "Mutilate", tag = "Your main builder", text = "Needs daggers in both hands; 2 combo points.", icon = 236270 },
+          { name = "Backstab", tag = "Builder", text = "From behind, with a dagger.", icon = 132090 },
           { name = "Sinister Strike", tag = "Builder", text = "Works with any weapon, from any side.", icon = 136189 },
         } },
         { title = "Finisher", note = "At 5 combo points.", items = {
@@ -2180,7 +2164,7 @@ KP.Priority = {
           { name = "Garrote", tag = "Opener", text = "A bleed from behind (Dirty Deeds: from any side, cheaper).", icon = 132297 },
         } },
         { title = "Keep up", note = "", items = {
-          { name = "Slice and Dice", tag = "Keep up", text = "Refresh it at 1 combo point: the best length for your current numbers.", icon = 132306 },
+          { name = "Slice and Dice", tag = "Not worth it yet", text = "With your gear your white hits are too small for it to pay off: put the points into Eviscerate instead. It wins once you have more attack power or buffs.", icon = 132306 },
           { name = "Rupture", tag = "Keep up", text = "Your talents favour it: keep the bleed going.", icon = 132302 },
         } },
         { title = "Combo point builders", note = "Use the best one you can (order = damage per energy with your gear).", items = {
@@ -2351,6 +2335,31 @@ KP.Priority = {
         } },
         { title = "Keep up", note = "", items = {
           { name = "Slice and Dice", tag = "Not worth it yet", text = "With your gear your white hits are too small for it to pay off: put the points into Eviscerate instead. It wins once you have more attack power or buffs.", icon = 132306 },
+          { name = "Expose Armor", tag = "If no Warrior sunders", text = "5 points on the boss when no Warrior keeps Sunder Armor up.", icon = 132354 },
+        } },
+        { title = "Combo point builders", note = "Use the best one you can (order = damage per energy with your gear).", items = {
+          { name = "Shank", tag = "On cooldown", text = "An off-hand stab that gives back more energy than it costs and a combo point.", icon = 132323 },
+          { name = "Sinister Strike", tag = "Your main builder", text = "Works with any weapon, from any side.", icon = 136189 },
+        } },
+        { title = "Finisher", note = "At 5 combo points.", items = {
+          { name = "Eviscerate", tag = "At 5 points", text = "Your damage finisher.", icon = 132292 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Adrenaline Rush", tag = "Cooldown", text = "Double energy for 15 sec: line it up with Slice and Dice up.", icon = 136206 },
+          { name = "Blade Flurry", tag = "Cooldown", text = "+20% attack speed and a second target for 15 sec.", icon = 132350 },
+          { name = "Vanish", tag = "Situational", text = "Drops threat.", icon = 132331 },
+        } },
+        { title = "Threat", note = "", items = {
+          { name = "Feint", tag = "When threat is high", text = "Lowers your threat without breaking your rotation.", icon = 132294 },
+        } },
+      } },
+      { level = 55, title = "Combat Rogue", sections = {
+        { title = "Opener", note = "From Stealth.", items = {
+          { name = "Cheap Shot", tag = "Opener", text = "A stun and 2 combo points (good when you can't get behind).", icon = 132092 },
+          { name = "Garrote", tag = "Opener", text = "A bleed from behind.", icon = 132297 },
+        } },
+        { title = "Keep up", note = "", items = {
+          { name = "Slice and Dice", tag = "Keep up", text = "Refresh it at 1 combo point: the best length for your current numbers.", icon = 132306 },
           { name = "Expose Armor", tag = "If no Warrior sunders", text = "5 points on the boss when no Warrior keeps Sunder Armor up.", icon = 132354 },
         } },
         { title = "Combo point builders", note = "Use the best one you can (order = damage per energy with your gear).", items = {
@@ -2570,7 +2579,7 @@ KP.Priority = {
       } },
       { level = 15, title = "Subtlety Rogue", sections = {
         { title = "Opener", note = "From Stealth.", items = {
-          { name = "Garrote", tag = "Opener", text = "A bleed from behind.", icon = 132297 },
+          { name = "Garrote", tag = "Opener", text = "A bleed from behind (Dirty Deeds: from any side, cheaper).", icon = 132297 },
         } },
         { title = "Keep up", note = "", items = {
           { name = "Slice and Dice", tag = "Keep up", text = "Refresh it at 5 combo points: the best length for your current numbers.", icon = 132306 },
@@ -2587,7 +2596,7 @@ KP.Priority = {
       { level = 20, title = "Subtlety Rogue", sections = {
         { title = "Opener", note = "From Stealth.", items = {
           { name = "Ambush", tag = "Opener", text = "From behind, with a dagger.", icon = 132282 },
-          { name = "Garrote", tag = "Opener", text = "A bleed from behind.", icon = 132297 },
+          { name = "Garrote", tag = "Opener", text = "A bleed from behind (Dirty Deeds: from any side, cheaper).", icon = 132297 },
         } },
         { title = "Keep up", note = "", items = {
           { name = "Slice and Dice", tag = "Keep up", text = "Refresh it at 5 combo points: the best length for your current numbers.", icon = 132306 },
@@ -2975,24 +2984,6 @@ KP.Priority = {
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
           { name = "Stormstrike", tag = "On cooldown", text = "Weapon damage, and your next Earth Shock, Lightning Bolt or Chain Lightning hits 20% harder.", icon = 132314 },
-          { name = "Flame Shock", tag = "Keep up", text = "Fire damage plus a burn over 18 sec. Cast it again only when the burn has run out: a new Flame Shock replaces the burn still going.", icon = 135813 },
-          { name = "Earth Shock", tag = "On cooldown", text = "Right after Stormstrike for the +20%. Also your interrupt.", icon = 136026 },
-          { name = "Frost Shock", tag = "Situational", text = "Slows the target.", icon = 135849 },
-          { name = "Lightning Bolt", tag = "With Maelstrom", text = "When Maelstrom Weapon has made it fast and cheap (5 stacks: instant).", icon = 136048 },
-        } },
-        { title = "Cooldowns", note = "", items = {
-          { name = "Rage of the Farseer", tag = "Cooldown", text = "On cooldown: +30% attack speed for 25 sec, every 3 min.", icon = 136012 },
-        } },
-      } },
-      { level = 60, title = "Enhancement Shaman", sections = {
-        { title = "Keep up", note = "", items = {
-          { name = "Windfury Weapon", tag = "Keep up", text = "Your main-hand imbue: chances of extra attacks on every hit.", icon = 136018 },
-          { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
-          { name = "Grace of Air Totem", tag = "Totem", text = "Agility for your melee group.", icon = 136046 },
-          { name = "Windfury Totem", tag = "Totem", text = "For the rest of your melee group (your own Windfury Weapon replaces it for you).", icon = 136114 },
-        } },
-        { title = "Attack priority", note = "Press the first one that's ready.", items = {
-          { name = "Stormstrike", tag = "On cooldown", text = "Weapon damage, and your next Earth Shock, Lightning Bolt or Chain Lightning hits 20% harder.", icon = 132314 },
           { name = "Flame Shock", tag = "Keep up", text = "Fire damage plus a burn over 21 sec. Cast it again only when the burn has run out: a new Flame Shock replaces the burn still going.", icon = 135813 },
           { name = "Earth Shock", tag = "On cooldown", text = "Right after Stormstrike for the +20%. Also your interrupt.", icon = 136026 },
           { name = "Frost Shock", tag = "Situational", text = "Slows the target.", icon = 135849 },
@@ -3035,7 +3026,7 @@ KP.Priority = {
       } },
     },
     ["resto-lvl"] = {
-      { level = 10, title = "Restoration Shaman, dealing damage", sections = {
+      { level = 10, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
         } },
@@ -3045,7 +3036,7 @@ KP.Priority = {
           { name = "Lightning Bolt", tag = "With Maelstrom", text = "When Maelstrom Weapon has made it fast and cheap (5 stacks: instant).", icon = 136048 },
         } },
       } },
-      { level = 20, title = "Restoration Shaman, dealing damage", sections = {
+      { level = 20, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
         } },
@@ -3056,7 +3047,7 @@ KP.Priority = {
           { name = "Lightning Bolt", tag = "With Maelstrom", text = "When Maelstrom Weapon has made it fast and cheap (5 stacks: instant).", icon = 136048 },
         } },
       } },
-      { level = 25, title = "Restoration Shaman, dealing damage", sections = {
+      { level = 25, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
         } },
@@ -3067,49 +3058,66 @@ KP.Priority = {
           { name = "Lightning Bolt", tag = "With Maelstrom", text = "When Maelstrom Weapon has made it fast and cheap (5 stacks: instant).", icon = 136048 },
         } },
       } },
-      { level = 30, title = "Restoration Shaman", sections = {
+      { level = 30, title = "Enhancement Shaman", sections = {
+        { title = "Keep up", note = "", items = {
+          { name = "Windfury Weapon", tag = "Keep up", text = "Your main-hand imbue: chances of extra attacks on every hit.", icon = 136018 },
+          { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
+        } },
+        { title = "Attack priority", note = "Press the first one that's ready.", items = {
+          { name = "Flame Shock", tag = "Keep up", text = "Fire damage plus a burn over 12 sec. Cast it again only when the burn has run out: a new Flame Shock replaces the burn still going.", icon = 135813 },
+          { name = "Earth Shock", tag = "On cooldown", text = "Right after Stormstrike for the +20%. Also your interrupt.", icon = 136026 },
+          { name = "Frost Shock", tag = "Situational", text = "Slows the target.", icon = 135849 },
+          { name = "Lightning Bolt", tag = "With Maelstrom", text = "When Maelstrom Weapon has made it fast and cheap (5 stacks: instant).", icon = 136048 },
+        } },
+      } },
+      { level = 35, title = "Enhancement Shaman", sections = {
+        { title = "Keep up", note = "", items = {
+          { name = "Windfury Weapon", tag = "Keep up", text = "Your main-hand imbue: chances of extra attacks on every hit.", icon = 136018 },
+          { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
+          { name = "Windfury Totem", tag = "Totem", text = "For the rest of your melee group (your own Windfury Weapon replaces it for you).", icon = 136114 },
+        } },
+        { title = "Attack priority", note = "Press the first one that's ready.", items = {
+          { name = "Flame Shock", tag = "Keep up", text = "Fire damage plus a burn over 12 sec. Cast it again only when the burn has run out: a new Flame Shock replaces the burn still going.", icon = 135813 },
+          { name = "Frost Shock", tag = "On cooldown", text = "Slows the target.", icon = 135849 },
+          { name = "Earth Shock", tag = "Situational", text = "Right after Stormstrike for the +20%. Also your interrupt.", icon = 136026 },
+          { name = "Lightning Bolt", tag = "With Maelstrom", text = "When Maelstrom Weapon has made it fast and cheap (5 stacks: instant).", icon = 136048 },
+        } },
+      } },
+      { level = 40, title = "Enhancement Shaman", sections = {
+        { title = "Keep up", note = "", items = {
+          { name = "Windfury Weapon", tag = "Keep up", text = "Your main-hand imbue: chances of extra attacks on every hit.", icon = 136018 },
+          { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
+          { name = "Windfury Totem", tag = "Totem", text = "For the rest of your melee group (your own Windfury Weapon replaces it for you).", icon = 136114 },
+        } },
+        { title = "Attack priority", note = "Press the first one that's ready.", items = {
+          { name = "Stormstrike", tag = "On cooldown", text = "Weapon damage, and your next Earth Shock, Lightning Bolt or Chain Lightning hits 20% harder.", icon = 132314 },
+          { name = "Flame Shock", tag = "Keep up", text = "Fire damage plus a burn over 12 sec. Cast it again only when the burn has run out: a new Flame Shock replaces the burn still going.", icon = 135813 },
+          { name = "Earth Shock", tag = "On cooldown", text = "Right after Stormstrike for the +20%. Also your interrupt.", icon = 136026 },
+          { name = "Frost Shock", tag = "Situational", text = "Slows the target.", icon = 135849 },
+          { name = "Lightning Bolt", tag = "With Maelstrom", text = "When Maelstrom Weapon has made it fast and cheap (5 stacks: instant).", icon = 136048 },
+        } },
+      } },
+      { level = 45, title = "Enhancement Shaman", sections = {
+        { title = "Keep up", note = "", items = {
+          { name = "Windfury Weapon", tag = "Keep up", text = "Your main-hand imbue: chances of extra attacks on every hit.", icon = 136018 },
+          { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
+          { name = "Grace of Air Totem", tag = "Totem", text = "Agility for your melee group.", icon = 136046 },
+          { name = "Windfury Totem", tag = "Totem", text = "For the rest of your melee group (your own Windfury Weapon replaces it for you).", icon = 136114 },
+        } },
+        { title = "Attack priority", note = "Press the first one that's ready.", items = {
+          { name = "Stormstrike", tag = "On cooldown", text = "Weapon damage, and your next Earth Shock, Lightning Bolt or Chain Lightning hits 20% harder.", icon = 132314 },
+          { name = "Flame Shock", tag = "Keep up", text = "Fire damage plus a burn over 12 sec. Cast it again only when the burn has run out: a new Flame Shock replaces the burn still going.", icon = 135813 },
+          { name = "Earth Shock", tag = "On cooldown", text = "Right after Stormstrike for the +20%. Also your interrupt.", icon = 136026 },
+          { name = "Frost Shock", tag = "Situational", text = "Slows the target.", icon = 135849 },
+          { name = "Lightning Bolt", tag = "With Maelstrom", text = "When Maelstrom Weapon has made it fast and cheap (5 stacks: instant).", icon = 136048 },
+        } },
+      } },
+      { level = 50, title = "Restoration Shaman", sections = {
         { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
           { name = "Healing Wave", tag = "Main heal", text = "", icon = 136052 },
           { name = "Lesser Healing Wave", tag = "Heal", text = "", icon = 136043 },
         } },
         { title = "Mana", note = "", items = {
-          { name = "Mana Spring Totem", tag = "Mana", text = "Summons a Mana Spring Totem with 5 health at the feet of the caster for 5 min that restores 10 mana every 2 seconds to group members within 30 yards.", icon = 136053 },
-        } },
-        { title = "Group healing", note = "Not in the one-target estimate: use these when several people are hurt.", items = {
-          { name = "Healing Stream Totem", tag = "Group", text = "Summons a Healing Stream Totem with 5 health at the feet of the caster for 5 min that heals group members within 30 yards for 11 every 2 seconds.", icon = 135127 },
-        } },
-      } },
-      { level = 35, title = "Restoration Shaman", sections = {
-        { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
-          { name = "Healing Wave", tag = "Main heal", text = "", icon = 136052 },
-          { name = "Lesser Healing Wave", tag = "Heal", text = "", icon = 136043 },
-        } },
-        { title = "When someone is about to die", note = "", items = {
-          { name = "Nature's Swiftness", tag = "Emergency", text = "When activated, your next Nature spell with a casting time less than 10 sec.", icon = 136076 },
-        } },
-        { title = "Mana", note = "", items = {
-          { name = "Mana Tide Totem", tag = "Mana", text = "Summons a Mana Tide Totem with 5 health at the feet of the caster for 12 sec that restores 290 mana every 3 seconds to group members within 30 yards.", icon = 135861 },
-          { name = "Mana Spring Totem", tag = "Mana", text = "Summons a Mana Spring Totem with 5 health at the feet of the caster for 5 min that restores 10 mana every 2 seconds to group members within 30 yards.", icon = 136053 },
-        } },
-        { title = "Group healing", note = "Not in the one-target estimate: use these when several people are hurt.", items = {
-          { name = "Healing Stream Totem", tag = "Group", text = "Summons a Healing Stream Totem with 5 health at the feet of the caster for 5 min that heals group members within 30 yards for 11 every 2 seconds.", icon = 135127 },
-        } },
-      } },
-      { level = 40, title = "Restoration Shaman", sections = {
-        { title = "Keep up and use on cooldown", note = "From the healing estimate: worth their time and mana for you.", items = {
-          { name = "Riptide", tag = "Keep up", text = "", icon = 252995 },
-        } },
-        { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
-          { name = "Riptide", tag = "Cooldown", text = "", icon = 252995 },
-          { name = "Healing Wave", tag = "Heal", text = "", icon = 136052 },
-          { name = "Lesser Healing Wave", tag = "Heal", text = "", icon = 136043 },
-        } },
-        { title = "When someone is about to die", note = "", items = {
-          { name = "Nature's Swiftness", tag = "Emergency", text = "When activated, your next Nature spell with a casting time less than 10 sec.", icon = 136076 },
-          { name = "Riptide", tag = "Emergency", text = "Heals a friendly target for 805 over 15 sec, and increases the effectiveness of your Chain Heal casts directly on that target by 25%.", icon = 252995 },
-        } },
-        { title = "Mana", note = "", items = {
-          { name = "Mana Tide Totem", tag = "Mana", text = "Summons a Mana Tide Totem with 5 health at the feet of the caster for 12 sec that restores 290 mana every 3 seconds to group members within 30 yards.", icon = 135861 },
           { name = "Mana Spring Totem", tag = "Mana", text = "Summons a Mana Spring Totem with 5 health at the feet of the caster for 5 min that restores 10 mana every 2 seconds to group members within 30 yards.", icon = 136053 },
         } },
         { title = "Group healing", note = "Not in the one-target estimate: use these when several people are hurt.", items = {
@@ -3117,18 +3125,13 @@ KP.Priority = {
           { name = "Healing Stream Totem", tag = "Group", text = "Summons a Healing Stream Totem with 5 health at the feet of the caster for 5 min that heals group members within 30 yards for 11 every 2 seconds.", icon = 135127 },
         } },
       } },
-      { level = 45, title = "Restoration Shaman", sections = {
-        { title = "Keep up and use on cooldown", note = "From the healing estimate: worth their time and mana for you.", items = {
-          { name = "Riptide", tag = "Keep up", text = "", icon = 252995 },
-        } },
+      { level = 55, title = "Restoration Shaman", sections = {
         { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
-          { name = "Riptide", tag = "Cooldown", text = "", icon = 252995 },
           { name = "Healing Wave", tag = "Main heal", text = "", icon = 136052 },
           { name = "Lesser Healing Wave", tag = "Heal", text = "", icon = 136043 },
         } },
         { title = "When someone is about to die", note = "", items = {
           { name = "Nature's Swiftness", tag = "Emergency", text = "When activated, your next Nature spell with a casting time less than 10 sec.", icon = 136076 },
-          { name = "Riptide", tag = "Emergency", text = "Heals a friendly target for 805 over 15 sec, and increases the effectiveness of your Chain Heal casts directly on that target by 25%.", icon = 252995 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Mana Tide Totem", tag = "Mana", text = "Summons a Mana Tide Totem with 5 health at the feet of the caster for 12 sec that restores 290 mana every 3 seconds to group members within 30 yards.", icon = 135861 },
@@ -3177,6 +3180,7 @@ KP.Priority = {
           { name = "Bane of Doom", tag = "Keep up", text = "", icon = 136122 },
         } },
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
+          { name = "Conflagrate", tag = "On cooldown", text = "", icon = 135807 },
           { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
           { name = "Soul Fire", tag = "On cooldown", text = "", icon = 135808 },
           { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
@@ -3196,8 +3200,8 @@ KP.Priority = {
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Conflagrate", tag = "On cooldown", text = "", icon = 135807 },
           { name = "Shadowburn", tag = "On cooldown", text = "", icon = 136191 },
-          { name = "Incinerate", tag = "Filler", text = "", icon = 135789 },
           { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
+          { name = "Incinerate", tag = "Filler", text = "", icon = 135789 },
           { name = "Soul Fire", tag = "On cooldown", text = "", icon = 135808 },
           { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
         } },
@@ -3214,9 +3218,10 @@ KP.Priority = {
           { name = "Bane of Doom", tag = "Keep up", text = "", icon = 136122 },
         } },
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
+          { name = "Conflagrate", tag = "On cooldown", text = "", icon = 135807 },
           { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
-          { name = "Soul Fire", tag = "On cooldown", text = "", icon = 135808 },
           { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
+          { name = "Soul Fire", tag = "On cooldown", text = "", icon = 135808 },
         } },
       } },
     },
@@ -3358,20 +3363,6 @@ KP.Priority = {
         } },
       } },
       { level = 50, title = "Warlock: basic list", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
-          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
-          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
-          { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
-        } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
-          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
-          { name = "Soul Fire", tag = "On cooldown", text = "", icon = 135808 },
-        } },
-      } },
-      { level = 55, title = "Warlock: basic list", sections = {
         { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
           { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
           { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
@@ -3528,8 +3519,8 @@ KP.Priority = {
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Conflagrate", tag = "On cooldown", text = "", icon = 135807 },
           { name = "Shadowburn", tag = "On cooldown", text = "", icon = 136191 },
-          { name = "Incinerate", tag = "Filler", text = "", icon = 135789 },
           { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
+          { name = "Incinerate", tag = "Filler", text = "", icon = 135789 },
           { name = "Soul Fire", tag = "On cooldown", text = "", icon = 135808 },
           { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
         } },
@@ -3656,6 +3647,7 @@ KP.Priority = {
         { title = "Keep up", note = "Buffs and debuffs first: they make everything else hit harder.", items = {
           { name = "Battle Shout", tag = "Keep up", text = "Refresh before it runs out (lasts 3 min).", icon = 132333 },
           { name = "Sunder Armor", tag = "If no tank does it", text = "Stack it to 5 on the boss, then let it be (a tank usually keeps it up).", icon = 132363 },
+          { name = "Rend", tag = "Keep up", text = "Keep it on the target.", icon = 132155 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready. Within this group the order is damage per rage with your current talents and gear.", items = {
           { name = "Overpower", tag = "When it lights up", text = "Only after the target dodges. Cheap and can't be dodged.", icon = 132223 },

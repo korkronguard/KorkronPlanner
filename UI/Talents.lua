@@ -6,8 +6,10 @@ local _, KP = ...
 local Pane = {}
 KP.TalentsPane = Pane
 
-local CELL, ICON = 29, 23 -- grid step and icon size; a coloured square 2 px wider on each side frames the icon
-local HEADER = 22         -- the tree names above the grid
+-- grid step and icon size (a coloured square 2 px wider on each side frames the icon): a tree's four columns fill its
+-- third of the 520 px pane
+local CELL, ICON = 40, 34
+local HEADER = 24 -- the tree names above the grid
 local COLORS = {
   next = { 1, 1, 1 }, done = { 0.2, 0.8, 0.2 }, todo = { 0.95, 0.75, 0.1 }, extra = { 0.9, 0.2, 0.2 }, none = { 0.15, 0.15, 0.15 },
 }
@@ -42,7 +44,7 @@ function Pane.Create(parent, width, height)
   pane.treeWidth = math.floor(width / 3)
   pane.headers = {}
   for tree = 1, 3 do
-    local h = pane:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    local h = pane:CreateFontString(nil, "OVERLAY", "GameFontNormal")
     h:SetWidth(pane.treeWidth - 4)
     h:SetJustifyH("LEFT")
     h:SetPoint("TOPLEFT", (tree - 1) * pane.treeWidth, 0)
