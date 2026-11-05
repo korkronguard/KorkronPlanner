@@ -1,0 +1,16 @@
+## Interface: 16001
+## Title: |cffc41f3bKor'kron|r Planner
+## Notes: Kor'kron talent planner: shares your character's stats with the guild planner so its numbers match the game (/kp share off to stop), and exports them as a code. Type /kp.
+## Author: Grimscar
+## Version: 0.2.0
+## SavedVariables: KorkronPlannerDB
+## SavedVariablesPerCharacter: KorkronPlannerCharDB
+## IconTexture: Interface\Icons\INV_Misc_Book_11
+
+Core\Init.lua
+Core\Comm.lua
+Core\Probe.lua
+Core\Export.lua
+Core\Snapshot.lua
+Core\Share.lua
+Core\Main.lua
