@@ -4,9 +4,11 @@
 -- inside an instance (the game can hide values there, and group buffs would skew them). A snapshot that matches the
 -- one already kept for that level is not kept again.
 --
--- Text format, version 1, fields separated by ";":
---   1;guid;stamp;CLASS;RACE;level;str;agi;sta;int;spi;maxHealth;maxMana;crit;rangedCrit;spellCrit;hit;spellHit;
---   dodge;parry;block;attackPower;rangedAttackPower;spellDamage;healing;armor;manaRegen;ratings;items;talents
+-- Text format, version 2, fields separated by ";":
+--   2;guid;stamp;CLASS;RACE;level;str;agi;sta;int;spi;maxHealth;maxMana;crit;rangedCrit;spellCrit;hit;spellHit;
+--   dodge;parry;block;attackPower;rangedAttackPower;spellDamage;healing;armor;manaRegen;ratings;items;talents;raceID
+-- Version 2 added raceID (UnitRace's 3rd value, the game's race ID: both Skyborne races give the RACE "Skyborne").
+-- A snapshot kept before then and sent later has no raceID.
 -- The first six fields keep their place in every version (the collector reads them). stamp = server time in
 -- seconds. A field for a game function lists every number it returns, comma-separated: UnitStat base,effective,
 -- plus,minus; UnitAttackPower base,plus,minus; UnitArmor and GetManaRegen as the game gives them. spellCrit and
@@ -20,7 +22,7 @@ local _, KP = ...
 local Snapshot = {}
 KP.Snapshot = Snapshot
 
-local VERSION = 1
+local VERSION = 2
 local DELAY = 5 -- seconds: lets stats settle (UnitLevel still gives the old level during PLAYER_LEVEL_UP)
 local SCHOOLS = { 2, 3, 4, 5, 6, 7 }
 local RATINGS = { "CR_DEFENSE_SKILL", "CR_DODGE", "CR_PARRY", "CR_BLOCK", "CR_HIT_MELEE", "CR_HIT_RANGED",
@@ -84,7 +86,7 @@ end
 -- everything after the stamp
 local function Body()
   local _, class = UnitClass("player")
-  local _, race = UnitRace("player")
+  local _, race, raceID = UnitRace("player")
   -- the trait functions are the least known part of Forever's API: if they fail, the error goes to /kp errors and
   -- the rest of the snapshot is still kept
   local ok, talents = KP.Safe(Talents)
@@ -99,7 +101,7 @@ local function Body()
     All(UnitAttackPower("player")), All(UnitRangedAttackPower("player")),
     PerSchool(GetSpellBonusDamage), num(GetSpellBonusHealing()),
     All(UnitArmor("player")), All(GetManaRegen()),
-    Ratings(), Items(), ok and talents or "",
+    Ratings(), Items(), ok and talents or "", num(raceID),
   }, ";")
 end
 

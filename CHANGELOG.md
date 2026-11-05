@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.8.1
+
+- Thanks to guild members' shared stats, the planner now counts mana from Intellect the way the game does (the first
+  20 Intellect give 1 mana each). Casters' builds keep their talents; some take them in a slightly different order,
+  and the Priority and Gear tabs are updated to match.
+- Shared stats now include your race's ID, so the planner can tell the two Skyborne races apart.
+
 ## 0.8.0
 
 - **More gear options:** click a slot in the Gear tab to see up to five items for it, the planner's best first, each

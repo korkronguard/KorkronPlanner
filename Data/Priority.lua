@@ -2048,6 +2048,28 @@ KP.Priority = {
       } },
       { level = 50, title = "Discipline Priest", sections = {
         { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
+          { name = "Lesser Heal", tag = "Main heal", text = "", icon = 135929 },
+          { name = "Greater Heal", tag = "Heal", text = "", icon = 135913 },
+          { name = "Heal", tag = "Heal", text = "", icon = 135915 },
+          { name = "Renew", tag = "Heal", text = "", icon = 135953 },
+          { name = "Power Word: Shield", tag = "Heal", text = "", icon = 135940 },
+          { name = "Flash Heal", tag = "Heal", text = "", icon = 135907 },
+        } },
+        { title = "When someone is about to die", note = "", items = {
+          { name = "Power Word: Shield", tag = "Emergency", text = "Draws on the soul of the party member to shield them, absorbing 928 damage.", icon = 135940 },
+          { name = "Penance", tag = "Emergency", text = "Launches a volley of holy light at the target, causing 92 Holy damage to an enemy, or 425 healing to an ally, instantly and every 1 sec for 2 sec.", icon = 237545 },
+          { name = "Desperate Prayer", tag = "Emergency", text = "Instantly heals the caster for 1284 to 1515.", icon = 135954 },
+          { name = "Power Infusion", tag = "Emergency", text = "Infuses the target with power, increasing their spell damage and healing done by 20% for 15 sec.", icon = 135939 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Inner Focus", tag = "Mana", text = "When activated, reduces the Mana cost of your next spell by 100% and increases its critical effect chance by 25% if it is a non-periodic spell and capable of a critical effect.", icon = 135863 },
+        } },
+        { title = "Group healing", note = "Not in the one-target estimate: use these when several people are hurt.", items = {
+          { name = "Prayer of Healing", tag = "Group", text = "A powerful prayer that heals the target and their party for 631 to 667.", icon = 135943 },
+        } },
+      } },
+      { level = 55, title = "Discipline Priest", sections = {
+        { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
           { name = "Lesser Heal", tag = "Heal", text = "", icon = 135929 },
           { name = "Greater Heal", tag = "Main heal", text = "", icon = 135913 },
           { name = "Heal", tag = "Heal", text = "", icon = 135915 },
@@ -3079,7 +3101,51 @@ KP.Priority = {
         } },
         { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
           { name = "Riptide", tag = "Cooldown", text = "", icon = 252995 },
+          { name = "Healing Wave", tag = "Heal", text = "", icon = 136052 },
+          { name = "Lesser Healing Wave", tag = "Heal", text = "", icon = 136043 },
+        } },
+        { title = "When someone is about to die", note = "", items = {
+          { name = "Nature's Swiftness", tag = "Emergency", text = "When activated, your next Nature spell with a casting time less than 10 sec.", icon = 136076 },
+          { name = "Riptide", tag = "Emergency", text = "Heals a friendly target for 805 over 15 sec, and increases the effectiveness of your Chain Heal casts directly on that target by 25%.", icon = 252995 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Mana Tide Totem", tag = "Mana", text = "Summons a Mana Tide Totem with 5 health at the feet of the caster for 12 sec that restores 290 mana every 3 seconds to group members within 30 yards.", icon = 135861 },
+          { name = "Mana Spring Totem", tag = "Mana", text = "Summons a Mana Spring Totem with 5 health at the feet of the caster for 5 min that restores 10 mana every 2 seconds to group members within 30 yards.", icon = 136053 },
+        } },
+        { title = "Group healing", note = "Not in the one-target estimate: use these when several people are hurt.", items = {
+          { name = "Chain Heal", tag = "Group", text = "Heals the friendly target for 473 to 540, then jumps to heal additional nearby targets.", icon = 136042 },
+          { name = "Healing Stream Totem", tag = "Group", text = "Summons a Healing Stream Totem with 5 health at the feet of the caster for 5 min that heals group members within 30 yards for 11 every 2 seconds.", icon = 135127 },
+        } },
+      } },
+      { level = 45, title = "Restoration Shaman", sections = {
+        { title = "Keep up and use on cooldown", note = "From the healing estimate: worth their time and mana for you.", items = {
+          { name = "Riptide", tag = "Keep up", text = "", icon = 252995 },
+        } },
+        { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
+          { name = "Riptide", tag = "Cooldown", text = "", icon = 252995 },
           { name = "Healing Wave", tag = "Main heal", text = "", icon = 136052 },
+          { name = "Lesser Healing Wave", tag = "Heal", text = "", icon = 136043 },
+        } },
+        { title = "When someone is about to die", note = "", items = {
+          { name = "Nature's Swiftness", tag = "Emergency", text = "When activated, your next Nature spell with a casting time less than 10 sec.", icon = 136076 },
+          { name = "Riptide", tag = "Emergency", text = "Heals a friendly target for 805 over 15 sec, and increases the effectiveness of your Chain Heal casts directly on that target by 25%.", icon = 252995 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Mana Tide Totem", tag = "Mana", text = "Summons a Mana Tide Totem with 5 health at the feet of the caster for 12 sec that restores 290 mana every 3 seconds to group members within 30 yards.", icon = 135861 },
+          { name = "Mana Spring Totem", tag = "Mana", text = "Summons a Mana Spring Totem with 5 health at the feet of the caster for 5 min that restores 10 mana every 2 seconds to group members within 30 yards.", icon = 136053 },
+        } },
+        { title = "Group healing", note = "Not in the one-target estimate: use these when several people are hurt.", items = {
+          { name = "Chain Heal", tag = "Group", text = "Heals the friendly target for 473 to 540, then jumps to heal additional nearby targets.", icon = 136042 },
+          { name = "Healing Stream Totem", tag = "Group", text = "Summons a Healing Stream Totem with 5 health at the feet of the caster for 5 min that heals group members within 30 yards for 11 every 2 seconds.", icon = 135127 },
+        } },
+      } },
+      { level = 60, title = "Restoration Shaman", sections = {
+        { title = "Keep up and use on cooldown", note = "From the healing estimate: worth their time and mana for you.", items = {
+          { name = "Riptide", tag = "Keep up", text = "", icon = 252995 },
+        } },
+        { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
+          { name = "Riptide", tag = "Cooldown", text = "", icon = 252995 },
+          { name = "Healing Wave", tag = "Heal", text = "", icon = 136052 },
           { name = "Lesser Healing Wave", tag = "Heal", text = "", icon = 136043 },
         } },
         { title = "When someone is about to die", note = "", items = {
@@ -3381,7 +3447,7 @@ KP.Priority = {
           { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
         } },
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Conflagrate", tag = "On cooldown", text = "", icon = 135807 },
+          { name = "Shadowburn", tag = "On cooldown", text = "", icon = 136191 },
           { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
           { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
         } },
