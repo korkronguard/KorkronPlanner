@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.0
+
+- **Priority tab:** the `/kp` window now has tabs. **Priority** shows the planner website's "what to press" list for
+  your build at your level: what to keep up, what to use on cooldown, your builders, finishers and cooldowns, each
+  with a line on when or why. It changes as you level (every few levels), worked out for the build's own talents and
+  gear by then. Following a level 60 build while you level? You see its leveling build's list until 60.
+- The window is a little bigger to make room for the tabs.
+
 ## 0.4.0
 
 - **Why each talent:** in the `/kp` window, hover a point of your build to see the talent's tooltip at that rank,

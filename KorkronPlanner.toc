@@ -2,7 +2,7 @@
 ## Title: |cffc41f3bKor'kron|r Planner
 ## Notes: Kor'kron talent planner in game: follow a build from the guild planner and see which talent to take next. Also shares your character's stats with the planner (/kp share off to stop). Type /kp.
 ## Author: Grimscar
-## Version: 0.4.0
+## Version: 0.5.0
 ## SavedVariables: KorkronPlannerDB
 ## SavedVariablesPerCharacter: KorkronPlannerCharDB
 ## IconTexture: Interface\Icons\INV_Misc_Book_11
@@ -10,6 +10,7 @@
 Core\Init.lua
 Data\Talents.lua
 Data\Builds.lua
+Data\Priority.lua
 Core\Comm.lua
 Core\Probe.lua
 Core\Export.lua
@@ -17,5 +18,6 @@ Core\Traits.lua
 Core\Snapshot.lua
 Core\Share.lua
 Core\Build.lua
+UI\Priority.lua
 UI\Window.lua
 Core\Main.lua

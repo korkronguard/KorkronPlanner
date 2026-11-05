@@ -1,5 +1,6 @@
--- Kor'kron Planner: the build window (/kp). Pick one of your class's suggested builds or paste a planner link; it
--- shows the next talent, the points after it and any points spent outside the build.
+-- Kor'kron Planner: the /kp window. On the left you pick one of your class's suggested builds or paste a planner
+-- link; on the right, tabs: Build (the next talent, the points after it, points spent outside the build) and Priority
+-- (UI/Priority.lua).
 local _, KP = ...
 
 local Window = {}
@@ -7,9 +8,12 @@ KP.Window = Window
 
 local MAX_BUILDS = 8 -- Druids have the most: four specs, each with a level 60 and a leveling build
 local ROWS = 10      -- upcoming points shown
-local RIGHT = 262    -- where the build's column starts
+local RIGHT = 262    -- where the tabs start
+local PANE_W, PANE_H = 362, 388
+local TABS = { { key = "build", label = "Build" }, { key = "priority", label = "Priority" } }
 
 local frame
+local tab = "build"
 
 -- a point of the path: the talent's tooltip at the rank it gives, the planner's reason for it, the talent's note
 local function ShowPointTooltip(row)
@@ -42,21 +46,8 @@ local function Text(parent, font, width)
   return fs
 end
 
-local function Create()
-  frame = CreateFrame("Frame", "KorkronPlannerWindow", UIParent, "BasicFrameTemplateWithInset")
-  frame:SetSize(560, 420)
-  frame:SetPoint("CENTER")
-  frame:SetMovable(true)
-  frame:EnableMouse(true)
-  frame:RegisterForDrag("LeftButton")
-  frame:SetScript("OnDragStart", frame.StartMoving)
-  frame:SetScript("OnDragStop", frame.StopMovingOrSizing)
-  frame:SetScript("OnShow", function() KP.Safe(Window.Refresh) end)
-  table.insert(UISpecialFrames, "KorkronPlannerWindow") -- Escape closes it
-  local title = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-  title:SetPoint("TOP", 0, -5)
-  title:SetText("Kor'kron Planner")
-
+-- the left column: suggested builds and the link box
+local function CreatePicker()
   local pick = Text(frame, "GameFontNormal")
   pick:SetPoint("TOPLEFT", 16, -34)
   pick:SetText("Suggested builds")
@@ -97,39 +88,74 @@ local function Create()
     end)
   end)
   frame.linkBox, frame.useButton, frame.linkNote = box, use, linkNote
+end
 
-  -- the build's column: name, provisional note, points, next talent, the points after it, points off the build
-  frame.heading = Text(frame, "GameFontNormalLarge", 280)
-  frame.heading:SetPoint("TOPLEFT", RIGHT, -34)
+-- the Build tab: name, provisional note, points, next talent, the points after it, points off the build
+local function CreateBuildPane()
+  local pane = CreateFrame("Frame", nil, frame)
+  pane:SetSize(PANE_W, PANE_H)
+  local width = PANE_W - 10
+  frame.heading = Text(pane, "GameFontNormalLarge", width)
+  frame.heading:SetPoint("TOPLEFT", 0, 0)
   -- hovering the build's name shows its summary (a font string can't take the mouse, so a frame lies over it)
-  frame.headingHover = CreateFrame("Frame", nil, frame)
+  frame.headingHover = CreateFrame("Frame", nil, pane)
   frame.headingHover:SetAllPoints(frame.heading)
   frame.headingHover:EnableMouse(true)
   frame.headingHover:SetScript("OnEnter", function(self) KP.Safe(ShowSummaryTooltip, self) end)
   frame.headingHover:SetScript("OnLeave", HideTooltip)
-  frame.note = Text(frame, "GameFontHighlightSmall", 280)
+  frame.note = Text(pane, "GameFontHighlightSmall", width)
   frame.note:SetPoint("TOPLEFT", frame.heading, "BOTTOMLEFT", 0, -4)
-  frame.status = Text(frame, "GameFontHighlight", 280)
+  frame.status = Text(pane, "GameFontHighlight", width)
   frame.status:SetPoint("TOPLEFT", frame.note, "BOTTOMLEFT", 0, -8)
   frame.rows = {}
   for i = 1, ROWS do
-    local row = CreateFrame("Frame", nil, frame)
-    row:SetSize(280, 20)
+    local row = CreateFrame("Frame", nil, pane)
+    row:SetSize(width, 20)
     row:SetPoint("TOPLEFT", i == 1 and frame.status or frame.rows[i - 1], "BOTTOMLEFT", 0, i == 1 and -8 or -2)
     row.icon = row:CreateTexture(nil, "ARTWORK")
     row.icon:SetSize(18, 18)
     row.icon:SetPoint("LEFT", 38, 0)
     row.level = Text(row, "GameFontHighlightSmall")
     row.level:SetPoint("LEFT", 0, 0)
-    row.name = Text(row, "GameFontHighlight", 220)
+    row.name = Text(row, "GameFontHighlight", width - 62)
     row.name:SetPoint("LEFT", row.icon, "RIGHT", 6, 0)
     row:EnableMouse(true)
     row:SetScript("OnEnter", function(self) KP.Safe(ShowPointTooltip, self) end)
     row:SetScript("OnLeave", HideTooltip)
     frame.rows[i] = row
   end
-  frame.off = Text(frame, "GameFontHighlightSmall", 280)
+  frame.off = Text(pane, "GameFontHighlightSmall", width)
   frame.off:SetPoint("TOPLEFT", frame.rows[ROWS], "BOTTOMLEFT", 0, -8)
+  return pane
+end
+
+local function Create()
+  frame = CreateFrame("Frame", "KorkronPlannerWindow", UIParent, "BasicFrameTemplateWithInset")
+  frame:SetSize(RIGHT + PANE_W + 16, PANE_H + 72)
+  frame:SetPoint("CENTER")
+  frame:SetMovable(true)
+  frame:EnableMouse(true)
+  frame:RegisterForDrag("LeftButton")
+  frame:SetScript("OnDragStart", frame.StartMoving)
+  frame:SetScript("OnDragStop", frame.StopMovingOrSizing)
+  frame:SetScript("OnShow", function() KP.Safe(Window.Refresh) end)
+  table.insert(UISpecialFrames, "KorkronPlannerWindow") -- Escape closes it
+  local title = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+  title:SetPoint("TOP", 0, -5)
+  title:SetText("Kor'kron Planner")
+
+  CreatePicker()
+  frame.panes = { build = CreateBuildPane(), priority = KP.PriorityPane.Create(frame, PANE_W, PANE_H) }
+  for _, pane in pairs(frame.panes) do pane:SetPoint("TOPLEFT", RIGHT, -62) end
+  frame.tabButtons = {}
+  for i, t in ipairs(TABS) do
+    local b = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
+    b:SetSize(90, 22)
+    b:SetPoint("TOPLEFT", RIGHT + (i - 1) * 94, -30)
+    b:SetText(t.label)
+    b:SetScript("OnClick", function() KP.Safe(Window.ShowTab, t.key) end)
+    frame.tabButtons[t.key] = b
+  end
   frame:Hide() -- new frames start shown; Toggle shows it, which fills it in (OnShow)
 end
 
@@ -167,12 +193,8 @@ local function HideRows()
   for _, row in ipairs(frame.rows) do row:Hide() end
 end
 
-function Window.Refresh()
-  if not (frame and frame:IsShown()) then return end
-  local saved = KorkronPlannerCharDB.build
-  ShowBuildButtons(saved and saved.key)
+local function RefreshBuildPane(build, why, saved)
   frame.off:SetText("")
-  local build, why = KP.Build.Current()
   if not build then
     frame.heading:SetText("Choose a build")
     frame.note:SetText(saved and why or "Pick one of the planner's builds on the left, or paste a link to your own " ..
@@ -201,6 +223,27 @@ function Window.Refresh()
     table.insert(off, ("%s +%d"):format(KP.Build.Talent(o.id).name, o.extra))
   end
   if #off > 0 then frame.off:SetText("|cffff9933Not in this build:|r " .. table.concat(off, ", ")) end
+end
+
+function Window.Refresh()
+  if not (frame and frame:IsShown()) then return end
+  local saved = KorkronPlannerCharDB.build
+  ShowBuildButtons(saved and saved.key)
+  for key, pane in pairs(frame.panes) do pane:SetShown(key == tab) end
+  for key, b in pairs(frame.tabButtons) do
+    if key == tab then b:LockHighlight() else b:UnlockHighlight() end
+  end
+  local build, why = KP.Build.Current()
+  if tab == "priority" then
+    KP.PriorityPane.Refresh(frame.panes.priority, build)
+  else
+    RefreshBuildPane(build, why, saved)
+  end
+end
+
+function Window.ShowTab(key)
+  tab = key
+  Window.Refresh()
 end
 
 function Window.Toggle()

@@ -9,6 +9,8 @@ The in-game companion to the Kor'kron Guard talent planner: https://korkronguard
   take next, the points after it with their levels, and any points you've spent outside the build. Hover a point to see
   the talent's tooltip and why the planner picked it; hover the build's name for what the build is about. When you
   level up and have a point to spend, a line in chat names the next talent.
+- **What to press.** The window's **Priority** tab shows the planner's rotation for your build at your level: what to
+  keep up, what to use on cooldown, builders, finishers and cooldowns.
 - **Brings your real stats into the planner.** Type **/kp export**, copy the code, and paste it into the planner's
   "Import from the addon" box (under base stats): your base stats, race and level fill in.
 - **Makes the planner match the game.** WoW: Forever keeps some numbers on its servers (like your base stats at each
