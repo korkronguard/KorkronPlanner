@@ -69,7 +69,8 @@ end
 -- A game number as text with at most `places` decimals ("12.5"), or "" when it's missing or hidden
 function KP.Num(v, places)
   if not KP.Readable(v) or v == nil then return "" end
-  local text = ("%." .. places .. "f"):format(tonumber(v) or 0):gsub("%.?0+$", "") -- gsub also returns a count
+  local text = ("%." .. places .. "f"):format(tonumber(v) or 0)
+  if places > 0 then text = text:gsub("0+$", ""):gsub("%.$", "") end -- only zeros after the point ("40" stays)
   return text
 end
 

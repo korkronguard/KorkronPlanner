@@ -17,6 +17,10 @@ The in-game companion to the Kor'kron Guard talent planner: https://korkronguard
   it comes from, and ticks what you already wear. Hover an item for its tooltip. Click a slot to see the next best
   items for it and how close each comes, and choose your own. **Link** gives the item's page on Wowhead's WoW: Forever
   database to copy into your browser, with the quest, the boss or the vendor it comes from.
+- **Upgrade or downgrade, on every item.** Hover an item in your bags, on your character, in loot or at a vendor: the
+  tooltip says whether it beats what you wear for your build, and by how much damage or healing per second.
+- **How your numbers are worked out.** The **Formulas** tab shows the formula behind your health, mana, attack power,
+  crit, armor and mana regen, with your own numbers and the game's next to them, plus your class's rules of combat.
 - **Brings your real stats into the planner.** Type **/kp export**, copy the code, and paste it into the planner's
   "Import from the addon" box (under base stats): your base stats, race and level fill in.
 - **Makes the planner match the game.** WoW: Forever keeps some numbers on its servers (like your base stats at each

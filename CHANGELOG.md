@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.9.0
+
+- **Upgrade or downgrade on item tooltips:** hover any item (in your bags, on your character, loot, vendors, links in
+  chat) to see whether it beats what you wear for the build you follow in `/kp`, in damage or healing per second
+  (tanks: effective health), with the planner's values for your level. Rings and trinkets are compared with the weaker
+  of your two, a two-hander with both your hands; random bonuses like "of the Bear" count. Special effects ("Chance on
+  hit", "Use:") and set bonuses aren't counted, and the tooltip says so. Choose one of the planner's builds in `/kp`
+  to see it.
+- **Formulas tab** in the `/kp` window: how your health, mana, attack power, crit, armor and mana regen are worked out,
+  with your own numbers, and the game's number next to each one (a tick when they agree). Below them, the rules of
+  combat for your class: white hits, spells, rage or energy, and what changes against a raid boss.
+
 ## 0.8.1
 
 - Thanks to guild members' shared stats, the planner now counts mana from Intellect the way the game does (the first

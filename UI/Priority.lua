@@ -6,65 +6,13 @@ local _, KP = ...
 local Pane = {}
 KP.PriorityPane = Pane
 
-local SCROLLBAR = 26 -- room for the scroll bar on the right
-local ICON = 18
+local ICON = KP.ScrollList.ICON
 
-function Pane.Create(parent, width, height)
-  local pane = CreateFrame("Frame", nil, parent)
-  pane:SetSize(width, height)
-  local scroll = CreateFrame("ScrollFrame", nil, pane, "UIPanelScrollFrameTemplate")
-  scroll:SetPoint("TOPLEFT", 0, 0)
-  scroll:SetPoint("BOTTOMRIGHT", -SCROLLBAR, 0)
-  local content = CreateFrame("Frame", nil, scroll)
-  content:SetSize(width - SCROLLBAR, 1)
-  scroll:SetScrollChild(content)
-  pane.width, pane.content, pane.lines, pane.icons = width - SCROLLBAR, content, {}, {}
-  return pane
-end
-
--- Lines and icons are reused from one refresh to the next (the game can't delete font strings)
-local function Layout(pane)
-  local L = { y = 0, lines = 0, icons = 0 }
-  function L.text(text, font, indent, gap)
-    L.lines = L.lines + 1
-    local fs = pane.lines[L.lines]
-    if not fs then
-      fs = pane.content:CreateFontString(nil, "OVERLAY")
-      fs:SetJustifyH("LEFT")
-      pane.lines[L.lines] = fs
-    end
-    fs:SetFontObject(font)
-    fs:SetWidth(pane.width - indent)
-    fs:ClearAllPoints()
-    fs:SetPoint("TOPLEFT", indent, -(L.y + gap))
-    fs:SetText(text)
-    fs:Show()
-    L.y = L.y + gap + fs:GetStringHeight()
-  end
-  function L.icon(file, gap)
-    L.icons = L.icons + 1
-    local tex = pane.icons[L.icons]
-    if not tex then
-      tex = pane.content:CreateTexture(nil, "ARTWORK")
-      tex:SetSize(ICON, ICON)
-      pane.icons[L.icons] = tex
-    end
-    tex:ClearAllPoints()
-    tex:SetPoint("TOPLEFT", 0, -(L.y + gap))
-    tex:SetTexture(file)
-    tex:Show()
-  end
-  function L.finish()
-    for i = L.lines + 1, #pane.lines do pane.lines[i]:Hide() end
-    for i = L.icons + 1, #pane.icons do pane.icons[i]:Hide() end
-    pane.content:SetHeight(L.y + 8)
-  end
-  return L
-end
+Pane.Create = KP.ScrollList.Create
 
 -- build: the chosen build (nil when none)
 function Pane.Refresh(pane, build)
-  local L = Layout(pane)
+  local L = KP.ScrollList.Layout(pane)
   local list = build and KP.Build.ForLevel(KP.Priority, build.key, UnitLevel("player"))
   if not list then
     L.text(build and "The Priority tab follows the planner's suggested builds: choose one on the left."

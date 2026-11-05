@@ -1,6 +1,6 @@
 -- Kor'kron Planner: the /kp window. On the left you pick one of your class's suggested builds or paste a planner
 -- link; on the right, tabs: Build (the next talent, the points after it, points spent outside the build), Talents
--- (UI/Talents.lua), Priority (UI/Priority.lua) and Gear (UI/Gear.lua).
+-- (UI/Talents.lua), Priority (UI/Priority.lua), Gear (UI/Gear.lua) and Formulas (UI/Formulas.lua).
 local _, KP = ...
 
 local Window = {}
@@ -11,7 +11,8 @@ local ROWS = 10      -- upcoming points shown
 local RIGHT = 262    -- where the tabs start
 local PANE_W, PANE_H = 362, 388
 local TABS = { { key = "build", label = "Build" }, { key = "talents", label = "Talents" }, { key = "priority", label = "Priority" },
-  { key = "gear", label = "Gear" } }
+  { key = "gear", label = "Gear" }, { key = "formulas", label = "Formulas" } }
+local TAB_W = 70 -- five tabs across the pane
 
 local frame
 local tab = "build"
@@ -148,13 +149,14 @@ local function Create()
 
   CreatePicker()
   frame.panes = { build = CreateBuildPane(), talents = KP.TalentsPane.Create(frame, PANE_W, PANE_H),
-    priority = KP.PriorityPane.Create(frame, PANE_W, PANE_H), gear = KP.GearPane.Create(frame, PANE_W, PANE_H) }
+    priority = KP.PriorityPane.Create(frame, PANE_W, PANE_H), gear = KP.GearPane.Create(frame, PANE_W, PANE_H),
+    formulas = KP.FormulasPane.Create(frame, PANE_W, PANE_H) }
   for _, pane in pairs(frame.panes) do pane:SetPoint("TOPLEFT", RIGHT, -62) end
   frame.tabButtons = {}
   for i, t in ipairs(TABS) do
     local b = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
-    b:SetSize(86, 22)
-    b:SetPoint("TOPLEFT", RIGHT + (i - 1) * 88, -30)
+    b:SetSize(TAB_W, 22)
+    b:SetPoint("TOPLEFT", RIGHT + (i - 1) * (TAB_W + 2), -30)
     b:SetText(t.label)
     b:SetScript("OnClick", function() KP.Safe(Window.ShowTab, t.key) end)
     frame.tabButtons[t.key] = b
@@ -243,6 +245,8 @@ function Window.Refresh()
     KP.PriorityPane.Refresh(frame.panes.priority, build)
   elseif tab == "gear" then
     KP.GearPane.Refresh(frame.panes.gear, build)
+  elseif tab == "formulas" then
+    KP.FormulasPane.Refresh(frame.panes.formulas)
   else
     RefreshBuildPane(build, why, saved)
   end
