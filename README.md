@@ -13,11 +13,13 @@ The in-game companion to the Kor'kron Guard talent planner: https://korkronguard
   gold where the build wants more, green where you're done, red for points it doesn't use, white for the next one.
 - **What to press.** The window's **Priority** tab shows the planner's rotation for your build at your level: what to
   keep up, what to use on cooldown, builders, finishers and cooldowns.
-- **What to press next, while you fight (Warriors and Retribution Paladins so far).** Type **/kp helper**: a small bar
-  shows the ability to press now and the next two, with their cooldowns, from your build's priority. It shows in combat
-  or when you target an enemy; drag it where you like, and **/kp helper lock** keeps it there. The game hides your rage
-  from addons in a fight, so it never suggests Heroic Strike: use that when you have rage to spare. Paladins: it keeps
-  your Seal, Blessing and Aura up, and suggests Exorcism only against Undead and Demons.
+- **What to press next, while you fight (Warriors, Retribution and Protection Paladins, Elemental Shamans so far).**
+  Type **/kp helper**: a small bar shows the ability to press now and the next two, with their cooldowns, from your
+  build's priority. It shows in combat or when you target an enemy; drag it where you like, and **/kp helper lock**
+  keeps it there. The game hides your rage from addons in a fight, so it never suggests Heroic Strike: use that when
+  you have rage to spare. Paladins: it keeps your Seal, Blessing and Aura up (Righteous Fury and Holy Shield too for a
+  tank), and suggests Exorcism only against Undead and Demons. Elemental Shamans: Flame Shock once its burn has run
+  out, Chain Lightning, Lightning Bolt.
 - **What to wear.** The **Gear** tab shows the planner's best item for each slot for your build at your level, where
   it comes from, and ticks what you already wear. Hover an item for its tooltip. Click a slot to see the next best
   items for it and how close each comes, and choose your own. **Link** gives the item's page on Wowhead's WoW: Forever

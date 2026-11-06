@@ -1,5 +1,5 @@
 -- Kor'kron Planner: what the rotation helper says to press. Your build's Priority list at your level
--- (Data/Priority.lua) carries a rule per line for the builds the helper is on for (Warriors, Retribution): its kind, the
+-- (Data/Priority.lua) carries a rule per line for the builds the helper covers (Rotation.Covered): its kind, the
 -- spell ID of each rank, cooldown, global cooldown, aura... In a fight Forever lets an addon read whether a spell is
 -- usable (rage, stance, a lit Overpower or Execute) and whether its cooldown runs, but not for how long, nor your
 -- rage, your auras or the target's health (/kp probe combat, 2026-11-05). So the addon keeps its own book: your
@@ -40,15 +40,24 @@ function Rotation.Rules()
   return phases
 end
 
--- Whether your class has helper rules at all (for the switch in /kp and the one-time notice)
-function Rotation.ForClass()
+-- The names of your class's suggested builds the helper covers (their lists have phases), in the build list's order
+function Rotation.Covered()
   local _, class = UnitClass("player")
-  for _, lists in pairs(KP.Priority[KP.Text(class)] or {}) do
-    for _, section in ipairs(lists[1].sections) do
-      if section.phase then return true end
+  local lists, names = KP.Priority[KP.Text(class)] or {}, {}
+  for _, build in ipairs(KP.Build.Suggested()) do
+    for _, section in ipairs(lists[build.key] and lists[build.key][1].sections or {}) do
+      if section.phase then
+        table.insert(names, build.name)
+        break
+      end
     end
   end
-  return false
+  return names
+end
+
+-- Whether your class has helper rules at all (for the switch in /kp and the one-time notice)
+function Rotation.ForClass()
+  return #Rotation.Covered() > 0
 end
 
 -- the rank of a line's spell you know (the highest), or nil
@@ -91,10 +100,11 @@ local function OnCast(unit, _, spellID)
       local rule = item.rule
       if Has(rule.ids, spellID) then
         casts[item.name] = now
-        local ends = now + (rule.dur or 0) / 1000
-        if rule.dur and rule.aura == "you" then
+        -- an aura without a duration (a Paladin's aura) stays up until you change it; the next read out of combat checks
+        local ends = rule.dur and now + rule.dur / 1000 or math.huge
+        if rule.aura == "you" then
           buffs[item.name] = ends
-        elseif rule.dur and rule.aura == "target" and guid then
+        elseif rule.aura == "target" and guid then
           debuffs[guid] = debuffs[guid] or {}
           debuffs[guid][item.name] = ends
         end
@@ -196,7 +206,7 @@ function Rotation.Picks()
     table.insert(picks, { item = pick.item, id = pick.id })
     local rule = pick.item.rule
     pick.at = t + rule.cd / 1000
-    if rule.dur and rule.aura then sim[pick.item.name] = t + rule.dur / 1000 end
+    if rule.aura then sim[pick.item.name] = rule.dur and t + rule.dur / 1000 or math.huge end
     t = t + rule.gcd / 1000
   end
   return picks

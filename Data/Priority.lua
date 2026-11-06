@@ -1134,21 +1134,21 @@ KP.Priority = {
           { name = "Holy Shield", tag = "Counts", text = "Works with this setup.", icon = 135880 },
           { name = "Shieldsworn", tag = "Counts", text = "Works with this setup.", icon = 135911 },
         } },
-        { title = "Keep up", note = "", items = {
-          { name = "Righteous Fury", tag = "Keep up", text = "Always on while you tank (lasts 30 min).", icon = 135962 },
-          { name = "Seal of Fury", tag = "Keep up", text = "Your tanking Seal: Holy damage on every hit, and with a shield each hit also gives you an absorb shield.", icon = 135957 },
-          { name = "Devotion Aura", tag = "Keep up", text = "Armor for you and your party.", icon = 135893 },
-          { name = "Blessing of Kings", tag = "On yourself", text = "Or Might if another Paladin gives Kings.", icon = 135995 },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Righteous Fury", tag = "Keep up", text = "Always on while you tank (lasts 30 min).", icon = 135962, rule = { kind = "keep", ids = { 25780 }, cd = 0, gcd = 1500, cost = 0, dur = 1800000, aura = "you" } },
+          { name = "Seal of Fury", tag = "Keep up", text = "Your tanking Seal: Holy damage on every hit, and with a shield each hit also gives you an absorb shield.", icon = 135957, rule = { kind = "keep", ids = { 1311649, 1311656, 20163, 20419, 20421, 20422, 20423 }, cd = 0, gcd = 1500, cost = 200, dur = 30000, aura = "you" } },
+          { name = "Devotion Aura", tag = "Keep up", text = "Armor for you and your party.", icon = 135893, rule = { kind = "keep", ids = { 465, 10290, 643, 10291, 1032, 10292, 10293 }, cd = 0, gcd = 1500, cost = 0, aura = "you" } },
+          { name = "Blessing of Kings", tag = "On yourself", text = "Or Might if another Paladin gives Kings.", icon = 135995, rule = { kind = "missing", ids = { 20217 }, cd = 0, gcd = 1500, cost = 0, dur = 3600000, aura = "you" } },
         } },
-        { title = "Threat priority", note = "Press the first one that's ready. Holy damage is boosted by Righteous Fury, so your Holy abilities lead.", items = {
-          { name = "Holy Shield", tag = "Keep up", text = "Refresh it as it runs out: more blocks, and every block hits back.", icon = 135880 },
-          { name = "Hammer of the Righteous", tag = "On cooldown", text = "Holy damage to your target and nearby enemies. Needs a one-handed axe, mace or sword.", icon = 236253 },
-          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage. Shieldsworn: it strikes with your shield, setting off Holy Shield and Shield Specialization without using their charges, and lets you block spells for 6 sec.", icon = 626003 },
-          { name = "Judgement", tag = "On cooldown", text = "Judges your Seal on the target (the Seal stays).", icon = 135959 },
-          { name = "Swift Judgement", tag = "On cooldown", text = "A second Judgement with its own cooldown: it doesn't wait for Judgement and costs no mana (game data).", icon = 236258 },
+        { title = "Threat priority", note = "Press the first one that's ready. Judgements first: they don't use the global cooldown (game data), so they never hold anything back. Holy damage is boosted by Righteous Fury, so your Holy abilities lead.", phase = "main", items = {
+          { name = "Judgement", tag = "On cooldown", text = "Judges your Seal on the target (the Seal stays).", icon = 135959, rule = { kind = "ready", ids = { 20271 }, cd = 10000, gcd = 0, cost = 0 } },
+          { name = "Swift Judgement", tag = "On cooldown", text = "A second Judgement with its own cooldown: it doesn't wait for Judgement and costs no mana (game data).", icon = 236258, rule = { kind = "ready", ids = { 1310994 }, cd = 60000, gcd = 0, cost = 0 } },
+          { name = "Holy Shield", tag = "Keep up", text = "Refresh it as it runs out: more blocks, and every block hits back.", icon = 135880, rule = { kind = "keep", ids = { 20925, 20927, 20928, 1239570 }, cd = 10000, gcd = 1500, cost = 240, dur = 10000, aura = "you" } },
+          { name = "Hammer of the Righteous", tag = "On cooldown", text = "Holy damage to your target and nearby enemies. Needs a one-handed axe, mace or sword.", icon = 236253, rule = { kind = "ready", ids = { 407632 }, cd = 6000, gcd = 1500, cost = 0 } },
+          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage. Shieldsworn: it strikes with your shield, setting off Holy Shield and Shield Specialization without using their charges, and lets you block spells for 6 sec.", icon = 626003, rule = { kind = "ready", ids = { 679, 678, 1866, 680, 2495, 5569, 10332, 10333 }, cd = 6000, gcd = 1500, cost = 20 } },
           { name = "Consecration", tag = "Packs", text = "Holy damage on the ground: best when you hold several enemies (mana heavy).", icon = 135926 },
-          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903 },
-          { name = "Hammer of Wrath", tag = "Below 20%", text = "Only when the target is at 20% health or less.", icon = 132326 },
+          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903, rule = { kind = "ready", ids = { 879, 5614, 5615, 10312, 10313, 10314 }, cd = 15000, gcd = 1500, cost = 345, creatures = 36 } },
+          { name = "Hammer of Wrath", tag = "Below 20%", text = "Only when the target is at 20% health or less.", icon = 132326, rule = { kind = "ready", ids = { 24275, 24274, 24239 }, cd = 6000, gcd = 1000, cost = 425 } },
         } },
         { title = "Mana", note = "Paladin tanks run on mana: these keep it going.", items = {
           { name = "Blessing of Wisdom", tag = "If no one else", text = "Mana every 5 sec.", icon = 135970 },
@@ -1207,14 +1207,14 @@ KP.Priority = {
     },
     ["prot-lvl"] = {
       { level = 10, title = "Protection Paladin, tanking", sections = {
-        { title = "Keep up", note = "", items = {
-          { name = "Righteous Fury", tag = "Keep up", text = "Always on while you tank (lasts 30 min).", icon = 135962 },
-          { name = "Seal of Fury", tag = "Keep up", text = "Your tanking Seal: Holy damage on every hit, and with a shield each hit also gives you an absorb shield.", icon = 135957 },
-          { name = "Devotion Aura", tag = "Keep up", text = "Armor for you and your party.", icon = 135893 },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Righteous Fury", tag = "Keep up", text = "Always on while you tank (lasts 30 min).", icon = 135962, rule = { kind = "keep", ids = { 25780 }, cd = 0, gcd = 1500, cost = 0, dur = 1800000, aura = "you" } },
+          { name = "Seal of Fury", tag = "Keep up", text = "Your tanking Seal: Holy damage on every hit, and with a shield each hit also gives you an absorb shield.", icon = 135957, rule = { kind = "keep", ids = { 1311649, 1311656, 20163, 20419, 20421, 20422, 20423 }, cd = 0, gcd = 1500, cost = 40, dur = 30000, aura = "you" } },
+          { name = "Devotion Aura", tag = "Keep up", text = "Armor for you and your party.", icon = 135893, rule = { kind = "keep", ids = { 465, 10290, 643, 10291, 1032, 10292, 10293 }, cd = 0, gcd = 1500, cost = 0, aura = "you" } },
         } },
-        { title = "Threat priority", note = "Press the first one that's ready. Holy damage is boosted by Righteous Fury, so your Holy abilities lead.", items = {
-          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003 },
-          { name = "Judgement", tag = "On cooldown", text = "Judges your Seal on the target (the Seal stays).", icon = 135959 },
+        { title = "Threat priority", note = "Press the first one that's ready. Judgements first: they don't use the global cooldown (game data), so they never hold anything back. Holy damage is boosted by Righteous Fury, so your Holy abilities lead.", phase = "main", items = {
+          { name = "Judgement", tag = "On cooldown", text = "Judges your Seal on the target (the Seal stays).", icon = 135959, rule = { kind = "ready", ids = { 20271 }, cd = 10000, gcd = 0, cost = 0 } },
+          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003, rule = { kind = "ready", ids = { 679, 678, 1866, 680, 2495, 5569, 10332, 10333 }, cd = 10000, gcd = 1500, cost = 5 } },
         } },
         { title = "When things go wrong", note = "", items = {
           { name = "Lay on Hands", tag = "Emergency", text = "Heals you to full (uses all your mana).", icon = 135928 },
@@ -1222,14 +1222,14 @@ KP.Priority = {
         } },
       } },
       { level = 15, title = "Protection Paladin, tanking", sections = {
-        { title = "Keep up", note = "", items = {
-          { name = "Righteous Fury", tag = "Keep up", text = "Always on while you tank (lasts 30 min).", icon = 135962 },
-          { name = "Seal of Fury", tag = "Keep up", text = "Your tanking Seal: Holy damage on every hit, and with a shield each hit also gives you an absorb shield.", icon = 135957 },
-          { name = "Devotion Aura", tag = "Keep up", text = "Armor for you and your party.", icon = 135893 },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Righteous Fury", tag = "Keep up", text = "Always on while you tank (lasts 30 min).", icon = 135962, rule = { kind = "keep", ids = { 25780 }, cd = 0, gcd = 1500, cost = 0, dur = 1800000, aura = "you" } },
+          { name = "Seal of Fury", tag = "Keep up", text = "Your tanking Seal: Holy damage on every hit, and with a shield each hit also gives you an absorb shield.", icon = 135957, rule = { kind = "keep", ids = { 1311649, 1311656, 20163, 20419, 20421, 20422, 20423 }, cd = 0, gcd = 1500, cost = 40, dur = 30000, aura = "you" } },
+          { name = "Devotion Aura", tag = "Keep up", text = "Armor for you and your party.", icon = 135893, rule = { kind = "keep", ids = { 465, 10290, 643, 10291, 1032, 10292, 10293 }, cd = 0, gcd = 1500, cost = 0, aura = "you" } },
         } },
-        { title = "Threat priority", note = "Press the first one that's ready. Holy damage is boosted by Righteous Fury, so your Holy abilities lead.", items = {
-          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003 },
-          { name = "Judgement", tag = "On cooldown", text = "Judges your Seal on the target (the Seal stays).", icon = 135959 },
+        { title = "Threat priority", note = "Press the first one that's ready. Judgements first: they don't use the global cooldown (game data), so they never hold anything back. Holy damage is boosted by Righteous Fury, so your Holy abilities lead.", phase = "main", items = {
+          { name = "Judgement", tag = "On cooldown", text = "Judges your Seal on the target (the Seal stays).", icon = 135959, rule = { kind = "ready", ids = { 20271 }, cd = 10000, gcd = 0, cost = 0 } },
+          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003, rule = { kind = "ready", ids = { 679, 678, 1866, 680, 2495, 5569, 10332, 10333 }, cd = 10000, gcd = 1500, cost = 9 } },
         } },
         { title = "Mana", note = "Paladin tanks run on mana: these keep it going.", items = {
           { name = "Blessing of Wisdom", tag = "If no one else", text = "Mana every 5 sec.", icon = 135970 },
@@ -1240,17 +1240,17 @@ KP.Priority = {
         } },
       } },
       { level = 20, title = "Protection Paladin, tanking", sections = {
-        { title = "Keep up", note = "", items = {
-          { name = "Righteous Fury", tag = "Keep up", text = "Always on while you tank (lasts 30 min).", icon = 135962 },
-          { name = "Seal of Fury", tag = "Keep up", text = "Your tanking Seal: Holy damage on every hit, and with a shield each hit also gives you an absorb shield.", icon = 135957 },
-          { name = "Devotion Aura", tag = "Keep up", text = "Armor for you and your party.", icon = 135893 },
-          { name = "Blessing of Kings", tag = "On yourself", text = "Or Might if another Paladin gives Kings.", icon = 135995 },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Righteous Fury", tag = "Keep up", text = "Always on while you tank (lasts 30 min).", icon = 135962, rule = { kind = "keep", ids = { 25780 }, cd = 0, gcd = 1500, cost = 0, dur = 1800000, aura = "you" } },
+          { name = "Seal of Fury", tag = "Keep up", text = "Your tanking Seal: Holy damage on every hit, and with a shield each hit also gives you an absorb shield.", icon = 135957, rule = { kind = "keep", ids = { 1311649, 1311656, 20163, 20419, 20421, 20422, 20423 }, cd = 0, gcd = 1500, cost = 60, dur = 30000, aura = "you" } },
+          { name = "Devotion Aura", tag = "Keep up", text = "Armor for you and your party.", icon = 135893, rule = { kind = "keep", ids = { 465, 10290, 643, 10291, 1032, 10292, 10293 }, cd = 0, gcd = 1500, cost = 0, aura = "you" } },
+          { name = "Blessing of Kings", tag = "On yourself", text = "Or Might if another Paladin gives Kings.", icon = 135995, rule = { kind = "missing", ids = { 20217 }, cd = 0, gcd = 1500, cost = 0, dur = 3600000, aura = "you" } },
         } },
-        { title = "Threat priority", note = "Press the first one that's ready. Holy damage is boosted by Righteous Fury, so your Holy abilities lead.", items = {
-          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003 },
-          { name = "Judgement", tag = "On cooldown", text = "Judges your Seal on the target (the Seal stays).", icon = 135959 },
+        { title = "Threat priority", note = "Press the first one that's ready. Judgements first: they don't use the global cooldown (game data), so they never hold anything back. Holy damage is boosted by Righteous Fury, so your Holy abilities lead.", phase = "main", items = {
+          { name = "Judgement", tag = "On cooldown", text = "Judges your Seal on the target (the Seal stays).", icon = 135959, rule = { kind = "ready", ids = { 20271 }, cd = 10000, gcd = 0, cost = 0 } },
+          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003, rule = { kind = "ready", ids = { 679, 678, 1866, 680, 2495, 5569, 10332, 10333 }, cd = 10000, gcd = 1500, cost = 12 } },
           { name = "Consecration", tag = "Packs", text = "Holy damage on the ground: best when you hold several enemies (mana heavy).", icon = 135926 },
-          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903 },
+          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903, rule = { kind = "ready", ids = { 879, 5614, 5615, 10312, 10313, 10314 }, cd = 15000, gcd = 1500, cost = 85, creatures = 36 } },
         } },
         { title = "Mana", note = "Paladin tanks run on mana: these keep it going.", items = {
           { name = "Blessing of Wisdom", tag = "If no one else", text = "Mana every 5 sec.", icon = 135970 },
@@ -1264,18 +1264,18 @@ KP.Priority = {
         { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Sword and board.", items = {
           { name = "Shield Specialization", tag = "Counts", text = "Works with this setup.", icon = 134952 },
         } },
-        { title = "Keep up", note = "", items = {
-          { name = "Righteous Fury", tag = "Keep up", text = "Always on while you tank (lasts 30 min).", icon = 135962 },
-          { name = "Seal of Fury", tag = "Keep up", text = "Your tanking Seal: Holy damage on every hit, and with a shield each hit also gives you an absorb shield.", icon = 135957 },
-          { name = "Devotion Aura", tag = "Keep up", text = "Armor for you and your party.", icon = 135893 },
-          { name = "Blessing of Kings", tag = "On yourself", text = "Or Might if another Paladin gives Kings.", icon = 135995 },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Righteous Fury", tag = "Keep up", text = "Always on while you tank (lasts 30 min).", icon = 135962, rule = { kind = "keep", ids = { 25780 }, cd = 0, gcd = 1500, cost = 0, dur = 1800000, aura = "you" } },
+          { name = "Seal of Fury", tag = "Keep up", text = "Your tanking Seal: Holy damage on every hit, and with a shield each hit also gives you an absorb shield.", icon = 135957, rule = { kind = "keep", ids = { 1311649, 1311656, 20163, 20419, 20421, 20422, 20423 }, cd = 0, gcd = 1500, cost = 60, dur = 30000, aura = "you" } },
+          { name = "Devotion Aura", tag = "Keep up", text = "Armor for you and your party.", icon = 135893, rule = { kind = "keep", ids = { 465, 10290, 643, 10291, 1032, 10292, 10293 }, cd = 0, gcd = 1500, cost = 0, aura = "you" } },
+          { name = "Blessing of Kings", tag = "On yourself", text = "Or Might if another Paladin gives Kings.", icon = 135995, rule = { kind = "missing", ids = { 20217 }, cd = 0, gcd = 1500, cost = 0, dur = 3600000, aura = "you" } },
         } },
-        { title = "Threat priority", note = "Press the first one that's ready. Holy damage is boosted by Righteous Fury, so your Holy abilities lead.", items = {
-          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003 },
-          { name = "Judgement", tag = "On cooldown", text = "Judges your Seal on the target (the Seal stays).", icon = 135959 },
-          { name = "Swift Judgement", tag = "On cooldown", text = "A second Judgement with its own cooldown: it doesn't wait for Judgement and costs no mana (game data).", icon = 236258 },
+        { title = "Threat priority", note = "Press the first one that's ready. Judgements first: they don't use the global cooldown (game data), so they never hold anything back. Holy damage is boosted by Righteous Fury, so your Holy abilities lead.", phase = "main", items = {
+          { name = "Judgement", tag = "On cooldown", text = "Judges your Seal on the target (the Seal stays).", icon = 135959, rule = { kind = "ready", ids = { 20271 }, cd = 10000, gcd = 0, cost = 0 } },
+          { name = "Swift Judgement", tag = "On cooldown", text = "A second Judgement with its own cooldown: it doesn't wait for Judgement and costs no mana (game data).", icon = 236258, rule = { kind = "ready", ids = { 1310994 }, cd = 60000, gcd = 0, cost = 0 } },
+          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003, rule = { kind = "ready", ids = { 679, 678, 1866, 680, 2495, 5569, 10332, 10333 }, cd = 10000, gcd = 1500, cost = 12 } },
           { name = "Consecration", tag = "Packs", text = "Holy damage on the ground: best when you hold several enemies (mana heavy).", icon = 135926 },
-          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903 },
+          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903, rule = { kind = "ready", ids = { 879, 5614, 5615, 10312, 10313, 10314 }, cd = 15000, gcd = 1500, cost = 85, creatures = 36 } },
         } },
         { title = "Mana", note = "Paladin tanks run on mana: these keep it going.", items = {
           { name = "Blessing of Wisdom", tag = "If no one else", text = "Mana every 5 sec.", icon = 135970 },
@@ -1292,19 +1292,19 @@ KP.Priority = {
           { name = "Shield Specialization", tag = "Counts", text = "Works with this setup.", icon = 134952 },
           { name = "Holy Shield", tag = "Counts", text = "Works with this setup.", icon = 135880 },
         } },
-        { title = "Keep up", note = "", items = {
-          { name = "Righteous Fury", tag = "Keep up", text = "Always on while you tank (lasts 30 min).", icon = 135962 },
-          { name = "Seal of Fury", tag = "Keep up", text = "Your tanking Seal: Holy damage on every hit, and with a shield each hit also gives you an absorb shield.", icon = 135957 },
-          { name = "Devotion Aura", tag = "Keep up", text = "Armor for you and your party.", icon = 135893 },
-          { name = "Blessing of Kings", tag = "On yourself", text = "Or Might if another Paladin gives Kings.", icon = 135995 },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Righteous Fury", tag = "Keep up", text = "Always on while you tank (lasts 30 min).", icon = 135962, rule = { kind = "keep", ids = { 25780 }, cd = 0, gcd = 1500, cost = 0, dur = 1800000, aura = "you" } },
+          { name = "Seal of Fury", tag = "Keep up", text = "Your tanking Seal: Holy damage on every hit, and with a shield each hit also gives you an absorb shield.", icon = 135957, rule = { kind = "keep", ids = { 1311649, 1311656, 20163, 20419, 20421, 20422, 20423 }, cd = 0, gcd = 1500, cost = 90, dur = 30000, aura = "you" } },
+          { name = "Devotion Aura", tag = "Keep up", text = "Armor for you and your party.", icon = 135893, rule = { kind = "keep", ids = { 465, 10290, 643, 10291, 1032, 10292, 10293 }, cd = 0, gcd = 1500, cost = 0, aura = "you" } },
+          { name = "Blessing of Kings", tag = "On yourself", text = "Or Might if another Paladin gives Kings.", icon = 135995, rule = { kind = "missing", ids = { 20217 }, cd = 0, gcd = 1500, cost = 0, dur = 3600000, aura = "you" } },
         } },
-        { title = "Threat priority", note = "Press the first one that's ready. Holy damage is boosted by Righteous Fury, so your Holy abilities lead.", items = {
-          { name = "Holy Shield", tag = "Keep up", text = "Refresh it as it runs out: more blocks, and every block hits back.", icon = 135880 },
-          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003 },
-          { name = "Judgement", tag = "On cooldown", text = "Judges your Seal on the target (the Seal stays).", icon = 135959 },
-          { name = "Swift Judgement", tag = "On cooldown", text = "A second Judgement with its own cooldown: it doesn't wait for Judgement and costs no mana (game data).", icon = 236258 },
+        { title = "Threat priority", note = "Press the first one that's ready. Judgements first: they don't use the global cooldown (game data), so they never hold anything back. Holy damage is boosted by Righteous Fury, so your Holy abilities lead.", phase = "main", items = {
+          { name = "Judgement", tag = "On cooldown", text = "Judges your Seal on the target (the Seal stays).", icon = 135959, rule = { kind = "ready", ids = { 20271 }, cd = 10000, gcd = 0, cost = 0 } },
+          { name = "Swift Judgement", tag = "On cooldown", text = "A second Judgement with its own cooldown: it doesn't wait for Judgement and costs no mana (game data).", icon = 236258, rule = { kind = "ready", ids = { 1310994 }, cd = 60000, gcd = 0, cost = 0 } },
+          { name = "Holy Shield", tag = "Keep up", text = "Refresh it as it runs out: more blocks, and every block hits back.", icon = 135880, rule = { kind = "keep", ids = { 20925, 20927, 20928, 1239570 }, cd = 10000, gcd = 1500, cost = 100, dur = 10000, aura = "you" } },
+          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003, rule = { kind = "ready", ids = { 679, 678, 1866, 680, 2495, 5569, 10332, 10333 }, cd = 10000, gcd = 1500, cost = 14 } },
           { name = "Consecration", tag = "Packs", text = "Holy damage on the ground: best when you hold several enemies (mana heavy).", icon = 135926 },
-          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903 },
+          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903, rule = { kind = "ready", ids = { 879, 5614, 5615, 10312, 10313, 10314 }, cd = 15000, gcd = 1500, cost = 135, creatures = 36 } },
         } },
         { title = "Mana", note = "Paladin tanks run on mana: these keep it going.", items = {
           { name = "Blessing of Wisdom", tag = "If no one else", text = "Mana every 5 sec.", icon = 135970 },
@@ -1321,19 +1321,19 @@ KP.Priority = {
           { name = "Shield Specialization", tag = "Counts", text = "Works with this setup.", icon = 134952 },
           { name = "Holy Shield", tag = "Counts", text = "Works with this setup.", icon = 135880 },
         } },
-        { title = "Keep up", note = "", items = {
-          { name = "Righteous Fury", tag = "Keep up", text = "Always on while you tank (lasts 30 min).", icon = 135962 },
-          { name = "Seal of Fury", tag = "Keep up", text = "Your tanking Seal: Holy damage on every hit, and with a shield each hit also gives you an absorb shield.", icon = 135957 },
-          { name = "Devotion Aura", tag = "Keep up", text = "Armor for you and your party.", icon = 135893 },
-          { name = "Blessing of Kings", tag = "On yourself", text = "Or Might if another Paladin gives Kings.", icon = 135995 },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Righteous Fury", tag = "Keep up", text = "Always on while you tank (lasts 30 min).", icon = 135962, rule = { kind = "keep", ids = { 25780 }, cd = 0, gcd = 1500, cost = 0, dur = 1800000, aura = "you" } },
+          { name = "Seal of Fury", tag = "Keep up", text = "Your tanking Seal: Holy damage on every hit, and with a shield each hit also gives you an absorb shield.", icon = 135957, rule = { kind = "keep", ids = { 1311649, 1311656, 20163, 20419, 20421, 20422, 20423 }, cd = 0, gcd = 1500, cost = 120, dur = 30000, aura = "you" } },
+          { name = "Devotion Aura", tag = "Keep up", text = "Armor for you and your party.", icon = 135893, rule = { kind = "keep", ids = { 465, 10290, 643, 10291, 1032, 10292, 10293 }, cd = 0, gcd = 1500, cost = 0, aura = "you" } },
+          { name = "Blessing of Kings", tag = "On yourself", text = "Or Might if another Paladin gives Kings.", icon = 135995, rule = { kind = "missing", ids = { 20217 }, cd = 0, gcd = 1500, cost = 0, dur = 3600000, aura = "you" } },
         } },
-        { title = "Threat priority", note = "Press the first one that's ready. Holy damage is boosted by Righteous Fury, so your Holy abilities lead.", items = {
-          { name = "Holy Shield", tag = "Keep up", text = "Refresh it as it runs out: more blocks, and every block hits back.", icon = 135880 },
-          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003 },
-          { name = "Judgement", tag = "On cooldown", text = "Judges your Seal on the target (the Seal stays).", icon = 135959 },
-          { name = "Swift Judgement", tag = "On cooldown", text = "A second Judgement with its own cooldown: it doesn't wait for Judgement and costs no mana (game data).", icon = 236258 },
+        { title = "Threat priority", note = "Press the first one that's ready. Judgements first: they don't use the global cooldown (game data), so they never hold anything back. Holy damage is boosted by Righteous Fury, so your Holy abilities lead.", phase = "main", items = {
+          { name = "Judgement", tag = "On cooldown", text = "Judges your Seal on the target (the Seal stays).", icon = 135959, rule = { kind = "ready", ids = { 20271 }, cd = 10000, gcd = 0, cost = 0 } },
+          { name = "Swift Judgement", tag = "On cooldown", text = "A second Judgement with its own cooldown: it doesn't wait for Judgement and costs no mana (game data).", icon = 236258, rule = { kind = "ready", ids = { 1310994 }, cd = 60000, gcd = 0, cost = 0 } },
+          { name = "Holy Shield", tag = "Keep up", text = "Refresh it as it runs out: more blocks, and every block hits back.", icon = 135880, rule = { kind = "keep", ids = { 20925, 20927, 20928, 1239570 }, cd = 10000, gcd = 1500, cost = 100, dur = 10000, aura = "you" } },
+          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003, rule = { kind = "ready", ids = { 679, 678, 1866, 680, 2495, 5569, 10332, 10333 }, cd = 10000, gcd = 1500, cost = 14 } },
           { name = "Consecration", tag = "Packs", text = "Holy damage on the ground: best when you hold several enemies (mana heavy).", icon = 135926 },
-          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903 },
+          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903, rule = { kind = "ready", ids = { 879, 5614, 5615, 10312, 10313, 10314 }, cd = 15000, gcd = 1500, cost = 135, creatures = 36 } },
         } },
         { title = "Mana", note = "Paladin tanks run on mana: these keep it going.", items = {
           { name = "Blessing of Wisdom", tag = "If no one else", text = "Mana every 5 sec.", icon = 135970 },
@@ -1352,20 +1352,20 @@ KP.Priority = {
           { name = "Holy Shield", tag = "Counts", text = "Works with this setup.", icon = 135880 },
           { name = "Shieldsworn", tag = "Counts", text = "Works with this setup.", icon = 135911 },
         } },
-        { title = "Keep up", note = "", items = {
-          { name = "Righteous Fury", tag = "Keep up", text = "Always on while you tank (lasts 30 min).", icon = 135962 },
-          { name = "Seal of Fury", tag = "Keep up", text = "Your tanking Seal: Holy damage on every hit, and with a shield each hit also gives you an absorb shield.", icon = 135957 },
-          { name = "Devotion Aura", tag = "Keep up", text = "Armor for you and your party.", icon = 135893 },
-          { name = "Blessing of Kings", tag = "On yourself", text = "Or Might if another Paladin gives Kings.", icon = 135995 },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Righteous Fury", tag = "Keep up", text = "Always on while you tank (lasts 30 min).", icon = 135962, rule = { kind = "keep", ids = { 25780 }, cd = 0, gcd = 1500, cost = 0, dur = 1800000, aura = "you" } },
+          { name = "Seal of Fury", tag = "Keep up", text = "Your tanking Seal: Holy damage on every hit, and with a shield each hit also gives you an absorb shield.", icon = 135957, rule = { kind = "keep", ids = { 1311649, 1311656, 20163, 20419, 20421, 20422, 20423 }, cd = 0, gcd = 1500, cost = 120, dur = 30000, aura = "you" } },
+          { name = "Devotion Aura", tag = "Keep up", text = "Armor for you and your party.", icon = 135893, rule = { kind = "keep", ids = { 465, 10290, 643, 10291, 1032, 10292, 10293 }, cd = 0, gcd = 1500, cost = 0, aura = "you" } },
+          { name = "Blessing of Kings", tag = "On yourself", text = "Or Might if another Paladin gives Kings.", icon = 135995, rule = { kind = "missing", ids = { 20217 }, cd = 0, gcd = 1500, cost = 0, dur = 3600000, aura = "you" } },
         } },
-        { title = "Threat priority", note = "Press the first one that's ready. Holy damage is boosted by Righteous Fury, so your Holy abilities lead.", items = {
-          { name = "Holy Shield", tag = "Keep up", text = "Refresh it as it runs out: more blocks, and every block hits back.", icon = 135880 },
-          { name = "Hammer of the Righteous", tag = "On cooldown", text = "Holy damage to your target and nearby enemies. Needs a one-handed axe, mace or sword.", icon = 236253 },
-          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage. Shieldsworn: it strikes with your shield, setting off Holy Shield and Shield Specialization without using their charges, and lets you block spells for 6 sec.", icon = 626003 },
-          { name = "Judgement", tag = "On cooldown", text = "Judges your Seal on the target (the Seal stays).", icon = 135959 },
-          { name = "Swift Judgement", tag = "On cooldown", text = "A second Judgement with its own cooldown: it doesn't wait for Judgement and costs no mana (game data).", icon = 236258 },
+        { title = "Threat priority", note = "Press the first one that's ready. Judgements first: they don't use the global cooldown (game data), so they never hold anything back. Holy damage is boosted by Righteous Fury, so your Holy abilities lead.", phase = "main", items = {
+          { name = "Judgement", tag = "On cooldown", text = "Judges your Seal on the target (the Seal stays).", icon = 135959, rule = { kind = "ready", ids = { 20271 }, cd = 10000, gcd = 0, cost = 0 } },
+          { name = "Swift Judgement", tag = "On cooldown", text = "A second Judgement with its own cooldown: it doesn't wait for Judgement and costs no mana (game data).", icon = 236258, rule = { kind = "ready", ids = { 1310994 }, cd = 60000, gcd = 0, cost = 0 } },
+          { name = "Holy Shield", tag = "Keep up", text = "Refresh it as it runs out: more blocks, and every block hits back.", icon = 135880, rule = { kind = "keep", ids = { 20925, 20927, 20928, 1239570 }, cd = 10000, gcd = 1500, cost = 150, dur = 10000, aura = "you" } },
+          { name = "Hammer of the Righteous", tag = "On cooldown", text = "Holy damage to your target and nearby enemies. Needs a one-handed axe, mace or sword.", icon = 236253, rule = { kind = "ready", ids = { 407632 }, cd = 6000, gcd = 1500, cost = 0 } },
+          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage. Shieldsworn: it strikes with your shield, setting off Holy Shield and Shield Specialization without using their charges, and lets you block spells for 6 sec.", icon = 626003, rule = { kind = "ready", ids = { 679, 678, 1866, 680, 2495, 5569, 10332, 10333 }, cd = 6000, gcd = 1500, cost = 16 } },
           { name = "Consecration", tag = "Packs", text = "Holy damage on the ground: best when you hold several enemies (mana heavy).", icon = 135926 },
-          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903 },
+          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903, rule = { kind = "ready", ids = { 879, 5614, 5615, 10312, 10313, 10314 }, cd = 15000, gcd = 1500, cost = 180, creatures = 36 } },
         } },
         { title = "Mana", note = "Paladin tanks run on mana: these keep it going.", items = {
           { name = "Blessing of Wisdom", tag = "If no one else", text = "Mana every 5 sec.", icon = 135970 },
@@ -1384,21 +1384,120 @@ KP.Priority = {
           { name = "Holy Shield", tag = "Counts", text = "Works with this setup.", icon = 135880 },
           { name = "Shieldsworn", tag = "Counts", text = "Works with this setup.", icon = 135911 },
         } },
-        { title = "Keep up", note = "", items = {
-          { name = "Righteous Fury", tag = "Keep up", text = "Always on while you tank (lasts 30 min).", icon = 135962 },
-          { name = "Seal of Fury", tag = "Keep up", text = "Your tanking Seal: Holy damage on every hit, and with a shield each hit also gives you an absorb shield.", icon = 135957 },
-          { name = "Devotion Aura", tag = "Keep up", text = "Armor for you and your party.", icon = 135893 },
-          { name = "Blessing of Kings", tag = "On yourself", text = "Or Might if another Paladin gives Kings.", icon = 135995 },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Righteous Fury", tag = "Keep up", text = "Always on while you tank (lasts 30 min).", icon = 135962, rule = { kind = "keep", ids = { 25780 }, cd = 0, gcd = 1500, cost = 0, dur = 1800000, aura = "you" } },
+          { name = "Seal of Fury", tag = "Keep up", text = "Your tanking Seal: Holy damage on every hit, and with a shield each hit also gives you an absorb shield.", icon = 135957, rule = { kind = "keep", ids = { 1311649, 1311656, 20163, 20419, 20421, 20422, 20423 }, cd = 0, gcd = 1500, cost = 140, dur = 30000, aura = "you" } },
+          { name = "Devotion Aura", tag = "Keep up", text = "Armor for you and your party.", icon = 135893, rule = { kind = "keep", ids = { 465, 10290, 643, 10291, 1032, 10292, 10293 }, cd = 0, gcd = 1500, cost = 0, aura = "you" } },
+          { name = "Blessing of Kings", tag = "On yourself", text = "Or Might if another Paladin gives Kings.", icon = 135995, rule = { kind = "missing", ids = { 20217 }, cd = 0, gcd = 1500, cost = 0, dur = 3600000, aura = "you" } },
         } },
-        { title = "Threat priority", note = "Press the first one that's ready. Holy damage is boosted by Righteous Fury, so your Holy abilities lead.", items = {
-          { name = "Holy Shield", tag = "Keep up", text = "Refresh it as it runs out: more blocks, and every block hits back.", icon = 135880 },
-          { name = "Hammer of the Righteous", tag = "On cooldown", text = "Holy damage to your target and nearby enemies. Needs a one-handed axe, mace or sword.", icon = 236253 },
-          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage. Shieldsworn: it strikes with your shield, setting off Holy Shield and Shield Specialization without using their charges, and lets you block spells for 6 sec.", icon = 626003 },
-          { name = "Judgement", tag = "On cooldown", text = "Judges your Seal on the target (the Seal stays).", icon = 135959 },
-          { name = "Swift Judgement", tag = "On cooldown", text = "A second Judgement with its own cooldown: it doesn't wait for Judgement and costs no mana (game data).", icon = 236258 },
+        { title = "Threat priority", note = "Press the first one that's ready. Judgements first: they don't use the global cooldown (game data), so they never hold anything back. Holy damage is boosted by Righteous Fury, so your Holy abilities lead.", phase = "main", items = {
+          { name = "Judgement", tag = "On cooldown", text = "Judges your Seal on the target (the Seal stays).", icon = 135959, rule = { kind = "ready", ids = { 20271 }, cd = 10000, gcd = 0, cost = 0 } },
+          { name = "Swift Judgement", tag = "On cooldown", text = "A second Judgement with its own cooldown: it doesn't wait for Judgement and costs no mana (game data).", icon = 236258, rule = { kind = "ready", ids = { 1310994 }, cd = 60000, gcd = 0, cost = 0 } },
+          { name = "Holy Shield", tag = "Keep up", text = "Refresh it as it runs out: more blocks, and every block hits back.", icon = 135880, rule = { kind = "keep", ids = { 20925, 20927, 20928, 1239570 }, cd = 10000, gcd = 1500, cost = 150, dur = 10000, aura = "you" } },
+          { name = "Hammer of the Righteous", tag = "On cooldown", text = "Holy damage to your target and nearby enemies. Needs a one-handed axe, mace or sword.", icon = 236253, rule = { kind = "ready", ids = { 407632 }, cd = 6000, gcd = 1500, cost = 0 } },
+          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage. Shieldsworn: it strikes with your shield, setting off Holy Shield and Shield Specialization without using their charges, and lets you block spells for 6 sec.", icon = 626003, rule = { kind = "ready", ids = { 679, 678, 1866, 680, 2495, 5569, 10332, 10333 }, cd = 6000, gcd = 1500, cost = 16.66 } },
           { name = "Consecration", tag = "Packs", text = "Holy damage on the ground: best when you hold several enemies (mana heavy).", icon = 135926 },
-          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903 },
-          { name = "Hammer of Wrath", tag = "Below 20%", text = "Only when the target is at 20% health or less.", icon = 132326 },
+          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903, rule = { kind = "ready", ids = { 879, 5614, 5615, 10312, 10313, 10314 }, cd = 15000, gcd = 1500, cost = 230.29999999999998, creatures = 36 } },
+          { name = "Hammer of Wrath", tag = "Below 20%", text = "Only when the target is at 20% health or less.", icon = 132326, rule = { kind = "ready", ids = { 24275, 24274, 24239 }, cd = 6000, gcd = 1000, cost = 295 } },
+        } },
+        { title = "Mana", note = "Paladin tanks run on mana: these keep it going.", items = {
+          { name = "Blessing of Wisdom", tag = "If no one else", text = "Mana every 5 sec.", icon = 135970 },
+          { name = "Shield Specialization", tag = "Talent", text = "Your blocks give back 4% of your maximum mana.", icon = 134952 },
+        } },
+        { title = "When things go wrong", note = "", items = {
+          { name = "Templar's Bulwark", tag = "Emergency", text = "An absorb shield as big as your health for 8 sec.", icon = 236264 },
+          { name = "Lay on Hands", tag = "Emergency", text = "Heals you to full (uses all your mana).", icon = 135928 },
+          { name = "Divine Protection", tag = "Last resort", text = "Immune for 8 sec, but you can't attack: the boss may leave you.", icon = 135954 },
+          { name = "Divine Shield", tag = "Last resort", text = "Immune for 12 sec but deal 50% less damage (game data): expect to lose threat.", icon = 135896 },
+        } },
+      } },
+      { level = 50, title = "Protection Paladin, tanking", sections = {
+        { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Sword and board.", items = {
+          { name = "Shield Specialization", tag = "Counts", text = "Works with this setup.", icon = 134952 },
+          { name = "Holy Shield", tag = "Counts", text = "Works with this setup.", icon = 135880 },
+          { name = "Shieldsworn", tag = "Counts", text = "Works with this setup.", icon = 135911 },
+        } },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Righteous Fury", tag = "Keep up", text = "Always on while you tank (lasts 30 min).", icon = 135962, rule = { kind = "keep", ids = { 25780 }, cd = 0, gcd = 1500, cost = 0, dur = 1800000, aura = "you" } },
+          { name = "Seal of Fury", tag = "Keep up", text = "Your tanking Seal: Holy damage on every hit, and with a shield each hit also gives you an absorb shield.", icon = 135957, rule = { kind = "keep", ids = { 1311649, 1311656, 20163, 20419, 20421, 20422, 20423 }, cd = 0, gcd = 1500, cost = 170, dur = 30000, aura = "you" } },
+          { name = "Devotion Aura", tag = "Keep up", text = "Armor for you and your party.", icon = 135893, rule = { kind = "keep", ids = { 465, 10290, 643, 10291, 1032, 10292, 10293 }, cd = 0, gcd = 1500, cost = 0, aura = "you" } },
+          { name = "Blessing of Kings", tag = "On yourself", text = "Or Might if another Paladin gives Kings.", icon = 135995, rule = { kind = "missing", ids = { 20217 }, cd = 0, gcd = 1500, cost = 0, dur = 3600000, aura = "you" } },
+        } },
+        { title = "Threat priority", note = "Press the first one that's ready. Judgements first: they don't use the global cooldown (game data), so they never hold anything back. Holy damage is boosted by Righteous Fury, so your Holy abilities lead.", phase = "main", items = {
+          { name = "Judgement", tag = "On cooldown", text = "Judges your Seal on the target (the Seal stays).", icon = 135959, rule = { kind = "ready", ids = { 20271 }, cd = 10000, gcd = 0, cost = 0 } },
+          { name = "Swift Judgement", tag = "On cooldown", text = "A second Judgement with its own cooldown: it doesn't wait for Judgement and costs no mana (game data).", icon = 236258, rule = { kind = "ready", ids = { 1310994 }, cd = 60000, gcd = 0, cost = 0 } },
+          { name = "Holy Shield", tag = "Keep up", text = "Refresh it as it runs out: more blocks, and every block hits back.", icon = 135880, rule = { kind = "keep", ids = { 20925, 20927, 20928, 1239570 }, cd = 10000, gcd = 1500, cost = 195, dur = 10000, aura = "you" } },
+          { name = "Hammer of the Righteous", tag = "On cooldown", text = "Holy damage to your target and nearby enemies. Needs a one-handed axe, mace or sword.", icon = 236253, rule = { kind = "ready", ids = { 407632 }, cd = 6000, gcd = 1500, cost = 0 } },
+          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage. Shieldsworn: it strikes with your shield, setting off Holy Shield and Shield Specialization without using their charges, and lets you block spells for 6 sec.", icon = 626003, rule = { kind = "ready", ids = { 679, 678, 1866, 680, 2495, 5569, 10332, 10333 }, cd = 6000, gcd = 1500, cost = 15.979999999999999 } },
+          { name = "Consecration", tag = "Packs", text = "Holy damage on the ground: best when you hold several enemies (mana heavy).", icon = 135926 },
+          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903, rule = { kind = "ready", ids = { 879, 5614, 5615, 10312, 10313, 10314 }, cd = 15000, gcd = 1500, cost = 220.89999999999998, creatures = 36 } },
+          { name = "Hammer of Wrath", tag = "Below 20%", text = "Only when the target is at 20% health or less.", icon = 132326, rule = { kind = "ready", ids = { 24275, 24274, 24239 }, cd = 6000, gcd = 1000, cost = 295 } },
+        } },
+        { title = "Mana", note = "Paladin tanks run on mana: these keep it going.", items = {
+          { name = "Blessing of Wisdom", tag = "If no one else", text = "Mana every 5 sec.", icon = 135970 },
+          { name = "Shield Specialization", tag = "Talent", text = "Your blocks give back 4% of your maximum mana.", icon = 134952 },
+        } },
+        { title = "When things go wrong", note = "", items = {
+          { name = "Templar's Bulwark", tag = "Emergency", text = "An absorb shield as big as your health for 8 sec.", icon = 236264 },
+          { name = "Lay on Hands", tag = "Emergency", text = "Heals you to full (uses all your mana).", icon = 135928 },
+          { name = "Divine Protection", tag = "Last resort", text = "Immune for 8 sec, but you can't attack: the boss may leave you.", icon = 135954 },
+          { name = "Divine Shield", tag = "Last resort", text = "Immune for 12 sec but deal 50% less damage (game data): expect to lose threat.", icon = 135896 },
+        } },
+      } },
+      { level = 55, title = "Protection Paladin, tanking", sections = {
+        { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Sword and board.", items = {
+          { name = "Shield Specialization", tag = "Counts", text = "Works with this setup.", icon = 134952 },
+          { name = "Holy Shield", tag = "Counts", text = "Works with this setup.", icon = 135880 },
+          { name = "Shieldsworn", tag = "Counts", text = "Works with this setup.", icon = 135911 },
+        } },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Righteous Fury", tag = "Keep up", text = "Always on while you tank (lasts 30 min).", icon = 135962, rule = { kind = "keep", ids = { 25780 }, cd = 0, gcd = 1500, cost = 0, dur = 1800000, aura = "you" } },
+          { name = "Seal of Fury", tag = "Keep up", text = "Your tanking Seal: Holy damage on every hit, and with a shield each hit also gives you an absorb shield.", icon = 135957, rule = { kind = "keep", ids = { 1311649, 1311656, 20163, 20419, 20421, 20422, 20423 }, cd = 0, gcd = 1500, cost = 170, dur = 30000, aura = "you" } },
+          { name = "Devotion Aura", tag = "Keep up", text = "Armor for you and your party.", icon = 135893, rule = { kind = "keep", ids = { 465, 10290, 643, 10291, 1032, 10292, 10293 }, cd = 0, gcd = 1500, cost = 0, aura = "you" } },
+          { name = "Blessing of Kings", tag = "On yourself", text = "Or Might if another Paladin gives Kings.", icon = 135995, rule = { kind = "missing", ids = { 20217 }, cd = 0, gcd = 1500, cost = 0, dur = 3600000, aura = "you" } },
+        } },
+        { title = "Threat priority", note = "Press the first one that's ready. Judgements first: they don't use the global cooldown (game data), so they never hold anything back. Holy damage is boosted by Righteous Fury, so your Holy abilities lead.", phase = "main", items = {
+          { name = "Judgement", tag = "On cooldown", text = "Judges your Seal on the target (the Seal stays).", icon = 135959, rule = { kind = "ready", ids = { 20271 }, cd = 10000, gcd = 0, cost = 0 } },
+          { name = "Swift Judgement", tag = "On cooldown", text = "A second Judgement with its own cooldown: it doesn't wait for Judgement and costs no mana (game data).", icon = 236258, rule = { kind = "ready", ids = { 1310994 }, cd = 60000, gcd = 0, cost = 0 } },
+          { name = "Holy Shield", tag = "Keep up", text = "Refresh it as it runs out: more blocks, and every block hits back.", icon = 135880, rule = { kind = "keep", ids = { 20925, 20927, 20928, 1239570 }, cd = 10000, gcd = 1500, cost = 195, dur = 10000, aura = "you" } },
+          { name = "Hammer of the Righteous", tag = "On cooldown", text = "Holy damage to your target and nearby enemies. Needs a one-handed axe, mace or sword.", icon = 236253, rule = { kind = "ready", ids = { 407632 }, cd = 6000, gcd = 1500, cost = 0 } },
+          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage. Shieldsworn: it strikes with your shield, setting off Holy Shield and Shield Specialization without using their charges, and lets you block spells for 6 sec.", icon = 626003, rule = { kind = "ready", ids = { 679, 678, 1866, 680, 2495, 5569, 10332, 10333 }, cd = 6000, gcd = 1500, cost = 17.86 } },
+          { name = "Consecration", tag = "Packs", text = "Holy damage on the ground: best when you hold several enemies (mana heavy).", icon = 135926 },
+          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903, rule = { kind = "ready", ids = { 879, 5614, 5615, 10312, 10313, 10314 }, cd = 15000, gcd = 1500, cost = 267.9, creatures = 36 } },
+          { name = "Hammer of Wrath", tag = "Below 20%", text = "Only when the target is at 20% health or less.", icon = 132326, rule = { kind = "ready", ids = { 24275, 24274, 24239 }, cd = 6000, gcd = 1000, cost = 360 } },
+        } },
+        { title = "Mana", note = "Paladin tanks run on mana: these keep it going.", items = {
+          { name = "Blessing of Wisdom", tag = "If no one else", text = "Mana every 5 sec.", icon = 135970 },
+          { name = "Shield Specialization", tag = "Talent", text = "Your blocks give back 4% of your maximum mana.", icon = 134952 },
+        } },
+        { title = "When things go wrong", note = "", items = {
+          { name = "Templar's Bulwark", tag = "Emergency", text = "An absorb shield as big as your health for 8 sec.", icon = 236264 },
+          { name = "Lay on Hands", tag = "Emergency", text = "Heals you to full (uses all your mana).", icon = 135928 },
+          { name = "Divine Protection", tag = "Last resort", text = "Immune for 8 sec, but you can't attack: the boss may leave you.", icon = 135954 },
+          { name = "Divine Shield", tag = "Last resort", text = "Immune for 12 sec but deal 50% less damage (game data): expect to lose threat.", icon = 135896 },
+        } },
+      } },
+      { level = 60, title = "Protection Paladin, tanking", sections = {
+        { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Sword and board.", items = {
+          { name = "Shield Specialization", tag = "Counts", text = "Works with this setup.", icon = 134952 },
+          { name = "Holy Shield", tag = "Counts", text = "Works with this setup.", icon = 135880 },
+          { name = "Shieldsworn", tag = "Counts", text = "Works with this setup.", icon = 135911 },
+        } },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Righteous Fury", tag = "Keep up", text = "Always on while you tank (lasts 30 min).", icon = 135962, rule = { kind = "keep", ids = { 25780 }, cd = 0, gcd = 1500, cost = 0, dur = 1800000, aura = "you" } },
+          { name = "Seal of Fury", tag = "Keep up", text = "Your tanking Seal: Holy damage on every hit, and with a shield each hit also gives you an absorb shield.", icon = 135957, rule = { kind = "keep", ids = { 1311649, 1311656, 20163, 20419, 20421, 20422, 20423 }, cd = 0, gcd = 1500, cost = 200, dur = 30000, aura = "you" } },
+          { name = "Devotion Aura", tag = "Keep up", text = "Armor for you and your party.", icon = 135893, rule = { kind = "keep", ids = { 465, 10290, 643, 10291, 1032, 10292, 10293 }, cd = 0, gcd = 1500, cost = 0, aura = "you" } },
+          { name = "Blessing of Kings", tag = "On yourself", text = "Or Might if another Paladin gives Kings.", icon = 135995, rule = { kind = "missing", ids = { 20217 }, cd = 0, gcd = 1500, cost = 0, dur = 3600000, aura = "you" } },
+        } },
+        { title = "Threat priority", note = "Press the first one that's ready. Judgements first: they don't use the global cooldown (game data), so they never hold anything back. Holy damage is boosted by Righteous Fury, so your Holy abilities lead.", phase = "main", items = {
+          { name = "Judgement", tag = "On cooldown", text = "Judges your Seal on the target (the Seal stays).", icon = 135959, rule = { kind = "ready", ids = { 20271 }, cd = 8000, gcd = 0, cost = 0 } },
+          { name = "Swift Judgement", tag = "On cooldown", text = "A second Judgement with its own cooldown: it doesn't wait for Judgement and costs no mana (game data).", icon = 236258, rule = { kind = "ready", ids = { 1310994 }, cd = 60000, gcd = 0, cost = 0 } },
+          { name = "Holy Shield", tag = "Keep up", text = "Refresh it as it runs out: more blocks, and every block hits back.", icon = 135880, rule = { kind = "keep", ids = { 20925, 20927, 20928, 1239570 }, cd = 10000, gcd = 1500, cost = 240, dur = 10000, aura = "you" } },
+          { name = "Hammer of the Righteous", tag = "On cooldown", text = "Holy damage to your target and nearby enemies. Needs a one-handed axe, mace or sword.", icon = 236253, rule = { kind = "ready", ids = { 407632 }, cd = 6000, gcd = 1500, cost = 0 } },
+          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage. Shieldsworn: it strikes with your shield, setting off Holy Shield and Shield Specialization without using their charges, and lets you block spells for 6 sec.", icon = 626003, rule = { kind = "ready", ids = { 679, 678, 1866, 680, 2495, 5569, 10332, 10333 }, cd = 6000, gcd = 1500, cost = 18.799999999999997 } },
+          { name = "Consecration", tag = "Packs", text = "Holy damage on the ground: best when you hold several enemies (mana heavy).", icon = 135926 },
+          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903, rule = { kind = "ready", ids = { 879, 5614, 5615, 10312, 10313, 10314 }, cd = 15000, gcd = 1500, cost = 324.29999999999995, creatures = 36 } },
+          { name = "Hammer of Wrath", tag = "Below 20%", text = "Only when the target is at 20% health or less.", icon = 132326, rule = { kind = "ready", ids = { 24275, 24274, 24239 }, cd = 6000, gcd = 1000, cost = 425 } },
         } },
         { title = "Mana", note = "Paladin tanks run on mana: these keep it going.", items = {
           { name = "Blessing of Wisdom", tag = "If no one else", text = "Mana every 5 sec.", icon = 135970 },
@@ -2954,15 +3053,15 @@ KP.Priority = {
     },
     ["ele"] = {
       { level = 60, title = "Elemental Shaman", sections = {
-        { title = "Keep up", note = "", items = {
-          { name = "Flame Shock", tag = "Keep up", text = "Its burn is worth keeping on the target.", icon = 135813 },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Flame Shock", tag = "If missing", text = "Its burn is worth keeping on the target: cast it again once the burn has run out (a new Flame Shock replaces the burn still going).", icon = 135813, rule = { kind = "missing", ids = { 8050, 8052, 8053, 10447, 10448, 29228 }, cd = 6000, gcd = 1500, cost = 184.49999999999997, dur = 12000, aura = "target" } },
         } },
-        { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Chain Lightning", tag = "On cooldown", text = "On cooldown if your mana allows; best with several targets.", icon = 136015 },
-          { name = "Lightning Bolt", tag = "Filler", text = "Your filler between cooldowns.", icon = 136048 },
+        { title = "Spell priority", note = "Press the first one that's ready.", phase = "main", items = {
+          { name = "Chain Lightning", tag = "On cooldown", text = "On cooldown if your mana allows; best with several targets.", icon = 136015, rule = { kind = "ready", ids = { 421, 930, 2860, 10605 }, cd = 5500, gcd = 1500, cost = 445.5 } },
+          { name = "Lightning Bolt", tag = "Filler", text = "Your filler between cooldowns.", icon = 136048, rule = { kind = "ready", ids = { 403, 529, 548, 915, 943, 6041, 10391, 10392, 15207, 15208 }, cd = 0, gcd = 1500, cost = 198 } },
         } },
-        { title = "Cooldowns", note = "", items = {
-          { name = "Lightning Mastery", tag = "Cooldown", text = "For 15 sec, Lightning Bolt casts 0.5 sec faster and Chain Lightning has no cooldown: every 3 min, or saved for a pack of enemies.", icon = 136111 },
+        { title = "Cooldowns", note = "", phase = "cooldowns", items = {
+          { name = "Lightning Mastery", tag = "Cooldown", text = "For 15 sec, Lightning Bolt casts 0.5 sec faster and Chain Lightning has no cooldown: every 3 min, or saved for a pack of enemies.", icon = 136111, rule = { kind = "ready", ids = { 16166 }, cd = 180000, gcd = 0, cost = 0, dur = 15000, aura = "you" } },
         } },
       } },
     },
@@ -3104,32 +3203,104 @@ KP.Priority = {
     },
     ["ele-lvl"] = {
       { level = 10, title = "Elemental Shaman", sections = {
-        { title = "Keep up", note = "", items = {
-          { name = "Flame Shock", tag = "Keep up", text = "Its burn is worth keeping on the target.", icon = 135813 },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Flame Shock", tag = "If missing", text = "Its burn is worth keeping on the target: cast it again once the burn has run out (a new Flame Shock replaces the burn still going).", icon = 135813, rule = { kind = "missing", ids = { 8050, 8052, 8053, 10447, 10448, 29228 }, cd = 6000, gcd = 1500, cost = 53.9, dur = 12000, aura = "target" } },
         } },
-        { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Lightning Bolt", tag = "Filler", text = "Your filler between cooldowns.", icon = 136048 },
+        { title = "Spell priority", note = "Press the first one that's ready.", phase = "main", items = {
+          { name = "Lightning Bolt", tag = "Filler", text = "Your filler between cooldowns.", icon = 136048, rule = { kind = "ready", ids = { 403, 529, 548, 915, 943, 6041, 10391, 10392, 15207, 15208 }, cd = 0, gcd = 1500, cost = 29.4 } },
+        } },
+      } },
+      { level = 15, title = "Elemental Shaman", sections = {
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Flame Shock", tag = "If missing", text = "Its burn is worth keeping on the target: cast it again once the burn has run out (a new Flame Shock replaces the burn still going).", icon = 135813, rule = { kind = "missing", ids = { 8050, 8052, 8053, 10447, 10448, 29228 }, cd = 6000, gcd = 1500, cost = 49.5, dur = 12000, aura = "target" } },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", phase = "main", items = {
+          { name = "Lightning Bolt", tag = "Filler", text = "Your filler between cooldowns.", icon = 136048, rule = { kind = "ready", ids = { 403, 529, 548, 915, 943, 6041, 10391, 10392, 15207, 15208 }, cd = 0, gcd = 1500, cost = 40.5 } },
+        } },
+      } },
+      { level = 20, title = "Elemental Shaman", sections = {
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Flame Shock", tag = "If missing", text = "Its burn is worth keeping on the target: cast it again once the burn has run out (a new Flame Shock replaces the burn still going).", icon = 135813, rule = { kind = "missing", ids = { 8050, 8052, 8053, 10447, 10448, 29228 }, cd = 6000, gcd = 1500, cost = 85.5, dur = 12000, aura = "target" } },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", phase = "main", items = {
+          { name = "Lightning Bolt", tag = "Filler", text = "Your filler between cooldowns.", icon = 136048, rule = { kind = "ready", ids = { 403, 529, 548, 915, 943, 6041, 10391, 10392, 15207, 15208 }, cd = 0, gcd = 1500, cost = 54 } },
+        } },
+      } },
+      { level = 30, title = "Elemental Shaman", sections = {
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Flame Shock", tag = "If missing", text = "Its burn is worth keeping on the target: cast it again once the burn has run out (a new Flame Shock replaces the burn still going).", icon = 135813, rule = { kind = "missing", ids = { 8050, 8052, 8053, 10447, 10448, 29228 }, cd = 5400, gcd = 1500, cost = 144, dur = 12000, aura = "target" } },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", phase = "main", items = {
+          { name = "Lightning Bolt", tag = "Filler", text = "Your filler between cooldowns.", icon = 136048, rule = { kind = "ready", ids = { 403, 529, 548, 915, 943, 6041, 10391, 10392, 15207, 15208 }, cd = 0, gcd = 1500, cost = 76.5 } },
         } },
       } },
       { level = 35, title = "Elemental Shaman", sections = {
-        { title = "Keep up", note = "", items = {
-          { name = "Flame Shock", tag = "Keep up", text = "Its burn is worth keeping on the target.", icon = 135813 },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Flame Shock", tag = "If missing", text = "Its burn is worth keeping on the target: cast it again once the burn has run out (a new Flame Shock replaces the burn still going).", icon = 135813, rule = { kind = "missing", ids = { 8050, 8052, 8053, 10447, 10448, 29228 }, cd = 5200, gcd = 1500, cost = 144, dur = 12000, aura = "target" } },
         } },
-        { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Chain Lightning", tag = "On cooldown", text = "On cooldown if your mana allows; best with several targets.", icon = 136015 },
-          { name = "Lightning Bolt", tag = "Filler", text = "Your filler between cooldowns.", icon = 136048 },
+        { title = "Spell priority", note = "Press the first one that's ready.", phase = "main", items = {
+          { name = "Chain Lightning", tag = "On cooldown", text = "On cooldown if your mana allows; best with several targets.", icon = 136015, rule = { kind = "ready", ids = { 421, 930, 2860, 10605 }, cd = 6000, gcd = 1500, cost = 220.5 } },
+          { name = "Lightning Bolt", tag = "Filler", text = "Your filler between cooldowns.", icon = 136048, rule = { kind = "ready", ids = { 403, 529, 548, 915, 943, 6041, 10391, 10392, 15207, 15208 }, cd = 0, gcd = 1500, cost = 99 } },
         } },
       } },
       { level = 40, title = "Elemental Shaman", sections = {
-        { title = "Keep up", note = "", items = {
-          { name = "Flame Shock", tag = "Keep up", text = "Its burn is worth keeping on the target.", icon = 135813 },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Flame Shock", tag = "If missing", text = "Its burn is worth keeping on the target: cast it again once the burn has run out (a new Flame Shock replaces the burn still going).", icon = 135813, rule = { kind = "missing", ids = { 8050, 8052, 8053, 10447, 10448, 29228 }, cd = 5200, gcd = 1500, cost = 225, dur = 12000, aura = "target" } },
         } },
-        { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Chain Lightning", tag = "On cooldown", text = "On cooldown if your mana allows; best with several targets.", icon = 136015 },
-          { name = "Lightning Bolt", tag = "Filler", text = "Your filler between cooldowns.", icon = 136048 },
+        { title = "Spell priority", note = "Press the first one that's ready.", phase = "main", items = {
+          { name = "Chain Lightning", tag = "On cooldown", text = "On cooldown if your mana allows; best with several targets.", icon = 136015, rule = { kind = "ready", ids = { 421, 930, 2860, 10605 }, cd = 5500, gcd = 1500, cost = 324 } },
+          { name = "Lightning Bolt", tag = "Filler", text = "Your filler between cooldowns.", icon = 136048, rule = { kind = "ready", ids = { 403, 529, 548, 915, 943, 6041, 10391, 10392, 15207, 15208 }, cd = 0, gcd = 1500, cost = 121.5 } },
         } },
-        { title = "Cooldowns", note = "", items = {
-          { name = "Lightning Mastery", tag = "Cooldown", text = "For 15 sec, Lightning Bolt casts 0.5 sec faster and Chain Lightning has no cooldown: every 3 min, or saved for a pack of enemies.", icon = 136111 },
+        { title = "Cooldowns", note = "", phase = "cooldowns", items = {
+          { name = "Lightning Mastery", tag = "Cooldown", text = "For 15 sec, Lightning Bolt casts 0.5 sec faster and Chain Lightning has no cooldown: every 3 min, or saved for a pack of enemies.", icon = 136111, rule = { kind = "ready", ids = { 16166 }, cd = 180000, gcd = 0, cost = 0, dur = 15000, aura = "you" } },
+        } },
+      } },
+      { level = 45, title = "Elemental Shaman", sections = {
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Flame Shock", tag = "If missing", text = "Its burn is worth keeping on the target: cast it again once the burn has run out (a new Flame Shock replaces the burn still going).", icon = 135813, rule = { kind = "missing", ids = { 8050, 8052, 8053, 10447, 10448, 29228 }, cd = 5000, gcd = 1500, cost = 225, dur = 12000, aura = "target" } },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", phase = "main", items = {
+          { name = "Chain Lightning", tag = "On cooldown", text = "On cooldown if your mana allows; best with several targets.", icon = 136015, rule = { kind = "ready", ids = { 421, 930, 2860, 10605 }, cd = 5500, gcd = 1500, cost = 324 } },
+          { name = "Lightning Bolt", tag = "Filler", text = "Your filler between cooldowns.", icon = 136048, rule = { kind = "ready", ids = { 403, 529, 548, 915, 943, 6041, 10391, 10392, 15207, 15208 }, cd = 0, gcd = 1500, cost = 144 } },
+        } },
+        { title = "Cooldowns", note = "", phase = "cooldowns", items = {
+          { name = "Lightning Mastery", tag = "Cooldown", text = "For 15 sec, Lightning Bolt casts 0.5 sec faster and Chain Lightning has no cooldown: every 3 min, or saved for a pack of enemies.", icon = 136111, rule = { kind = "ready", ids = { 16166 }, cd = 180000, gcd = 0, cost = 0, dur = 15000, aura = "you" } },
+        } },
+      } },
+      { level = 50, title = "Elemental Shaman", sections = {
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Flame Shock", tag = "If missing", text = "Its burn is worth keeping on the target: cast it again once the burn has run out (a new Flame Shock replaces the burn still going).", icon = 135813, rule = { kind = "missing", ids = { 8050, 8052, 8053, 10447, 10448, 29228 }, cd = 5000, gcd = 1500, cost = 225, dur = 12000, aura = "target" } },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", phase = "main", items = {
+          { name = "Chain Lightning", tag = "On cooldown", text = "On cooldown if your mana allows; best with several targets.", icon = 136015, rule = { kind = "ready", ids = { 421, 930, 2860, 10605 }, cd = 5500, gcd = 1500, cost = 382.5 } },
+          { name = "Lightning Bolt", tag = "Filler", text = "Your filler between cooldowns.", icon = 136048, rule = { kind = "ready", ids = { 403, 529, 548, 915, 943, 6041, 10391, 10392, 15207, 15208 }, cd = 0, gcd = 1500, cost = 171 } },
+        } },
+        { title = "Cooldowns", note = "", phase = "cooldowns", items = {
+          { name = "Lightning Mastery", tag = "Cooldown", text = "For 15 sec, Lightning Bolt casts 0.5 sec faster and Chain Lightning has no cooldown: every 3 min, or saved for a pack of enemies.", icon = 136111, rule = { kind = "ready", ids = { 16166 }, cd = 180000, gcd = 0, cost = 0, dur = 15000, aura = "you" } },
+        } },
+      } },
+      { level = 55, title = "Elemental Shaman", sections = {
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Flame Shock", tag = "If missing", text = "Its burn is worth keeping on the target: cast it again once the burn has run out (a new Flame Shock replaces the burn still going).", icon = 135813, rule = { kind = "missing", ids = { 8050, 8052, 8053, 10447, 10448, 29228 }, cd = 5000, gcd = 1500, cost = 310.5, dur = 12000, aura = "target" } },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", phase = "main", items = {
+          { name = "Chain Lightning", tag = "On cooldown", text = "On cooldown if your mana allows; best with several targets.", icon = 136015, rule = { kind = "ready", ids = { 421, 930, 2860, 10605 }, cd = 5500, gcd = 1500, cost = 382.5 } },
+          { name = "Lightning Bolt", tag = "Filler", text = "Your filler between cooldowns.", icon = 136048, rule = { kind = "ready", ids = { 403, 529, 548, 915, 943, 6041, 10391, 10392, 15207, 15208 }, cd = 0, gcd = 1500, cost = 171 } },
+        } },
+        { title = "Cooldowns", note = "", phase = "cooldowns", items = {
+          { name = "Lightning Mastery", tag = "Cooldown", text = "For 15 sec, Lightning Bolt casts 0.5 sec faster and Chain Lightning has no cooldown: every 3 min, or saved for a pack of enemies.", icon = 136111, rule = { kind = "ready", ids = { 16166 }, cd = 180000, gcd = 0, cost = 0, dur = 15000, aura = "you" } },
+        } },
+      } },
+      { level = 60, title = "Elemental Shaman", sections = {
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Flame Shock", tag = "If missing", text = "Its burn is worth keeping on the target: cast it again once the burn has run out (a new Flame Shock replaces the burn still going).", icon = 135813, rule = { kind = "missing", ids = { 8050, 8052, 8053, 10447, 10448, 29228 }, cd = 5000, gcd = 1500, cost = 184.49999999999997, dur = 12000, aura = "target" } },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", phase = "main", items = {
+          { name = "Chain Lightning", tag = "On cooldown", text = "On cooldown if your mana allows; best with several targets.", icon = 136015, rule = { kind = "ready", ids = { 421, 930, 2860, 10605 }, cd = 5500, gcd = 1500, cost = 445.5 } },
+          { name = "Lightning Bolt", tag = "Filler", text = "Your filler between cooldowns.", icon = 136048, rule = { kind = "ready", ids = { 403, 529, 548, 915, 943, 6041, 10391, 10392, 15207, 15208 }, cd = 0, gcd = 1500, cost = 198 } },
+        } },
+        { title = "Cooldowns", note = "", phase = "cooldowns", items = {
+          { name = "Lightning Mastery", tag = "Cooldown", text = "For 15 sec, Lightning Bolt casts 0.5 sec faster and Chain Lightning has no cooldown: every 3 min, or saved for a pack of enemies.", icon = 136111, rule = { kind = "ready", ids = { 16166 }, cd = 180000, gcd = 0, cost = 0, dur = 15000, aura = "you" } },
         } },
       } },
     },

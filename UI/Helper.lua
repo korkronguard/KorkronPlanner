@@ -7,6 +7,8 @@ local _, KP = ...
 local Helper = {}
 KP.Helper = Helper
 
+Helper.COVERS = "Warriors, Retribution and Protection Paladins, Elemental Shamans" -- for chat and /kp help
+
 local BIG, SMALL, GAP = 48, 32, 6
 local TICK = 0.1 -- seconds between updates while it's on
 
@@ -115,8 +117,8 @@ end
 
 function Helper.SetOn(on)
   if on and not KP.Rotation.ForClass() then
-    return KP:Print("the rotation helper isn't ready for your class yet (Warriors and Retribution Paladins so far; " ..
-      "the others follow).")
+    return KP:Print("the rotation helper isn't ready for your class yet (" .. Helper.COVERS .. " so far; the others " ..
+      "follow).")
   end
   Settings().on = on
   Run()
@@ -126,8 +128,8 @@ function Helper.SetOn(on)
     "two. Drag it where you like; /kp helper lock keeps it there.")
   if not KP.Rotation.Rules() then
     local build = KP.Build.Current()
-    KP:Print(build and build.key and "it doesn't cover your build yet (Paladins: Retribution so far)."
-      or "it follows the planner's suggested builds: choose one in /kp.")
+    KP:Print(build and build.key and ("it doesn't cover your build yet. Builds it covers for your class: " ..
+      table.concat(KP.Rotation.Covered(), ", ") .. ".") or "it follows the planner's suggested builds: choose one in /kp.")
   end
 end
 
@@ -148,7 +150,7 @@ KP:On("PLAYER_LOGIN", function()
   KP.After(25, function()
     if KorkronPlannerDB.helperNotice or not KP.Rotation.ForClass() then return end
     KorkronPlannerDB.helperNotice = true
-    KP:Print("new: a rotation helper shows what to press next for your build (Warriors and Retribution Paladins so " ..
-      "far). /kp helper turns it on.")
+    KP:Print("new: a rotation helper shows what to press next for your build (" .. Helper.COVERS .. " so far). " ..
+      "/kp helper turns it on.")
   end)
 end)

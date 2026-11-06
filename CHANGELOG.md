@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.15.0
+
+- **Rotation helper for Protection Paladins and Elemental Shamans (first versions, to test):** pick a Protection or
+  Elemental build in `/kp` and type **/kp helper**.
+  - **Protection Paladins:** it keeps Righteous Fury, Seal of Fury, Devotion Aura and Blessing of Kings up, then
+    suggests both Judgements first (they don't use the global cooldown), Holy Shield as it runs out, Hammer of the
+    Righteous, Holy Strike, Exorcism against Undead and Demons, and Hammer of Wrath when the game lets you. Consecration
+    (for packs) is up to you.
+  - **Elemental Shamans:** Flame Shock only once its burn has run out (a new one replaces the burn still going), Chain
+    Lightning, then Lightning Bolt; Lightning Mastery against elites and bosses.
+  - Tell Grimscar what feels wrong.
+- **Fix for Paladins:** an Aura you turned on during a fight kept being asked for until the fight ended, and before a
+  fight a missing Aura filled all three icons.
+- On a build the helper doesn't cover yet, it now names the builds of your class it does.
+
 ## 0.14.1
 
 - **Rotation helper for Retribution Paladins (first version, to test):** pick a Retribution build in `/kp` and type
