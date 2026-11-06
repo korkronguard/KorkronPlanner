@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.20.0
+
+- **Priests: the builds are right for Horde Priests now.** The planner gave every Priest Starshards, which only Night
+  Elves learn, and it was about a third of a leveling Priest's damage. Spells only some races learn now count only
+  for those races (Starshards and Elune's Grace for Night Elves, Desperate Prayer and Chastise for Dwarves, Touch of
+  Weakness and Dark Sacrifice for Undead, Hex of Weakness and Shadowguard for Trolls...), and the Priority lists
+  never suggest another race's spell. The Holy and Discipline leveling talent orders changed from the first point,
+  Shadow's from level 22. Level 60 Priest builds are unchanged.
+- **Leveling Priest Priority lists follow the leveling math:** Shadow Word: Pain once per mob (a mob of your level
+  dies before it runs out), then Mind Blast, Shadow Word: Death and Devouring Plague on cooldown with Mind Flay to
+  fill, wand when your mana is gone. Holy Fire is listed once, Inner Fire says what it does on Forever (armor), and
+  Vampiric Embrace heals you too.
+- **"Once per mob":** damage over time that outlasts a mob of your level now says so in every leveling list
+  (Corruption and Immolate for Warlocks, Insect Swarm for Druids too).
+- **Short cooldowns are ready at every pull:** while you eat and drink between mobs, Holy Strike, Judgement,
+  Stormstrike, the shocks, Shank, Mind Blast and the like come back. Paladins, Enhancement Shamans and Rogues level
+  faster in the planner's numbers, and 13 leveling orders changed a little.
+- **Rogues:** Shank gives combo points only with Boot Knife (the game's tooltip since the Nov 6 hotfix), so Combat and
+  Assassination estimates are lower.
+- **More items:** about 480 more items in the gear lists and upgrade arrows, from today's game data.
+- Keep WowUp's auto-update on to get new versions without checking.
+
 ## 0.19.0
 
 - **Leveling fights now end when the mob dies.** A mob of your level lives about 8 to 22 seconds, so damage over time
