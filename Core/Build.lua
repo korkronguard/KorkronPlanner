@@ -39,7 +39,8 @@ end
 
 -- A build's entry for your level in per-level data (KP.Priority, KP.Gear: [class][build key] = { { level, ... } }):
 -- the last one that starts at or below the level (below the first, the first), or nil. A level 60 build only has 60,
--- so below that its leveling build's entries are used (the one whose pair it is).
+-- so below that its leveling build's entries are used (the last one whose pair it is: Protection's dungeon-ready
+-- leveling build comes after the solo one).
 function Build.ForLevel(data, key, level)
   local class = MyClass()
   local all = data[class] or {}

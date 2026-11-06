@@ -20,25 +20,19 @@ local Comm = KP.Comm
 
 local ASK_EVERY = 600    -- seconds between a collector's questions
 local AROUND = 900       -- a collector asked less than this long ago: new snapshots go out straight away
-local RESEND_AFTER = 300 -- an undelivered snapshot is sent again after this long
-local PART = 230         -- characters of snapshot text per message (the header fills the rest of the 255)
+local RESEND_AFTER = 300 -- an undelivered snapshot (or check, Check.lua) is sent again after this long
+Share.RESEND_AFTER = RESEND_AFTER
 
-local NOTICE = "shares your character's level, stats, gear and talents with the Kor'kron Guard's planner, so its "
-  .. "numbers match the game (never chat, whispers or where you are; names never appear on the website). "
-  .. "Type /kp share off to stop."
+-- shown once per account, and once more when what's shared grows (NOTICE_VERSION)
+local NOTICE = "shares your character's level, stats, gear and talents with the Kor'kron Guard's planner, and "
+  .. "checks the planner's talent and spell numbers against the game, so its numbers match the game (never chat, "
+  .. "whispers or where you are; names never appear on the website). Type /kp share off to stop."
+local NOTICE_VERSION = 2
 
 -- player side -------------------------------------------------------------------------------------------------
 
 local lastAsked                                   -- GetTime() of the last Q we saw
 local sentAt = setmetatable({}, { __mode = "k" }) -- [snapshot] = GetTime() it was last sent
-
-local function SendSnapshot(level, snap)
-  local text = KP.Snapshot.Text(snap)
-  local n = math.ceil(#text / PART)
-  for i = 1, n do
-    Comm.Send(("S^%d^%d^%d^%s"):format(level, i, n, text:sub((i - 1) * PART + 1, i * PART)))
-  end
-end
 
 local function SendUndelivered()
   if not KorkronPlannerDB.share or IsInInstance() then return end
@@ -46,9 +40,15 @@ local function SendUndelivered()
   for level, snap in pairs(KorkronPlannerCharDB.snapshots) do
     if not snap.delivered and (not sentAt[snap] or now - sentAt[snap] >= RESEND_AFTER) then
       sentAt[snap] = now
-      SendSnapshot(level, snap)
+      Comm.SendLong("S", level, KP.Snapshot.Text(snap))
     end
   end
+  KP.Check.SendUndelivered()
+end
+
+-- a collector asked less than AROUND seconds ago: new things can go out straight away
+function Share.CollectorAround()
+  return lastAsked ~= nil and GetTime() - lastAsked < AROUND
 end
 
 Comm.On("Q", function()
@@ -88,25 +88,9 @@ local function StoreOwn()
   end
 end
 
-local partial = {} -- [sender^level] = { n = parts expected, parts = { ... } }
-
-Comm.On("S", function(msg, sender)
+Comm.OnLong("S", function(_, text, sender)
   if not KorkronPlannerDB.collector then return end
-  local level, i, n, part = msg:match("^S%^(%d+)%^(%d+)%^(%d+)%^(.*)$")
-  if not part then return end
-  i, n = tonumber(i), tonumber(n)
-  local key = sender .. "^" .. level
-  if i == 1 then partial[key] = { n = n, parts = {} } end
-  local p = partial[key]
-  -- parts arrive in order; after a gap the snapshot is dropped and comes again with the player's next send
-  if not p or p.n ~= n or #p.parts ~= i - 1 then
-    partial[key] = nil
-    return
-  end
-  p.parts[i] = part
-  if i < n then return end
-  partial[key] = nil
-  local guid, storedLevel, stamp = Store(table.concat(p.parts), sender)
+  local guid, storedLevel, stamp = Store(text, sender)
   -- acknowledged even when we already had it, so the player stops resending
   if guid then Comm.Send(("A^%s^%d^%d"):format(guid, storedLevel, stamp)) end
 end)
@@ -130,7 +114,7 @@ end
 function Share.Added()
   if KorkronPlannerDB.collector then
     StoreOwn()
-  elseif lastAsked and GetTime() - lastAsked < AROUND then
+  elseif Share.CollectorAround() then
     SendUndelivered()
   end
 end
@@ -172,8 +156,8 @@ function Share.SetCollector(on)
 end
 
 KP:On("PLAYER_LOGIN", function()
-  if not KorkronPlannerDB.shareNotice then
-    KorkronPlannerDB.shareNotice = true
+  if KorkronPlannerDB.shareNotice ~= NOTICE_VERSION and KorkronPlannerDB.share then
+    KorkronPlannerDB.shareNotice = NOTICE_VERSION
     KP.After(15, function() KP:Print("this addon " .. NOTICE) end)
   end
   if KorkronPlannerDB.collector then StartCollecting() end

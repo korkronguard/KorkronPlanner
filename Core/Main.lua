@@ -1,8 +1,12 @@
 -- Kor'kron Planner: saved settings and slash commands.
 local ADDON, KP = ...
 
--- account-wide: share = send snapshots to the guild's collector; collector = this account collects (owner only)
-local DEFAULTS = { debug = false, share = true, collector = false, collected = {} }
+-- account-wide: share = send snapshots to the guild's collector; collector = this account collects (owner only);
+-- datamine = what /kp datamine read from the game (Core/Datamine.lua); checks = the automatic talent and spell checks
+-- waiting for the collector, checksCollected = the collector's (Core/Check.lua)
+local DEFAULTS = { debug = false, share = true, collector = false, collected = {},
+  datamine = { on = false, items = {}, talents = {}, spells = {} },
+  checks = { outbox = {}, talents = {}, spells = {} }, checksCollected = {} }
 
 KP:On("ADDON_LOADED", function(name)
   if name ~= ADDON then return end
@@ -35,6 +39,8 @@ SlashCmdList.KORKRONPLANNER = function(msg)
     KP.Safe(KP.Window.Toggle)
   elseif cmd == "learn" then -- the owner's level-10 test (Core/Build.lua), not in the help yet
     KP.Safe(KP.Build.LearnNext)
+  elseif cmd == "datamine" or cmd == "datamine clear" then -- the owner's data check (Core/Datamine.lua), not in the help
+    KP.Safe(KP.Datamine.Command, rest)
   elseif cmd == "export" then
     KP.Safe(KP.ShowExport, KP)
   elseif cmd == "probe" then

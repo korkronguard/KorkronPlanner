@@ -48,7 +48,14 @@ function Sheet.Inputs(class)
   local _, armor = UnitArmor("player")
   inputs.armor, inputs.health = Readable(armor), Readable(UnitHealthMax("player"))
   inputs.dodge, inputs.parry = Readable(GetDodgeChance()), Readable(GetParryChance())
-  inputs.block = Readable(GetBlockChance())
+  -- blocks need a shield: the planner counts none without one (the game's sheet shows a block chance anyway)
+  local offHand = Readable(GetInventoryItemID("player", 17))
+  local shield = offHand and KP.Items[offHand] and KP.Items[offHand][1] == "shield"
+  if shield then
+    inputs.block = Readable(GetBlockChance())
+  else
+    inputs.block = 0
+  end
   local low, high = UnitDamage("player") -- your main hand's damage range, as on your character sheet
   low, high = Readable(low), Readable(high)
   inputs.hit = low and high and (low + high) / 2

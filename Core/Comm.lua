@@ -54,6 +54,38 @@ function Comm.On(command, fn)
   handlers[command] = fn
 end
 
+-- Long texts (a snapshot, a talent and spell check) in parts: "tag^key^i^n^part", PART characters each.
+-- Comm.OnLong(tag, function(key, text, sender) end) gets the whole text once its last part is in. Parts arrive in
+-- order; after a gap the text is dropped, and the sender's next try brings it whole.
+local PART = 230
+
+function Comm.SendLong(tag, key, text)
+  local n = math.ceil(#text / PART)
+  for i = 1, n do
+    Comm.Send(("%s^%s^%d^%d^%s"):format(tag, key, i, n, text:sub((i - 1) * PART + 1, i * PART)))
+  end
+end
+
+function Comm.OnLong(tag, fn)
+  local partial = {} -- [sender^key] = { n = parts expected, parts = { ... } }
+  Comm.On(tag, function(msg, sender)
+    local key, i, n, part = msg:match("^[^%^]+%^([^%^]+)%^(%d+)%^(%d+)%^(.*)$")
+    if not part then return end
+    i, n = tonumber(i), tonumber(n)
+    local id = sender .. "^" .. key
+    if i == 1 then partial[id] = { n = n, parts = {} } end
+    local p = partial[id]
+    if not p or p.n ~= n or #p.parts ~= i - 1 then
+      partial[id] = nil
+      return
+    end
+    p.parts[i] = part
+    if i < n then return end
+    partial[id] = nil
+    fn(key, table.concat(p.parts), sender)
+  end)
+end
+
 KP:On("CHAT_MSG_ADDON", function(prefix, msg, channel, sender)
   -- the game can hide these inside instances; a hidden message can't be read, so it's skipped
   prefix, msg, channel, sender = KP.Text(prefix), KP.Text(msg), KP.Text(channel), KP.Text(sender)

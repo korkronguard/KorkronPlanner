@@ -104,8 +104,8 @@ KP.Priority = {
           { name = "Moonfire", tag = "Keep up", text = "", icon = 136096 },
         } },
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Wrath", tag = "Filler", text = "", icon = 136006 },
           { name = "Starfire", tag = "Filler", text = "", icon = 135753 },
+          { name = "Wrath", tag = "Filler", text = "", icon = 136006 },
         } },
       } },
       { level = 25, title = "Balance Druid", sections = {
@@ -118,7 +118,7 @@ KP.Priority = {
           { name = "Starfire", tag = "Filler", text = "", icon = 135753 },
         } },
       } },
-      { level = 35, title = "Balance Druid", sections = {
+      { level = 30, title = "Balance Druid", sections = {
         { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
           { name = "Moonfire", tag = "Keep up", text = "", icon = 136096 },
           { name = "Insect Swarm", tag = "Keep up", text = "", icon = 136045 },
@@ -351,8 +351,8 @@ KP.Priority = {
           { name = "Moonfire", tag = "Keep up", text = "", icon = 136096 },
         } },
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Wrath", tag = "Filler", text = "", icon = 136006 },
           { name = "Starfire", tag = "Filler", text = "", icon = 135753 },
+          { name = "Wrath", tag = "Filler", text = "", icon = 136006 },
         } },
       } },
       { level = 25, title = "Balance Druid", sections = {
@@ -365,7 +365,7 @@ KP.Priority = {
           { name = "Starfire", tag = "Filler", text = "", icon = 135753 },
         } },
       } },
-      { level = 35, title = "Balance Druid", sections = {
+      { level = 30, title = "Balance Druid", sections = {
         { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
           { name = "Moonfire", tag = "Keep up", text = "", icon = 136096 },
           { name = "Insect Swarm", tag = "Keep up", text = "", icon = 136045 },
@@ -738,8 +738,8 @@ KP.Priority = {
           { name = "Hunter's Mark", tag = "Keep up", text = "On the target: Expose Prey procs need it.", icon = 132212 },
         } },
         { title = "Melee priority", note = "Press the first one that's ready.", items = {
-          { name = "Mongoose Bite", tag = "When it lights up", text = "After you dodge or when Expose Prey procs.", icon = 132215 },
           { name = "Immolation Trap", tag = "On cooldown", text = "Drop it at your feet, under the boss: Forever lets you lay traps in combat.", icon = 135813 },
+          { name = "Mongoose Bite", tag = "When it lights up", text = "After you dodge or when Expose Prey procs.", icon = 132215 },
           { name = "Lacerate", tag = "Keep up", text = "Keep the bleed on the target.", icon = 132155 },
           { name = "Strider Kick", tag = "On cooldown", text = "100% weapon damage.", icon = 132198 },
           { name = "Raptor Strike", tag = "On cooldown", text = "Every 6 sec (it goes on your next swing).", icon = 132223 },
@@ -826,31 +826,31 @@ KP.Priority = {
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
           { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
           { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
+          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
         } },
       } },
       { level = 15, title = "Mage: basic list", sections = {
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
           { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
           { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
+          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
         } },
       } },
       { level = 20, title = "Mage: basic list", sections = {
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
           { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
           { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
+          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
           { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
         } },
       } },
       { level = 25, title = "Mage: basic list", sections = {
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
           { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
+          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
           { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
           { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
         } },
@@ -867,8 +867,8 @@ KP.Priority = {
       { level = 35, title = "Mage: basic list", sections = {
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
           { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
+          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
           { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
           { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
         } },
@@ -934,8 +934,8 @@ KP.Priority = {
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
           { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
           { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
+          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
         } },
       } },
       { level = 15, title = "Mage: basic list", sections = {
@@ -948,31 +948,13 @@ KP.Priority = {
       } },
       { level = 20, title = "Mage: basic list", sections = {
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
           { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
           { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
+          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
           { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
         } },
       } },
       { level = 25, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
-        } },
-      } },
-      { level = 30, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
-        } },
-      } },
-      { level = 35, title = "Mage: basic list", sections = {
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
           { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
@@ -1008,8 +990,8 @@ KP.Priority = {
           { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
           { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
           { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
           { name = "Pyroblast", tag = "Filler", text = "", icon = 135808 },
+          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
         } },
       } },
       { level = 55, title = "Mage: basic list", sections = {
@@ -1040,32 +1022,45 @@ KP.Priority = {
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
           { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
           { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
+          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
         } },
       } },
       { level = 15, title = "Mage: basic list", sections = {
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
           { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
-        } },
-      } },
-      { level = 20, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
           { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
         } },
       } },
       { level = 25, title = "Mage: basic list", sections = {
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
+          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
+          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
+          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
+          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
+        } },
+      } },
+      { level = 30, title = "Mage: basic list", sections = {
+        { title = "Then", note = "Ordered by damage per second of casting.", items = {
+          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
+          { name = "Arcane Blast", tag = "Filler", text = "", icon = 135735 },
           { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
           { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
           { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
+          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
+        } },
+      } },
+      { level = 35, title = "Mage: basic list", sections = {
+        { title = "Then", note = "Ordered by damage per second of casting.", items = {
+          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
+          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
+          { name = "Arcane Blast", tag = "Filler", text = "", icon = 135735 },
+          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
+          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
+          { name = "Arcane Wrath", tag = "On cooldown", text = "", icon = 236222 },
           { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
         } },
       } },
@@ -1073,19 +1068,22 @@ KP.Priority = {
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
           { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
+          { name = "Arcane Blast", tag = "Filler", text = "", icon = 135735 },
+          { name = "Arcane Wrath", tag = "On cooldown", text = "", icon = 236222 },
           { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
           { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-          { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
           { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
+          { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
         } },
       } },
       { level = 45, title = "Mage: basic list", sections = {
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
           { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
           { name = "Arcane Blast", tag = "Filler", text = "", icon = 135735 },
+          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
+          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
+          { name = "Arcane Wrath", tag = "On cooldown", text = "", icon = 236222 },
           { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
           { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
         } },
@@ -1093,25 +1091,25 @@ KP.Priority = {
       { level = 50, title = "Mage: basic list", sections = {
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
           { name = "Arcane Blast", tag = "Filler", text = "", icon = 135735 },
+          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
           { name = "Arcane Wrath", tag = "On cooldown", text = "", icon = 236222 },
-          { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
+          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
           { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
           { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
+          { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
         } },
       } },
       { level = 55, title = "Mage: basic list", sections = {
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
           { name = "Arcane Blast", tag = "Filler", text = "", icon = 135735 },
+          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
+          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
           { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
           { name = "Arcane Wrath", tag = "On cooldown", text = "", icon = 236222 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-          { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
           { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
+          { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
         } },
       } },
       { level = 60, title = "Mage: basic list", sections = {
@@ -1438,7 +1436,7 @@ KP.Priority = {
           { name = "Consecration", tag = "Packs", text = "Several enemies only (mana heavy).", icon = 135926 },
         } },
       } },
-      { level = 30, title = "Retribution Paladin", sections = {
+      { level = 25, title = "Retribution Paladin", sections = {
         { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Two-hander.", items = {
           { name = "Two-Handed Weapon Specialization", tag = "Counts", text = "Works with this setup.", icon = 133041 },
         } },
@@ -1817,7 +1815,7 @@ KP.Priority = {
           { name = "Smite", tag = "Filler", text = "", icon = 135924 },
         } },
       } },
-      { level = 15, title = "Holy Priest, dealing damage", sections = {
+      { level = 15, title = "Discipline Priest, dealing damage", sections = {
         { title = "Buffs and protection", note = "", items = {
           { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
@@ -1831,7 +1829,23 @@ KP.Priority = {
           { name = "Smite", tag = "Filler", text = "", icon = 135924 },
         } },
       } },
-      { level = 20, title = "Holy Priest, dealing damage", sections = {
+      { level = 20, title = "Discipline Priest, dealing damage", sections = {
+        { title = "Buffs and protection", note = "", items = {
+          { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
+          { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
+        } },
+        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
+          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
+          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
+          { name = "Devouring Plague", tag = "Keep up", text = "", icon = 252997 },
+        } },
+        { title = "Then", note = "Ordered by damage per second of casting.", items = {
+          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
+          { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
+          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
+        } },
+      } },
+      { level = 30, title = "Holy Priest, dealing damage", sections = {
         { title = "Buffs and protection", note = "", items = {
           { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
@@ -1847,7 +1861,24 @@ KP.Priority = {
           { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
         } },
       } },
-      { level = 35, title = "Holy Priest, dealing damage", sections = {
+      { level = 35, title = "Discipline Priest, dealing damage", sections = {
+        { title = "Buffs and protection", note = "", items = {
+          { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
+          { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
+        } },
+        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
+          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
+          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
+          { name = "Devouring Plague", tag = "Keep up", text = "", icon = 252997 },
+        } },
+        { title = "Then", note = "Ordered by damage per second of casting.", items = {
+          { name = "Shadow Word: Death", tag = "On cooldown", text = "", icon = 136149 },
+          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
+          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
+          { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
+        } },
+      } },
+      { level = 40, title = "Holy Priest, dealing damage", sections = {
         { title = "Buffs and protection", note = "", items = {
           { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
@@ -1867,8 +1898,8 @@ KP.Priority = {
       { level = 50, title = "Holy Priest", sections = {
         { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
           { name = "Lesser Heal", tag = "Main heal", text = "", icon = 135929 },
-          { name = "Greater Heal", tag = "Heal", text = "", icon = 135913 },
           { name = "Heal", tag = "Heal", text = "", icon = 135915 },
+          { name = "Greater Heal", tag = "Heal", text = "", icon = 135913 },
           { name = "Renew", tag = "Heal", text = "", icon = 135953 },
           { name = "Flash Heal", tag = "Heal", text = "", icon = 135907 },
           { name = "Power Word: Shield", tag = "Cooldown", text = "", icon = 135940 },
@@ -1884,8 +1915,8 @@ KP.Priority = {
       } },
       { level = 55, title = "Holy Priest", sections = {
         { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
-          { name = "Lesser Heal", tag = "Heal", text = "", icon = 135929 },
-          { name = "Greater Heal", tag = "Main heal", text = "", icon = 135913 },
+          { name = "Lesser Heal", tag = "Main heal", text = "", icon = 135929 },
+          { name = "Greater Heal", tag = "Heal", text = "", icon = 135913 },
           { name = "Heal", tag = "Heal", text = "", icon = 135915 },
           { name = "Renew", tag = "Heal", text = "", icon = 135953 },
           { name = "Flash Heal", tag = "Heal", text = "", icon = 135907 },
@@ -1903,8 +1934,8 @@ KP.Priority = {
       { level = 60, title = "Holy Priest", sections = {
         { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
           { name = "Lesser Heal", tag = "Heal", text = "", icon = 135929 },
-          { name = "Greater Heal", tag = "Main heal", text = "", icon = 135913 },
           { name = "Heal", tag = "Heal", text = "", icon = 135915 },
+          { name = "Greater Heal", tag = "Main heal", text = "", icon = 135913 },
           { name = "Renew", tag = "Heal", text = "", icon = 135953 },
           { name = "Flash Heal", tag = "Heal", text = "", icon = 135907 },
           { name = "Power Word: Shield", tag = "Cooldown", text = "", icon = 135940 },
@@ -1981,7 +2012,7 @@ KP.Priority = {
           { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
         } },
       } },
-      { level = 35, title = "Shadow Priest", sections = {
+      { level = 35, title = "Discipline Priest, dealing damage", sections = {
         { title = "Buffs and protection", note = "", items = {
           { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
@@ -1999,7 +2030,7 @@ KP.Priority = {
           { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
         } },
       } },
-      { level = 40, title = "Discipline Priest, dealing damage", sections = {
+      { level = 40, title = "Shadow Priest", sections = {
         { title = "Buffs and protection", note = "", items = {
           { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
@@ -2080,11 +2111,11 @@ KP.Priority = {
       { level = 60, title = "Discipline Priest", sections = {
         { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
           { name = "Lesser Heal", tag = "Heal", text = "", icon = 135929 },
-          { name = "Greater Heal", tag = "Main heal", text = "", icon = 135913 },
           { name = "Renew", tag = "Heal", text = "", icon = 135953 },
+          { name = "Greater Heal", tag = "Main heal", text = "", icon = 135913 },
           { name = "Heal", tag = "Heal", text = "", icon = 135915 },
-          { name = "Power Word: Shield", tag = "Heal", text = "", icon = 135940 },
           { name = "Flash Heal", tag = "Heal", text = "", icon = 135907 },
+          { name = "Power Word: Shield", tag = "Heal", text = "", icon = 135940 },
         } },
         { title = "When someone is about to die", note = "", items = {
           { name = "Power Word: Shield", tag = "Emergency", text = "Draws on the soul of the party member to shield them, absorbing 928 damage.", icon = 135940 },
@@ -2240,7 +2271,7 @@ KP.Priority = {
           { name = "Garrote", tag = "Opener", text = "A bleed from behind.", icon = 132297 },
         } },
         { title = "Keep up", note = "", items = {
-          { name = "Slice and Dice", tag = "Keep up", text = "Refresh it at 5 combo points: the best length for your current numbers.", icon = 132306 },
+          { name = "Slice and Dice", tag = "Not worth it yet", text = "With your gear your white hits are too small for it to pay off: put the points into Eviscerate instead. It wins once you have more attack power or buffs.", icon = 132306 },
           { name = "Expose Armor", tag = "If no Warrior sunders", text = "5 points on the boss when no Warrior keeps Sunder Armor up.", icon = 132354 },
         } },
         { title = "Combo point builders", note = "Use the best one you can (order = damage per energy with your gear).", items = {
@@ -2263,7 +2294,7 @@ KP.Priority = {
           { name = "Garrote", tag = "Opener", text = "A bleed from behind.", icon = 132297 },
         } },
         { title = "Keep up", note = "", items = {
-          { name = "Slice and Dice", tag = "Keep up", text = "Refresh it at 5 combo points: the best length for your current numbers.", icon = 132306 },
+          { name = "Slice and Dice", tag = "Not worth it yet", text = "With your gear your white hits are too small for it to pay off: put the points into Eviscerate instead. It wins once you have more attack power or buffs.", icon = 132306 },
           { name = "Expose Armor", tag = "If no Warrior sunders", text = "5 points on the boss when no Warrior keeps Sunder Armor up.", icon = 132354 },
         } },
         { title = "Combo point builders", note = "Use the best one you can (order = damage per energy with your gear).", items = {
@@ -2282,56 +2313,6 @@ KP.Priority = {
         } },
       } },
       { level = 40, title = "Combat Rogue", sections = {
-        { title = "Opener", note = "From Stealth.", items = {
-          { name = "Cheap Shot", tag = "Opener", text = "A stun and 2 combo points (good when you can't get behind).", icon = 132092 },
-          { name = "Garrote", tag = "Opener", text = "A bleed from behind.", icon = 132297 },
-        } },
-        { title = "Keep up", note = "", items = {
-          { name = "Slice and Dice", tag = "Not worth it yet", text = "With your gear your white hits are too small for it to pay off: put the points into Eviscerate instead. It wins once you have more attack power or buffs.", icon = 132306 },
-          { name = "Expose Armor", tag = "If no Warrior sunders", text = "5 points on the boss when no Warrior keeps Sunder Armor up.", icon = 132354 },
-        } },
-        { title = "Combo point builders", note = "Use the best one you can (order = damage per energy with your gear).", items = {
-          { name = "Shank", tag = "On cooldown", text = "An off-hand stab that gives back more energy than it costs and a combo point.", icon = 132323 },
-          { name = "Sinister Strike", tag = "Your main builder", text = "Works with any weapon, from any side.", icon = 136189 },
-        } },
-        { title = "Finisher", note = "At 5 combo points.", items = {
-          { name = "Eviscerate", tag = "At 5 points", text = "Your damage finisher.", icon = 132292 },
-        } },
-        { title = "Cooldowns", note = "", items = {
-          { name = "Adrenaline Rush", tag = "Cooldown", text = "Double energy for 15 sec: line it up with Slice and Dice up.", icon = 136206 },
-          { name = "Blade Flurry", tag = "Cooldown", text = "+20% attack speed and a second target for 15 sec.", icon = 132350 },
-          { name = "Vanish", tag = "Situational", text = "Drops threat.", icon = 132331 },
-        } },
-        { title = "Threat", note = "", items = {
-          { name = "Feint", tag = "When threat is high", text = "Lowers your threat without breaking your rotation.", icon = 132294 },
-        } },
-      } },
-      { level = 45, title = "Combat Rogue", sections = {
-        { title = "Opener", note = "From Stealth.", items = {
-          { name = "Cheap Shot", tag = "Opener", text = "A stun and 2 combo points (good when you can't get behind).", icon = 132092 },
-          { name = "Garrote", tag = "Opener", text = "A bleed from behind.", icon = 132297 },
-        } },
-        { title = "Keep up", note = "", items = {
-          { name = "Slice and Dice", tag = "Keep up", text = "Refresh it at 5 combo points: the best length for your current numbers.", icon = 132306 },
-          { name = "Expose Armor", tag = "If no Warrior sunders", text = "5 points on the boss when no Warrior keeps Sunder Armor up.", icon = 132354 },
-        } },
-        { title = "Combo point builders", note = "Use the best one you can (order = damage per energy with your gear).", items = {
-          { name = "Shank", tag = "On cooldown", text = "An off-hand stab that gives back more energy than it costs and a combo point.", icon = 132323 },
-          { name = "Sinister Strike", tag = "Your main builder", text = "Works with any weapon, from any side.", icon = 136189 },
-        } },
-        { title = "Finisher", note = "At 5 combo points.", items = {
-          { name = "Eviscerate", tag = "At 5 points", text = "Your damage finisher.", icon = 132292 },
-        } },
-        { title = "Cooldowns", note = "", items = {
-          { name = "Adrenaline Rush", tag = "Cooldown", text = "Double energy for 15 sec: line it up with Slice and Dice up.", icon = 136206 },
-          { name = "Blade Flurry", tag = "Cooldown", text = "+20% attack speed and a second target for 15 sec.", icon = 132350 },
-          { name = "Vanish", tag = "Situational", text = "Drops threat.", icon = 132331 },
-        } },
-        { title = "Threat", note = "", items = {
-          { name = "Feint", tag = "When threat is high", text = "Lowers your threat without breaking your rotation.", icon = 132294 },
-        } },
-      } },
-      { level = 50, title = "Combat Rogue", sections = {
         { title = "Opener", note = "From Stealth.", items = {
           { name = "Cheap Shot", tag = "Opener", text = "A stun and 2 combo points (good when you can't get behind).", icon = 132092 },
           { name = "Garrote", tag = "Opener", text = "A bleed from behind.", icon = 132297 },
@@ -2483,6 +2464,34 @@ KP.Priority = {
         } },
       } },
       { level = 40, title = "Assassination Rogue", sections = {
+        { title = "Opener", note = "From Stealth.", items = {
+          { name = "Ambush", tag = "Opener", text = "From behind, with a dagger.", icon = 132282 },
+          { name = "Cheap Shot", tag = "Opener", text = "A stun and 2 combo points (good when you can't get behind).", icon = 132092 },
+          { name = "Garrote", tag = "Opener", text = "A bleed from behind.", icon = 132297 },
+        } },
+        { title = "Keep up", note = "", items = {
+          { name = "Slice and Dice", tag = "Not worth it yet", text = "With your gear your white hits are too small for it to pay off: put the points into Eviscerate instead. It wins once you have more attack power or buffs.", icon = 132306 },
+          { name = "Expose Armor", tag = "If no Warrior sunders", text = "5 points on the boss when no Warrior keeps Sunder Armor up.", icon = 132354 },
+          { name = "Rupture", tag = "Keep up", text = "Your talents favour it: keep the bleed going.", icon = 132302 },
+        } },
+        { title = "Combo point builders", note = "Use the best one you can (order = damage per energy with your gear).", items = {
+          { name = "Shank", tag = "On cooldown", text = "An off-hand stab that gives back more energy than it costs and a combo point; Venom then boosts your poisons for 6 sec.", icon = 132323 },
+          { name = "Mutilate", tag = "Your main builder", text = "Needs daggers in both hands; 2 combo points.", icon = 236270 },
+          { name = "Backstab", tag = "Builder", text = "From behind, with a dagger.", icon = 132090 },
+          { name = "Sinister Strike", tag = "Builder", text = "Works with any weapon, from any side.", icon = 136189 },
+        } },
+        { title = "Finisher", note = "At 5 combo points.", items = {
+          { name = "Eviscerate", tag = "At 5 points", text = "Your damage finisher.", icon = 132292 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Cold Blood", tag = "Cooldown", text = "Before a 5-point Eviscerate (or a Mutilate): a guaranteed crit.", icon = 135988 },
+          { name = "Vanish", tag = "Situational", text = "Drops threat, and lets you Ambush again.", icon = 132331 },
+        } },
+        { title = "Threat", note = "", items = {
+          { name = "Feint", tag = "When threat is high", text = "Lowers your threat without breaking your rotation.", icon = 132294 },
+        } },
+      } },
+      { level = 45, title = "Assassination Rogue", sections = {
         { title = "Opener", note = "From Stealth.", items = {
           { name = "Ambush", tag = "Opener", text = "From behind, with a dagger.", icon = 132282 },
           { name = "Cheap Shot", tag = "Opener", text = "A stun and 2 combo points (good when you can't get behind).", icon = 132092 },
@@ -2708,6 +2717,37 @@ KP.Priority = {
           { name = "Garrote", tag = "Opener", text = "A bleed from behind (Dirty Deeds: from any side, cheaper).", icon = 132297 },
         } },
         { title = "Keep up", note = "", items = {
+          { name = "Slice and Dice", tag = "Not worth it yet", text = "With your gear your white hits are too small for it to pay off: put the points into Eviscerate instead. It wins once you have more attack power or buffs.", icon = 132306 },
+          { name = "Expose Armor", tag = "If no Warrior sunders", text = "5 points on the boss when no Warrior keeps Sunder Armor up.", icon = 132354 },
+          { name = "Rupture", tag = "Keep up", text = "Your talents favour it: keep the bleed going.", icon = 132302 },
+        } },
+        { title = "Combo point builders", note = "Use the best one you can (order = damage per energy with your gear).", items = {
+          { name = "Shank", tag = "On cooldown", text = "An off-hand stab that gives back more energy than it costs and a combo point (two with Boot Knife).", icon = 132323 },
+          { name = "Backstab", tag = "Your main builder", text = "From behind, with a dagger.", icon = 132090 },
+          { name = "Ghostly Strike", tag = "On cooldown", text = "On cooldown when you have the energy (also +15% dodge).", icon = 136136 },
+          { name = "Sinister Strike", tag = "Builder", text = "Works with any weapon, from any side.", icon = 136189 },
+          { name = "Hemorrhage", tag = "Builder", text = "Also makes your Rupture hit harder.", icon = 136168 },
+        } },
+        { title = "Finisher", note = "At 5 combo points.", items = {
+          { name = "Eviscerate", tag = "At 5 points", text = "Your damage finisher.", icon = 132292 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Preparation", tag = "Cooldown", text = "Resets your other cooldowns: use it after the first round of them.", icon = 136121 },
+          { name = "Death Mark", tag = "Finisher, every 10 sec", text = "Marks the target: for 6 sec it stores a share of your damage (60% at 5 points, bleeds twice as much), then deals it, up to a cap set by your attack power and crit.", icon = 132094 },
+          { name = "Vanish", tag = "Situational", text = "Drops threat, and lets you Ambush again.", icon = 132331 },
+        } },
+        { title = "Threat", note = "", items = {
+          { name = "Feint", tag = "When threat is high", text = "Lowers your threat without breaking your rotation.", icon = 132294 },
+        } },
+      } },
+      { level = 45, title = "Subtlety Rogue", sections = {
+        { title = "Opener", note = "From Stealth.", items = {
+          { name = "Premeditation", tag = "Before you open", text = "Two free combo points.", icon = 136183 },
+          { name = "Ambush", tag = "Opener", text = "From behind, with a dagger. Initiative adds an extra combo point.", icon = 132282 },
+          { name = "Cheap Shot", tag = "Opener", text = "A stun and 2 combo points (good when you can't get behind).", icon = 132092 },
+          { name = "Garrote", tag = "Opener", text = "A bleed from behind (Dirty Deeds: from any side, cheaper).", icon = 132297 },
+        } },
+        { title = "Keep up", note = "", items = {
           { name = "Slice and Dice", tag = "Keep up", text = "Refresh it at 5 combo points: the best length for your current numbers.", icon = 132306 },
           { name = "Expose Armor", tag = "If no Warrior sunders", text = "5 points on the boss when no Warrior keeps Sunder Armor up.", icon = 132354 },
           { name = "Rupture", tag = "Keep up", text = "Your talents favour it: keep the bleed going.", icon = 132302 },
@@ -2732,37 +2772,6 @@ KP.Priority = {
         } },
       } },
       { level = 50, title = "Subtlety Rogue", sections = {
-        { title = "Opener", note = "From Stealth.", items = {
-          { name = "Premeditation", tag = "Before you open", text = "Two free combo points.", icon = 136183 },
-          { name = "Ambush", tag = "Opener", text = "From behind, with a dagger. Initiative adds an extra combo point.", icon = 132282 },
-          { name = "Cheap Shot", tag = "Opener", text = "A stun and 2 combo points (good when you can't get behind).", icon = 132092 },
-          { name = "Garrote", tag = "Opener", text = "A bleed from behind (Dirty Deeds: from any side, cheaper).", icon = 132297 },
-        } },
-        { title = "Keep up", note = "", items = {
-          { name = "Slice and Dice", tag = "Not worth it yet", text = "With your gear your white hits are too small for it to pay off: put the points into Eviscerate instead. It wins once you have more attack power or buffs.", icon = 132306 },
-          { name = "Expose Armor", tag = "If no Warrior sunders", text = "5 points on the boss when no Warrior keeps Sunder Armor up.", icon = 132354 },
-          { name = "Rupture", tag = "Keep up", text = "Your talents favour it: keep the bleed going.", icon = 132302 },
-        } },
-        { title = "Combo point builders", note = "Use the best one you can (order = damage per energy with your gear).", items = {
-          { name = "Shank", tag = "On cooldown", text = "An off-hand stab that gives back more energy than it costs and a combo point (two with Boot Knife).", icon = 132323 },
-          { name = "Backstab", tag = "Your main builder", text = "From behind, with a dagger.", icon = 132090 },
-          { name = "Ghostly Strike", tag = "On cooldown", text = "On cooldown when you have the energy (also +15% dodge).", icon = 136136 },
-          { name = "Sinister Strike", tag = "Builder", text = "Works with any weapon, from any side.", icon = 136189 },
-          { name = "Hemorrhage", tag = "Builder", text = "Also makes your Rupture hit harder.", icon = 136168 },
-        } },
-        { title = "Finisher", note = "At 5 combo points.", items = {
-          { name = "Eviscerate", tag = "At 5 points", text = "Your damage finisher.", icon = 132292 },
-        } },
-        { title = "Cooldowns", note = "", items = {
-          { name = "Preparation", tag = "Cooldown", text = "Resets your other cooldowns: use it after the first round of them.", icon = 136121 },
-          { name = "Death Mark", tag = "Finisher, every 10 sec", text = "Marks the target: for 6 sec it stores a share of your damage (60% at 5 points, bleeds twice as much), then deals it, up to a cap set by your attack power and crit.", icon = 132094 },
-          { name = "Vanish", tag = "Situational", text = "Drops threat, and lets you Ambush again.", icon = 132331 },
-        } },
-        { title = "Threat", note = "", items = {
-          { name = "Feint", tag = "When threat is high", text = "Lowers your threat without breaking your rotation.", icon = 132294 },
-        } },
-      } },
-      { level = 55, title = "Subtlety Rogue", sections = {
         { title = "Opener", note = "From Stealth.", items = {
           { name = "Premeditation", tag = "Before you open", text = "Two free combo points.", icon = 136183 },
           { name = "Ambush", tag = "Opener", text = "From behind, with a dagger. Initiative adds an extra combo point.", icon = 132282 },
@@ -3029,7 +3038,17 @@ KP.Priority = {
       } },
     },
     ["resto-lvl"] = {
-      { level = 10, title = "Enhancement Shaman", sections = {
+      { level = 10, title = "Restoration Shaman, dealing damage", sections = {
+        { title = "Keep up", note = "", items = {
+          { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
+        } },
+        { title = "Attack priority", note = "Press the first one that's ready.", items = {
+          { name = "Flame Shock", tag = "Keep up", text = "Fire damage plus a burn over 12 sec. Cast it again only when the burn has run out: a new Flame Shock replaces the burn still going.", icon = 135813 },
+          { name = "Earth Shock", tag = "On cooldown", text = "Right after Stormstrike for the +20%. Also your interrupt.", icon = 136026 },
+          { name = "Lightning Bolt", tag = "With Maelstrom", text = "When Maelstrom Weapon has made it fast and cheap (5 stacks: instant).", icon = 136048 },
+        } },
+      } },
+      { level = 15, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
         } },
@@ -3365,6 +3384,32 @@ KP.Priority = {
           { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
         } },
       } },
+      { level = 35, title = "Warlock: basic list", sections = {
+        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
+          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
+          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
+          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
+          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
+          { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
+        } },
+        { title = "Then", note = "Ordered by damage per second of casting.", items = {
+          { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
+          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
+        } },
+      } },
+      { level = 40, title = "Warlock: basic list", sections = {
+        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
+          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
+          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
+          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
+          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
+          { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
+        } },
+        { title = "Then", note = "Ordered by damage per second of casting.", items = {
+          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
+          { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
+        } },
+      } },
       { level = 50, title = "Warlock: basic list", sections = {
         { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
           { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
@@ -3420,19 +3465,6 @@ KP.Priority = {
         } },
       } },
       { level = 20, title = "Warlock: basic list", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
-          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
-          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
-          { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
-        } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
-          { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
-        } },
-      } },
-      { level = 25, title = "Warlock: basic list", sections = {
         { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
           { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
           { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
@@ -3504,9 +3536,26 @@ KP.Priority = {
         { title = "Then", note = "Ordered by damage per second of casting.", items = {
           { name = "Conflagrate", tag = "On cooldown", text = "", icon = 135807 },
           { name = "Shadowburn", tag = "On cooldown", text = "", icon = 136191 },
+          { name = "Incinerate", tag = "Filler", text = "", icon = 135789 },
           { name = "Soul Fire", tag = "On cooldown", text = "", icon = 135808 },
+          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
+          { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
+        } },
+      } },
+      { level = 55, title = "Warlock: basic list", sections = {
+        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
+          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
+          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
+          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
+          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
+          { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
+        } },
+        { title = "Then", note = "Ordered by damage per second of casting.", items = {
+          { name = "Conflagrate", tag = "On cooldown", text = "", icon = 135807 },
+          { name = "Shadowburn", tag = "On cooldown", text = "", icon = 136191 },
           { name = "Incinerate", tag = "Filler", text = "", icon = 135789 },
           { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
+          { name = "Soul Fire", tag = "On cooldown", text = "", icon = 135808 },
           { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
         } },
       } },
@@ -3725,16 +3774,16 @@ KP.Priority = {
         { title = "Attack priority", note = "Press the first one that's ready. Within this group the order is damage per rage with your current talents and gear.", phase = "main", items = {
           { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342, rule = { kind = "ready", ids = { 402927 }, cd = 30000, gcd = 1500, cost = 0 } },
           { name = "Overpower", tag = "When it lights up", text = "Only after the target dodges. Cheap and can't be dodged.", icon = 132223, rule = { kind = "ready", ids = { 7384, 7887, 11584, 11585 }, cd = 5000, gcd = 1500, cost = 5, stances = 65536 } },
-          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast delays your next one (until Improved Slam).", icon = 132340, rule = { kind = "ready", ids = { 1240193, 1464, 8820, 11604, 11605 }, cd = 15000, gcd = 1500, cost = 15 } },
           { name = "Rend", tag = "If missing", text = "When it isn't on the target and the target will live through most of its 15 sec. Don't renew it on a target that's about to die.", icon = 132155, rule = { kind = "missing", ids = { 772, 6546, 6547, 6548, 11572, 11573, 11574 }, cd = 0, gcd = 1500, cost = 10, dur = 15000, aura = "target", stances = 196608 } },
+          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast delays your next one (until Improved Slam).", icon = 132340, rule = { kind = "ready", ids = { 1240193, 1464, 8820, 11604, 11605 }, cd = 15000, gcd = 1500, cost = 15 } },
           { name = "Hamstring", tag = "Spare rage", text = "Only with rage left after the attacks above: a cheap extra hit whose crits set off Deep Wounds (and a Shaman's Windfury Totem can proc on it).", icon = 132316, rule = { kind = "dump", ids = { 1715, 7372, 7373 }, cd = 0, gcd = 1500, cost = 10, dur = 15000, aura = "target", stances = 327680 } },
           { name = "Heroic Strike", tag = "Rage dump", text = "Only with rage left over after the attacks above (it replaces your next swing).", icon = 132282, rule = { kind = "dump", ids = { 78, 284, 285, 1608, 11564, 11565, 11566, 11567, 25286 }, cd = 0, gcd = 0, cost = 15 } },
         } },
         { title = "Below 20% health: Execute phase", note = "The order changes: rage is worth more in Execute than almost anywhere else.", phase = "execute", items = {
           { name = "Victory Rush", tag = "When it lights up", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132342, rule = { kind = "ready", ids = { 402927 }, cd = 30000, gcd = 1500, cost = 0 } },
           { name = "Overpower", tag = "When it lights up", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132223, rule = { kind = "ready", ids = { 7384, 7887, 11584, 11585 }, cd = 5000, gcd = 1500, cost = 5, stances = 65536 } },
-          { name = "Slam", tag = "Still on cooldown", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132340, rule = { kind = "ready", ids = { 1240193, 1464, 8820, 11604, 11605 }, cd = 15000, gcd = 1500, cost = 15 } },
           { name = "Rend", tag = "If missing", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132155, rule = { kind = "missing", ids = { 772, 6546, 6547, 6548, 11572, 11573, 11574 }, cd = 0, gcd = 1500, cost = 10, dur = 15000, aura = "target", stances = 196608 } },
+          { name = "Slam", tag = "Still on cooldown", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132340, rule = { kind = "ready", ids = { 1240193, 1464, 8820, 11604, 11605 }, cd = 15000, gcd = 1500, cost = 15 } },
           { name = "Execute", tag = "Spam", text = "Every global cooldown. All your rage goes in: each extra point adds damage.", icon = 135358, rule = { kind = "ready", ids = { 5308, 20658, 20660, 20661, 20662 }, cd = 0, gcd = 1500, cost = 15, stances = 327680 } },
           { name = "Heroic Strike", tag = "Stop", text = "Don't: every rage point is worth more in Execute.", icon = 132282 },
         } },
@@ -3759,16 +3808,16 @@ KP.Priority = {
         { title = "Attack priority", note = "Press the first one that's ready. Within this group the order is damage per rage with your current talents and gear.", phase = "main", items = {
           { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342, rule = { kind = "ready", ids = { 402927 }, cd = 30000, gcd = 1500, cost = 0 } },
           { name = "Overpower", tag = "When it lights up", text = "Only after the target dodges. Cheap and can't be dodged.", icon = 132223, rule = { kind = "ready", ids = { 7384, 7887, 11584, 11585 }, cd = 5000, gcd = 1500, cost = 5, stances = 65536 } },
-          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast delays your next one (until Improved Slam).", icon = 132340, rule = { kind = "ready", ids = { 1240193, 1464, 8820, 11604, 11605 }, cd = 15000, gcd = 1500, cost = 15 } },
           { name = "Rend", tag = "If missing", text = "When it isn't on the target and the target will live through most of its 18 sec. Don't renew it on a target that's about to die.", icon = 132155, rule = { kind = "missing", ids = { 772, 6546, 6547, 6548, 11572, 11573, 11574 }, cd = 0, gcd = 1500, cost = 10, dur = 18000, aura = "target", stances = 196608 } },
+          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast delays your next one (until Improved Slam).", icon = 132340, rule = { kind = "ready", ids = { 1240193, 1464, 8820, 11604, 11605 }, cd = 15000, gcd = 1500, cost = 15 } },
           { name = "Hamstring", tag = "Spare rage", text = "Only with rage left after the attacks above: a cheap extra hit whose crits set off Deep Wounds (and a Shaman's Windfury Totem can proc on it).", icon = 132316, rule = { kind = "dump", ids = { 1715, 7372, 7373 }, cd = 0, gcd = 1500, cost = 10, dur = 15000, aura = "target", stances = 327680 } },
           { name = "Heroic Strike", tag = "Rage dump", text = "Only with rage left over after the attacks above (it replaces your next swing).", icon = 132282, rule = { kind = "dump", ids = { 78, 284, 285, 1608, 11564, 11565, 11566, 11567, 25286 }, cd = 0, gcd = 0, cost = 15 } },
         } },
         { title = "Below 20% health: Execute phase", note = "The order changes: rage is worth more in Execute than almost anywhere else.", phase = "execute", items = {
           { name = "Victory Rush", tag = "When it lights up", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132342, rule = { kind = "ready", ids = { 402927 }, cd = 30000, gcd = 1500, cost = 0 } },
           { name = "Overpower", tag = "When it lights up", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132223, rule = { kind = "ready", ids = { 7384, 7887, 11584, 11585 }, cd = 5000, gcd = 1500, cost = 5, stances = 65536 } },
-          { name = "Slam", tag = "Still on cooldown", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132340, rule = { kind = "ready", ids = { 1240193, 1464, 8820, 11604, 11605 }, cd = 15000, gcd = 1500, cost = 15 } },
           { name = "Rend", tag = "If missing", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132155, rule = { kind = "missing", ids = { 772, 6546, 6547, 6548, 11572, 11573, 11574 }, cd = 0, gcd = 1500, cost = 10, dur = 18000, aura = "target", stances = 196608 } },
+          { name = "Slam", tag = "Still on cooldown", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132340, rule = { kind = "ready", ids = { 1240193, 1464, 8820, 11604, 11605 }, cd = 15000, gcd = 1500, cost = 15 } },
           { name = "Execute", tag = "Spam", text = "Every global cooldown. All your rage goes in: each extra point adds damage.", icon = 135358, rule = { kind = "ready", ids = { 5308, 20658, 20660, 20661, 20662 }, cd = 0, gcd = 1500, cost = 15, stances = 327680 } },
           { name = "Heroic Strike", tag = "Stop", text = "Don't: every rage point is worth more in Execute.", icon = 132282 },
         } },
@@ -3781,7 +3830,7 @@ KP.Priority = {
       { level = 35, title = "Arms Warrior", sections = {
         { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Two-hander.", items = {
           { name = "Two-Handed Weapon Specialization", tag = "Counts", text = "Works with this setup.", icon = 132400 },
-          { name = "Weaponmaster", tag = "Counts", text = "Bonus depends on your main-hand weapon type (Doomulus Prime).", icon = 1085608 },
+          { name = "Weaponmaster", tag = "Counts", text = "Bonus depends on your main-hand weapon type (Abandoned Ferocity).", icon = 1085608 },
         } },
         { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", phase = "start", items = {
           { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun.", icon = 132337, rule = { kind = "opener", ids = { 100, 6178, 11578 }, cd = 15000, gcd = 0, cost = 0, stances = 65536 } },
@@ -3817,7 +3866,7 @@ KP.Priority = {
       { level = 40, title = "Arms Warrior", sections = {
         { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Two-hander.", items = {
           { name = "Two-Handed Weapon Specialization", tag = "Counts", text = "Works with this setup.", icon = 132400 },
-          { name = "Weaponmaster", tag = "Counts", text = "Bonus depends on your main-hand weapon type (Doomulus Prime).", icon = 1085608 },
+          { name = "Weaponmaster", tag = "Counts", text = "Bonus depends on your main-hand weapon type (Primitive Fishing Pole).", icon = 1085608 },
         } },
         { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", phase = "start", items = {
           { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun.", icon = 132337, rule = { kind = "opener", ids = { 100, 6178, 11578 }, cd = 15000, gcd = 0, cost = 0, stances = 65536 } },
@@ -3831,8 +3880,8 @@ KP.Priority = {
         { title = "Attack priority", note = "Press the first one that's ready. Within this group the order is damage per rage with your current talents and gear.", phase = "main", items = {
           { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342, rule = { kind = "ready", ids = { 402927 }, cd = 30000, gcd = 1500, cost = 0 } },
           { name = "Overpower", tag = "When it lights up", text = "Only after the target dodges. Cheap and can't be dodged.", icon = 132223, rule = { kind = "ready", ids = { 7384, 7887, 11584, 11585 }, cd = 5000, gcd = 1500, cost = 5, stances = 65536 } },
-          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast delays your next one (until Improved Slam).", icon = 132340, rule = { kind = "ready", ids = { 1240193, 1464, 8820, 11604, 11605 }, cd = 15000, gcd = 1500, cost = 15 } },
           { name = "Rend", tag = "If missing", text = "When it isn't on the target and the target will live through most of its 21 sec. Don't renew it on a target that's about to die.", icon = 132155, rule = { kind = "missing", ids = { 772, 6546, 6547, 6548, 11572, 11573, 11574 }, cd = 0, gcd = 1500, cost = 10, dur = 21000, aura = "target", stances = 196608 } },
+          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast delays your next one (until Improved Slam).", icon = 132340, rule = { kind = "ready", ids = { 1240193, 1464, 8820, 11604, 11605 }, cd = 15000, gcd = 1500, cost = 15 } },
           { name = "Mortal Strike", tag = "On cooldown", text = "Use every time it's ready.", icon = 132355, rule = { kind = "ready", ids = { 12294, 21551, 21552, 21553 }, cd = 6000, gcd = 1500, cost = 30, dur = 10000, aura = "target" } },
           { name = "Hamstring", tag = "Spare rage", text = "Only with rage left after the attacks above: a cheap extra hit whose crits set off Deep Wounds (and a Shaman's Windfury Totem can proc on it).", icon = 132316, rule = { kind = "dump", ids = { 1715, 7372, 7373 }, cd = 0, gcd = 1500, cost = 10, dur = 15000, aura = "target", stances = 327680 } },
           { name = "Heroic Strike", tag = "Rage dump", text = "Only with rage left over after the attacks above (it replaces your next swing).", icon = 132282, rule = { kind = "dump", ids = { 78, 284, 285, 1608, 11564, 11565, 11566, 11567, 25286 }, cd = 0, gcd = 0, cost = 15 } },
@@ -3840,8 +3889,8 @@ KP.Priority = {
         { title = "Below 20% health: Execute phase", note = "The order changes: rage is worth more in Execute than almost anywhere else.", phase = "execute", items = {
           { name = "Victory Rush", tag = "When it lights up", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132342, rule = { kind = "ready", ids = { 402927 }, cd = 30000, gcd = 1500, cost = 0 } },
           { name = "Overpower", tag = "When it lights up", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132223, rule = { kind = "ready", ids = { 7384, 7887, 11584, 11585 }, cd = 5000, gcd = 1500, cost = 5, stances = 65536 } },
-          { name = "Slam", tag = "Still on cooldown", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132340, rule = { kind = "ready", ids = { 1240193, 1464, 8820, 11604, 11605 }, cd = 15000, gcd = 1500, cost = 15 } },
           { name = "Rend", tag = "If missing", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132155, rule = { kind = "missing", ids = { 772, 6546, 6547, 6548, 11572, 11573, 11574 }, cd = 0, gcd = 1500, cost = 10, dur = 21000, aura = "target", stances = 196608 } },
+          { name = "Slam", tag = "Still on cooldown", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132340, rule = { kind = "ready", ids = { 1240193, 1464, 8820, 11604, 11605 }, cd = 15000, gcd = 1500, cost = 15 } },
           { name = "Execute", tag = "Spam", text = "Every global cooldown. All your rage goes in: each extra point adds damage.", icon = 135358, rule = { kind = "ready", ids = { 5308, 20658, 20660, 20661, 20662 }, cd = 0, gcd = 1500, cost = 15, stances = 327680 } },
           { name = "Mortal Strike", tag = "Skip", text = "Put the rage into Execute instead.", icon = 132355 },
           { name = "Heroic Strike", tag = "Stop", text = "Don't: every rage point is worth more in Execute.", icon = 132282 },
@@ -3856,7 +3905,7 @@ KP.Priority = {
       { level = 45, title = "Arms Warrior", sections = {
         { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Two-hander.", items = {
           { name = "Two-Handed Weapon Specialization", tag = "Counts", text = "Works with this setup.", icon = 132400 },
-          { name = "Weaponmaster", tag = "Counts", text = "Bonus depends on your main-hand weapon type (Doomulus Prime).", icon = 1085608 },
+          { name = "Weaponmaster", tag = "Counts", text = "Bonus depends on your main-hand weapon type (Primitive Fishing Pole).", icon = 1085608 },
         } },
         { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", phase = "start", items = {
           { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun.", icon = 132337, rule = { kind = "opener", ids = { 100, 6178, 11578 }, cd = 15000, gcd = 0, cost = 0, stances = 65536 } },
@@ -3894,7 +3943,48 @@ KP.Priority = {
       { level = 50, title = "Arms Warrior", sections = {
         { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Two-hander.", items = {
           { name = "Two-Handed Weapon Specialization", tag = "Counts", text = "Works with this setup.", icon = 132400 },
-          { name = "Weaponmaster", tag = "Counts", text = "Bonus depends on your main-hand weapon type (Doomulus Prime).", icon = 1085608 },
+          { name = "Weaponmaster", tag = "Counts", text = "Bonus depends on your main-hand weapon type (Rebels' Rugged Reaper).", icon = 1085608 },
+        } },
+        { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", phase = "start", items = {
+          { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun.", icon = 132337, rule = { kind = "opener", ids = { 100, 6178, 11578 }, cd = 15000, gcd = 0, cost = 0, stances = 65536 } },
+          { name = "Bloodrage", tag = "At the pull", text = "For rage: between pulls is best (the rage isn't lost while you wait), or whenever you're short.", icon = 132277, rule = { kind = "pull", ids = { 2687 }, cd = 60000, gcd = 0, cost = 0 } },
+        } },
+        { title = "Keep up", note = "Buffs and debuffs first: they make everything else hit harder.", phase = "main", items = {
+          { name = "Battle Shout", tag = "Keep up", text = "Refresh before it runs out (lasts 3 min).", icon = 132333, rule = { kind = "keep", ids = { 6673, 5242, 6192, 11549, 11550, 11551, 25289 }, cd = 0, gcd = 1500, cost = 10, dur = 180000, aura = "you" } },
+          { name = "Demoralizing Shout", tag = "If no one else", text = "Early in the fight: enemies near you hit softer, so you (solo) or your tank take less damage. Skip it when another Warrior or a Druid keeps it up.", icon = 132366, rule = { kind = "keepSolo", ids = { 1160, 6190, 11554, 11555, 11556 }, cd = 0, gcd = 1500, cost = 10, dur = 45000, aura = "target" } },
+          { name = "Sunder Armor", tag = "If no tank does it", text = "Stack it to 5 on the boss, then let it be (a tank usually keeps it up).", icon = 132363 },
+          { name = "Rend", tag = "Keep up", text = "Keep it on the target: Bloodthrill needs it. Don't renew it on a target that's about to die.", icon = 132155, rule = { kind = "keep", ids = { 772, 6546, 6547, 6548, 11572, 11573, 11574 }, cd = 0, gcd = 1500, cost = 10, dur = 21000, aura = "target", stances = 196608 } },
+        } },
+        { title = "Attack priority", note = "Press the first one that's ready. Within this group the order is damage per rage with your current talents and gear.", phase = "main", items = {
+          { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342, rule = { kind = "ready", ids = { 402927 }, cd = 30000, gcd = 1500, cost = 0 } },
+          { name = "Overpower", tag = "When it lights up", text = "Only after the target dodges or Bloodthrill procs. Cheap and can't be dodged.", icon = 132223, rule = { kind = "ready", ids = { 7384, 7887, 11584, 11585 }, cd = 5000, gcd = 1500, cost = 5, stances = 65536 } },
+          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast delays your next one (until Improved Slam).", icon = 132340, rule = { kind = "ready", ids = { 1240193, 1464, 8820, 11604, 11605 }, cd = 15000, gcd = 1500, cost = 15 } },
+          { name = "Mortal Strike", tag = "On cooldown", text = "Use every time it's ready.", icon = 132355, rule = { kind = "ready", ids = { 12294, 21551, 21552, 21553 }, cd = 6000, gcd = 1500, cost = 30, dur = 10000, aura = "target" } },
+          { name = "Hamstring", tag = "Spare rage", text = "Only with rage left after the attacks above: a cheap extra hit whose crits set off Deep Wounds (and a Shaman's Windfury Totem can proc on it).", icon = 132316, rule = { kind = "dump", ids = { 1715, 7372, 7373 }, cd = 0, gcd = 1500, cost = 10, dur = 15000, aura = "target", stances = 327680 } },
+          { name = "Heroic Strike", tag = "Rage dump", text = "Only with rage left over after the attacks above (it replaces your next swing).", icon = 132282, rule = { kind = "dump", ids = { 78, 284, 285, 1608, 11564, 11565, 11566, 11567, 25286 }, cd = 0, gcd = 0, cost = 15 } },
+        } },
+        { title = "Below 20% health: Execute phase", note = "The order changes: rage is worth more in Execute than almost anywhere else.", phase = "execute", items = {
+          { name = "Victory Rush", tag = "When it lights up", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132342, rule = { kind = "ready", ids = { 402927 }, cd = 30000, gcd = 1500, cost = 0 } },
+          { name = "Overpower", tag = "When it lights up", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132223, rule = { kind = "ready", ids = { 7384, 7887, 11584, 11585 }, cd = 5000, gcd = 1500, cost = 5, stances = 65536 } },
+          { name = "Slam", tag = "Still on cooldown", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132340, rule = { kind = "ready", ids = { 1240193, 1464, 8820, 11604, 11605 }, cd = 15000, gcd = 1500, cost = 15 } },
+          { name = "Execute", tag = "Spam", text = "Every global cooldown. All your rage goes in: each extra point adds damage.", icon = 135358, rule = { kind = "ready", ids = { 5308, 20658, 20660, 20661, 20662 }, cd = 0, gcd = 1500, cost = 15, stances = 327680 } },
+          { name = "Mortal Strike", tag = "Skip", text = "Put the rage into Execute instead.", icon = 132355 },
+          { name = "Heroic Strike", tag = "Stop", text = "Don't: every rage point is worth more in Execute.", icon = 132282 },
+        } },
+        { title = "Cooldowns", note = "Long cooldowns: line them up with each other and with the Execute phase.", phase = "cooldowns", items = {
+          { name = "Recklessness", tag = "Cooldown", text = "Once per fight: at the start of the Execute phase (Berserker Stance).", icon = 132109, rule = { kind = "ready", ids = { 1719 }, cd = 1800000, gcd = 1500, cost = 0, dur = 15000, aura = "you", stances = 262144 } },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Sweeping Strikes", tag = "First", text = "Your next 5 hits also strike a second enemy.", icon = 132306 },
+          { name = "Whirlwind", tag = "On cooldown", text = "Up to 4 enemies (Berserker Stance).", icon = 132369 },
+          { name = "Cleave", tag = "Rage dump", text = "Instead of Heroic Strike when 2+ enemies stand together.", icon = 132338 },
+          { name = "Thunder Clap", tag = "Optional", text = "Slows their attacks; small damage.", icon = 136105 },
+        } },
+      } },
+      { level = 55, title = "Arms Warrior", sections = {
+        { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Two-hander.", items = {
+          { name = "Two-Handed Weapon Specialization", tag = "Counts", text = "Works with this setup.", icon = 132400 },
+          { name = "Weaponmaster", tag = "Counts", text = "Bonus depends on your main-hand weapon type (Corruption).", icon = 1085608 },
         } },
         { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", phase = "start", items = {
           { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun.", icon = 132337, rule = { kind = "opener", ids = { 100, 6178, 11578 }, cd = 15000, gcd = 0, cost = 0, stances = 65536 } },
@@ -4038,7 +4128,6 @@ KP.Priority = {
       { level = 25, title = "Fury Warrior", sections = {
         { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Dual wield.", items = {
           { name = "Furious Precision", tag = "Counts", text = "Works with this setup.", icon = 236309 },
-          { name = "Dual Wield Specialization", tag = "Counts", text = "Works with this setup.", icon = 132147 },
         } },
         { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", phase = "start", items = {
           { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun.", icon = 132337, rule = { kind = "opener", ids = { 100, 6178, 11578 }, cd = 15000, gcd = 0, cost = 0, stances = 65536 } },
@@ -4059,7 +4148,7 @@ KP.Priority = {
           { name = "Victory Rush", tag = "When it lights up", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132342, rule = { kind = "ready", ids = { 402927 }, cd = 30000, gcd = 1500, cost = 0 } },
           { name = "Overpower", tag = "When it lights up", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132223, rule = { kind = "ready", ids = { 7384, 7887, 11584, 11585 }, cd = 5000, gcd = 1500, cost = 5, stances = 65536 } },
           { name = "Rend", tag = "If missing", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132155, rule = { kind = "missing", ids = { 772, 6546, 6547, 6548, 11572, 11573, 11574 }, cd = 0, gcd = 1500, cost = 10, dur = 15000, aura = "target", stances = 196608 } },
-          { name = "Execute", tag = "Spam", text = "Every global cooldown. All your rage goes in: each extra point adds damage.", icon = 135358, rule = { kind = "ready", ids = { 5308, 20658, 20660, 20661, 20662 }, cd = 0, gcd = 1500, cost = 15, stances = 327680 } },
+          { name = "Execute", tag = "Spam", text = "Every global cooldown. All your rage goes in: each extra point adds damage.", icon = 135358, rule = { kind = "ready", ids = { 5308, 20658, 20660, 20661, 20662 }, cd = 0, gcd = 1500, cost = 12, stances = 327680 } },
           { name = "Heroic Strike", tag = "Stop", text = "Don't: every rage point is worth more in Execute.", icon = 132282 },
         } },
         { title = "Several targets", note = "", items = {
@@ -4087,7 +4176,7 @@ KP.Priority = {
         } },
         { title = "Below 20% health: Execute phase", note = "The order changes: rage is worth more in Execute than almost anywhere else.", phase = "execute", items = {
           { name = "Victory Rush", tag = "When it lights up", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132342, rule = { kind = "ready", ids = { 402927 }, cd = 30000, gcd = 1500, cost = 0 } },
-          { name = "Execute", tag = "Spam", text = "Every global cooldown. All your rage goes in: each extra point adds damage.", icon = 135358, rule = { kind = "ready", ids = { 5308, 20658, 20660, 20661, 20662 }, cd = 0, gcd = 1500, cost = 15, stances = 327680 } },
+          { name = "Execute", tag = "Spam", text = "Every global cooldown. All your rage goes in: each extra point adds damage.", icon = 135358, rule = { kind = "ready", ids = { 5308, 20658, 20660, 20661, 20662 }, cd = 0, gcd = 1500, cost = 10, stances = 327680 } },
           { name = "Heroic Strike", tag = "Stop", text = "Don't: every rage point is worth more in Execute.", icon = 132282 },
         } },
         { title = "Cooldowns", note = "Long cooldowns: line them up with each other and with the Execute phase.", phase = "cooldowns", items = {
@@ -4144,16 +4233,16 @@ KP.Priority = {
         } },
         { title = "Attack priority", note = "Press the first one that's ready. Within this group the order is damage per rage with your current talents and gear.", phase = "main", items = {
           { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342, rule = { kind = "ready", ids = { 402927 }, cd = 30000, gcd = 1500, cost = 0 } },
-          { name = "Whirlwind", tag = "On cooldown", text = "Use every time it's ready (hits up to 4 enemies).", icon = 132369, rule = { kind = "ready", ids = { 1680 }, cd = 8000, gcd = 1500, cost = 25, stances = 262144 } },
           { name = "Bloodthirst", tag = "On cooldown", text = "Use every time it's ready.", icon = 136012, rule = { kind = "ready", ids = { 23881, 23892, 23893, 23894 }, cd = 6000, gcd = 1500, cost = 30, dur = 10000, aura = "you" } },
+          { name = "Whirlwind", tag = "On cooldown", text = "Use every time it's ready (hits up to 4 enemies).", icon = 132369, rule = { kind = "ready", ids = { 1680 }, cd = 8000, gcd = 1500, cost = 25, stances = 262144 } },
           { name = "Hamstring", tag = "Spare rage", text = "Only with rage left after the attacks above: a cheap extra hit whose crits set off Flurry (and a Shaman's Windfury Totem can proc on it).", icon = 132316, rule = { kind = "dump", ids = { 1715, 7372, 7373 }, cd = 0, gcd = 1500, cost = 10, dur = 15000, aura = "target", stances = 327680 } },
           { name = "Heroic Strike", tag = "Rage dump", text = "Only with rage left over after the attacks above (it replaces your next swing).", icon = 132282, rule = { kind = "dump", ids = { 78, 284, 285, 1608, 11564, 11565, 11566, 11567, 25286 }, cd = 0, gcd = 0, cost = 15 } },
         } },
         { title = "Below 20% health: Execute phase", note = "The order changes: rage is worth more in Execute than almost anywhere else.", phase = "execute", items = {
           { name = "Victory Rush", tag = "When it lights up", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132342, rule = { kind = "ready", ids = { 402927 }, cd = 30000, gcd = 1500, cost = 0 } },
           { name = "Execute", tag = "Spam", text = "Every global cooldown. All your rage goes in: each extra point adds damage.", icon = 135358, rule = { kind = "ready", ids = { 5308, 20658, 20660, 20661, 20662 }, cd = 0, gcd = 1500, cost = 10, stances = 327680 } },
-          { name = "Whirlwind", tag = "Skip", text = "Put the rage into Execute instead.", icon = 132369 },
           { name = "Bloodthirst", tag = "Skip", text = "Put the rage into Execute instead.", icon = 136012 },
+          { name = "Whirlwind", tag = "Skip", text = "Put the rage into Execute instead.", icon = 132369 },
           { name = "Heroic Strike", tag = "Stop", text = "Don't: every rage point is worth more in Execute.", icon = 132282 },
         } },
         { title = "Cooldowns", note = "Long cooldowns: line them up with each other and with the Execute phase.", phase = "cooldowns", items = {
@@ -4180,16 +4269,16 @@ KP.Priority = {
         } },
         { title = "Attack priority", note = "Press the first one that's ready. Within this group the order is damage per rage with your current talents and gear.", phase = "main", items = {
           { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342, rule = { kind = "ready", ids = { 402927 }, cd = 30000, gcd = 1500, cost = 0 } },
-          { name = "Whirlwind", tag = "On cooldown", text = "Use every time it's ready (hits up to 4 enemies).", icon = 132369, rule = { kind = "ready", ids = { 1680 }, cd = 8000, gcd = 1500, cost = 25, stances = 262144 } },
           { name = "Bloodthirst", tag = "On cooldown", text = "Use every time it's ready.", icon = 136012, rule = { kind = "ready", ids = { 23881, 23892, 23893, 23894 }, cd = 6000, gcd = 1500, cost = 30, dur = 10000, aura = "you" } },
+          { name = "Whirlwind", tag = "On cooldown", text = "Use every time it's ready (hits up to 4 enemies).", icon = 132369, rule = { kind = "ready", ids = { 1680 }, cd = 8000, gcd = 1500, cost = 25, stances = 262144 } },
           { name = "Hamstring", tag = "Spare rage", text = "Only with rage left after the attacks above: a cheap extra hit whose crits set off Flurry (and a Shaman's Windfury Totem can proc on it).", icon = 132316, rule = { kind = "dump", ids = { 1715, 7372, 7373 }, cd = 0, gcd = 1500, cost = 10, dur = 15000, aura = "target", stances = 327680 } },
           { name = "Heroic Strike", tag = "Rage dump", text = "Only with rage left over after the attacks above (it replaces your next swing).", icon = 132282, rule = { kind = "dump", ids = { 78, 284, 285, 1608, 11564, 11565, 11566, 11567, 25286 }, cd = 0, gcd = 0, cost = 15 } },
         } },
         { title = "Below 20% health: Execute phase", note = "The order changes: rage is worth more in Execute than almost anywhere else.", phase = "execute", items = {
           { name = "Victory Rush", tag = "When it lights up", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132342, rule = { kind = "ready", ids = { 402927 }, cd = 30000, gcd = 1500, cost = 0 } },
           { name = "Execute", tag = "Spam", text = "Every global cooldown. All your rage goes in: each extra point adds damage.", icon = 135358, rule = { kind = "ready", ids = { 5308, 20658, 20660, 20661, 20662 }, cd = 0, gcd = 1500, cost = 10, stances = 327680 } },
-          { name = "Whirlwind", tag = "Skip", text = "Put the rage into Execute instead.", icon = 132369 },
           { name = "Bloodthirst", tag = "Skip", text = "Put the rage into Execute instead.", icon = 136012 },
+          { name = "Whirlwind", tag = "Skip", text = "Put the rage into Execute instead.", icon = 132369 },
           { name = "Heroic Strike", tag = "Stop", text = "Don't: every rage point is worth more in Execute.", icon = 132282 },
         } },
         { title = "Cooldowns", note = "Long cooldowns: line them up with each other and with the Execute phase.", phase = "cooldowns", items = {
@@ -4202,43 +4291,6 @@ KP.Priority = {
         } },
       } },
       { level = 55, title = "Fury Warrior", sections = {
-        { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Dual wield.", items = {
-          { name = "Furious Precision", tag = "Counts", text = "Works with this setup.", icon = 236309 },
-          { name = "Dual Wield Specialization", tag = "Counts", text = "Works with this setup.", icon = 132147 },
-        } },
-        { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", phase = "start", items = {
-          { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun. Needs Battle Stance: charge, then switch to Berserker Stance.", icon = 132337, rule = { kind = "opener", ids = { 100, 6178, 11578 }, cd = 15000, gcd = 0, cost = 0, stances = 65536 } },
-          { name = "Bloodrage", tag = "At the pull", text = "For rage: between pulls is best (the rage isn't lost while you wait), or whenever you're short.", icon = 132277, rule = { kind = "pull", ids = { 2687 }, cd = 60000, gcd = 0, cost = 0 } },
-        } },
-        { title = "Keep up", note = "Buffs and debuffs first: they make everything else hit harder.", phase = "main", items = {
-          { name = "Battle Shout", tag = "Keep up", text = "Refresh before it runs out (lasts 3 min).", icon = 132333, rule = { kind = "keep", ids = { 6673, 5242, 6192, 11549, 11550, 11551, 25289 }, cd = 0, gcd = 1500, cost = 10, dur = 180000, aura = "you" } },
-          { name = "Demoralizing Shout", tag = "If no one else", text = "Early in the fight: enemies near you hit softer, so you (solo) or your tank take less damage. Skip it when another Warrior or a Druid keeps it up.", icon = 132366, rule = { kind = "keepSolo", ids = { 1160, 6190, 11554, 11555, 11556 }, cd = 0, gcd = 1500, cost = 10, dur = 45000, aura = "target" } },
-          { name = "Sunder Armor", tag = "If no tank does it", text = "Stack it to 5 on the boss, then let it be (a tank usually keeps it up).", icon = 132363 },
-        } },
-        { title = "Attack priority", note = "Press the first one that's ready. Within this group the order is damage per rage with your current talents and gear.", phase = "main", items = {
-          { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342, rule = { kind = "ready", ids = { 402927 }, cd = 30000, gcd = 1500, cost = 0 } },
-          { name = "Whirlwind", tag = "On cooldown", text = "Use every time it's ready (hits up to 4 enemies).", icon = 132369, rule = { kind = "ready", ids = { 1680 }, cd = 8000, gcd = 1500, cost = 25, stances = 262144 } },
-          { name = "Bloodthirst", tag = "On cooldown", text = "Use every time it's ready.", icon = 136012, rule = { kind = "ready", ids = { 23881, 23892, 23893, 23894 }, cd = 6000, gcd = 1500, cost = 30, dur = 10000, aura = "you" } },
-          { name = "Hamstring", tag = "Spare rage", text = "Only with rage left after the attacks above: a cheap extra hit whose crits set off Deep Wounds and Flurry (and a Shaman's Windfury Totem can proc on it).", icon = 132316, rule = { kind = "dump", ids = { 1715, 7372, 7373 }, cd = 0, gcd = 1500, cost = 10, dur = 15000, aura = "target", stances = 327680 } },
-          { name = "Heroic Strike", tag = "Rage dump", text = "Only with rage left over after the attacks above (it replaces your next swing).", icon = 132282, rule = { kind = "dump", ids = { 78, 284, 285, 1608, 11564, 11565, 11566, 11567, 25286 }, cd = 0, gcd = 0, cost = 15 } },
-        } },
-        { title = "Below 20% health: Execute phase", note = "The order changes: rage is worth more in Execute than almost anywhere else.", phase = "execute", items = {
-          { name = "Victory Rush", tag = "When it lights up", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132342, rule = { kind = "ready", ids = { 402927 }, cd = 30000, gcd = 1500, cost = 0 } },
-          { name = "Execute", tag = "Spam", text = "Every global cooldown. All your rage goes in: each extra point adds damage.", icon = 135358, rule = { kind = "ready", ids = { 5308, 20658, 20660, 20661, 20662 }, cd = 0, gcd = 1500, cost = 10, stances = 327680 } },
-          { name = "Whirlwind", tag = "Skip", text = "Put the rage into Execute instead.", icon = 132369 },
-          { name = "Bloodthirst", tag = "Skip", text = "Put the rage into Execute instead.", icon = 136012 },
-          { name = "Heroic Strike", tag = "Stop", text = "Don't: every rage point is worth more in Execute.", icon = 132282 },
-        } },
-        { title = "Cooldowns", note = "Long cooldowns: line them up with each other and with the Execute phase.", phase = "cooldowns", items = {
-          { name = "Death Wish", tag = "Cooldown", text = "On cooldown in long fights; otherwise save it for the Execute phase.", icon = 136146, rule = { kind = "ready", ids = { 12328 }, cd = 180000, gcd = 1500, cost = 10, dur = 30000, aura = "you" } },
-          { name = "Recklessness", tag = "Cooldown", text = "Once per fight: at the start of the Execute phase (Berserker Stance).", icon = 132109, rule = { kind = "ready", ids = { 1719 }, cd = 1800000, gcd = 1500, cost = 0, dur = 15000, aura = "you", stances = 262144 } },
-        } },
-        { title = "Several targets", note = "", items = {
-          { name = "Whirlwind", tag = "On cooldown", text = "Up to 4 enemies (Berserker Stance).", icon = 132369 },
-          { name = "Cleave", tag = "Rage dump", text = "Instead of Heroic Strike when 2+ enemies stand together.", icon = 132338 },
-        } },
-      } },
-      { level = 60, title = "Fury Warrior", sections = {
         { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Dual wield.", items = {
           { name = "Furious Precision", tag = "Counts", text = "Works with this setup.", icon = 236309 },
           { name = "Dual Wield Specialization", tag = "Counts", text = "Works with this setup.", icon = 132147 },
@@ -4278,9 +4330,6 @@ KP.Priority = {
     },
     ["prot-lvl"] = {
       { level = 10, title = "Protection Warrior, tanking", sections = {
-        { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Sword and board.", items = {
-          { name = "Shield Specialization", tag = "Counts", text = "Works with this setup.", icon = 134952 },
-        } },
         { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", phase = "start", items = {
           { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun. Needs Battle Stance: charge, then switch to Defensive Stance.", icon = 132337, rule = { kind = "opener", ids = { 100, 6178, 11578 }, cd = 15000, gcd = 0, cost = 0, stances = 65536 } },
           { name = "Bloodrage", tag = "At the pull", text = "Rage to start with; between pulls is best, so the rage isn't lost while you wait.", icon = 132277, rule = { kind = "pull", ids = { 2687 }, cd = 60000, gcd = 0, cost = 0 } },
@@ -4324,6 +4373,7 @@ KP.Priority = {
       { level = 20, title = "Protection Warrior, tanking", sections = {
         { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Sword and board.", items = {
           { name = "Shield Specialization", tag = "Counts", text = "Works with this setup.", icon = 134952 },
+          { name = "Master of Defense", tag = "Counts", text = "Works with this setup.", icon = 132359 },
         } },
         { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", phase = "start", items = {
           { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun. Needs Battle Stance: charge, then switch to Defensive Stance.", icon = 132337, rule = { kind = "opener", ids = { 100, 6178, 11578 }, cd = 15000, gcd = 0, cost = 0, stances = 65536 } },
@@ -4350,9 +4400,10 @@ KP.Priority = {
       { level = 25, title = "Protection Warrior, tanking", sections = {
         { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Sword and board.", items = {
           { name = "Shield Specialization", tag = "Counts", text = "Works with this setup.", icon = 134952 },
+          { name = "Master of Defense", tag = "Counts", text = "Works with this setup.", icon = 132359 },
         } },
         { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", phase = "start", items = {
-          { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun. Needs Battle Stance: charge, then switch to Defensive Stance.", icon = 132337, rule = { kind = "opener", ids = { 100, 6178, 11578 }, cd = 15000, gcd = 0, cost = 0, stances = 65536 } },
+          { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun. Vanguard: usable in Defensive Stance.", icon = 132337, rule = { kind = "opener", ids = { 100, 6178, 11578 }, cd = 15000, gcd = 0, cost = 0, stances = 65536 } },
           { name = "Bloodrage", tag = "At the pull", text = "Rage to start with; between pulls is best, so the rage isn't lost while you wait.", icon = 132277, rule = { kind = "pull", ids = { 2687 }, cd = 60000, gcd = 0, cost = 0 } },
         } },
         { title = "Keep up", note = "", phase = "main", items = {
@@ -4363,7 +4414,7 @@ KP.Priority = {
           { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342, rule = { kind = "ready", ids = { 402927 }, cd = 30000, gcd = 1500, cost = 0 } },
           { name = "Shield Block", tag = "On cooldown", text = "Not on the global cooldown (game data): press it alongside your attacks while melee enemies hit you. Fewer big hits and more Revenges; useless against spells.", icon = 132110, rule = { kind = "ready", ids = { 2565 }, cd = 5000, gcd = 0, cost = 10, dur = 7000, aura = "you", stances = 131072 } },
           { name = "Revenge", tag = "When it lights up", text = "After you block, dodge or parry. Cheap: use every time.", icon = 132353, rule = { kind = "ready", ids = { 6572, 6574, 7379, 11600, 11601, 25288 }, cd = 5000, gcd = 1500, cost = 5, stances = 131072 } },
-          { name = "Thunder Clap", tag = "On cooldown", text = "Hits up to 4 enemies near you and slows their attacks (less damage to you). Solo against a single normal mob, only when it hits hard.", icon = 136105, rule = { kind = "ready", ids = { 6343, 8198, 8204, 8205, 11580, 11581 }, cd = 6000, gcd = 1500, cost = 16, dur = 14000, aura = "target", stances = 196608 } },
+          { name = "Thunder Clap", tag = "On cooldown", text = "Hits up to 4 enemies near you and slows their attacks (less damage to you). Solo against a single normal mob, only when it hits hard.", icon = 136105, rule = { kind = "ready", ids = { 6343, 8198, 8204, 8205, 11580, 11581 }, cd = 6000, gcd = 1500, cost = 20, dur = 14000, aura = "target", stances = 196608 } },
           { name = "Rend", tag = "If missing", text = "When it isn't on the target and the target will live through most of its 15 sec. Don't renew it on a target that's about to die.", icon = 132155, rule = { kind = "missing", ids = { 772, 6546, 6547, 6548, 11572, 11573, 11574 }, cd = 0, gcd = 1500, cost = 10, dur = 15000, aura = "target", stances = 196608 } },
           { name = "Sunder Armor", tag = "Build to 5, then filler", text = "On bosses and elites, stack it to 5 early (the group's damage goes up), then use it as a filler. Skip it on a mob that's about to die.", icon = 132363, rule = { kind = "stack", ids = { 7386, 7405, 8380, 11596, 11597 }, cd = 0, gcd = 1500, cost = 15, dur = 30000, aura = "target", stacks = 5 } },
           { name = "Heroic Strike", tag = "Rage dump", text = "Only with spare rage (keep enough for Shield Slam, Revenge and Shield Block).", icon = 132282, rule = { kind = "dump", ids = { 78, 284, 285, 1608, 11564, 11565, 11566, 11567, 25286 }, cd = 0, gcd = 0, cost = 15 } },
@@ -4379,7 +4430,7 @@ KP.Priority = {
           { name = "Master of Defense", tag = "Counts", text = "Works with this setup.", icon = 132359 },
         } },
         { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", phase = "start", items = {
-          { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun. Needs Battle Stance: charge, then switch to Defensive Stance.", icon = 132337, rule = { kind = "opener", ids = { 100, 6178, 11578 }, cd = 15000, gcd = 0, cost = 0, stances = 65536 } },
+          { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun. Vanguard: usable in Defensive Stance.", icon = 132337, rule = { kind = "opener", ids = { 100, 6178, 11578 }, cd = 15000, gcd = 0, cost = 0, stances = 65536 } },
           { name = "Bloodrage", tag = "At the pull", text = "Rage to start with; between pulls is best, so the rage isn't lost while you wait.", icon = 132277, rule = { kind = "pull", ids = { 2687 }, cd = 60000, gcd = 0, cost = 0 } },
         } },
         { title = "Keep up", note = "", phase = "main", items = {
@@ -4399,7 +4450,6 @@ KP.Priority = {
           { name = "Taunt", tag = "Lost aggro", text = "Pulls the target back to you.", icon = 136080 },
           { name = "Mocking Blow", tag = "Taunt on cooldown", text = "Needs Battle Stance (game data): a second taunt if Taunt is resisted.", icon = 132350 },
           { name = "Shield Wall", tag = "Emergency", text = "60% less damage for 12 sec.", icon = 132362 },
-          { name = "Last Stand", tag = "Emergency", text = "30% more health for 20 sec.", icon = 135871 },
         } },
       } },
       { level = 35, title = "Protection Warrior, tanking", sections = {
@@ -4500,6 +4550,266 @@ KP.Priority = {
         { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Sword and board.", items = {
           { name = "Shield Specialization", tag = "Counts", text = "Works with this setup.", icon = 134952 },
           { name = "Master of Defense", tag = "Counts", text = "Works with this setup.", icon = 132359 },
+          { name = "Bastion", tag = "Counts", text = "Works with this setup.", icon = 134950 },
+          { name = "Shield Slam", tag = "Counts", text = "Works with this setup.", icon = 134951 },
+        } },
+        { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", phase = "start", items = {
+          { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun. Vanguard: usable in Defensive Stance.", icon = 132337, rule = { kind = "opener", ids = { 100, 6178, 11578 }, cd = 15000, gcd = 0, cost = 0, stances = 65536 } },
+          { name = "Bloodrage", tag = "At the pull", text = "Rage to start with; between pulls is best, so the rage isn't lost while you wait.", icon = 132277, rule = { kind = "pull", ids = { 2687 }, cd = 60000, gcd = 0, cost = 0 } },
+        } },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Battle Shout", tag = "Keep up", text = "Also gives a little threat on every enemy in combat with you.", icon = 132333, rule = { kind = "keep", ids = { 6673, 5242, 6192, 11549, 11550, 11551, 25289 }, cd = 0, gcd = 1500, cost = 10, dur = 180000, aura = "you" } },
+          { name = "Demoralizing Shout", tag = "Keep up", text = "Lowers the attack power of enemies near you: less damage to you.", icon = 132366, rule = { kind = "keep", ids = { 1160, 6190, 11554, 11555, 11556 }, cd = 0, gcd = 1500, cost = 10, dur = 45000, aura = "target" } },
+        } },
+        { title = "Threat priority", note = "Press the first one that's ready. The damage numbers come from your gear; extra threat noted where the game files hold it. Solo, the same order kills fastest: finish a nearly dead mob with plain swings and keep the rage for the next one.", phase = "main", items = {
+          { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342, rule = { kind = "ready", ids = { 402927 }, cd = 30000, gcd = 1500, cost = 0 } },
+          { name = "Shield Block", tag = "On cooldown", text = "Not on the global cooldown (game data): press it alongside your attacks while melee enemies hit you. Fewer big hits and more Revenges; useless against spells.", icon = 132110, rule = { kind = "ready", ids = { 2565 }, cd = 5000, gcd = 0, cost = 10, dur = 7000, aura = "you", stances = 131072 } },
+          { name = "Shield Slam", tag = "On cooldown", text = "Biggest threat hit. Needs a shield.", icon = 134951, rule = { kind = "ready", ids = { 23922, 23923, 23924, 23925 }, cd = 6000, gcd = 1500, cost = 17 } },
+          { name = "Revenge", tag = "When it lights up", text = "After you block, dodge or parry. Cheap: use every time.", icon = 132353, rule = { kind = "ready", ids = { 6572, 6574, 7379, 11600, 11601, 25288 }, cd = 5000, gcd = 1500, cost = 2, stances = 131072 } },
+          { name = "Thunder Clap", tag = "On cooldown", text = "Hits up to 4 enemies near you and slows their attacks (less damage to you). Solo against a single normal mob, only when it hits hard.", icon = 136105, rule = { kind = "ready", ids = { 6343, 8198, 8204, 8205, 11580, 11581 }, cd = 6000, gcd = 1500, cost = 11, dur = 30000, aura = "target", stances = 196608 } },
+          { name = "Rend", tag = "If missing", text = "When it isn't on the target and the target will live through most of its 21 sec. Don't renew it on a target that's about to die.", icon = 132155, rule = { kind = "missing", ids = { 772, 6546, 6547, 6548, 11572, 11573, 11574 }, cd = 0, gcd = 1500, cost = 7, dur = 21000, aura = "target", stances = 196608 } },
+          { name = "Sunder Armor", tag = "Build to 5, then filler", text = "On bosses and elites, stack it to 5 early (the group's damage goes up), then use it as a filler. Skip it on a mob that's about to die.", icon = 132363, rule = { kind = "stack", ids = { 7386, 7405, 8380, 11596, 11597 }, cd = 0, gcd = 1500, cost = 15, dur = 30000, aura = "target", stacks = 5 } },
+          { name = "Heroic Strike", tag = "Rage dump", text = "Only with spare rage (keep enough for Shield Slam, Revenge and Shield Block).", icon = 132282, rule = { kind = "dump", ids = { 78, 284, 285, 1608, 11564, 11565, 11566, 11567, 25286 }, cd = 0, gcd = 0, cost = 12 } },
+        } },
+        { title = "When things go wrong", note = "", items = {
+          { name = "Taunt", tag = "Lost aggro", text = "Pulls the target back to you.", icon = 136080 },
+          { name = "Mocking Blow", tag = "Taunt on cooldown", text = "Needs Battle Stance (game data): a second taunt if Taunt is resisted.", icon = 132350 },
+          { name = "Shield Wall", tag = "Emergency", text = "60% less damage for 12 sec.", icon = 132362 },
+          { name = "Last Stand", tag = "Emergency", text = "30% more health for 20 sec.", icon = 135871 },
+        } },
+      } },
+    },
+    ["prot-dungeon-lvl"] = {
+      { level = 10, title = "Protection Warrior, tanking", sections = {
+        { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Sword and board.", items = {
+          { name = "Shield Specialization", tag = "Counts", text = "Works with this setup.", icon = 134952 },
+        } },
+        { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", phase = "start", items = {
+          { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun. Needs Battle Stance: charge, then switch to Defensive Stance.", icon = 132337, rule = { kind = "opener", ids = { 100, 6178, 11578 }, cd = 15000, gcd = 0, cost = 0, stances = 65536 } },
+          { name = "Bloodrage", tag = "At the pull", text = "Rage to start with; between pulls is best, so the rage isn't lost while you wait.", icon = 132277, rule = { kind = "pull", ids = { 2687 }, cd = 60000, gcd = 0, cost = 0 } },
+        } },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Battle Shout", tag = "Keep up", text = "Also gives a little threat on every enemy in combat with you.", icon = 132333, rule = { kind = "keep", ids = { 6673, 5242, 6192, 11549, 11550, 11551, 25289 }, cd = 0, gcd = 1500, cost = 10, dur = 180000, aura = "you" } },
+        } },
+        { title = "Threat priority", note = "Press the first one that's ready. The damage numbers come from your gear; extra threat noted where the game files hold it. Solo, the same order kills fastest: finish a nearly dead mob with plain swings and keep the rage for the next one.", phase = "main", items = {
+          { name = "Thunder Clap", tag = "On cooldown", text = "Hits up to 4 enemies near you and slows their attacks (less damage to you). Solo against a single normal mob, only when it hits hard.", icon = 136105, rule = { kind = "ready", ids = { 6343, 8198, 8204, 8205, 11580, 11581 }, cd = 6000, gcd = 1500, cost = 20, dur = 10000, aura = "target", stances = 196608 } },
+          { name = "Rend", tag = "If missing", text = "When it isn't on the target and the target will live through most of its 12 sec. Don't renew it on a target that's about to die.", icon = 132155, rule = { kind = "missing", ids = { 772, 6546, 6547, 6548, 11572, 11573, 11574 }, cd = 0, gcd = 1500, cost = 10, dur = 12000, aura = "target", stances = 196608 } },
+          { name = "Sunder Armor", tag = "Build to 5, then filler", text = "On bosses and elites, stack it to 5 early (the group's damage goes up), then use it as a filler. Skip it on a mob that's about to die.", icon = 132363, rule = { kind = "stack", ids = { 7386, 7405, 8380, 11596, 11597 }, cd = 0, gcd = 1500, cost = 15, dur = 30000, aura = "target", stacks = 5 } },
+          { name = "Heroic Strike", tag = "Rage dump", text = "Only with spare rage (keep enough for Shield Slam, Revenge and Shield Block).", icon = 132282, rule = { kind = "dump", ids = { 78, 284, 285, 1608, 11564, 11565, 11566, 11567, 25286 }, cd = 0, gcd = 0, cost = 15 } },
+        } },
+        { title = "When things go wrong", note = "", items = {
+          { name = "Taunt", tag = "Lost aggro", text = "Pulls the target back to you.", icon = 136080 },
+        } },
+      } },
+      { level = 15, title = "Protection Warrior, tanking", sections = {
+        { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Sword and board.", items = {
+          { name = "Shield Specialization", tag = "Counts", text = "Works with this setup.", icon = 134952 },
+        } },
+        { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", phase = "start", items = {
+          { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun. Needs Battle Stance: charge, then switch to Defensive Stance.", icon = 132337, rule = { kind = "opener", ids = { 100, 6178, 11578 }, cd = 15000, gcd = 0, cost = 0, stances = 65536 } },
+          { name = "Bloodrage", tag = "At the pull", text = "Rage to start with; between pulls is best, so the rage isn't lost while you wait.", icon = 132277, rule = { kind = "pull", ids = { 2687 }, cd = 60000, gcd = 0, cost = 0 } },
+        } },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Battle Shout", tag = "Keep up", text = "Also gives a little threat on every enemy in combat with you.", icon = 132333, rule = { kind = "keep", ids = { 6673, 5242, 6192, 11549, 11550, 11551, 25289 }, cd = 0, gcd = 1500, cost = 10, dur = 180000, aura = "you" } },
+          { name = "Demoralizing Shout", tag = "Keep up", text = "Lowers the attack power of enemies near you: less damage to you.", icon = 132366, rule = { kind = "keep", ids = { 1160, 6190, 11554, 11555, 11556 }, cd = 0, gcd = 1500, cost = 10, dur = 45000, aura = "target" } },
+        } },
+        { title = "Threat priority", note = "Press the first one that's ready. The damage numbers come from your gear; extra threat noted where the game files hold it. Solo, the same order kills fastest: finish a nearly dead mob with plain swings and keep the rage for the next one.", phase = "main", items = {
+          { name = "Revenge", tag = "When it lights up", text = "After you block, dodge or parry. Cheap: use every time.", icon = 132353, rule = { kind = "ready", ids = { 6572, 6574, 7379, 11600, 11601, 25288 }, cd = 5000, gcd = 1500, cost = 5, stances = 131072 } },
+          { name = "Thunder Clap", tag = "On cooldown", text = "Hits up to 4 enemies near you and slows their attacks (less damage to you). Solo against a single normal mob, only when it hits hard.", icon = 136105, rule = { kind = "ready", ids = { 6343, 8198, 8204, 8205, 11580, 11581 }, cd = 6000, gcd = 1500, cost = 20, dur = 10000, aura = "target", stances = 196608 } },
+          { name = "Rend", tag = "If missing", text = "When it isn't on the target and the target will live through most of its 12 sec. Don't renew it on a target that's about to die.", icon = 132155, rule = { kind = "missing", ids = { 772, 6546, 6547, 6548, 11572, 11573, 11574 }, cd = 0, gcd = 1500, cost = 10, dur = 12000, aura = "target", stances = 196608 } },
+          { name = "Sunder Armor", tag = "Build to 5, then filler", text = "On bosses and elites, stack it to 5 early (the group's damage goes up), then use it as a filler. Skip it on a mob that's about to die.", icon = 132363, rule = { kind = "stack", ids = { 7386, 7405, 8380, 11596, 11597 }, cd = 0, gcd = 1500, cost = 15, dur = 30000, aura = "target", stacks = 5 } },
+          { name = "Heroic Strike", tag = "Rage dump", text = "Only with spare rage (keep enough for Shield Slam, Revenge and Shield Block).", icon = 132282, rule = { kind = "dump", ids = { 78, 284, 285, 1608, 11564, 11565, 11566, 11567, 25286 }, cd = 0, gcd = 0, cost = 15 } },
+        } },
+        { title = "When things go wrong", note = "", items = {
+          { name = "Taunt", tag = "Lost aggro", text = "Pulls the target back to you.", icon = 136080 },
+        } },
+      } },
+      { level = 20, title = "Protection Warrior, tanking", sections = {
+        { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Sword and board.", items = {
+          { name = "Shield Specialization", tag = "Counts", text = "Works with this setup.", icon = 134952 },
+          { name = "Defiance", tag = "Counts", text = "Works with this setup.", icon = 132347 },
+        } },
+        { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", phase = "start", items = {
+          { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun. Needs Battle Stance: charge, then switch to Defensive Stance.", icon = 132337, rule = { kind = "opener", ids = { 100, 6178, 11578 }, cd = 15000, gcd = 0, cost = 0, stances = 65536 } },
+          { name = "Bloodrage", tag = "At the pull", text = "Rage to start with; between pulls is best, so the rage isn't lost while you wait.", icon = 132277, rule = { kind = "pull", ids = { 2687 }, cd = 60000, gcd = 0, cost = 0 } },
+        } },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Battle Shout", tag = "Keep up", text = "Also gives a little threat on every enemy in combat with you.", icon = 132333, rule = { kind = "keep", ids = { 6673, 5242, 6192, 11549, 11550, 11551, 25289 }, cd = 0, gcd = 1500, cost = 10, dur = 180000, aura = "you" } },
+          { name = "Demoralizing Shout", tag = "Keep up", text = "Lowers the attack power of enemies near you: less damage to you.", icon = 132366, rule = { kind = "keep", ids = { 1160, 6190, 11554, 11555, 11556 }, cd = 0, gcd = 1500, cost = 10, dur = 45000, aura = "target" } },
+        } },
+        { title = "Threat priority", note = "Press the first one that's ready. The damage numbers come from your gear; extra threat noted where the game files hold it. Solo, the same order kills fastest: finish a nearly dead mob with plain swings and keep the rage for the next one.", phase = "main", items = {
+          { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342, rule = { kind = "ready", ids = { 402927 }, cd = 30000, gcd = 1500, cost = 0 } },
+          { name = "Shield Block", tag = "On cooldown", text = "Not on the global cooldown (game data): press it alongside your attacks while melee enemies hit you. Fewer big hits and more Revenges; useless against spells.", icon = 132110, rule = { kind = "ready", ids = { 2565 }, cd = 5000, gcd = 0, cost = 10, dur = 7000, aura = "you", stances = 131072 } },
+          { name = "Revenge", tag = "When it lights up", text = "After you block, dodge or parry. Cheap: use every time.", icon = 132353, rule = { kind = "ready", ids = { 6572, 6574, 7379, 11600, 11601, 25288 }, cd = 5000, gcd = 1500, cost = 5, stances = 131072 } },
+          { name = "Thunder Clap", tag = "On cooldown", text = "Hits up to 4 enemies near you and slows their attacks (less damage to you). Solo against a single normal mob, only when it hits hard.", icon = 136105, rule = { kind = "ready", ids = { 6343, 8198, 8204, 8205, 11580, 11581 }, cd = 6000, gcd = 1500, cost = 16, dur = 14000, aura = "target", stances = 196608 } },
+          { name = "Rend", tag = "If missing", text = "When it isn't on the target and the target will live through most of its 15 sec. Don't renew it on a target that's about to die.", icon = 132155, rule = { kind = "missing", ids = { 772, 6546, 6547, 6548, 11572, 11573, 11574 }, cd = 0, gcd = 1500, cost = 10, dur = 15000, aura = "target", stances = 196608 } },
+          { name = "Sunder Armor", tag = "Build to 5, then filler", text = "On bosses and elites, stack it to 5 early (the group's damage goes up), then use it as a filler. Skip it on a mob that's about to die.", icon = 132363, rule = { kind = "stack", ids = { 7386, 7405, 8380, 11596, 11597 }, cd = 0, gcd = 1500, cost = 15, dur = 30000, aura = "target", stacks = 5 } },
+          { name = "Heroic Strike", tag = "Rage dump", text = "Only with spare rage (keep enough for Shield Slam, Revenge and Shield Block).", icon = 132282, rule = { kind = "dump", ids = { 78, 284, 285, 1608, 11564, 11565, 11566, 11567, 25286 }, cd = 0, gcd = 0, cost = 15 } },
+        } },
+        { title = "When things go wrong", note = "", items = {
+          { name = "Taunt", tag = "Lost aggro", text = "Pulls the target back to you.", icon = 136080 },
+          { name = "Mocking Blow", tag = "Taunt on cooldown", text = "Needs Battle Stance (game data): a second taunt if Taunt is resisted.", icon = 132350 },
+        } },
+      } },
+      { level = 25, title = "Protection Warrior, tanking", sections = {
+        { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Sword and board.", items = {
+          { name = "Shield Specialization", tag = "Counts", text = "Works with this setup.", icon = 134952 },
+          { name = "Master of Defense", tag = "Counts", text = "Works with this setup.", icon = 132359 },
+          { name = "Defiance", tag = "Counts", text = "Works with this setup.", icon = 132347 },
+        } },
+        { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", phase = "start", items = {
+          { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun. Needs Battle Stance: charge, then switch to Defensive Stance.", icon = 132337, rule = { kind = "opener", ids = { 100, 6178, 11578 }, cd = 15000, gcd = 0, cost = 0, stances = 65536 } },
+          { name = "Bloodrage", tag = "At the pull", text = "Rage to start with; between pulls is best, so the rage isn't lost while you wait.", icon = 132277, rule = { kind = "pull", ids = { 2687 }, cd = 60000, gcd = 0, cost = 0 } },
+        } },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Battle Shout", tag = "Keep up", text = "Also gives a little threat on every enemy in combat with you.", icon = 132333, rule = { kind = "keep", ids = { 6673, 5242, 6192, 11549, 11550, 11551, 25289 }, cd = 0, gcd = 1500, cost = 10, dur = 180000, aura = "you" } },
+          { name = "Demoralizing Shout", tag = "Keep up", text = "Lowers the attack power of enemies near you: less damage to you.", icon = 132366, rule = { kind = "keep", ids = { 1160, 6190, 11554, 11555, 11556 }, cd = 0, gcd = 1500, cost = 10, dur = 45000, aura = "target" } },
+        } },
+        { title = "Threat priority", note = "Press the first one that's ready. The damage numbers come from your gear; extra threat noted where the game files hold it. Solo, the same order kills fastest: finish a nearly dead mob with plain swings and keep the rage for the next one.", phase = "main", items = {
+          { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342, rule = { kind = "ready", ids = { 402927 }, cd = 30000, gcd = 1500, cost = 0 } },
+          { name = "Shield Block", tag = "On cooldown", text = "Not on the global cooldown (game data): press it alongside your attacks while melee enemies hit you. Fewer big hits and more Revenges; useless against spells.", icon = 132110, rule = { kind = "ready", ids = { 2565 }, cd = 5000, gcd = 0, cost = 10, dur = 7000, aura = "you", stances = 131072 } },
+          { name = "Revenge", tag = "When it lights up", text = "After you block, dodge or parry. Cheap: use every time.", icon = 132353, rule = { kind = "ready", ids = { 6572, 6574, 7379, 11600, 11601, 25288 }, cd = 5000, gcd = 1500, cost = 5, stances = 131072 } },
+          { name = "Thunder Clap", tag = "On cooldown", text = "Hits up to 4 enemies near you and slows their attacks (less damage to you). Solo against a single normal mob, only when it hits hard.", icon = 136105, rule = { kind = "ready", ids = { 6343, 8198, 8204, 8205, 11580, 11581 }, cd = 6000, gcd = 1500, cost = 16, dur = 14000, aura = "target", stances = 196608 } },
+          { name = "Rend", tag = "If missing", text = "When it isn't on the target and the target will live through most of its 15 sec. Don't renew it on a target that's about to die.", icon = 132155, rule = { kind = "missing", ids = { 772, 6546, 6547, 6548, 11572, 11573, 11574 }, cd = 0, gcd = 1500, cost = 10, dur = 15000, aura = "target", stances = 196608 } },
+          { name = "Sunder Armor", tag = "Build to 5, then filler", text = "On bosses and elites, stack it to 5 early (the group's damage goes up), then use it as a filler. Skip it on a mob that's about to die.", icon = 132363, rule = { kind = "stack", ids = { 7386, 7405, 8380, 11596, 11597 }, cd = 0, gcd = 1500, cost = 15, dur = 30000, aura = "target", stacks = 5 } },
+          { name = "Heroic Strike", tag = "Rage dump", text = "Only with spare rage (keep enough for Shield Slam, Revenge and Shield Block).", icon = 132282, rule = { kind = "dump", ids = { 78, 284, 285, 1608, 11564, 11565, 11566, 11567, 25286 }, cd = 0, gcd = 0, cost = 15 } },
+        } },
+        { title = "When things go wrong", note = "", items = {
+          { name = "Taunt", tag = "Lost aggro", text = "Pulls the target back to you.", icon = 136080 },
+          { name = "Mocking Blow", tag = "Taunt on cooldown", text = "Needs Battle Stance (game data): a second taunt if Taunt is resisted.", icon = 132350 },
+        } },
+      } },
+      { level = 30, title = "Protection Warrior, tanking", sections = {
+        { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Sword and board.", items = {
+          { name = "Shield Specialization", tag = "Counts", text = "Works with this setup.", icon = 134952 },
+          { name = "Master of Defense", tag = "Counts", text = "Works with this setup.", icon = 132359 },
+          { name = "Defiance", tag = "Counts", text = "Works with this setup.", icon = 132347 },
+        } },
+        { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", phase = "start", items = {
+          { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun. Vanguard: usable in Defensive Stance.", icon = 132337, rule = { kind = "opener", ids = { 100, 6178, 11578 }, cd = 15000, gcd = 0, cost = 0, stances = 65536 } },
+          { name = "Bloodrage", tag = "At the pull", text = "Rage to start with; between pulls is best, so the rage isn't lost while you wait.", icon = 132277, rule = { kind = "pull", ids = { 2687 }, cd = 60000, gcd = 0, cost = 0 } },
+        } },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Battle Shout", tag = "Keep up", text = "Also gives a little threat on every enemy in combat with you.", icon = 132333, rule = { kind = "keep", ids = { 6673, 5242, 6192, 11549, 11550, 11551, 25289 }, cd = 0, gcd = 1500, cost = 10, dur = 180000, aura = "you" } },
+          { name = "Demoralizing Shout", tag = "Keep up", text = "Lowers the attack power of enemies near you: less damage to you.", icon = 132366, rule = { kind = "keep", ids = { 1160, 6190, 11554, 11555, 11556 }, cd = 0, gcd = 1500, cost = 10, dur = 45000, aura = "target" } },
+        } },
+        { title = "Threat priority", note = "Press the first one that's ready. The damage numbers come from your gear; extra threat noted where the game files hold it. Solo, the same order kills fastest: finish a nearly dead mob with plain swings and keep the rage for the next one.", phase = "main", items = {
+          { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342, rule = { kind = "ready", ids = { 402927 }, cd = 30000, gcd = 1500, cost = 0 } },
+          { name = "Shield Block", tag = "On cooldown", text = "Not on the global cooldown (game data): press it alongside your attacks while melee enemies hit you. Fewer big hits and more Revenges; useless against spells.", icon = 132110, rule = { kind = "ready", ids = { 2565 }, cd = 5000, gcd = 0, cost = 10, dur = 7000, aura = "you", stances = 131072 } },
+          { name = "Revenge", tag = "When it lights up", text = "After you block, dodge or parry. Cheap: use every time.", icon = 132353, rule = { kind = "ready", ids = { 6572, 6574, 7379, 11600, 11601, 25288 }, cd = 5000, gcd = 1500, cost = 5, stances = 131072 } },
+          { name = "Thunder Clap", tag = "On cooldown", text = "Hits up to 4 enemies near you and slows their attacks (less damage to you). Solo against a single normal mob, only when it hits hard.", icon = 136105, rule = { kind = "ready", ids = { 6343, 8198, 8204, 8205, 11580, 11581 }, cd = 6000, gcd = 1500, cost = 14, dur = 18000, aura = "target", stances = 196608 } },
+          { name = "Rend", tag = "If missing", text = "When it isn't on the target and the target will live through most of its 18 sec. Don't renew it on a target that's about to die.", icon = 132155, rule = { kind = "missing", ids = { 772, 6546, 6547, 6548, 11572, 11573, 11574 }, cd = 0, gcd = 1500, cost = 10, dur = 18000, aura = "target", stances = 196608 } },
+          { name = "Sunder Armor", tag = "Build to 5, then filler", text = "On bosses and elites, stack it to 5 early (the group's damage goes up), then use it as a filler. Skip it on a mob that's about to die.", icon = 132363, rule = { kind = "stack", ids = { 7386, 7405, 8380, 11596, 11597 }, cd = 0, gcd = 1500, cost = 15, dur = 30000, aura = "target", stacks = 5 } },
+          { name = "Heroic Strike", tag = "Rage dump", text = "Only with spare rage (keep enough for Shield Slam, Revenge and Shield Block).", icon = 132282, rule = { kind = "dump", ids = { 78, 284, 285, 1608, 11564, 11565, 11566, 11567, 25286 }, cd = 0, gcd = 0, cost = 15 } },
+        } },
+        { title = "When things go wrong", note = "", items = {
+          { name = "Taunt", tag = "Lost aggro", text = "Pulls the target back to you.", icon = 136080 },
+          { name = "Mocking Blow", tag = "Taunt on cooldown", text = "Needs Battle Stance (game data): a second taunt if Taunt is resisted.", icon = 132350 },
+          { name = "Shield Wall", tag = "Emergency", text = "60% less damage for 12 sec.", icon = 132362 },
+        } },
+      } },
+      { level = 35, title = "Protection Warrior, tanking", sections = {
+        { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Sword and board.", items = {
+          { name = "Shield Specialization", tag = "Counts", text = "Works with this setup.", icon = 134952 },
+          { name = "Master of Defense", tag = "Counts", text = "Works with this setup.", icon = 132359 },
+          { name = "Defiance", tag = "Counts", text = "Works with this setup.", icon = 132347 },
+          { name = "Bastion", tag = "Counts", text = "Works with this setup.", icon = 134950 },
+        } },
+        { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", phase = "start", items = {
+          { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun. Vanguard: usable in Defensive Stance.", icon = 132337, rule = { kind = "opener", ids = { 100, 6178, 11578 }, cd = 15000, gcd = 0, cost = 0, stances = 65536 } },
+          { name = "Bloodrage", tag = "At the pull", text = "Rage to start with; between pulls is best, so the rage isn't lost while you wait.", icon = 132277, rule = { kind = "pull", ids = { 2687 }, cd = 60000, gcd = 0, cost = 0 } },
+        } },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Battle Shout", tag = "Keep up", text = "Also gives a little threat on every enemy in combat with you.", icon = 132333, rule = { kind = "keep", ids = { 6673, 5242, 6192, 11549, 11550, 11551, 25289 }, cd = 0, gcd = 1500, cost = 10, dur = 180000, aura = "you" } },
+          { name = "Demoralizing Shout", tag = "Keep up", text = "Lowers the attack power of enemies near you: less damage to you.", icon = 132366, rule = { kind = "keep", ids = { 1160, 6190, 11554, 11555, 11556 }, cd = 0, gcd = 1500, cost = 10, dur = 45000, aura = "target" } },
+        } },
+        { title = "Threat priority", note = "Press the first one that's ready. The damage numbers come from your gear; extra threat noted where the game files hold it. Solo, the same order kills fastest: finish a nearly dead mob with plain swings and keep the rage for the next one.", phase = "main", items = {
+          { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342, rule = { kind = "ready", ids = { 402927 }, cd = 30000, gcd = 1500, cost = 0 } },
+          { name = "Shield Block", tag = "On cooldown", text = "Not on the global cooldown (game data): press it alongside your attacks while melee enemies hit you. Fewer big hits and more Revenges; useless against spells.", icon = 132110, rule = { kind = "ready", ids = { 2565 }, cd = 5000, gcd = 0, cost = 10, dur = 7000, aura = "you", stances = 131072 } },
+          { name = "Revenge", tag = "When it lights up", text = "After you block, dodge or parry. Cheap: use every time.", icon = 132353, rule = { kind = "ready", ids = { 6572, 6574, 7379, 11600, 11601, 25288 }, cd = 5000, gcd = 1500, cost = 2, stances = 131072 } },
+          { name = "Thunder Clap", tag = "On cooldown", text = "Hits up to 4 enemies near you and slows their attacks (less damage to you). Solo against a single normal mob, only when it hits hard.", icon = 136105, rule = { kind = "ready", ids = { 6343, 8198, 8204, 8205, 11580, 11581 }, cd = 6000, gcd = 1500, cost = 11, dur = 18000, aura = "target", stances = 196608 } },
+          { name = "Rend", tag = "If missing", text = "When it isn't on the target and the target will live through most of its 18 sec. Don't renew it on a target that's about to die.", icon = 132155, rule = { kind = "missing", ids = { 772, 6546, 6547, 6548, 11572, 11573, 11574 }, cd = 0, gcd = 1500, cost = 7, dur = 18000, aura = "target", stances = 196608 } },
+          { name = "Sunder Armor", tag = "Build to 5, then filler", text = "On bosses and elites, stack it to 5 early (the group's damage goes up), then use it as a filler. Skip it on a mob that's about to die.", icon = 132363, rule = { kind = "stack", ids = { 7386, 7405, 8380, 11596, 11597 }, cd = 0, gcd = 1500, cost = 15, dur = 30000, aura = "target", stacks = 5 } },
+          { name = "Heroic Strike", tag = "Rage dump", text = "Only with spare rage (keep enough for Shield Slam, Revenge and Shield Block).", icon = 132282, rule = { kind = "dump", ids = { 78, 284, 285, 1608, 11564, 11565, 11566, 11567, 25286 }, cd = 0, gcd = 0, cost = 12 } },
+        } },
+        { title = "When things go wrong", note = "", items = {
+          { name = "Taunt", tag = "Lost aggro", text = "Pulls the target back to you.", icon = 136080 },
+          { name = "Mocking Blow", tag = "Taunt on cooldown", text = "Needs Battle Stance (game data): a second taunt if Taunt is resisted.", icon = 132350 },
+          { name = "Shield Wall", tag = "Emergency", text = "60% less damage for 12 sec.", icon = 132362 },
+          { name = "Last Stand", tag = "Emergency", text = "30% more health for 20 sec.", icon = 135871 },
+        } },
+      } },
+      { level = 40, title = "Protection Warrior, tanking", sections = {
+        { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Sword and board.", items = {
+          { name = "Shield Specialization", tag = "Counts", text = "Works with this setup.", icon = 134952 },
+          { name = "Master of Defense", tag = "Counts", text = "Works with this setup.", icon = 132359 },
+          { name = "Defiance", tag = "Counts", text = "Works with this setup.", icon = 132347 },
+          { name = "Bastion", tag = "Counts", text = "Works with this setup.", icon = 134950 },
+          { name = "Shield Slam", tag = "Counts", text = "Works with this setup.", icon = 134951 },
+        } },
+        { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", phase = "start", items = {
+          { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun. Vanguard: usable in Defensive Stance.", icon = 132337, rule = { kind = "opener", ids = { 100, 6178, 11578 }, cd = 15000, gcd = 0, cost = 0, stances = 65536 } },
+          { name = "Bloodrage", tag = "At the pull", text = "Rage to start with; between pulls is best, so the rage isn't lost while you wait.", icon = 132277, rule = { kind = "pull", ids = { 2687 }, cd = 60000, gcd = 0, cost = 0 } },
+        } },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Battle Shout", tag = "Keep up", text = "Also gives a little threat on every enemy in combat with you.", icon = 132333, rule = { kind = "keep", ids = { 6673, 5242, 6192, 11549, 11550, 11551, 25289 }, cd = 0, gcd = 1500, cost = 10, dur = 180000, aura = "you" } },
+          { name = "Demoralizing Shout", tag = "Keep up", text = "Lowers the attack power of enemies near you: less damage to you.", icon = 132366, rule = { kind = "keep", ids = { 1160, 6190, 11554, 11555, 11556 }, cd = 0, gcd = 1500, cost = 10, dur = 45000, aura = "target" } },
+        } },
+        { title = "Threat priority", note = "Press the first one that's ready. The damage numbers come from your gear; extra threat noted where the game files hold it. Solo, the same order kills fastest: finish a nearly dead mob with plain swings and keep the rage for the next one.", phase = "main", items = {
+          { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342, rule = { kind = "ready", ids = { 402927 }, cd = 30000, gcd = 1500, cost = 0 } },
+          { name = "Shield Block", tag = "On cooldown", text = "Not on the global cooldown (game data): press it alongside your attacks while melee enemies hit you. Fewer big hits and more Revenges; useless against spells.", icon = 132110, rule = { kind = "ready", ids = { 2565 }, cd = 5000, gcd = 0, cost = 10, dur = 7000, aura = "you", stances = 131072 } },
+          { name = "Shield Slam", tag = "On cooldown", text = "Biggest threat hit. Needs a shield.", icon = 134951, rule = { kind = "ready", ids = { 23922, 23923, 23924, 23925 }, cd = 6000, gcd = 1500, cost = 17 } },
+          { name = "Revenge", tag = "When it lights up", text = "After you block, dodge or parry. Cheap: use every time.", icon = 132353, rule = { kind = "ready", ids = { 6572, 6574, 7379, 11600, 11601, 25288 }, cd = 5000, gcd = 1500, cost = 2, stances = 131072 } },
+          { name = "Thunder Clap", tag = "On cooldown", text = "Hits up to 4 enemies near you and slows their attacks (less damage to you). Solo against a single normal mob, only when it hits hard.", icon = 136105, rule = { kind = "ready", ids = { 6343, 8198, 8204, 8205, 11580, 11581 }, cd = 6000, gcd = 1500, cost = 11, dur = 22000, aura = "target", stances = 196608 } },
+          { name = "Rend", tag = "If missing", text = "When it isn't on the target and the target will live through most of its 21 sec. Don't renew it on a target that's about to die.", icon = 132155, rule = { kind = "missing", ids = { 772, 6546, 6547, 6548, 11572, 11573, 11574 }, cd = 0, gcd = 1500, cost = 7, dur = 21000, aura = "target", stances = 196608 } },
+          { name = "Sunder Armor", tag = "Build to 5, then filler", text = "On bosses and elites, stack it to 5 early (the group's damage goes up), then use it as a filler. Skip it on a mob that's about to die.", icon = 132363, rule = { kind = "stack", ids = { 7386, 7405, 8380, 11596, 11597 }, cd = 0, gcd = 1500, cost = 15, dur = 30000, aura = "target", stacks = 5 } },
+          { name = "Heroic Strike", tag = "Rage dump", text = "Only with spare rage (keep enough for Shield Slam, Revenge and Shield Block).", icon = 132282, rule = { kind = "dump", ids = { 78, 284, 285, 1608, 11564, 11565, 11566, 11567, 25286 }, cd = 0, gcd = 0, cost = 12 } },
+        } },
+        { title = "When things go wrong", note = "", items = {
+          { name = "Taunt", tag = "Lost aggro", text = "Pulls the target back to you.", icon = 136080 },
+          { name = "Mocking Blow", tag = "Taunt on cooldown", text = "Needs Battle Stance (game data): a second taunt if Taunt is resisted.", icon = 132350 },
+          { name = "Shield Wall", tag = "Emergency", text = "60% less damage for 12 sec.", icon = 132362 },
+          { name = "Last Stand", tag = "Emergency", text = "30% more health for 20 sec.", icon = 135871 },
+        } },
+      } },
+      { level = 50, title = "Protection Warrior, tanking", sections = {
+        { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Sword and board.", items = {
+          { name = "Shield Specialization", tag = "Counts", text = "Works with this setup.", icon = 134952 },
+          { name = "Master of Defense", tag = "Counts", text = "Works with this setup.", icon = 132359 },
+          { name = "Defiance", tag = "Counts", text = "Works with this setup.", icon = 132347 },
+          { name = "Bastion", tag = "Counts", text = "Works with this setup.", icon = 134950 },
+          { name = "Shield Slam", tag = "Counts", text = "Works with this setup.", icon = 134951 },
+        } },
+        { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", phase = "start", items = {
+          { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun. Vanguard: usable in Defensive Stance.", icon = 132337, rule = { kind = "opener", ids = { 100, 6178, 11578 }, cd = 15000, gcd = 0, cost = 0, stances = 65536 } },
+          { name = "Bloodrage", tag = "At the pull", text = "Rage to start with; between pulls is best, so the rage isn't lost while you wait.", icon = 132277, rule = { kind = "pull", ids = { 2687 }, cd = 60000, gcd = 0, cost = 0 } },
+        } },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Battle Shout", tag = "Keep up", text = "Also gives a little threat on every enemy in combat with you.", icon = 132333, rule = { kind = "keep", ids = { 6673, 5242, 6192, 11549, 11550, 11551, 25289 }, cd = 0, gcd = 1500, cost = 10, dur = 180000, aura = "you" } },
+          { name = "Demoralizing Shout", tag = "Keep up", text = "Lowers the attack power of enemies near you: less damage to you.", icon = 132366, rule = { kind = "keep", ids = { 1160, 6190, 11554, 11555, 11556 }, cd = 0, gcd = 1500, cost = 10, dur = 45000, aura = "target" } },
+        } },
+        { title = "Threat priority", note = "Press the first one that's ready. The damage numbers come from your gear; extra threat noted where the game files hold it. Solo, the same order kills fastest: finish a nearly dead mob with plain swings and keep the rage for the next one.", phase = "main", items = {
+          { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342, rule = { kind = "ready", ids = { 402927 }, cd = 30000, gcd = 1500, cost = 0 } },
+          { name = "Shield Block", tag = "On cooldown", text = "Not on the global cooldown (game data): press it alongside your attacks while melee enemies hit you. Fewer big hits and more Revenges; useless against spells.", icon = 132110, rule = { kind = "ready", ids = { 2565 }, cd = 5000, gcd = 0, cost = 10, dur = 7000, aura = "you", stances = 131072 } },
+          { name = "Shield Slam", tag = "On cooldown", text = "Biggest threat hit. Needs a shield.", icon = 134951, rule = { kind = "ready", ids = { 23922, 23923, 23924, 23925 }, cd = 6000, gcd = 1500, cost = 17 } },
+          { name = "Revenge", tag = "When it lights up", text = "After you block, dodge or parry. Cheap: use every time.", icon = 132353, rule = { kind = "ready", ids = { 6572, 6574, 7379, 11600, 11601, 25288 }, cd = 5000, gcd = 1500, cost = 2, stances = 131072 } },
+          { name = "Thunder Clap", tag = "On cooldown", text = "Hits up to 4 enemies near you and slows their attacks (less damage to you). Solo against a single normal mob, only when it hits hard.", icon = 136105, rule = { kind = "ready", ids = { 6343, 8198, 8204, 8205, 11580, 11581 }, cd = 6000, gcd = 1500, cost = 11, dur = 26000, aura = "target", stances = 196608 } },
+          { name = "Rend", tag = "If missing", text = "When it isn't on the target and the target will live through most of its 21 sec. Don't renew it on a target that's about to die.", icon = 132155, rule = { kind = "missing", ids = { 772, 6546, 6547, 6548, 11572, 11573, 11574 }, cd = 0, gcd = 1500, cost = 7, dur = 21000, aura = "target", stances = 196608 } },
+          { name = "Sunder Armor", tag = "Build to 5, then filler", text = "On bosses and elites, stack it to 5 early (the group's damage goes up), then use it as a filler. Skip it on a mob that's about to die.", icon = 132363, rule = { kind = "stack", ids = { 7386, 7405, 8380, 11596, 11597 }, cd = 0, gcd = 1500, cost = 15, dur = 30000, aura = "target", stacks = 5 } },
+          { name = "Heroic Strike", tag = "Rage dump", text = "Only with spare rage (keep enough for Shield Slam, Revenge and Shield Block).", icon = 132282, rule = { kind = "dump", ids = { 78, 284, 285, 1608, 11564, 11565, 11566, 11567, 25286 }, cd = 0, gcd = 0, cost = 12 } },
+        } },
+        { title = "When things go wrong", note = "", items = {
+          { name = "Taunt", tag = "Lost aggro", text = "Pulls the target back to you.", icon = 136080 },
+          { name = "Mocking Blow", tag = "Taunt on cooldown", text = "Needs Battle Stance (game data): a second taunt if Taunt is resisted.", icon = 132350 },
+          { name = "Shield Wall", tag = "Emergency", text = "60% less damage for 12 sec.", icon = 132362 },
+          { name = "Last Stand", tag = "Emergency", text = "30% more health for 20 sec.", icon = 135871 },
+        } },
+      } },
+      { level = 60, title = "Protection Warrior, tanking", sections = {
+        { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Sword and board.", items = {
+          { name = "Shield Specialization", tag = "Counts", text = "Works with this setup.", icon = 134952 },
+          { name = "Master of Defense", tag = "Counts", text = "Works with this setup.", icon = 132359 },
+          { name = "Defiance", tag = "Counts", text = "Works with this setup.", icon = 132347 },
           { name = "Bastion", tag = "Counts", text = "Works with this setup.", icon = 134950 },
           { name = "Shield Slam", tag = "Counts", text = "Works with this setup.", icon = 134951 },
         } },

@@ -47,8 +47,14 @@ the addon notes your character's:
 - the items you wear (with enchants) and your talent points
 - the character's ID number, so the same character isn't counted twice
 
-It goes to the Guild Master's addon over the guild's addon channel. **Never chat, whispers or where you are.** Names
-never appear on the website, only numbers combined from many characters.
+A minute after you log in, it also checks the planner against the game, by itself, once per game patch:
+
+- your class's talent tooltips, compared right in your game with the planner's: only a talent whose numbers differ is
+  sent (usually none), with a note that your class was checked
+- the descriptions of the spells you know, once each (and again when you learn a new rank)
+
+It all goes to the Guild Master's addon over the guild's addon channel, a little at a time. **Never chat, whispers or
+where you are.** Names never appear on the website, only numbers combined from many characters.
 
 Don't want to share? Type **/kp share off** (it covers every character on your account). **/kp share on** turns it back
 on, and **/kp share** shows the setting.

@@ -1,5 +1,32 @@
 # Changelog
 
+## 0.14.0
+
+- **Helping the planner, with nothing to type:** with sharing on, the addon now also checks the planner's talent and
+  spell numbers against the game once per patch: your class's talent tooltips are compared right in your game (only a
+  difference is sent), and the descriptions of the spells you know go to the Guard once each. It waits a minute after
+  login, never runs in combat or inside instances, and **/kp share off** stops it like the rest.
+- **Protection Warriors: two leveling paths.** "Protection: leveling (solo)" for questing alone, and the new
+  **"Protection: leveling (dungeons)"**, ready to tank the dungeons on the way: Defiance and Improved Sunder Armor as
+  soon as they open (levels 20-22 and 25-27). Pick either one in `/kp`.
+- **Protection leveling reworked:** the planner now counts how a Protection Warrior really fights: Revenge (it lights
+  up after you block, dodge or parry, and Shield Block makes that happen often), Shield Slam, and the rage you get from
+  being hit, from blocks with Shield Specialization and from dodges and parries with Master of Defense. Improved
+  Revenge now comes at 15, Master of Defense at 20-21 and Vanguard at 25.
+- **All Warriors:** Charge's rage at each pull and Bloodrage count now, and each attack only counts in the stance that
+  allows it (no Whirlwind in Battle Stance), so some Warrior numbers and talent orders shift. A Warrior's base parry and
+  block chance count too (5% each, as on the guild's real Warrior).
+- **Every class's leveling builds:** the planner no longer pictures you in level 60 quest rewards at level 12 (an item
+  without a level requirement now counts from about 5 levels below its item level), so many leveling orders shift a
+  little. Arcane Mages now start in the Arcane tree.
+- **Formulas tab:** Effective health counts the 5% of attacks that miss you, and your block chance only while you wear
+  a shield. Gear picks and upgrade tooltips for Warriors and tanks follow the new numbers.
+- **Item numbers checked against the game itself** (all 8,593 wearable items): robes now have their armor, bows and
+  thrown weapons their real (smaller) stats, wands their real damage, and caster staves, wands and maces the spell
+  power or healing the game gives them. A few Forever items whose bonus is "tripled in Forest and Grassland areas" now
+  count only the bonus you get everywhere. Caster builds and gear picks gain from their staves' spell power; Hunter
+  numbers drop a little.
+
 ## 0.13.1
 
 - **Real numbers from the Guard's own characters** (thank you for sharing your stats):
