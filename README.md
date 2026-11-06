@@ -13,10 +13,11 @@ The in-game companion to the Kor'kron Guard talent planner: https://korkronguard
   gold where the build wants more, green where you're done, red for points it doesn't use, white for the next one.
 - **What to press.** The window's **Priority** tab shows the planner's rotation for your build at your level: what to
   keep up, what to use on cooldown, builders, finishers and cooldowns.
-- **What to press next, while you fight (Warriors first).** Type **/kp helper**: a small bar shows the ability to
-  press now and the next two, with their cooldowns, from your build's priority. It shows in combat or when you target
-  an enemy; drag it where you like, and **/kp helper lock** keeps it there. The game hides your rage from addons in a
-  fight, so it never suggests Heroic Strike: use that when you have rage to spare.
+- **What to press next, while you fight (Warriors and Retribution Paladins so far).** Type **/kp helper**: a small bar
+  shows the ability to press now and the next two, with their cooldowns, from your build's priority. It shows in combat
+  or when you target an enemy; drag it where you like, and **/kp helper lock** keeps it there. The game hides your rage
+  from addons in a fight, so it never suggests Heroic Strike: use that when you have rage to spare. Paladins: it keeps
+  your Seal, Blessing and Aura up, and suggests Exorcism only against Undead and Demons.
 - **What to wear.** The **Gear** tab shows the planner's best item for each slot for your build at your level, where
   it comes from, and ticks what you already wear. Hover an item for its tooltip. Click a slot to see the next best
   items for it and how close each comes, and choose your own. **Link** gives the item's page on Wowhead's WoW: Forever
@@ -33,6 +34,10 @@ The in-game companion to the Kor'kron Guard talent planner: https://korkronguard
 - **Makes the planner match the game.** WoW: Forever keeps some numbers on its servers (like your base stats at each
   level), so the planner can only estimate them. This addon shares your character's real numbers with the Guard, and
   together they replace the estimates.
+
+- **Tells you when there's a new version.** When a guildmate's addon is newer than yours, a line in chat says so, at
+  each login until you update it in WowUp. Tip: in WowUp, turn on auto-update for Kor'kron Planner and new versions
+  install by themselves.
 
 Builds marked **\*** have a talent the planner's math can't put a number on yet; the window says which.
 
@@ -55,6 +60,9 @@ A minute after you log in, it also checks the planner against the game, by itsel
 
 It all goes to the Guild Master's addon over the guild's addon channel, a little at a time. **Never chat, whispers or
 where you are.** Names never appear on the website, only numbers combined from many characters.
+
+Your addon's version number is also exchanged with guildmates' addons, so everyone hears about updates; that one
+goes out even with sharing off (it says nothing about your character).
 
 Don't want to share? Type **/kp share off** (it covers every character on your account). **/kp share on** turns it back
 on, and **/kp share** shows the setting.

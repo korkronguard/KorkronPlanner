@@ -1167,17 +1167,17 @@ KP.Priority = {
         { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Two-hander.", items = {
           { name = "Two-Handed Weapon Specialization", tag = "Counts", text = "Works with this setup.", icon = 133041 },
         } },
-        { title = "Keep up", note = "", items = {
-          { name = "Seal of Command", tag = "Keep up", text = "Your damage Seal: extra Holy hits worth 70% of your weapon damage (slow weapons proc as often but hit harder). Its Judgement does full damage only on a stunned target: judge right after Hammer of Justice.", icon = 132347 },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Seal of Command", tag = "Keep up", text = "Your damage Seal: extra Holy hits worth 70% of your weapon damage (slow weapons proc as often but hit harder). Its Judgement does full damage only on a stunned target: judge right after Hammer of Justice.", icon = 132347, rule = { kind = "keep", ids = { 20375, 20915, 20918, 20919, 20920 }, cd = 0, gcd = 1500, cost = 210, dur = 30000, aura = "you" } },
           { name = "Unsealed Wrath", tag = "Talent", text = "Your hits store copies of your active Seal (up to 3, for 15 sec). Hitting with a different Seal releases them, each with the stored Seal's normal chance to go off: build stacks with one Seal, then switch (e.g. Command to Righteousness and back). The planner doesn't count the stored Seals.", icon = 135878 },
-          { name = "Blessing of Might", tag = "On yourself", text = "Melee attack power (or Kings if another Paladin gives Might).", icon = 135906 },
-          { name = "Retribution Aura", tag = "Aura", text = "If no other Paladin runs an aura, otherwise Devotion.", icon = 135873 },
+          { name = "Blessing of Might", tag = "On yourself", text = "Melee attack power (or Kings if another Paladin gives Might).", icon = 135906, rule = { kind = "missing", ids = { 19740, 19834, 19835, 19836, 19837, 19838, 25291 }, cd = 0, gcd = 1500, cost = 130, dur = 3600000, aura = "you" } },
+          { name = "Retribution Aura", tag = "Aura", text = "If no other Paladin runs an aura, otherwise Devotion.", icon = 135873, rule = { kind = "missing", ids = { 7294, 10298, 10299, 10300, 10301 }, cd = 0, gcd = 1500, cost = 0, aura = "you" } },
         } },
-        { title = "Attack priority", note = "Press the first one that's ready.", items = {
-          { name = "Judgement", tag = "On cooldown", text = "Judge your Seal, then keep the Seal up.", icon = 135959 },
-          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003 },
-          { name = "Hammer of Wrath", tag = "Below 20%", text = "Only when the target is at 20% health or less. Champion of the Light: 1.0 sec faster cast.", icon = 132326 },
-          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903 },
+        { title = "Attack priority", note = "Press the first one that's ready.", phase = "main", items = {
+          { name = "Judgement", tag = "On cooldown", text = "Judge your Seal, then keep the Seal up.", icon = 135959, rule = { kind = "ready", ids = { 20271 }, cd = 8000, gcd = 0, cost = 0 } },
+          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003, rule = { kind = "ready", ids = { 679, 678, 1866, 680, 2495, 5569, 10332, 10333 }, cd = 10000, gcd = 1500, cost = 18 } },
+          { name = "Hammer of Wrath", tag = "Below 20%", text = "Only when the target is at 20% health or less. Champion of the Light: 1.0 sec faster cast.", icon = 132326, rule = { kind = "ready", ids = { 24275, 24274, 24239 }, cd = 6000, gcd = 1000, cost = 255 } },
+          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903, rule = { kind = "ready", ids = { 879, 5614, 5615, 10312, 10313, 10314 }, cd = 15000, gcd = 1500, cost = 172.5, creatures = 36 } },
           { name = "Consecration", tag = "Packs", text = "Several enemies only (mana heavy). Holy Conduit makes it 40% cheaper.", icon = 135926 },
         } },
       } },
@@ -1414,25 +1414,35 @@ KP.Priority = {
     },
     ["ret-lvl"] = {
       { level = 10, title = "Retribution Paladin", sections = {
-        { title = "Keep up", note = "", items = {
-          { name = "Seal of Righteousness", tag = "Keep up", text = "Holy damage on every hit; slower weapons hit harder with it.", icon = 132325 },
-          { name = "Blessing of Might", tag = "On yourself", text = "Melee attack power (or Kings if another Paladin gives Might).", icon = 135906 },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Seal of Righteousness", tag = "Keep up", text = "Holy damage on every hit; slower weapons hit harder with it.", icon = 132325, rule = { kind = "keep", ids = { 20154, 20287, 20288, 20289, 20290, 20291, 20292, 20293 }, cd = 0, gcd = 1500, cost = 40, dur = 30000, aura = "you" } },
+          { name = "Blessing of Might", tag = "On yourself", text = "Melee attack power (or Kings if another Paladin gives Might).", icon = 135906, rule = { kind = "missing", ids = { 19740, 19834, 19835, 19836, 19837, 19838, 25291 }, cd = 0, gcd = 1500, cost = 20, dur = 3600000, aura = "you" } },
         } },
-        { title = "Attack priority", note = "Press the first one that's ready.", items = {
-          { name = "Judgement", tag = "On cooldown", text = "Judge your Seal, then keep the Seal up.", icon = 135959 },
-          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003 },
+        { title = "Attack priority", note = "Press the first one that's ready.", phase = "main", items = {
+          { name = "Judgement", tag = "On cooldown", text = "Judge your Seal, then keep the Seal up.", icon = 135959, rule = { kind = "ready", ids = { 20271 }, cd = 10000, gcd = 0, cost = 0 } },
+          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003, rule = { kind = "ready", ids = { 679, 678, 1866, 680, 2495, 5569, 10332, 10333 }, cd = 10000, gcd = 1500, cost = 5 } },
+        } },
+      } },
+      { level = 15, title = "Retribution Paladin", sections = {
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Seal of Righteousness", tag = "Keep up", text = "Holy damage on every hit; slower weapons hit harder with it.", icon = 132325, rule = { kind = "keep", ids = { 20154, 20287, 20288, 20289, 20290, 20291, 20292, 20293 }, cd = 0, gcd = 1500, cost = 40, dur = 30000, aura = "you" } },
+          { name = "Blessing of Might", tag = "On yourself", text = "Melee attack power (or Kings if another Paladin gives Might).", icon = 135906, rule = { kind = "missing", ids = { 19740, 19834, 19835, 19836, 19837, 19838, 25291 }, cd = 0, gcd = 1500, cost = 30, dur = 3600000, aura = "you" } },
+        } },
+        { title = "Attack priority", note = "Press the first one that's ready.", phase = "main", items = {
+          { name = "Judgement", tag = "On cooldown", text = "Judge your Seal, then keep the Seal up.", icon = 135959, rule = { kind = "ready", ids = { 20271 }, cd = 10000, gcd = 0, cost = 0 } },
+          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003, rule = { kind = "ready", ids = { 679, 678, 1866, 680, 2495, 5569, 10332, 10333 }, cd = 10000, gcd = 1500, cost = 9 } },
         } },
       } },
       { level = 20, title = "Retribution Paladin", sections = {
-        { title = "Keep up", note = "", items = {
-          { name = "Seal of Command", tag = "Keep up", text = "Your damage Seal: extra Holy hits worth 70% of your weapon damage (slow weapons proc as often but hit harder). Its Judgement does full damage only on a stunned target: judge right after Hammer of Justice.", icon = 132347 },
-          { name = "Blessing of Might", tag = "On yourself", text = "Melee attack power (or Kings if another Paladin gives Might).", icon = 135906 },
-          { name = "Retribution Aura", tag = "Aura", text = "If no other Paladin runs an aura, otherwise Devotion.", icon = 135873 },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Seal of Command", tag = "Keep up", text = "Your damage Seal: extra Holy hits worth 70% of your weapon damage (slow weapons proc as often but hit harder). Its Judgement does full damage only on a stunned target: judge right after Hammer of Justice.", icon = 132347, rule = { kind = "keep", ids = { 20375, 20915, 20918, 20919, 20920 }, cd = 0, gcd = 1500, cost = 65, dur = 30000, aura = "you" } },
+          { name = "Blessing of Might", tag = "On yourself", text = "Melee attack power (or Kings if another Paladin gives Might).", icon = 135906, rule = { kind = "missing", ids = { 19740, 19834, 19835, 19836, 19837, 19838, 25291 }, cd = 0, gcd = 1500, cost = 30, dur = 3600000, aura = "you" } },
+          { name = "Retribution Aura", tag = "Aura", text = "If no other Paladin runs an aura, otherwise Devotion.", icon = 135873, rule = { kind = "missing", ids = { 7294, 10298, 10299, 10300, 10301 }, cd = 0, gcd = 1500, cost = 0, aura = "you" } },
         } },
-        { title = "Attack priority", note = "Press the first one that's ready.", items = {
-          { name = "Judgement", tag = "On cooldown", text = "Judge your Seal, then keep the Seal up.", icon = 135959 },
-          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003 },
-          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903 },
+        { title = "Attack priority", note = "Press the first one that's ready.", phase = "main", items = {
+          { name = "Judgement", tag = "On cooldown", text = "Judge your Seal, then keep the Seal up.", icon = 135959, rule = { kind = "ready", ids = { 20271 }, cd = 8000, gcd = 0, cost = 0 } },
+          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003, rule = { kind = "ready", ids = { 679, 678, 1866, 680, 2495, 5569, 10332, 10333 }, cd = 10000, gcd = 1500, cost = 12 } },
+          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903, rule = { kind = "ready", ids = { 879, 5614, 5615, 10312, 10313, 10314 }, cd = 15000, gcd = 1500, cost = 85, creatures = 36 } },
           { name = "Consecration", tag = "Packs", text = "Several enemies only (mana heavy).", icon = 135926 },
         } },
       } },
@@ -1440,15 +1450,47 @@ KP.Priority = {
         { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Two-hander.", items = {
           { name = "Two-Handed Weapon Specialization", tag = "Counts", text = "Works with this setup.", icon = 133041 },
         } },
-        { title = "Keep up", note = "", items = {
-          { name = "Seal of Command", tag = "Keep up", text = "Your damage Seal: extra Holy hits worth 70% of your weapon damage (slow weapons proc as often but hit harder). Its Judgement does full damage only on a stunned target: judge right after Hammer of Justice.", icon = 132347 },
-          { name = "Blessing of Might", tag = "On yourself", text = "Melee attack power (or Kings if another Paladin gives Might).", icon = 135906 },
-          { name = "Retribution Aura", tag = "Aura", text = "If no other Paladin runs an aura, otherwise Devotion.", icon = 135873 },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Seal of Command", tag = "Keep up", text = "Your damage Seal: extra Holy hits worth 70% of your weapon damage (slow weapons proc as often but hit harder). Its Judgement does full damage only on a stunned target: judge right after Hammer of Justice.", icon = 132347, rule = { kind = "keep", ids = { 20375, 20915, 20918, 20919, 20920 }, cd = 0, gcd = 1500, cost = 65, dur = 30000, aura = "you" } },
+          { name = "Blessing of Might", tag = "On yourself", text = "Melee attack power (or Kings if another Paladin gives Might).", icon = 135906, rule = { kind = "missing", ids = { 19740, 19834, 19835, 19836, 19837, 19838, 25291 }, cd = 0, gcd = 1500, cost = 45, dur = 3600000, aura = "you" } },
+          { name = "Retribution Aura", tag = "Aura", text = "If no other Paladin runs an aura, otherwise Devotion.", icon = 135873, rule = { kind = "missing", ids = { 7294, 10298, 10299, 10300, 10301 }, cd = 0, gcd = 1500, cost = 0, aura = "you" } },
         } },
-        { title = "Attack priority", note = "Press the first one that's ready.", items = {
-          { name = "Judgement", tag = "On cooldown", text = "Judge your Seal, then keep the Seal up.", icon = 135959 },
-          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003 },
-          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903 },
+        { title = "Attack priority", note = "Press the first one that's ready.", phase = "main", items = {
+          { name = "Judgement", tag = "On cooldown", text = "Judge your Seal, then keep the Seal up.", icon = 135959, rule = { kind = "ready", ids = { 20271 }, cd = 8000, gcd = 0, cost = 0 } },
+          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003, rule = { kind = "ready", ids = { 679, 678, 1866, 680, 2495, 5569, 10332, 10333 }, cd = 10000, gcd = 1500, cost = 11.040000000000001 } },
+          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903, rule = { kind = "ready", ids = { 879, 5614, 5615, 10312, 10313, 10314 }, cd = 15000, gcd = 1500, cost = 78.2, creatures = 36 } },
+          { name = "Consecration", tag = "Packs", text = "Several enemies only (mana heavy).", icon = 135926 },
+        } },
+      } },
+      { level = 30, title = "Retribution Paladin", sections = {
+        { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Two-hander.", items = {
+          { name = "Two-Handed Weapon Specialization", tag = "Counts", text = "Works with this setup.", icon = 133041 },
+        } },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Seal of Command", tag = "Keep up", text = "Your damage Seal: extra Holy hits worth 70% of your weapon damage (slow weapons proc as often but hit harder). Its Judgement does full damage only on a stunned target: judge right after Hammer of Justice.", icon = 132347, rule = { kind = "keep", ids = { 20375, 20915, 20918, 20919, 20920 }, cd = 0, gcd = 1500, cost = 110, dur = 30000, aura = "you" } },
+          { name = "Blessing of Might", tag = "On yourself", text = "Melee attack power (or Kings if another Paladin gives Might).", icon = 135906, rule = { kind = "missing", ids = { 19740, 19834, 19835, 19836, 19837, 19838, 25291 }, cd = 0, gcd = 1500, cost = 45, dur = 3600000, aura = "you" } },
+          { name = "Retribution Aura", tag = "Aura", text = "If no other Paladin runs an aura, otherwise Devotion.", icon = 135873, rule = { kind = "missing", ids = { 7294, 10298, 10299, 10300, 10301 }, cd = 0, gcd = 1500, cost = 0, aura = "you" } },
+        } },
+        { title = "Attack priority", note = "Press the first one that's ready.", phase = "main", items = {
+          { name = "Judgement", tag = "On cooldown", text = "Judge your Seal, then keep the Seal up.", icon = 135959, rule = { kind = "ready", ids = { 20271 }, cd = 8000, gcd = 0, cost = 0 } },
+          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003, rule = { kind = "ready", ids = { 679, 678, 1866, 680, 2495, 5569, 10332, 10333 }, cd = 10000, gcd = 1500, cost = 12.88 } },
+          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903, rule = { kind = "ready", ids = { 879, 5614, 5615, 10312, 10313, 10314 }, cd = 15000, gcd = 1500, cost = 124.2, creatures = 36 } },
+          { name = "Consecration", tag = "Packs", text = "Several enemies only (mana heavy).", icon = 135926 },
+        } },
+      } },
+      { level = 35, title = "Retribution Paladin", sections = {
+        { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Two-hander.", items = {
+          { name = "Two-Handed Weapon Specialization", tag = "Counts", text = "Works with this setup.", icon = 133041 },
+        } },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Seal of Command", tag = "Keep up", text = "Your damage Seal: extra Holy hits worth 70% of your weapon damage (slow weapons proc as often but hit harder). Its Judgement does full damage only on a stunned target: judge right after Hammer of Justice.", icon = 132347, rule = { kind = "keep", ids = { 20375, 20915, 20918, 20919, 20920 }, cd = 0, gcd = 1500, cost = 110, dur = 30000, aura = "you" } },
+          { name = "Blessing of Might", tag = "On yourself", text = "Melee attack power (or Kings if another Paladin gives Might).", icon = 135906, rule = { kind = "missing", ids = { 19740, 19834, 19835, 19836, 19837, 19838, 25291 }, cd = 0, gcd = 1500, cost = 60, dur = 3600000, aura = "you" } },
+          { name = "Retribution Aura", tag = "Aura", text = "If no other Paladin runs an aura, otherwise Devotion.", icon = 135873, rule = { kind = "missing", ids = { 7294, 10298, 10299, 10300, 10301 }, cd = 0, gcd = 1500, cost = 0, aura = "you" } },
+        } },
+        { title = "Attack priority", note = "Press the first one that's ready.", phase = "main", items = {
+          { name = "Judgement", tag = "On cooldown", text = "Judge your Seal, then keep the Seal up.", icon = 135959, rule = { kind = "ready", ids = { 20271 }, cd = 8000, gcd = 0, cost = 0 } },
+          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003, rule = { kind = "ready", ids = { 679, 678, 1866, 680, 2495, 5569, 10332, 10333 }, cd = 10000, gcd = 1500, cost = 12.88 } },
+          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903, rule = { kind = "ready", ids = { 879, 5614, 5615, 10312, 10313, 10314 }, cd = 15000, gcd = 1500, cost = 124.2, creatures = 36 } },
           { name = "Consecration", tag = "Packs", text = "Several enemies only (mana heavy).", icon = 135926 },
         } },
       } },
@@ -1456,16 +1498,16 @@ KP.Priority = {
         { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Two-hander.", items = {
           { name = "Two-Handed Weapon Specialization", tag = "Counts", text = "Works with this setup.", icon = 133041 },
         } },
-        { title = "Keep up", note = "", items = {
-          { name = "Seal of Command", tag = "Keep up", text = "Your damage Seal: extra Holy hits worth 70% of your weapon damage (slow weapons proc as often but hit harder). Its Judgement does full damage only on a stunned target: judge right after Hammer of Justice.", icon = 132347 },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Seal of Command", tag = "Keep up", text = "Your damage Seal: extra Holy hits worth 70% of your weapon damage (slow weapons proc as often but hit harder). Its Judgement does full damage only on a stunned target: judge right after Hammer of Justice.", icon = 132347, rule = { kind = "keep", ids = { 20375, 20915, 20918, 20919, 20920 }, cd = 0, gcd = 1500, cost = 140, dur = 30000, aura = "you" } },
           { name = "Unsealed Wrath", tag = "Talent", text = "Your hits store copies of your active Seal (up to 3, for 15 sec). Hitting with a different Seal releases them, each with the stored Seal's normal chance to go off: build stacks with one Seal, then switch (e.g. Command to Righteousness and back). The planner doesn't count the stored Seals.", icon = 135878 },
-          { name = "Blessing of Might", tag = "On yourself", text = "Melee attack power (or Kings if another Paladin gives Might).", icon = 135906 },
-          { name = "Retribution Aura", tag = "Aura", text = "If no other Paladin runs an aura, otherwise Devotion.", icon = 135873 },
+          { name = "Blessing of Might", tag = "On yourself", text = "Melee attack power (or Kings if another Paladin gives Might).", icon = 135906, rule = { kind = "missing", ids = { 19740, 19834, 19835, 19836, 19837, 19838, 25291 }, cd = 0, gcd = 1500, cost = 60, dur = 3600000, aura = "you" } },
+          { name = "Retribution Aura", tag = "Aura", text = "If no other Paladin runs an aura, otherwise Devotion.", icon = 135873, rule = { kind = "missing", ids = { 7294, 10298, 10299, 10300, 10301 }, cd = 0, gcd = 1500, cost = 0, aura = "you" } },
         } },
-        { title = "Attack priority", note = "Press the first one that's ready.", items = {
-          { name = "Judgement", tag = "On cooldown", text = "Judge your Seal, then keep the Seal up.", icon = 135959 },
-          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003 },
-          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903 },
+        { title = "Attack priority", note = "Press the first one that's ready.", phase = "main", items = {
+          { name = "Judgement", tag = "On cooldown", text = "Judge your Seal, then keep the Seal up.", icon = 135959, rule = { kind = "ready", ids = { 20271 }, cd = 8000, gcd = 0, cost = 0 } },
+          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003, rule = { kind = "ready", ids = { 679, 678, 1866, 680, 2495, 5569, 10332, 10333 }, cd = 10000, gcd = 1500, cost = 14.72 } },
+          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903, rule = { kind = "ready", ids = { 879, 5614, 5615, 10312, 10313, 10314 }, cd = 15000, gcd = 1500, cost = 165.6, creatures = 36 } },
           { name = "Consecration", tag = "Packs", text = "Several enemies only (mana heavy).", icon = 135926 },
         } },
       } },
@@ -1473,17 +1515,71 @@ KP.Priority = {
         { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Two-hander.", items = {
           { name = "Two-Handed Weapon Specialization", tag = "Counts", text = "Works with this setup.", icon = 133041 },
         } },
-        { title = "Keep up", note = "", items = {
-          { name = "Seal of Command", tag = "Keep up", text = "Your damage Seal: extra Holy hits worth 70% of your weapon damage (slow weapons proc as often but hit harder). Its Judgement does full damage only on a stunned target: judge right after Hammer of Justice.", icon = 132347 },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Seal of Command", tag = "Keep up", text = "Your damage Seal: extra Holy hits worth 70% of your weapon damage (slow weapons proc as often but hit harder). Its Judgement does full damage only on a stunned target: judge right after Hammer of Justice.", icon = 132347, rule = { kind = "keep", ids = { 20375, 20915, 20918, 20919, 20920 }, cd = 0, gcd = 1500, cost = 140, dur = 30000, aura = "you" } },
           { name = "Unsealed Wrath", tag = "Talent", text = "Your hits store copies of your active Seal (up to 3, for 15 sec). Hitting with a different Seal releases them, each with the stored Seal's normal chance to go off: build stacks with one Seal, then switch (e.g. Command to Righteousness and back). The planner doesn't count the stored Seals.", icon = 135878 },
-          { name = "Blessing of Might", tag = "On yourself", text = "Melee attack power (or Kings if another Paladin gives Might).", icon = 135906 },
-          { name = "Retribution Aura", tag = "Aura", text = "If no other Paladin runs an aura, otherwise Devotion.", icon = 135873 },
+          { name = "Blessing of Might", tag = "On yourself", text = "Melee attack power (or Kings if another Paladin gives Might).", icon = 135906, rule = { kind = "missing", ids = { 19740, 19834, 19835, 19836, 19837, 19838, 25291 }, cd = 0, gcd = 1500, cost = 85, dur = 3600000, aura = "you" } },
+          { name = "Retribution Aura", tag = "Aura", text = "If no other Paladin runs an aura, otherwise Devotion.", icon = 135873, rule = { kind = "missing", ids = { 7294, 10298, 10299, 10300, 10301 }, cd = 0, gcd = 1500, cost = 0, aura = "you" } },
         } },
-        { title = "Attack priority", note = "Press the first one that's ready.", items = {
-          { name = "Judgement", tag = "On cooldown", text = "Judge your Seal, then keep the Seal up.", icon = 135959 },
-          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003 },
-          { name = "Hammer of Wrath", tag = "Below 20%", text = "Only when the target is at 20% health or less. Champion of the Light: 1.0 sec faster cast.", icon = 132326 },
-          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903 },
+        { title = "Attack priority", note = "Press the first one that's ready.", phase = "main", items = {
+          { name = "Judgement", tag = "On cooldown", text = "Judge your Seal, then keep the Seal up.", icon = 135959, rule = { kind = "ready", ids = { 20271 }, cd = 8000, gcd = 0, cost = 0 } },
+          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003, rule = { kind = "ready", ids = { 679, 678, 1866, 680, 2495, 5569, 10332, 10333 }, cd = 10000, gcd = 1500, cost = 15.64 } },
+          { name = "Hammer of Wrath", tag = "Below 20%", text = "Only when the target is at 20% health or less. Champion of the Light: 1.0 sec faster cast.", icon = 132326, rule = { kind = "ready", ids = { 24275, 24274, 24239 }, cd = 6000, gcd = 1000, cost = 295 } },
+          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903, rule = { kind = "ready", ids = { 879, 5614, 5615, 10312, 10313, 10314 }, cd = 15000, gcd = 1500, cost = 216.20000000000002, creatures = 36 } },
+          { name = "Consecration", tag = "Packs", text = "Several enemies only (mana heavy).", icon = 135926 },
+        } },
+      } },
+      { level = 50, title = "Retribution Paladin", sections = {
+        { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Two-hander.", items = {
+          { name = "Two-Handed Weapon Specialization", tag = "Counts", text = "Works with this setup.", icon = 133041 },
+        } },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Seal of Command", tag = "Keep up", text = "Your damage Seal: extra Holy hits worth 70% of your weapon damage (slow weapons proc as often but hit harder). Its Judgement does full damage only on a stunned target: judge right after Hammer of Justice.", icon = 132347, rule = { kind = "keep", ids = { 20375, 20915, 20918, 20919, 20920 }, cd = 0, gcd = 1500, cost = 180, dur = 30000, aura = "you" } },
+          { name = "Unsealed Wrath", tag = "Talent", text = "Your hits store copies of your active Seal (up to 3, for 15 sec). Hitting with a different Seal releases them, each with the stored Seal's normal chance to go off: build stacks with one Seal, then switch (e.g. Command to Righteousness and back). The planner doesn't count the stored Seals.", icon = 135878 },
+          { name = "Blessing of Might", tag = "On yourself", text = "Melee attack power (or Kings if another Paladin gives Might).", icon = 135906, rule = { kind = "missing", ids = { 19740, 19834, 19835, 19836, 19837, 19838, 25291 }, cd = 0, gcd = 1500, cost = 85, dur = 3600000, aura = "you" } },
+          { name = "Retribution Aura", tag = "Aura", text = "If no other Paladin runs an aura, otherwise Devotion.", icon = 135873, rule = { kind = "missing", ids = { 7294, 10298, 10299, 10300, 10301 }, cd = 0, gcd = 1500, cost = 0, aura = "you" } },
+        } },
+        { title = "Attack priority", note = "Press the first one that's ready.", phase = "main", items = {
+          { name = "Judgement", tag = "On cooldown", text = "Judge your Seal, then keep the Seal up.", icon = 135959, rule = { kind = "ready", ids = { 20271 }, cd = 8000, gcd = 0, cost = 0 } },
+          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003, rule = { kind = "ready", ids = { 679, 678, 1866, 680, 2495, 5569, 10332, 10333 }, cd = 10000, gcd = 1500, cost = 15.64 } },
+          { name = "Hammer of Wrath", tag = "Below 20%", text = "Only when the target is at 20% health or less. Champion of the Light: 1.0 sec faster cast.", icon = 132326, rule = { kind = "ready", ids = { 24275, 24274, 24239 }, cd = 6000, gcd = 1000, cost = 295 } },
+          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903, rule = { kind = "ready", ids = { 879, 5614, 5615, 10312, 10313, 10314 }, cd = 15000, gcd = 1500, cost = 216.20000000000002, creatures = 36 } },
+          { name = "Consecration", tag = "Packs", text = "Several enemies only (mana heavy).", icon = 135926 },
+        } },
+      } },
+      { level = 55, title = "Retribution Paladin", sections = {
+        { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Two-hander.", items = {
+          { name = "Two-Handed Weapon Specialization", tag = "Counts", text = "Works with this setup.", icon = 133041 },
+        } },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Seal of Command", tag = "Keep up", text = "Your damage Seal: extra Holy hits worth 70% of your weapon damage (slow weapons proc as often but hit harder). Its Judgement does full damage only on a stunned target: judge right after Hammer of Justice.", icon = 132347, rule = { kind = "keep", ids = { 20375, 20915, 20918, 20919, 20920 }, cd = 0, gcd = 1500, cost = 180, dur = 30000, aura = "you" } },
+          { name = "Unsealed Wrath", tag = "Talent", text = "Your hits store copies of your active Seal (up to 3, for 15 sec). Hitting with a different Seal releases them, each with the stored Seal's normal chance to go off: build stacks with one Seal, then switch (e.g. Command to Righteousness and back). The planner doesn't count the stored Seals.", icon = 135878 },
+          { name = "Blessing of Might", tag = "On yourself", text = "Melee attack power (or Kings if another Paladin gives Might).", icon = 135906, rule = { kind = "missing", ids = { 19740, 19834, 19835, 19836, 19837, 19838, 25291 }, cd = 0, gcd = 1500, cost = 110, dur = 3600000, aura = "you" } },
+          { name = "Retribution Aura", tag = "Aura", text = "If no other Paladin runs an aura, otherwise Devotion.", icon = 135873, rule = { kind = "missing", ids = { 7294, 10298, 10299, 10300, 10301 }, cd = 0, gcd = 1500, cost = 0, aura = "you" } },
+        } },
+        { title = "Attack priority", note = "Press the first one that's ready.", phase = "main", items = {
+          { name = "Judgement", tag = "On cooldown", text = "Judge your Seal, then keep the Seal up.", icon = 135959, rule = { kind = "ready", ids = { 20271 }, cd = 8000, gcd = 0, cost = 0 } },
+          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003, rule = { kind = "ready", ids = { 679, 678, 1866, 680, 2495, 5569, 10332, 10333 }, cd = 10000, gcd = 1500, cost = 17.48 } },
+          { name = "Hammer of Wrath", tag = "Below 20%", text = "Only when the target is at 20% health or less. Champion of the Light: 1.0 sec faster cast.", icon = 132326, rule = { kind = "ready", ids = { 24275, 24274, 24239 }, cd = 6000, gcd = 1000, cost = 360 } },
+          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903, rule = { kind = "ready", ids = { 879, 5614, 5615, 10312, 10313, 10314 }, cd = 15000, gcd = 1500, cost = 262.2, creatures = 36 } },
+          { name = "Consecration", tag = "Packs", text = "Several enemies only (mana heavy).", icon = 135926 },
+        } },
+      } },
+      { level = 60, title = "Retribution Paladin", sections = {
+        { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Two-hander.", items = {
+          { name = "Two-Handed Weapon Specialization", tag = "Counts", text = "Works with this setup.", icon = 133041 },
+        } },
+        { title = "Keep up", note = "", phase = "main", items = {
+          { name = "Seal of Command", tag = "Keep up", text = "Your damage Seal: extra Holy hits worth 70% of your weapon damage (slow weapons proc as often but hit harder). Its Judgement does full damage only on a stunned target: judge right after Hammer of Justice.", icon = 132347, rule = { kind = "keep", ids = { 20375, 20915, 20918, 20919, 20920 }, cd = 0, gcd = 1500, cost = 210, dur = 30000, aura = "you" } },
+          { name = "Unsealed Wrath", tag = "Talent", text = "Your hits store copies of your active Seal (up to 3, for 15 sec). Hitting with a different Seal releases them, each with the stored Seal's normal chance to go off: build stacks with one Seal, then switch (e.g. Command to Righteousness and back). The planner doesn't count the stored Seals.", icon = 135878 },
+          { name = "Blessing of Might", tag = "On yourself", text = "Melee attack power (or Kings if another Paladin gives Might).", icon = 135906, rule = { kind = "missing", ids = { 19740, 19834, 19835, 19836, 19837, 19838, 25291 }, cd = 0, gcd = 1500, cost = 130, dur = 3600000, aura = "you" } },
+          { name = "Retribution Aura", tag = "Aura", text = "If no other Paladin runs an aura, otherwise Devotion.", icon = 135873, rule = { kind = "missing", ids = { 7294, 10298, 10299, 10300, 10301 }, cd = 0, gcd = 1500, cost = 0, aura = "you" } },
+        } },
+        { title = "Attack priority", note = "Press the first one that's ready.", phase = "main", items = {
+          { name = "Judgement", tag = "On cooldown", text = "Judge your Seal, then keep the Seal up.", icon = 135959, rule = { kind = "ready", ids = { 20271 }, cd = 8000, gcd = 0, cost = 0 } },
+          { name = "Holy Strike", tag = "On cooldown", text = "Weapon damage plus Holy damage.", icon = 626003, rule = { kind = "ready", ids = { 679, 678, 1866, 680, 2495, 5569, 10332, 10333 }, cd = 10000, gcd = 1500, cost = 18.400000000000002 } },
+          { name = "Hammer of Wrath", tag = "Below 20%", text = "Only when the target is at 20% health or less. Champion of the Light: 1.0 sec faster cast.", icon = 132326, rule = { kind = "ready", ids = { 24275, 24274, 24239 }, cd = 6000, gcd = 1000, cost = 425 } },
+          { name = "Exorcism", tag = "Undead / Demons", text = "Only against Undead and Demons.", icon = 135903, rule = { kind = "ready", ids = { 879, 5614, 5615, 10312, 10313, 10314 }, cd = 15000, gcd = 1500, cost = 317.40000000000003, creatures = 36 } },
           { name = "Consecration", tag = "Packs", text = "Several enemies only (mana heavy).", icon = 135926 },
         } },
       } },

@@ -115,7 +115,8 @@ end
 
 function Helper.SetOn(on)
   if on and not KP.Rotation.ForClass() then
-    return KP:Print("the rotation helper isn't ready for your class yet (Warriors first, the others follow).")
+    return KP:Print("the rotation helper isn't ready for your class yet (Warriors and Retribution Paladins so far; " ..
+      "the others follow).")
   end
   Settings().on = on
   Run()
@@ -123,7 +124,11 @@ function Helper.SetOn(on)
   if not on then return KP:Print("rotation helper off.") end
   KP:Print("rotation helper on: it shows in combat or with an enemy targeted. Big icon = press now, then the next " ..
     "two. Drag it where you like; /kp helper lock keeps it there.")
-  if not KP.Rotation.Rules() then KP:Print("it follows the planner's suggested builds: choose one in /kp.") end
+  if not KP.Rotation.Rules() then
+    local build = KP.Build.Current()
+    KP:Print(build and build.key and "it doesn't cover your build yet (Paladins: Retribution so far)."
+      or "it follows the planner's suggested builds: choose one in /kp.")
+  end
 end
 
 -- /kp helper [on | off | lock | unlock]: no word switches it on or off
@@ -143,6 +148,7 @@ KP:On("PLAYER_LOGIN", function()
   KP.After(25, function()
     if KorkronPlannerDB.helperNotice or not KP.Rotation.ForClass() then return end
     KorkronPlannerDB.helperNotice = true
-    KP:Print("new: a rotation helper shows what to press next for your build (Warriors first). /kp helper turns it on.")
+    KP:Print("new: a rotation helper shows what to press next for your build (Warriors and Retribution Paladins so " ..
+      "far). /kp helper turns it on.")
   end)
 end)

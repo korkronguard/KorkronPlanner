@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.14.1
+
+- **Rotation helper for Retribution Paladins (first version, to test):** pick a Retribution build in `/kp` and type
+  **/kp helper**. It keeps your Seal, Blessing of Might and Retribution Aura up, then suggests Judgement (it doesn't
+  use the global cooldown, so it shows next to your other ability), Holy Strike, Hammer of Wrath when the game lets
+  you (below 20% health) and Exorcism only against Undead and Demons. Consecration (for packs) is up to you. Tell
+  Grimscar what feels wrong.
+- **New version alert:** when a guildmate's addon is newer than yours, a line in chat tells you, at each login until
+  you update it in WowUp. (Guildmates on 0.14.0 or older will need this one update before they get the alert.) Tip: in
+  WowUp, turn on auto-update for Kor'kron Planner and new versions install by themselves.
+- Paladin base stats now follow a real Paladin of the Guard (levels 10-19).
+
 ## 0.14.0
 
 - **Helping the planner, with nothing to type:** with sharing on, the addon now also checks the planner's talent and

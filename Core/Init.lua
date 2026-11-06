@@ -75,6 +75,12 @@ function KP.Num(v, places)
 end
 
 -- Run fn after `seconds`, through KP.Safe
+-- this addon's version from its .toc ("0.14.0"): C_AddOns on newer clients, the old global otherwise
+function KP.Version()
+  local metadata = (C_AddOns and C_AddOns.GetAddOnMetadata) or GetAddOnMetadata
+  return metadata(ADDON, "Version")
+end
+
 function KP.After(seconds, fn)
   C_Timer.After(seconds, function() KP.Safe(fn) end)
 end

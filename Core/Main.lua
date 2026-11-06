@@ -22,7 +22,8 @@ end)
 
 local HELP = {
   "/kp - your build: the next talent to take and the points after it",
-  "/kp helper - the rotation helper: what to press next for your build (Warriors for now; /kp helper lock keeps it in place)",
+  "/kp helper - the rotation helper: what to press next for your build (Warriors and Retribution Paladins for now; " ..
+    "/kp helper lock keeps it in place)",
   "/kp export - your stats as a code for the planner website",
   "/kp share - whether your stats are shared with the guild planner (/kp share off stops it, /kp share on starts it)",
   "/kp probe - check what the game lets the addon read (for the addon's author; /kp probe combat: during your next fights)",

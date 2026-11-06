@@ -13,7 +13,7 @@
 -- Record text, fields split by "~" (taken out of the game's text):
 --   T~version~class~level~ranks checked~node ID,rank,game text~...   (only the talent ranks whose numbers differ)
 --   P~version~class~level~spell ID~text~spell ID~text~...
-local ADDON, KP = ...
+local _, KP = ...
 
 local Check = {}
 KP.Check = Check
@@ -24,8 +24,7 @@ local sentAt = {} -- [key] = GetTime() a record was last sent
 
 -- the game build and this addon's version: a new one of either checks again
 local function Version()
-  local metadata = (C_AddOns and C_AddOns.GetAddOnMetadata) or GetAddOnMetadata
-  return ("%s/%s"):format(KP.Text((select(2, GetBuildInfo()))) or "?", metadata(ADDON, "Version") or "?")
+  return ("%s/%s"):format(KP.Text((select(2, GetBuildInfo()))) or "?", KP.Version() or "?")
 end
 
 -- this version's checks, started over when the version changes (records not yet delivered stay in the outbox)

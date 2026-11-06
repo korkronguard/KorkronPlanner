@@ -1,5 +1,5 @@
 -- Kor'kron Planner: what the rotation helper says to press. Your build's Priority list at your level
--- (Data/Priority.lua) carries a rule per line for the classes the helper is on for (Warriors so far): its kind, the
+-- (Data/Priority.lua) carries a rule per line for the builds the helper is on for (Warriors, Retribution): its kind, the
 -- spell ID of each rank, cooldown, global cooldown, aura... In a fight Forever lets an addon read whether a spell is
 -- usable (rage, stance, a lit Overpower or Execute) and whether its cooldown runs, but not for how long, nor your
 -- rage, your auras or the target's health (/kp probe combat, 2026-11-05). So the addon keeps its own book: your
@@ -66,6 +66,14 @@ local function State(id)
   local active, onGCD = cd and cd.isActive, cd and cd.isOnGCD
   if not (KP.Readable(active) and KP.Readable(onGCD)) then return nil end
   return { usable = usable == true, cooling = active == true and onGCD ~= true }
+end
+
+-- whether a line's spell works on your target: Exorcism only on Undead and Demons (the spell's own list, rule.creatures:
+-- bit n-1 = the game's creature type n, UnitCreatureType's second answer); a type the game hides counts as no
+local function ForTarget(rule)
+  if not rule.creatures then return true end
+  local _, typeID = UnitCreatureType("target")
+  return KP.Readable(typeID) and typeID ~= nil and math.floor(rule.creatures / 2 ^ (typeID - 1)) % 2 == 1
 end
 
 local function Has(list, value)
@@ -166,7 +174,7 @@ function Rotation.Picks()
   if not InCombatLockdown() then ReadBuffs(phases) end
   local free = {}
   for _, item in ipairs(Order(phases)) do
-    local id = Known(item.rule)
+    local id = ForTarget(item.rule) and Known(item.rule)
     local s = id and State(id)
     if id and not s then return nil, "hidden" end
     local at = s and s.usable and (not s.cooling and now or casts[item.name] and casts[item.name] + item.rule.cd / 1000)
