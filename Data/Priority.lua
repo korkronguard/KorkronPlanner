@@ -6,13 +6,24 @@ KP.Priority = {
   DRUID = {
     ["balance"] = {
       { level = 60, title = "Balance Druid", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Moonfire", tag = "Keep up", text = "", icon = 136096 },
-          { name = "Insect Swarm", tag = "Keep up", text = "", icon = 136045 },
+        { title = "Before the fight", note = "", items = {
+          { name = "Moonkin Form", tag = "Always", text = "Your casting form.", icon = 136036 },
+          { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Starfire", tag = "Filler", text = "", icon = 135753 },
-          { name = "Wrath", tag = "Filler", text = "", icon = 136006 },
+        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
+          { name = "Moonfire", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136096 },
+          { name = "Insect Swarm", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136045 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starfire", tag = "With Eclipse", text = "After a Wrath, your next Starfires cast faster: one Wrath, then two Starfires.", icon = 135753 },
+          { name = "Starfire", tag = "Filler", text = "The most damage per second of casting.", icon = 135753 },
+          { name = "Wrath", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136006 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Innervate", tag = "When mana runs low", text = "On yourself when your mana runs low, or on a healer who needs it more.", icon = 136048 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Hurricane", tag = "Packs", text = "Channel it on a pack that stays put; it also slows their attacks.", icon = 136018 },
         } },
       } },
     },
@@ -90,40 +101,113 @@ KP.Priority = {
     },
     ["balance-lvl"] = {
       { level = 10, title = "Balance Druid", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Moonfire", tag = "Keep up", text = "", icon = 136096 },
+        { title = "Before the fight", note = "", items = {
+          { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Wrath", tag = "Filler", text = "", icon = 136006 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Wrath", tag = "Filler", text = "The most damage per second of casting.", icon = 136006 },
+          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 136096 },
         } },
       } },
       { level = 20, title = "Balance Druid", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Moonfire", tag = "Keep up", text = "", icon = 136096 },
+        { title = "Before the fight", note = "", items = {
+          { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Starfire", tag = "Filler", text = "", icon = 135753 },
-          { name = "Wrath", tag = "Filler", text = "", icon = 136006 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starfire", tag = "Filler", text = "The most damage per second of casting.", icon = 135753 },
+          { name = "Wrath", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136006 },
+          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Starfire, but less per mana: cast it when your mana can spare it.", icon = 136096 },
         } },
       } },
       { level = 25, title = "Balance Druid", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Moonfire", tag = "Keep up", text = "", icon = 136096 },
-          { name = "Insect Swarm", tag = "Keep up", text = "", icon = 136045 },
+        { title = "Before the fight", note = "", items = {
+          { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Wrath", tag = "Filler", text = "", icon = 136006 },
-          { name = "Starfire", tag = "Filler", text = "", icon = 135753 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Wrath", tag = "Filler", text = "The most damage per second of casting.", icon = 136006 },
+          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 136096 },
+          { name = "Insect Swarm", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 136045 },
         } },
       } },
       { level = 30, title = "Balance Druid", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Moonfire", tag = "Keep up", text = "", icon = 136096 },
-          { name = "Insect Swarm", tag = "Keep up", text = "", icon = 136045 },
+        { title = "Before the fight", note = "", items = {
+          { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Starfire", tag = "Filler", text = "", icon = 135753 },
-          { name = "Wrath", tag = "Filler", text = "", icon = 136006 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starfire", tag = "Filler", text = "The most damage per second of casting.", icon = 135753 },
+          { name = "Wrath", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136006 },
+          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Starfire, but less per mana: cast it when your mana can spare it.", icon = 136096 },
+        } },
+      } },
+      { level = 35, title = "Balance Druid", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
+        } },
+        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
+          { name = "Insect Swarm", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136045 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Wrath", tag = "Filler", text = "The most damage per mana: Starfire hits harder but runs you out of mana over a fight.", icon = 136006 },
+          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 136096 },
+          { name = "Starfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 135753 },
+        } },
+      } },
+      { level = 40, title = "Balance Druid", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Moonkin Form", tag = "Always", text = "Your casting form.", icon = 136036 },
+          { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starfire", tag = "Filler", text = "The most damage per second of casting.", icon = 135753 },
+          { name = "Wrath", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136006 },
+          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Starfire, but less per mana: cast it when your mana can spare it.", icon = 136096 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Innervate", tag = "When mana runs low", text = "On yourself when your mana runs low, or on a healer who needs it more.", icon = 136048 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Hurricane", tag = "Packs", text = "Channel it on a pack that stays put; it also slows their attacks.", icon = 136018 },
+        } },
+      } },
+      { level = 45, title = "Balance Druid", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Moonkin Form", tag = "Always", text = "Your casting form.", icon = 136036 },
+          { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
+        } },
+        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
+          { name = "Insect Swarm", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136045 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starfire", tag = "With Eclipse", text = "After a Wrath, your next Starfires cast faster: one Wrath, then two Starfires.", icon = 135753 },
+          { name = "Starfire", tag = "Filler", text = "The most damage per second of casting.", icon = 135753 },
+          { name = "Wrath", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136006 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Innervate", tag = "When mana runs low", text = "On yourself when your mana runs low, or on a healer who needs it more.", icon = 136048 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Hurricane", tag = "Packs", text = "Channel it on a pack that stays put; it also slows their attacks.", icon = 136018 },
+        } },
+      } },
+      { level = 55, title = "Balance Druid", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Moonkin Form", tag = "Always", text = "Your casting form.", icon = 136036 },
+          { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
+        } },
+        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
+          { name = "Insect Swarm", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136045 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starfire", tag = "With Eclipse", text = "After a Wrath, your next Starfires cast faster: one Wrath, then two Starfires.", icon = 135753 },
+          { name = "Starfire", tag = "Filler", text = "The most damage per second of casting.", icon = 135753 },
+          { name = "Wrath", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136006 },
+          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Starfire, but less per mana: cast it when your mana can spare it.", icon = 136096 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Innervate", tag = "When mana runs low", text = "On yourself when your mana runs low, or on a healer who needs it more.", icon = 136048 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Hurricane", tag = "Packs", text = "Channel it on a pack that stays put; it also slows their attacks.", icon = 136018 },
         } },
       } },
     },
@@ -337,40 +421,95 @@ KP.Priority = {
     },
     ["resto-lvl"] = {
       { level = 10, title = "Balance Druid", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Moonfire", tag = "Keep up", text = "", icon = 136096 },
+        { title = "Before the fight", note = "", items = {
+          { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Wrath", tag = "Filler", text = "", icon = 136006 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Wrath", tag = "Filler", text = "The most damage per second of casting.", icon = 136006 },
+          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 136096 },
         } },
       } },
       { level = 20, title = "Balance Druid", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Moonfire", tag = "Keep up", text = "", icon = 136096 },
+        { title = "Before the fight", note = "", items = {
+          { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Starfire", tag = "Filler", text = "", icon = 135753 },
-          { name = "Wrath", tag = "Filler", text = "", icon = 136006 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starfire", tag = "Filler", text = "The most damage per second of casting.", icon = 135753 },
+          { name = "Wrath", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136006 },
+          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Starfire, but less per mana: cast it when your mana can spare it.", icon = 136096 },
         } },
       } },
       { level = 25, title = "Balance Druid", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Moonfire", tag = "Keep up", text = "", icon = 136096 },
-          { name = "Insect Swarm", tag = "Keep up", text = "", icon = 136045 },
+        { title = "Before the fight", note = "", items = {
+          { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Wrath", tag = "Filler", text = "", icon = 136006 },
-          { name = "Starfire", tag = "Filler", text = "", icon = 135753 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Wrath", tag = "Filler", text = "The most damage per second of casting.", icon = 136006 },
+          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 136096 },
         } },
       } },
       { level = 30, title = "Balance Druid", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Moonfire", tag = "Keep up", text = "", icon = 136096 },
-          { name = "Insect Swarm", tag = "Keep up", text = "", icon = 136045 },
+        { title = "Before the fight", note = "", items = {
+          { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Starfire", tag = "Filler", text = "", icon = 135753 },
-          { name = "Wrath", tag = "Filler", text = "", icon = 136006 },
+        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
+          { name = "Insect Swarm", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136045 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Wrath", tag = "Filler", text = "The most damage per mana: Starfire hits harder but runs you out of mana over a fight.", icon = 136006 },
+          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 136096 },
+          { name = "Starfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 135753 },
+        } },
+      } },
+      { level = 35, title = "Balance Druid", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
+        } },
+        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
+          { name = "Insect Swarm", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136045 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starfire", tag = "Filler", text = "The most damage per second of casting.", icon = 135753 },
+          { name = "Wrath", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136006 },
+          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Starfire, but less per mana: cast it when your mana can spare it.", icon = 136096 },
+        } },
+      } },
+      { level = 40, title = "Balance Druid", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
+        } },
+        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
+          { name = "Insect Swarm", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136045 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Wrath", tag = "Filler", text = "The most damage per mana: Starfire hits harder but runs you out of mana over a fight.", icon = 136006 },
+          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 136096 },
+          { name = "Starfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 135753 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Innervate", tag = "When mana runs low", text = "On yourself when your mana runs low, or on a healer who needs it more.", icon = 136048 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Hurricane", tag = "Packs", text = "Channel it on a pack that stays put; it also slows their attacks.", icon = 136018 },
+        } },
+      } },
+      { level = 45, title = "Balance Druid", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
+        } },
+        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
+          { name = "Insect Swarm", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136045 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starfire", tag = "Filler", text = "The most damage per second of casting.", icon = 135753 },
+          { name = "Wrath", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136006 },
+          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Starfire, but less per mana: cast it when your mana can spare it.", icon = 136096 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Innervate", tag = "When mana runs low", text = "On yourself when your mana runs low, or on a healer who needs it more.", icon = 136048 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Hurricane", tag = "Packs", text = "Channel it on a pack that stays put; it also slows their attacks.", icon = 136018 },
         } },
       } },
       { level = 50, title = "Restoration Druid", sections = {
@@ -1072,13 +1211,11 @@ KP.Priority = {
           { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
         } },
         { title = "Keep up", note = "Stacks and burns worth keeping on the target.", items = {
-          { name = "Arcane Blast", tag = "Keep 4 stacks", text = "Build the stacks, then one Arcane Blast before they run out. Each stack raises its next cost, so cast your other spells in between.", icon = 135735 },
+          { name = "Arcane Blast", tag = "2 per 18 sec", text = "Open every 18 sec with 2 Arcane Blasts: the stacks give your other spells spell damage for the rest of that time. Each one costs more than the last: that many is the estimate's best for your mana.", icon = 135735 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
-          { name = "Fire Blast", tag = "On cooldown", text = "More damage per second of casting than Frostbolt for you.", icon = 135807 },
-          { name = "Frostbolt", tag = "Filler", text = "Between Arcane Blasts: your other spell with the most damage per second of casting.", icon = 135846 },
-          { name = "Arcane Wrath", tag = "Skip", text = "Less damage per second of casting than Frostbolt for you.", icon = 236222 },
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Arcane Power", tag = "Cooldown", text = "On cooldown, together with your other cooldowns.", icon = 136048 },
@@ -1097,34 +1234,37 @@ KP.Priority = {
       } },
     },
     ["frost-lvl"] = {
-      { level = 10, title = "Arcane Mage", sections = {
+      { level = 10, title = "Frost Mage", sections = {
         { title = "Before the fight", note = "", items = {
           { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
           { name = "Frost Armor", tag = "Keep up", text = "Armor for when something reaches you.", icon = 135843 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 83% of the fight (it costs nothing).", icon = 135139 },
         } },
       } },
-      { level = 15, title = "Arcane Mage", sections = {
+      { level = 15, title = "Frost Mage", sections = {
         { title = "Before the fight", note = "", items = {
           { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
           { name = "Frost Armor", tag = "Keep up", text = "Armor for when something reaches you.", icon = 135843 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 79% of the fight (it costs nothing).", icon = 135473 },
         } },
         { title = "Several targets", note = "", items = {
           { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
         } },
       } },
-      { level = 20, title = "Arcane Mage", sections = {
+      { level = 20, title = "Frost Mage", sections = {
         { title = "Before the fight", note = "", items = {
           { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
           { name = "Frost Armor", tag = "Keep up", text = "Armor for when something reaches you.", icon = 135843 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 19% of the fight (it costs nothing).", icon = 135473 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -1141,7 +1281,8 @@ KP.Priority = {
           { name = "Frost Armor", tag = "Keep up", text = "Armor for when something reaches you.", icon = 135843 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
+          { name = "Arcane Missiles", tag = "Filler", text = "The most damage per second of casting.", icon = 136096 },
+          { name = "Frostbolt", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135846 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -1160,6 +1301,9 @@ KP.Priority = {
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
         } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
+        } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
           { name = "Conjure Mana Agate", tag = "Before the fight", text = "Make a gem before the fight; use it when your mana runs low.", icon = 134104 },
@@ -1177,7 +1321,12 @@ KP.Priority = {
           { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Ice Lance", tag = "On a frozen target", text = " Also when Frostbite freezes the target.", icon = 135844 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 9% of the fight (it costs nothing).", icon = 135469 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -1194,10 +1343,12 @@ KP.Priority = {
         { title = "Before the fight", note = "", items = {
           { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
           { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
+          { name = "Ice Barrier", tag = "Keep up", text = "Shield yourself at the pull and again as it runs out: it also raises your Frost damage.", icon = 135988 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Ice Lance", tag = "On a frozen target", text = " Also when Frostbite freezes the target.", icon = 135844 },
-          { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 8% of the fight (it costs nothing).", icon = 135471 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
@@ -1217,10 +1368,12 @@ KP.Priority = {
         { title = "Before the fight", note = "", items = {
           { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
           { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
+          { name = "Ice Barrier", tag = "Keep up", text = "Shield yourself at the pull and again as it runs out: it also raises your Frost damage.", icon = 135988 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Ice Lance", tag = "On a frozen target", text = " Also when Frostbite freezes the target.", icon = 135844 },
+          { name = "Ice Lance", tag = "With Fingers of Frost", text = "Fingers of Frost makes your next spells act as if the target were Frozen: spend one on Ice Lance. Also when Frostbite freezes the target.", icon = 135844 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 11% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
@@ -1243,9 +1396,10 @@ KP.Priority = {
           { name = "Ice Barrier", tag = "Keep up", text = "Shield yourself at the pull and again as it runs out: it also raises your Frost damage.", icon = 135988 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Ice Lance", tag = "On a frozen target", text = " Also when Frostbite freezes the target.", icon = 135844 },
-          { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
+          { name = "Ice Lance", tag = "With Fingers of Frost", text = "Fingers of Frost makes your next spells act as if the target were Frozen: spend one on Ice Lance. Also when Frostbite freezes the target.", icon = 135844 },
+          { name = "Cone of Cold", tag = "At 5 Winter's Chill", text = "Frostbolt stacks Winter's Chill on the target for your next Cone of Cold: cast it at full stacks (a short cone in front of you, so stay close enough).", icon = 135852 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 18% of the fight (it costs nothing).", icon = 135467 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
@@ -1258,7 +1412,6 @@ KP.Priority = {
           { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
           { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
           { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
-          { name = "Cone of Cold", tag = "Packs", text = "Enemies in front of you; also slows them.", icon = 135852 },
         } },
       } },
       { level = 55, title = "Frost Mage", sections = {
@@ -1269,8 +1422,9 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Ice Lance", tag = "With Fingers of Frost", text = "Fingers of Frost makes your next spells act as if the target were Frozen: spend one on Ice Lance. Also when Frostbite freezes the target.", icon = 135844 },
-          { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
+          { name = "Cone of Cold", tag = "At 5 Winter's Chill", text = "Frostbolt stacks Winter's Chill on the target for your next Cone of Cold: cast it at full stacks (a short cone in front of you, so stay close enough).", icon = 135852 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 15% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
@@ -1283,7 +1437,6 @@ KP.Priority = {
           { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
           { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
           { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
-          { name = "Cone of Cold", tag = "Packs", text = "Enemies in front of you; also slows them.", icon = 135852 },
         } },
       } },
       { level = 60, title = "Frost Mage", sections = {
@@ -1297,6 +1450,7 @@ KP.Priority = {
           { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
           { name = "Cone of Cold", tag = "At 5 Winter's Chill", text = "Frostbolt stacks Winter's Chill on the target for your next Cone of Cold: cast it at full stacks (a short cone in front of you, so stay close enough).", icon = 135852 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 23% of the fight (it costs nothing).", icon = 135463 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
@@ -1313,34 +1467,37 @@ KP.Priority = {
       } },
     },
     ["fire-lvl"] = {
-      { level = 10, title = "Arcane Mage", sections = {
+      { level = 10, title = "Frost Mage", sections = {
         { title = "Before the fight", note = "", items = {
           { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
           { name = "Frost Armor", tag = "Keep up", text = "Armor for when something reaches you.", icon = 135843 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 83% of the fight (it costs nothing).", icon = 135139 },
         } },
       } },
-      { level = 15, title = "Fire Mage", sections = {
+      { level = 15, title = "Arcane Mage", sections = {
         { title = "Before the fight", note = "", items = {
           { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
           { name = "Frost Armor", tag = "Keep up", text = "Armor for when something reaches you.", icon = 135843 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 75% of the fight (it costs nothing).", icon = 135473 },
         } },
         { title = "Several targets", note = "", items = {
           { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
         } },
       } },
-      { level = 20, title = "Fire Mage", sections = {
+      { level = 20, title = "Arcane Mage", sections = {
         { title = "Before the fight", note = "", items = {
           { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
           { name = "Frost Armor", tag = "Keep up", text = "Armor for when something reaches you.", icon = 135843 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 5% of the fight (it costs nothing).", icon = 135473 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -1351,13 +1508,13 @@ KP.Priority = {
           { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
         } },
       } },
-      { level = 25, title = "Fire Mage", sections = {
+      { level = 25, title = "Arcane Mage", sections = {
         { title = "Before the fight", note = "", items = {
           { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
           { name = "Frost Armor", tag = "Keep up", text = "Armor for when something reaches you.", icon = 135843 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Scorch", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135827 },
+          { name = "Arcane Missiles", tag = "Filler", text = "The most damage per second of casting.", icon = 136096 },
           { name = "Frostbolt", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135846 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
@@ -1369,14 +1526,14 @@ KP.Priority = {
           { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
         } },
       } },
-      { level = 30, title = "Fire Mage", sections = {
+      { level = 30, title = "Arcane Mage", sections = {
         { title = "Before the fight", note = "", items = {
           { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
           { name = "Ice Armor", tag = "Keep up", text = "Armor for when something reaches you.", icon = 135843 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Scorch", tag = "Filler", text = "The most damage per mana: Fireball hits harder but runs you out of mana over a fight.", icon = 135827 },
-          { name = "Frostbolt", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135846 },
+          { name = "Arcane Missiles", tag = "Filler", text = "The most damage per second of casting.", icon = 136096 },
+          { name = "Scorch", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135827 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -1396,6 +1553,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Scorch", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135827 },
+          { name = "Frostbolt", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135846 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -1415,6 +1573,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Scorch", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135827 },
+          { name = "Frostbolt", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135846 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -1454,6 +1613,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Scorch", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135827 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 4% of the fight (it costs nothing).", icon = 135467 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -1475,6 +1635,7 @@ KP.Priority = {
           { name = "Pyroblast", tag = "At 3 Heating Up", text = "Your Fire crits and every Fire Blast build Heating Up: cast Pyroblast at full stacks, before they run out.", icon = 135808 },
           { name = "Fire Blast", tag = "On cooldown", text = "Every Fire Blast adds a Heating Up stack for your next Pyroblast.", icon = 135807 },
           { name = "Scorch", tag = "Filler", text = "The most damage per mana: Fireball hits harder but runs you out of mana over a fight.", icon = 135827 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 14% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Combustion", tag = "Cooldown", text = "On cooldown.", icon = 135824 },
@@ -1500,6 +1661,7 @@ KP.Priority = {
           { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
           { name = "Fire Blast", tag = "On cooldown", text = "Every Fire Blast adds a Heating Up stack for your next Pyroblast.", icon = 135807 },
           { name = "Scorch", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135827 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 11% of the fight (it costs nothing).", icon = 135463 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Combustion", tag = "Cooldown", text = "On cooldown.", icon = 135824 },
@@ -1525,6 +1687,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 83% of the fight (it costs nothing).", icon = 135139 },
         } },
       } },
       { level = 15, title = "Arcane Mage", sections = {
@@ -1534,6 +1697,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 74% of the fight (it costs nothing).", icon = 135473 },
         } },
         { title = "Several targets", note = "", items = {
           { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
@@ -1543,6 +1707,9 @@ KP.Priority = {
         { title = "Before the fight", note = "", items = {
           { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
           { name = "Frost Armor", tag = "Keep up", text = "Armor for when something reaches you.", icon = 135843 },
+        } },
+        { title = "Keep up", note = "Stacks and burns worth keeping on the target.", items = {
+          { name = "Arcane Blast", tag = "1 per 18 sec", text = "Open every 18 sec with an Arcane Blast: the stacks give your other spells spell damage for the rest of that time. Each one costs more than the last: that many is the estimate's best for your mana.", icon = 135735 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Arcane Missiles", tag = "Filler", text = "The most damage per second of casting.", icon = 136096 },
@@ -1561,6 +1728,9 @@ KP.Priority = {
         { title = "Before the fight", note = "", items = {
           { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
           { name = "Frost Armor", tag = "Keep up", text = "Armor for when something reaches you.", icon = 135843 },
+        } },
+        { title = "Keep up", note = "Stacks and burns worth keeping on the target.", items = {
+          { name = "Arcane Blast", tag = "1 per 18 sec", text = "Open every 18 sec with an Arcane Blast: the stacks give your other spells spell damage for the rest of that time. Each one costs more than the last: that many is the estimate's best for your mana.", icon = 135735 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
@@ -1582,11 +1752,11 @@ KP.Priority = {
           { name = "Ice Armor", tag = "Keep up", text = "Armor for when something reaches you.", icon = 135843 },
         } },
         { title = "Keep up", note = "Stacks and burns worth keeping on the target.", items = {
-          { name = "Arcane Blast", tag = "Keep 4 stacks", text = "Build the stacks, then one Arcane Blast before they run out. Each stack raises its next cost, so cast your other spells in between.", icon = 135735 },
+          { name = "Arcane Blast", tag = "1 per 18 sec", text = "Open every 18 sec with an Arcane Blast: the stacks give your other spells spell damage for the rest of that time. Each one costs more than the last: that many is the estimate's best for your mana.", icon = 135735 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
-          { name = "Arcane Missiles", tag = "Filler", text = "The most damage per mana: Arcane Blast hits harder but runs you out of mana over a fight.", icon = 136096 },
+          { name = "Arcane Missiles", tag = "Filler", text = "The most damage per second of casting.", icon = 136096 },
           { name = "Frostbolt", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135846 },
         } },
         { title = "Cooldowns", note = "", items = {
@@ -1609,12 +1779,11 @@ KP.Priority = {
           { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
         } },
         { title = "Keep up", note = "Stacks and burns worth keeping on the target.", items = {
-          { name = "Arcane Blast", tag = "Keep 4 stacks", text = "Build the stacks, then one Arcane Blast before they run out. Each stack raises its next cost, so cast your other spells in between.", icon = 135735 },
+          { name = "Arcane Blast", tag = "1 per 18 sec", text = "Open every 18 sec with an Arcane Blast: the stacks give your other spells spell damage for the rest of that time. Each one costs more than the last: that many is the estimate's best for your mana.", icon = 135735 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
-          { name = "Arcane Missiles", tag = "Filler", text = "The most damage per second of casting.", icon = 136096 },
-          { name = "Frostbolt", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135846 },
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Presence of Mind", tag = "Cooldown", text = "Your next spell is instant: use it on your longest cast.", icon = 136031 },
@@ -1636,12 +1805,40 @@ KP.Priority = {
           { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
         } },
         { title = "Keep up", note = "Stacks and burns worth keeping on the target.", items = {
-          { name = "Arcane Blast", tag = "Keep 4 stacks", text = "Build the stacks, then one Arcane Blast before they run out. Each stack raises its next cost, so cast your other spells in between.", icon = 135735 },
+          { name = "Arcane Blast", tag = "1 per 18 sec", text = "Open every 18 sec with an Arcane Blast: the stacks give your other spells spell damage for the rest of that time. Each one costs more than the last: that many is the estimate's best for your mana.", icon = 135735 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
-          { name = "Arcane Missiles", tag = "Filler", text = "The most damage per second of casting.", icon = 136096 },
-          { name = "Frostbolt", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135846 },
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 1% of the fight (it costs nothing).", icon = 135471 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Arcane Power", tag = "Cooldown", text = "On cooldown, together with your other cooldowns.", icon = 136048 },
+          { name = "Presence of Mind", tag = "Cooldown", text = "Your next spell is instant: use it on your longest cast.", icon = 136031 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+          { name = "Conjure Mana Jade", tag = "Before the fight", text = "Make a gem before the fight; use it when your mana runs low.", icon = 134105 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
+          { name = "Cone of Cold", tag = "Packs", text = "Enemies in front of you; also slows them.", icon = 135852 },
+        } },
+      } },
+      { level = 45, title = "Arcane Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
+        } },
+        { title = "Keep up", note = "Stacks and burns worth keeping on the target.", items = {
+          { name = "Arcane Blast", tag = "1 per 18 sec", text = "Open every 18 sec with an Arcane Blast: the stacks give your other spells spell damage for the rest of that time. Each one costs more than the last: that many is the estimate's best for your mana.", icon = 135735 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 3% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Arcane Power", tag = "Cooldown", text = "On cooldown, together with your other cooldowns.", icon = 136048 },
@@ -1664,11 +1861,40 @@ KP.Priority = {
           { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
         } },
         { title = "Keep up", note = "Stacks and burns worth keeping on the target.", items = {
-          { name = "Arcane Blast", tag = "Keep 4 stacks", text = "Build the stacks, then one Arcane Blast before they run out. Each stack raises its next cost, so cast your other spells in between.", icon = 135735 },
+          { name = "Arcane Blast", tag = "1 per 18 sec", text = "Open every 18 sec with an Arcane Blast: the stacks give your other spells spell damage for the rest of that time. Each one costs more than the last: that many is the estimate's best for your mana.", icon = 135735 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
-          { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Blast hits harder but runs you out of mana over a fight.", icon = 135846 },
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 11% of the fight (it costs nothing).", icon = 135467 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Arcane Power", tag = "Cooldown", text = "On cooldown, together with your other cooldowns.", icon = 136048 },
+          { name = "Presence of Mind", tag = "Cooldown", text = "Your next spell is instant: use it on your longest cast.", icon = 136031 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+          { name = "Conjure Mana Citrine", tag = "Before the fight", text = "Make a gem before the fight; use it when your mana runs low.", icon = 134116 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
+          { name = "Cone of Cold", tag = "Packs", text = "Enemies in front of you; also slows them.", icon = 135852 },
+        } },
+      } },
+      { level = 55, title = "Arcane Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
+        } },
+        { title = "Keep up", note = "Stacks and burns worth keeping on the target.", items = {
+          { name = "Arcane Blast", tag = "1 per 18 sec", text = "Open every 18 sec with an Arcane Blast: the stacks give your other spells spell damage for the rest of that time. Each one costs more than the last: that many is the estimate's best for your mana.", icon = 135735 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Fireball hits harder but runs you out of mana over a fight.", icon = 135846 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 8% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Arcane Power", tag = "Cooldown", text = "On cooldown, together with your other cooldowns.", icon = 136048 },
@@ -1691,11 +1917,12 @@ KP.Priority = {
           { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
         } },
         { title = "Keep up", note = "Stacks and burns worth keeping on the target.", items = {
-          { name = "Arcane Blast", tag = "Keep 4 stacks", text = "Build the stacks, then one Arcane Blast before they run out. Each stack raises its next cost, so cast your other spells in between.", icon = 135735 },
+          { name = "Arcane Blast", tag = "1 per 18 sec", text = "Open every 18 sec with an Arcane Blast: the stacks give your other spells spell damage for the rest of that time. Each one costs more than the last: that many is the estimate's best for your mana.", icon = 135735 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
-          { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Blast hits harder but runs you out of mana over a fight.", icon = 135846 },
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 15% of the fight (it costs nothing).", icon = 135463 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Arcane Power", tag = "Cooldown", text = "On cooldown, together with your other cooldowns.", icon = 136048 },
@@ -2165,22 +2392,20 @@ KP.Priority = {
     ["shadow"] = {
       { level = 60, title = "Shadow Priest", sections = {
         { title = "Buffs and protection", note = "", items = {
-          { name = "Shadowform", tag = "Always", text = "Stay in it: more Shadow damage, Shadow spells cost half the mana, and you take less damage (you can't cast Holy spells in it).", icon = 136200 },
+          { name = "Shadowform", tag = "Always", text = "Stay in it (you can't cast healing spells in it).", icon = 136200 },
           { name = "Vampiric Embrace", tag = "Keep up", text = "Heals your group from your Shadow damage.", icon = 136230 },
           { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
-          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
-          { name = "Devouring Plague", tag = "Keep up", text = "", icon = 252997 },
-          { name = "Mind Flay", tag = "Keep up", text = "", icon = 136208 },
+        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
+          { name = "Shadow Word: Pain", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136207 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
-          { name = "Shadow Word: Death", tag = "On cooldown", text = "", icon = 136149 },
-          { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
-          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Devouring Plague", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 252997 },
+          { name = "Shadow Word: Death", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136149 },
+          { name = "Mind Flay", tag = "Filler", text = "The most damage per second of casting.", icon = 136208 },
+          { name = "Mind Blast", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 136224 },
+          { name = "Starshards", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 135753 },
         } },
       } },
     },
@@ -2235,13 +2460,11 @@ KP.Priority = {
         { title = "Buffs and protection", note = "", items = {
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
-          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
-        } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
-          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starshards", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135753 },
+          { name = "Smite", tag = "Filler", text = "The most damage per second of casting.", icon = 135924 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 70% of the fight (it costs nothing).", icon = 135139 },
+          { name = "Mind Blast", tag = "Mana to spare", text = "More damage per second of casting than Smite, but less per mana: cast it when your mana can spare it.", icon = 136224 },
         } },
       } },
       { level = 15, title = "Shadow Priest", sections = {
@@ -2249,13 +2472,14 @@ KP.Priority = {
           { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
-          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
+        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
+          { name = "Shadow Word: Pain", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136207 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
-          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starshards", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135753 },
+          { name = "Smite", tag = "Filler", text = "The most damage per second of casting.", icon = 135924 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 69% of the fight (it costs nothing).", icon = 135473 },
+          { name = "Mind Blast", tag = "Mana to spare", text = "More damage per second of casting than Smite, but less per mana: cast it when your mana can spare it.", icon = 136224 },
         } },
       } },
       { level = 20, title = "Shadow Priest", sections = {
@@ -2263,15 +2487,12 @@ KP.Priority = {
           { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
-          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
-          { name = "Devouring Plague", tag = "Keep up", text = "", icon = 252997 },
+        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
+          { name = "Shadow Word: Pain", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136207 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
-          { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
-          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starshards", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135753 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 72% of the fight (it costs nothing).", icon = 135473 },
         } },
       } },
       { level = 25, title = "Shadow Priest", sections = {
@@ -2279,16 +2500,15 @@ KP.Priority = {
           { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
-          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
-          { name = "Devouring Plague", tag = "Keep up", text = "", icon = 252997 },
-          { name = "Mind Flay", tag = "Keep up", text = "", icon = 136208 },
+        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
+          { name = "Shadow Word: Pain", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136207 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
-          { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
-          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starshards", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135753 },
+          { name = "Holy Fire", tag = "Filler", text = "The most damage per mana: Smite hits harder but runs you out of mana over a fight.", icon = 135972 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 62% of the fight (it costs nothing).", icon = 135466 },
+          { name = "Mind Blast", tag = "Mana to spare", text = "More damage per second of casting than Holy Fire, but less per mana: cast it when your mana can spare it.", icon = 136224 },
+          { name = "Devouring Plague", tag = "Mana to spare", text = "More damage per second of casting than Holy Fire, but less per mana: cast it when your mana can spare it.", icon = 252997 },
         } },
       } },
       { level = 30, title = "Shadow Priest", sections = {
@@ -2297,16 +2517,13 @@ KP.Priority = {
           { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
-          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
-          { name = "Devouring Plague", tag = "Keep up", text = "", icon = 252997 },
-          { name = "Mind Flay", tag = "Keep up", text = "", icon = 136208 },
-        } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
-          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
-          { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starshards", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135753 },
+          { name = "Mind Flay", tag = "Filler", text = "The most damage per second of casting.", icon = 136208 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 34% of the fight (it costs nothing).", icon = 135139 },
+          { name = "Shadow Word: Pain", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 136207 },
+          { name = "Mind Blast", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 136224 },
+          { name = "Devouring Plague", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 252997 },
         } },
       } },
       { level = 35, title = "Shadow Priest", sections = {
@@ -2315,77 +2532,95 @@ KP.Priority = {
           { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
-          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
-          { name = "Devouring Plague", tag = "Keep up", text = "", icon = 252997 },
-          { name = "Mind Flay", tag = "Keep up", text = "", icon = 136208 },
-        } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Shadow Word: Death", tag = "On cooldown", text = "", icon = 136149 },
-          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
-          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
-          { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starshards", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135753 },
+          { name = "Mind Flay", tag = "Filler", text = "The most damage per second of casting.", icon = 136208 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 42% of the fight (it costs nothing).", icon = 135139 },
+          { name = "Shadow Word: Pain", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 136207 },
+          { name = "Mind Blast", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 136224 },
+          { name = "Devouring Plague", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 252997 },
+          { name = "Shadow Word: Death", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 136149 },
         } },
       } },
       { level = 40, title = "Shadow Priest", sections = {
         { title = "Buffs and protection", note = "", items = {
-          { name = "Shadowform", tag = "Always", text = "Stay in it: more Shadow damage, Shadow spells cost half the mana, and you take less damage (you can't cast Holy spells in it).", icon = 136200 },
+          { name = "Shadowform", tag = "Always", text = "Stay in it (you can't cast healing spells in it).", icon = 136200 },
           { name = "Vampiric Embrace", tag = "Keep up", text = "Heals your group from your Shadow damage.", icon = 136230 },
           { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
-          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
-          { name = "Devouring Plague", tag = "Keep up", text = "", icon = 252997 },
-          { name = "Mind Flay", tag = "Keep up", text = "", icon = 136208 },
-        } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Shadow Word: Death", tag = "On cooldown", text = "", icon = 136149 },
-          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
-          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
-          { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Mind Flay", tag = "Filler", text = "The most damage per second of casting.", icon = 136208 },
+          { name = "Shadow Word: Pain", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 136207 },
+          { name = "Mind Blast", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 136224 },
+          { name = "Starshards", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 135753 },
+          { name = "Devouring Plague", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 252997 },
+          { name = "Shadow Word: Death", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 136149 },
         } },
       } },
       { level = 45, title = "Shadow Priest", sections = {
         { title = "Buffs and protection", note = "", items = {
-          { name = "Shadowform", tag = "Always", text = "Stay in it: more Shadow damage, Shadow spells cost half the mana, and you take less damage (you can't cast Holy spells in it).", icon = 136200 },
+          { name = "Shadowform", tag = "Always", text = "Stay in it (you can't cast healing spells in it).", icon = 136200 },
           { name = "Vampiric Embrace", tag = "Keep up", text = "Heals your group from your Shadow damage.", icon = 136230 },
           { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
-          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
-          { name = "Devouring Plague", tag = "Keep up", text = "", icon = 252997 },
-          { name = "Mind Flay", tag = "Keep up", text = "", icon = 136208 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Mind Flay", tag = "Filler", text = "The most damage per second of casting.", icon = 136208 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 10% of the fight (it costs nothing).", icon = 135469 },
+          { name = "Shadow Word: Pain", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 136207 },
+          { name = "Mind Blast", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 136224 },
+          { name = "Starshards", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 135753 },
+          { name = "Devouring Plague", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 252997 },
+          { name = "Shadow Word: Death", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 136149 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Shadow Word: Death", tag = "On cooldown", text = "", icon = 136149 },
-          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
-          { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
-          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
+      } },
+      { level = 50, title = "Shadow Priest", sections = {
+        { title = "Buffs and protection", note = "", items = {
+          { name = "Shadowform", tag = "Always", text = "Stay in it (you can't cast healing spells in it).", icon = 136200 },
+          { name = "Vampiric Embrace", tag = "Keep up", text = "Heals your group from your Shadow damage.", icon = 136230 },
+          { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
+          { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Mind Flay", tag = "Filler", text = "The most damage per second of casting.", icon = 136208 },
+          { name = "Shadow Word: Pain", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 136207 },
+          { name = "Mind Blast", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 136224 },
+          { name = "Starshards", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 135753 },
+          { name = "Devouring Plague", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 252997 },
+          { name = "Shadow Word: Death", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 136149 },
+        } },
+      } },
+      { level = 55, title = "Shadow Priest", sections = {
+        { title = "Buffs and protection", note = "", items = {
+          { name = "Shadowform", tag = "Always", text = "Stay in it (you can't cast healing spells in it).", icon = 136200 },
+          { name = "Vampiric Embrace", tag = "Keep up", text = "Heals your group from your Shadow damage.", icon = 136230 },
+          { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
+          { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Devouring Plague", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 252997 },
+          { name = "Mind Flay", tag = "Filler", text = "The most damage per second of casting.", icon = 136208 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 11% of the fight (it costs nothing).", icon = 135469 },
+          { name = "Mind Blast", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 136224 },
+          { name = "Starshards", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 135753 },
+          { name = "Shadow Word: Death", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 136149 },
         } },
       } },
       { level = 60, title = "Shadow Priest", sections = {
         { title = "Buffs and protection", note = "", items = {
-          { name = "Shadowform", tag = "Always", text = "Stay in it: more Shadow damage, Shadow spells cost half the mana, and you take less damage (you can't cast Holy spells in it).", icon = 136200 },
+          { name = "Shadowform", tag = "Always", text = "Stay in it (you can't cast healing spells in it).", icon = 136200 },
           { name = "Vampiric Embrace", tag = "Keep up", text = "Heals your group from your Shadow damage.", icon = 136230 },
           { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
-          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
-          { name = "Devouring Plague", tag = "Keep up", text = "", icon = 252997 },
-          { name = "Mind Flay", tag = "Keep up", text = "", icon = 136208 },
-        } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
-          { name = "Shadow Word: Death", tag = "On cooldown", text = "", icon = 136149 },
-          { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
-          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Mind Flay", tag = "Filler", text = "The most damage per second of casting.", icon = 136208 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 3% of the fight (it costs nothing).", icon = 135463 },
+          { name = "Mind Blast", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 136224 },
+          { name = "Starshards", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 135753 },
+          { name = "Devouring Plague", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 252997 },
+          { name = "Shadow Word: Death", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 136149 },
         } },
       } },
     },
@@ -2394,13 +2629,11 @@ KP.Priority = {
         { title = "Buffs and protection", note = "", items = {
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
-          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
-        } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
-          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starshards", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135753 },
+          { name = "Smite", tag = "Filler", text = "The most damage per second of casting.", icon = 135924 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 70% of the fight (it costs nothing).", icon = 135139 },
+          { name = "Mind Blast", tag = "Mana to spare", text = "More damage per second of casting than Smite, but less per mana: cast it when your mana can spare it.", icon = 136224 },
         } },
       } },
       { level = 15, title = "Discipline Priest, dealing damage", sections = {
@@ -2408,13 +2641,12 @@ KP.Priority = {
           { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
-          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
+        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
+          { name = "Shadow Word: Pain", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136207 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
-          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starshards", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135753 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 70% of the fight (it costs nothing).", icon = 135473 },
         } },
       } },
       { level = 20, title = "Discipline Priest, dealing damage", sections = {
@@ -2422,15 +2654,27 @@ KP.Priority = {
           { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
-          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
-          { name = "Devouring Plague", tag = "Keep up", text = "", icon = 252997 },
+        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
+          { name = "Holy Fire", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135972 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
-          { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
-          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 65% of the fight (it costs nothing).", icon = 135473 },
+        } },
+      } },
+      { level = 25, title = "Discipline Priest, dealing damage", sections = {
+        { title = "Buffs and protection", note = "", items = {
+          { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
+          { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
+        } },
+        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
+          { name = "Shadow Word: Pain", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136207 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starshards", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135753 },
+          { name = "Holy Fire", tag = "Filler", text = "The most damage per mana: Smite hits harder but runs you out of mana over a fight.", icon = 135972 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 63% of the fight (it costs nothing).", icon = 135466 },
+          { name = "Mind Blast", tag = "Mana to spare", text = "More damage per second of casting than Holy Fire, but less per mana: cast it when your mana can spare it.", icon = 136224 },
+          { name = "Devouring Plague", tag = "Mana to spare", text = "More damage per second of casting than Holy Fire, but less per mana: cast it when your mana can spare it.", icon = 252997 },
         } },
       } },
       { level = 30, title = "Holy Priest, dealing damage", sections = {
@@ -2438,15 +2682,16 @@ KP.Priority = {
           { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
-          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
-          { name = "Devouring Plague", tag = "Keep up", text = "", icon = 252997 },
+        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
+          { name = "Shadow Word: Pain", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136207 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
-          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
-          { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starshards", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135753 },
+          { name = "Holy Fire", tag = "Filler", text = "The most damage per mana: Smite hits harder but runs you out of mana over a fight.", icon = 135972 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 67% of the fight (it costs nothing).", icon = 135139 },
+          { name = "Smite", tag = "Mana to spare", text = "More damage per second of casting than Holy Fire, but less per mana: cast it when your mana can spare it.", icon = 135924 },
+          { name = "Mind Blast", tag = "Mana to spare", text = "More damage per second of casting than Holy Fire, but less per mana: cast it when your mana can spare it.", icon = 136224 },
+          { name = "Devouring Plague", tag = "Mana to spare", text = "More damage per second of casting than Holy Fire, but less per mana: cast it when your mana can spare it.", icon = 252997 },
         } },
       } },
       { level = 35, title = "Discipline Priest, dealing damage", sections = {
@@ -2454,16 +2699,12 @@ KP.Priority = {
           { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
-          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
-          { name = "Devouring Plague", tag = "Keep up", text = "", icon = 252997 },
+        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
+          { name = "Shadow Word: Pain", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136207 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Shadow Word: Death", tag = "On cooldown", text = "", icon = 136149 },
-          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
-          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
-          { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Word: Death", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136149 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 88% of the fight (it costs nothing).", icon = 135139 },
         } },
       } },
       { level = 40, title = "Holy Priest, dealing damage", sections = {
@@ -2471,16 +2712,25 @@ KP.Priority = {
           { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
-          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
-          { name = "Devouring Plague", tag = "Keep up", text = "", icon = 252997 },
+        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
+          { name = "Shadow Word: Pain", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136207 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Shadow Word: Death", tag = "On cooldown", text = "", icon = 136149 },
-          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
-          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
-          { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Word: Death", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136149 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 87% of the fight (it costs nothing).", icon = 135471 },
+        } },
+      } },
+      { level = 45, title = "Holy Priest, dealing damage", sections = {
+        { title = "Buffs and protection", note = "", items = {
+          { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
+          { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
+        } },
+        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
+          { name = "Shadow Word: Pain", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136207 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Word: Death", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136149 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 87% of the fight (it costs nothing).", icon = 135469 },
         } },
       } },
       { level = 50, title = "Holy Priest", sections = {
@@ -2544,13 +2794,11 @@ KP.Priority = {
         { title = "Buffs and protection", note = "", items = {
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
-          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
-        } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
-          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starshards", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135753 },
+          { name = "Smite", tag = "Filler", text = "The most damage per second of casting.", icon = 135924 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 70% of the fight (it costs nothing).", icon = 135139 },
+          { name = "Mind Blast", tag = "Mana to spare", text = "More damage per second of casting than Smite, but less per mana: cast it when your mana can spare it.", icon = 136224 },
         } },
       } },
       { level = 15, title = "Discipline Priest, dealing damage", sections = {
@@ -2558,13 +2806,12 @@ KP.Priority = {
           { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
-          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
+        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
+          { name = "Shadow Word: Pain", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136207 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
-          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starshards", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135753 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 70% of the fight (it costs nothing).", icon = 135473 },
         } },
       } },
       { level = 20, title = "Discipline Priest, dealing damage", sections = {
@@ -2572,32 +2819,45 @@ KP.Priority = {
           { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
-          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
-          { name = "Devouring Plague", tag = "Keep up", text = "", icon = 252997 },
+        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
+          { name = "Shadow Word: Pain", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136207 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
-          { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
-          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starshards", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135753 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 75% of the fight (it costs nothing).", icon = 135473 },
         } },
       } },
-      { level = 30, title = "Shadow Priest", sections = {
+      { level = 25, title = "Discipline Priest, dealing damage", sections = {
         { title = "Buffs and protection", note = "", items = {
           { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
-          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
-          { name = "Devouring Plague", tag = "Keep up", text = "", icon = 252997 },
-          { name = "Mind Flay", tag = "Keep up", text = "", icon = 136208 },
+        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
+          { name = "Shadow Word: Pain", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136207 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
-          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
-          { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starshards", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135753 },
+          { name = "Holy Fire", tag = "Filler", text = "The most damage per mana: Smite hits harder but runs you out of mana over a fight.", icon = 135972 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 63% of the fight (it costs nothing).", icon = 135466 },
+          { name = "Mind Blast", tag = "Mana to spare", text = "More damage per second of casting than Holy Fire, but less per mana: cast it when your mana can spare it.", icon = 136224 },
+          { name = "Devouring Plague", tag = "Mana to spare", text = "More damage per second of casting than Holy Fire, but less per mana: cast it when your mana can spare it.", icon = 252997 },
+        } },
+      } },
+      { level = 30, title = "Discipline Priest, dealing damage", sections = {
+        { title = "Buffs and protection", note = "", items = {
+          { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
+          { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
+        } },
+        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
+          { name = "Shadow Word: Pain", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136207 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starshards", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135753 },
+          { name = "Holy Fire", tag = "Filler", text = "The most damage per mana: Smite hits harder but runs you out of mana over a fight.", icon = 135972 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 64% of the fight (it costs nothing).", icon = 135139 },
+          { name = "Smite", tag = "Mana to spare", text = "More damage per second of casting than Holy Fire, but less per mana: cast it when your mana can spare it.", icon = 135924 },
+          { name = "Mind Blast", tag = "Mana to spare", text = "More damage per second of casting than Holy Fire, but less per mana: cast it when your mana can spare it.", icon = 136224 },
+          { name = "Devouring Plague", tag = "Mana to spare", text = "More damage per second of casting than Holy Fire, but less per mana: cast it when your mana can spare it.", icon = 252997 },
         } },
       } },
       { level = 35, title = "Discipline Priest, dealing damage", sections = {
@@ -2605,35 +2865,25 @@ KP.Priority = {
           { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
-          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
-          { name = "Devouring Plague", tag = "Keep up", text = "", icon = 252997 },
-          { name = "Mind Flay", tag = "Keep up", text = "", icon = 136208 },
+        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
+          { name = "Shadow Word: Pain", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136207 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Shadow Word: Death", tag = "On cooldown", text = "", icon = 136149 },
-          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
-          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
-          { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Word: Death", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136149 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 88% of the fight (it costs nothing).", icon = 135139 },
         } },
       } },
-      { level = 40, title = "Shadow Priest", sections = {
+      { level = 40, title = "Discipline Priest, dealing damage", sections = {
         { title = "Buffs and protection", note = "", items = {
           { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
-          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
-          { name = "Devouring Plague", tag = "Keep up", text = "", icon = 252997 },
-          { name = "Mind Flay", tag = "Keep up", text = "", icon = 136208 },
+        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
+          { name = "Shadow Word: Pain", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136207 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Shadow Word: Death", tag = "On cooldown", text = "", icon = 136149 },
-          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
-          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
-          { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Word: Death", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136149 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 87% of the fight (it costs nothing).", icon = 135471 },
         } },
       } },
       { level = 45, title = "Discipline Priest, dealing damage", sections = {
@@ -2641,17 +2891,13 @@ KP.Priority = {
           { name = "Inner Fire", tag = "Keep up", text = "Armor and attack power for you.", icon = 135926 },
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Keep up", text = "", icon = 136207 },
-          { name = "Starshards", tag = "Keep up", text = "", icon = 135753 },
-          { name = "Devouring Plague", tag = "Keep up", text = "", icon = 252997 },
-          { name = "Mind Flay", tag = "Keep up", text = "", icon = 136208 },
-        } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Shadow Word: Death", tag = "On cooldown", text = "", icon = 136149 },
-          { name = "Mind Blast", tag = "On cooldown", text = "", icon = 136224 },
-          { name = "Holy Fire", tag = "Filler", text = "", icon = 135972 },
-          { name = "Smite", tag = "Filler", text = "", icon = 135924 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starshards", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135753 },
+          { name = "Mind Flay", tag = "Filler", text = "The most damage per second of casting.", icon = 136208 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 49% of the fight (it costs nothing).", icon = 135469 },
+          { name = "Mind Blast", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 136224 },
+          { name = "Devouring Plague", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 252997 },
+          { name = "Shadow Word: Death", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 136149 },
         } },
       } },
       { level = 50, title = "Discipline Priest", sections = {
@@ -2681,8 +2927,8 @@ KP.Priority = {
           { name = "Greater Heal", tag = "Main heal", text = "", icon = 135913 },
           { name = "Heal", tag = "Heal", text = "", icon = 135915 },
           { name = "Renew", tag = "Heal", text = "", icon = 135953 },
-          { name = "Power Word: Shield", tag = "Heal", text = "", icon = 135940 },
           { name = "Flash Heal", tag = "Heal", text = "", icon = 135907 },
+          { name = "Power Word: Shield", tag = "Cooldown", text = "", icon = 135940 },
         } },
         { title = "When someone is about to die", note = "", items = {
           { name = "Power Word: Shield", tag = "Emergency", text = "Draws on the soul of the party member to shield them, absorbing 928 damage.", icon = 135940 },
@@ -2756,7 +3002,7 @@ KP.Priority = {
           { name = "Garrote", tag = "Opener", text = "A bleed from behind.", icon = 132297 },
         } },
         { title = "Keep up", note = "", items = {
-          { name = "Slice and Dice", tag = "Not worth it yet", text = "With your gear your white hits are too small for it to pay off: put the points into Eviscerate instead. It wins once you have more attack power or buffs.", icon = 132306 },
+          { name = "Slice and Dice", tag = "Keep up", text = "Refresh it at 1 combo point: the best length for your current numbers.", icon = 132306 },
           { name = "Rupture", tag = "Keep up", text = "Your talents favour it: keep the bleed going.", icon = 132302 },
         } },
         { title = "Combo point builders", note = "Use the best one you can (order = damage per energy with your gear).", items = {
@@ -2786,7 +3032,7 @@ KP.Priority = {
           { name = "Garrote", tag = "Opener", text = "A bleed from behind (Dirty Deeds: from any side, cheaper).", icon = 132297 },
         } },
         { title = "Keep up", note = "", items = {
-          { name = "Slice and Dice", tag = "Not worth it yet", text = "With your gear your white hits are too small for it to pay off: put the points into Eviscerate instead. It wins once you have more attack power or buffs.", icon = 132306 },
+          { name = "Slice and Dice", tag = "Keep up", text = "Refresh it at 1 combo point: the best length for your current numbers.", icon = 132306 },
           { name = "Rupture", tag = "Keep up", text = "Your talents favour it: keep the bleed going.", icon = 132302 },
         } },
         { title = "Combo point builders", note = "Use the best one you can (order = damage per energy with your gear).", items = {
@@ -2901,6 +3147,56 @@ KP.Priority = {
         } },
       } },
       { level = 40, title = "Combat Rogue", sections = {
+        { title = "Opener", note = "From Stealth.", items = {
+          { name = "Cheap Shot", tag = "Opener", text = "A stun and 2 combo points (good when you can't get behind).", icon = 132092 },
+          { name = "Garrote", tag = "Opener", text = "A bleed from behind.", icon = 132297 },
+        } },
+        { title = "Keep up", note = "", items = {
+          { name = "Slice and Dice", tag = "Not worth it yet", text = "With your gear your white hits are too small for it to pay off: put the points into Eviscerate instead. It wins once you have more attack power or buffs.", icon = 132306 },
+          { name = "Expose Armor", tag = "If no Warrior sunders", text = "5 points on the boss when no Warrior keeps Sunder Armor up.", icon = 132354 },
+        } },
+        { title = "Combo point builders", note = "Use the best one you can (order = damage per energy with your gear).", items = {
+          { name = "Shank", tag = "On cooldown", text = "An off-hand stab that gives back more energy than it costs and a combo point.", icon = 132323 },
+          { name = "Sinister Strike", tag = "Your main builder", text = "Works with any weapon, from any side.", icon = 136189 },
+        } },
+        { title = "Finisher", note = "At 5 combo points.", items = {
+          { name = "Eviscerate", tag = "At 5 points", text = "Your damage finisher.", icon = 132292 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Adrenaline Rush", tag = "Cooldown", text = "Double energy for 15 sec: line it up with Slice and Dice up.", icon = 136206 },
+          { name = "Blade Flurry", tag = "Cooldown", text = "+20% attack speed and a second target for 15 sec.", icon = 132350 },
+          { name = "Vanish", tag = "Situational", text = "Drops threat.", icon = 132331 },
+        } },
+        { title = "Threat", note = "", items = {
+          { name = "Feint", tag = "When threat is high", text = "Lowers your threat without breaking your rotation.", icon = 132294 },
+        } },
+      } },
+      { level = 45, title = "Combat Rogue", sections = {
+        { title = "Opener", note = "From Stealth.", items = {
+          { name = "Cheap Shot", tag = "Opener", text = "A stun and 2 combo points (good when you can't get behind).", icon = 132092 },
+          { name = "Garrote", tag = "Opener", text = "A bleed from behind.", icon = 132297 },
+        } },
+        { title = "Keep up", note = "", items = {
+          { name = "Slice and Dice", tag = "Keep up", text = "Refresh it at 1 combo point: the best length for your current numbers.", icon = 132306 },
+          { name = "Expose Armor", tag = "If no Warrior sunders", text = "5 points on the boss when no Warrior keeps Sunder Armor up.", icon = 132354 },
+        } },
+        { title = "Combo point builders", note = "Use the best one you can (order = damage per energy with your gear).", items = {
+          { name = "Shank", tag = "On cooldown", text = "An off-hand stab that gives back more energy than it costs and a combo point.", icon = 132323 },
+          { name = "Sinister Strike", tag = "Your main builder", text = "Works with any weapon, from any side.", icon = 136189 },
+        } },
+        { title = "Finisher", note = "At 5 combo points.", items = {
+          { name = "Eviscerate", tag = "At 5 points", text = "Your damage finisher.", icon = 132292 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Adrenaline Rush", tag = "Cooldown", text = "Double energy for 15 sec: line it up with Slice and Dice up.", icon = 136206 },
+          { name = "Blade Flurry", tag = "Cooldown", text = "+20% attack speed and a second target for 15 sec.", icon = 132350 },
+          { name = "Vanish", tag = "Situational", text = "Drops threat.", icon = 132331 },
+        } },
+        { title = "Threat", note = "", items = {
+          { name = "Feint", tag = "When threat is high", text = "Lowers your threat without breaking your rotation.", icon = 132294 },
+        } },
+      } },
+      { level = 50, title = "Combat Rogue", sections = {
         { title = "Opener", note = "From Stealth.", items = {
           { name = "Cheap Shot", tag = "Opener", text = "A stun and 2 combo points (good when you can't get behind).", icon = 132092 },
           { name = "Garrote", tag = "Opener", text = "A bleed from behind.", icon = 132297 },
@@ -3114,7 +3410,7 @@ KP.Priority = {
           { name = "Garrote", tag = "Opener", text = "A bleed from behind.", icon = 132297 },
         } },
         { title = "Keep up", note = "", items = {
-          { name = "Slice and Dice", tag = "Not worth it yet", text = "With your gear your white hits are too small for it to pay off: put the points into Eviscerate instead. It wins once you have more attack power or buffs.", icon = 132306 },
+          { name = "Slice and Dice", tag = "Keep up", text = "Refresh it at 1 combo point: the best length for your current numbers.", icon = 132306 },
           { name = "Expose Armor", tag = "If no Warrior sunders", text = "5 points on the boss when no Warrior keeps Sunder Armor up.", icon = 132354 },
           { name = "Rupture", tag = "Keep up", text = "Your talents favour it: keep the bleed going.", icon = 132302 },
         } },
@@ -3136,6 +3432,34 @@ KP.Priority = {
         } },
       } },
       { level = 55, title = "Assassination Rogue", sections = {
+        { title = "Opener", note = "From Stealth.", items = {
+          { name = "Ambush", tag = "Opener", text = "From behind, with a dagger.", icon = 132282 },
+          { name = "Cheap Shot", tag = "Opener", text = "A stun and 2 combo points (good when you can't get behind).", icon = 132092 },
+          { name = "Garrote", tag = "Opener", text = "A bleed from behind.", icon = 132297 },
+        } },
+        { title = "Keep up", note = "", items = {
+          { name = "Slice and Dice", tag = "Keep up", text = "Refresh it at 5 combo points: the best length for your current numbers.", icon = 132306 },
+          { name = "Expose Armor", tag = "If no Warrior sunders", text = "5 points on the boss when no Warrior keeps Sunder Armor up.", icon = 132354 },
+          { name = "Rupture", tag = "Keep up", text = "Your talents favour it: keep the bleed going.", icon = 132302 },
+        } },
+        { title = "Combo point builders", note = "Use the best one you can (order = damage per energy with your gear).", items = {
+          { name = "Shank", tag = "On cooldown", text = "An off-hand stab that gives back more energy than it costs and a combo point; Venom then boosts your poisons for 6 sec.", icon = 132323 },
+          { name = "Backstab", tag = "Your main builder", text = "From behind, with a dagger.", icon = 132090 },
+          { name = "Mutilate", tag = "Builder", text = "Needs daggers in both hands; 2 combo points.", icon = 236270 },
+          { name = "Sinister Strike", tag = "Builder", text = "Works with any weapon, from any side.", icon = 136189 },
+        } },
+        { title = "Finisher", note = "At 5 combo points.", items = {
+          { name = "Eviscerate", tag = "At 5 points", text = "Your damage finisher.", icon = 132292 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Cold Blood", tag = "Cooldown", text = "Before a 5-point Eviscerate (or a Mutilate): a guaranteed crit.", icon = 135988 },
+          { name = "Vanish", tag = "Situational", text = "Drops threat, and lets you Ambush again.", icon = 132331 },
+        } },
+        { title = "Threat", note = "", items = {
+          { name = "Feint", tag = "When threat is high", text = "Lowers your threat without breaking your rotation.", icon = 132294 },
+        } },
+      } },
+      { level = 60, title = "Assassination Rogue", sections = {
         { title = "Opener", note = "From Stealth.", items = {
           { name = "Ambush", tag = "Opener", text = "From behind, with a dagger.", icon = 132282 },
           { name = "Cheap Shot", tag = "Opener", text = "A stun and 2 combo points (good when you can't get behind).", icon = 132092 },
@@ -3390,6 +3714,37 @@ KP.Priority = {
           { name = "Feint", tag = "When threat is high", text = "Lowers your threat without breaking your rotation.", icon = 132294 },
         } },
       } },
+      { level = 55, title = "Subtlety Rogue", sections = {
+        { title = "Opener", note = "From Stealth.", items = {
+          { name = "Premeditation", tag = "Before you open", text = "Two free combo points.", icon = 136183 },
+          { name = "Ambush", tag = "Opener", text = "From behind, with a dagger. Initiative adds an extra combo point.", icon = 132282 },
+          { name = "Cheap Shot", tag = "Opener", text = "A stun and 2 combo points (good when you can't get behind).", icon = 132092 },
+          { name = "Garrote", tag = "Opener", text = "A bleed from behind (Dirty Deeds: from any side, cheaper).", icon = 132297 },
+        } },
+        { title = "Keep up", note = "", items = {
+          { name = "Slice and Dice", tag = "Keep up", text = "Refresh it at 1 combo point: the best length for your current numbers.", icon = 132306 },
+          { name = "Expose Armor", tag = "If no Warrior sunders", text = "5 points on the boss when no Warrior keeps Sunder Armor up.", icon = 132354 },
+          { name = "Rupture", tag = "Keep up", text = "Your talents favour it: keep the bleed going.", icon = 132302 },
+        } },
+        { title = "Combo point builders", note = "Use the best one you can (order = damage per energy with your gear).", items = {
+          { name = "Shank", tag = "On cooldown", text = "An off-hand stab that gives back more energy than it costs and a combo point (two with Boot Knife).", icon = 132323 },
+          { name = "Backstab", tag = "Your main builder", text = "From behind, with a dagger.", icon = 132090 },
+          { name = "Sinister Strike", tag = "Builder", text = "Works with any weapon, from any side.", icon = 136189 },
+          { name = "Ghostly Strike", tag = "On cooldown", text = "On cooldown when you have the energy (also +15% dodge).", icon = 136136 },
+          { name = "Hemorrhage", tag = "Builder", text = "Also makes your Rupture hit harder.", icon = 136168 },
+        } },
+        { title = "Finisher", note = "At 5 combo points.", items = {
+          { name = "Eviscerate", tag = "At 5 points", text = "Your damage finisher.", icon = 132292 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Preparation", tag = "Cooldown", text = "Resets your other cooldowns: use it after the first round of them.", icon = 136121 },
+          { name = "Death Mark", tag = "Finisher, every 10 sec", text = "Marks the target: for 6 sec it stores a share of your damage (60% at 5 points, bleeds twice as much), then deals it, up to a cap set by your attack power and crit.", icon = 132094 },
+          { name = "Vanish", tag = "Situational", text = "Drops threat, and lets you Ambush again.", icon = 132331 },
+        } },
+        { title = "Threat", note = "", items = {
+          { name = "Feint", tag = "When threat is high", text = "Lowers your threat without breaking your rotation.", icon = 132294 },
+        } },
+      } },
       { level = 60, title = "Subtlety Rogue", sections = {
         { title = "Opener", note = "From Stealth.", items = {
           { name = "Premeditation", tag = "Before you open", text = "Two free combo points.", icon = 136183 },
@@ -3431,6 +3786,7 @@ KP.Priority = {
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Grace of Air Totem", tag = "Totem", text = "Agility for your melee group.", icon = 136046 },
           { name = "Windfury Totem", tag = "Totem", text = "For the rest of your melee group (your own Windfury Weapon replaces it for you).", icon = 136114 },
+          { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
           { name = "Stormstrike", tag = "On cooldown", text = "Weapon damage, and your next Earth Shock, Lightning Bolt or Chain Lightning hits 20% harder.", icon = 132314 },
@@ -3441,6 +3797,10 @@ KP.Priority = {
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Rage of the Farseer", tag = "Cooldown", text = "On cooldown: +30% attack speed for 25 sec, every 3 min.", icon = 136012 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Magma Totem", tag = "Packs", text = "Your Fire totem when several enemies stand around you.", icon = 135826 },
+          { name = "Fire Nova", tag = "Packs", text = "Hits the enemies near your Fire totem: drop one first.", icon = 135824 },
         } },
       } },
     },
@@ -3486,6 +3846,7 @@ KP.Priority = {
       { level = 10, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
+          { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
           { name = "Flame Shock", tag = "Keep up", text = "Fire damage plus a burn over 12 sec. Cast it again only when the burn has run out: a new Flame Shock replaces the burn still going.", icon = 135813 },
@@ -3493,9 +3854,24 @@ KP.Priority = {
           { name = "Lightning Bolt", tag = "With Maelstrom", text = "When Maelstrom Weapon has made it fast and cheap (5 stacks: instant).", icon = 136048 },
         } },
       } },
+      { level = 15, title = "Enhancement Shaman", sections = {
+        { title = "Keep up", note = "", items = {
+          { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
+          { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
+        } },
+        { title = "Attack priority", note = "Press the first one that's ready.", items = {
+          { name = "Flame Shock", tag = "Keep up", text = "Fire damage plus a burn over 12 sec. Cast it again only when the burn has run out: a new Flame Shock replaces the burn still going.", icon = 135813 },
+          { name = "Earth Shock", tag = "On cooldown", text = "Right after Stormstrike for the +20%. Also your interrupt.", icon = 136026 },
+          { name = "Lightning Bolt", tag = "With Maelstrom", text = "When Maelstrom Weapon has made it fast and cheap (5 stacks: instant).", icon = 136048 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Fire Nova", tag = "Packs", text = "Hits the enemies near your Fire totem: drop one first.", icon = 135824 },
+        } },
+      } },
       { level = 20, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
+          { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
           { name = "Flame Shock", tag = "Keep up", text = "Fire damage plus a burn over 12 sec. Cast it again only when the burn has run out: a new Flame Shock replaces the burn still going.", icon = 135813 },
@@ -3503,28 +3879,40 @@ KP.Priority = {
           { name = "Earth Shock", tag = "Situational", text = "Right after Stormstrike for the +20%. Also your interrupt.", icon = 136026 },
           { name = "Lightning Bolt", tag = "With Maelstrom", text = "When Maelstrom Weapon has made it fast and cheap (5 stacks: instant).", icon = 136048 },
         } },
+        { title = "Several targets", note = "", items = {
+          { name = "Fire Nova", tag = "Packs", text = "Hits the enemies near your Fire totem: drop one first.", icon = 135824 },
+        } },
       } },
       { level = 25, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
+          { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
           { name = "Flame Shock", tag = "Keep up", text = "Fire damage plus a burn over 12 sec. Cast it again only when the burn has run out: a new Flame Shock replaces the burn still going.", icon = 135813 },
           { name = "Earth Shock", tag = "On cooldown", text = "Right after Stormstrike for the +20%. Also your interrupt.", icon = 136026 },
           { name = "Frost Shock", tag = "Situational", text = "Slows the target.", icon = 135849 },
           { name = "Lightning Bolt", tag = "With Maelstrom", text = "When Maelstrom Weapon has made it fast and cheap (5 stacks: instant).", icon = 136048 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Fire Nova", tag = "Packs", text = "Hits the enemies near your Fire totem: drop one first.", icon = 135824 },
         } },
       } },
       { level = 30, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
           { name = "Windfury Weapon", tag = "Keep up", text = "Your main-hand imbue: chances of extra attacks on every hit.", icon = 136018 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
+          { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
           { name = "Flame Shock", tag = "Keep up", text = "Fire damage plus a burn over 12 sec. Cast it again only when the burn has run out: a new Flame Shock replaces the burn still going.", icon = 135813 },
           { name = "Earth Shock", tag = "On cooldown", text = "Right after Stormstrike for the +20%. Also your interrupt.", icon = 136026 },
           { name = "Frost Shock", tag = "Situational", text = "Slows the target.", icon = 135849 },
           { name = "Lightning Bolt", tag = "With Maelstrom", text = "When Maelstrom Weapon has made it fast and cheap (5 stacks: instant).", icon = 136048 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Magma Totem", tag = "Packs", text = "Your Fire totem when several enemies stand around you.", icon = 135826 },
+          { name = "Fire Nova", tag = "Packs", text = "Hits the enemies near your Fire totem: drop one first.", icon = 135824 },
         } },
       } },
       { level = 35, title = "Enhancement Shaman", sections = {
@@ -3532,6 +3920,7 @@ KP.Priority = {
           { name = "Windfury Weapon", tag = "Keep up", text = "Your main-hand imbue: chances of extra attacks on every hit.", icon = 136018 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Windfury Totem", tag = "Totem", text = "For the rest of your melee group (your own Windfury Weapon replaces it for you).", icon = 136114 },
+          { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
           { name = "Flame Shock", tag = "Keep up", text = "Fire damage plus a burn over 12 sec. Cast it again only when the burn has run out: a new Flame Shock replaces the burn still going.", icon = 135813 },
@@ -3539,12 +3928,17 @@ KP.Priority = {
           { name = "Earth Shock", tag = "Situational", text = "Right after Stormstrike for the +20%. Also your interrupt.", icon = 136026 },
           { name = "Lightning Bolt", tag = "With Maelstrom", text = "When Maelstrom Weapon has made it fast and cheap (5 stacks: instant).", icon = 136048 },
         } },
+        { title = "Several targets", note = "", items = {
+          { name = "Magma Totem", tag = "Packs", text = "Your Fire totem when several enemies stand around you.", icon = 135826 },
+          { name = "Fire Nova", tag = "Packs", text = "Hits the enemies near your Fire totem: drop one first.", icon = 135824 },
+        } },
       } },
       { level = 40, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
           { name = "Windfury Weapon", tag = "Keep up", text = "Your main-hand imbue: chances of extra attacks on every hit.", icon = 136018 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Windfury Totem", tag = "Totem", text = "For the rest of your melee group (your own Windfury Weapon replaces it for you).", icon = 136114 },
+          { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
           { name = "Stormstrike", tag = "On cooldown", text = "Weapon damage, and your next Earth Shock, Lightning Bolt or Chain Lightning hits 20% harder.", icon = 132314 },
@@ -3555,6 +3949,10 @@ KP.Priority = {
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Rage of the Farseer", tag = "Cooldown", text = "On cooldown: +30% attack speed for 25 sec, every 3 min.", icon = 136012 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Magma Totem", tag = "Packs", text = "Your Fire totem when several enemies stand around you.", icon = 135826 },
+          { name = "Fire Nova", tag = "Packs", text = "Hits the enemies near your Fire totem: drop one first.", icon = 135824 },
         } },
       } },
       { level = 45, title = "Enhancement Shaman", sections = {
@@ -3563,6 +3961,7 @@ KP.Priority = {
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Grace of Air Totem", tag = "Totem", text = "Agility for your melee group.", icon = 136046 },
           { name = "Windfury Totem", tag = "Totem", text = "For the rest of your melee group (your own Windfury Weapon replaces it for you).", icon = 136114 },
+          { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
           { name = "Stormstrike", tag = "On cooldown", text = "Weapon damage, and your next Earth Shock, Lightning Bolt or Chain Lightning hits 20% harder.", icon = 132314 },
@@ -3574,13 +3973,18 @@ KP.Priority = {
         { title = "Cooldowns", note = "", items = {
           { name = "Rage of the Farseer", tag = "Cooldown", text = "On cooldown: +30% attack speed for 25 sec, every 3 min.", icon = 136012 },
         } },
+        { title = "Several targets", note = "", items = {
+          { name = "Magma Totem", tag = "Packs", text = "Your Fire totem when several enemies stand around you.", icon = 135826 },
+          { name = "Fire Nova", tag = "Packs", text = "Hits the enemies near your Fire totem: drop one first.", icon = 135824 },
+        } },
       } },
-      { level = 55, title = "Enhancement Shaman", sections = {
+      { level = 60, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
           { name = "Windfury Weapon", tag = "Keep up", text = "Your main-hand imbue: chances of extra attacks on every hit.", icon = 136018 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Grace of Air Totem", tag = "Totem", text = "Agility for your melee group.", icon = 136046 },
           { name = "Windfury Totem", tag = "Totem", text = "For the rest of your melee group (your own Windfury Weapon replaces it for you).", icon = 136114 },
+          { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
           { name = "Stormstrike", tag = "On cooldown", text = "Weapon damage, and your next Earth Shock, Lightning Bolt or Chain Lightning hits 20% harder.", icon = 132314 },
@@ -3591,6 +3995,10 @@ KP.Priority = {
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Rage of the Farseer", tag = "Cooldown", text = "On cooldown: +30% attack speed for 25 sec, every 3 min.", icon = 136012 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Magma Totem", tag = "Packs", text = "Your Fire totem when several enemies stand around you.", icon = 135826 },
+          { name = "Fire Nova", tag = "Packs", text = "Hits the enemies near your Fire totem: drop one first.", icon = 135824 },
         } },
       } },
     },
@@ -3629,6 +4037,7 @@ KP.Priority = {
       { level = 10, title = "Restoration Shaman, dealing damage", sections = {
         { title = "Keep up", note = "", items = {
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
+          { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
           { name = "Flame Shock", tag = "Keep up", text = "Fire damage plus a burn over 12 sec. Cast it again only when the burn has run out: a new Flame Shock replaces the burn still going.", icon = 135813 },
@@ -3639,16 +4048,21 @@ KP.Priority = {
       { level = 15, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
+          { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
           { name = "Flame Shock", tag = "Keep up", text = "Fire damage plus a burn over 12 sec. Cast it again only when the burn has run out: a new Flame Shock replaces the burn still going.", icon = 135813 },
           { name = "Earth Shock", tag = "On cooldown", text = "Right after Stormstrike for the +20%. Also your interrupt.", icon = 136026 },
           { name = "Lightning Bolt", tag = "With Maelstrom", text = "When Maelstrom Weapon has made it fast and cheap (5 stacks: instant).", icon = 136048 },
         } },
+        { title = "Several targets", note = "", items = {
+          { name = "Fire Nova", tag = "Packs", text = "Hits the enemies near your Fire totem: drop one first.", icon = 135824 },
+        } },
       } },
       { level = 20, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
+          { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
           { name = "Flame Shock", tag = "Keep up", text = "Fire damage plus a burn over 12 sec. Cast it again only when the burn has run out: a new Flame Shock replaces the burn still going.", icon = 135813 },
@@ -3656,28 +4070,40 @@ KP.Priority = {
           { name = "Earth Shock", tag = "Situational", text = "Right after Stormstrike for the +20%. Also your interrupt.", icon = 136026 },
           { name = "Lightning Bolt", tag = "With Maelstrom", text = "When Maelstrom Weapon has made it fast and cheap (5 stacks: instant).", icon = 136048 },
         } },
+        { title = "Several targets", note = "", items = {
+          { name = "Fire Nova", tag = "Packs", text = "Hits the enemies near your Fire totem: drop one first.", icon = 135824 },
+        } },
       } },
       { level = 25, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
+          { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
           { name = "Flame Shock", tag = "Keep up", text = "Fire damage plus a burn over 12 sec. Cast it again only when the burn has run out: a new Flame Shock replaces the burn still going.", icon = 135813 },
           { name = "Earth Shock", tag = "On cooldown", text = "Right after Stormstrike for the +20%. Also your interrupt.", icon = 136026 },
           { name = "Frost Shock", tag = "Situational", text = "Slows the target.", icon = 135849 },
           { name = "Lightning Bolt", tag = "With Maelstrom", text = "When Maelstrom Weapon has made it fast and cheap (5 stacks: instant).", icon = 136048 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Fire Nova", tag = "Packs", text = "Hits the enemies near your Fire totem: drop one first.", icon = 135824 },
         } },
       } },
       { level = 30, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
           { name = "Windfury Weapon", tag = "Keep up", text = "Your main-hand imbue: chances of extra attacks on every hit.", icon = 136018 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
+          { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
           { name = "Flame Shock", tag = "Keep up", text = "Fire damage plus a burn over 12 sec. Cast it again only when the burn has run out: a new Flame Shock replaces the burn still going.", icon = 135813 },
           { name = "Earth Shock", tag = "On cooldown", text = "Right after Stormstrike for the +20%. Also your interrupt.", icon = 136026 },
           { name = "Frost Shock", tag = "Situational", text = "Slows the target.", icon = 135849 },
           { name = "Lightning Bolt", tag = "With Maelstrom", text = "When Maelstrom Weapon has made it fast and cheap (5 stacks: instant).", icon = 136048 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Magma Totem", tag = "Packs", text = "Your Fire totem when several enemies stand around you.", icon = 135826 },
+          { name = "Fire Nova", tag = "Packs", text = "Hits the enemies near your Fire totem: drop one first.", icon = 135824 },
         } },
       } },
       { level = 35, title = "Enhancement Shaman", sections = {
@@ -3685,6 +4111,7 @@ KP.Priority = {
           { name = "Windfury Weapon", tag = "Keep up", text = "Your main-hand imbue: chances of extra attacks on every hit.", icon = 136018 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Windfury Totem", tag = "Totem", text = "For the rest of your melee group (your own Windfury Weapon replaces it for you).", icon = 136114 },
+          { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
           { name = "Flame Shock", tag = "Keep up", text = "Fire damage plus a burn over 12 sec. Cast it again only when the burn has run out: a new Flame Shock replaces the burn still going.", icon = 135813 },
@@ -3692,12 +4119,17 @@ KP.Priority = {
           { name = "Earth Shock", tag = "Situational", text = "Right after Stormstrike for the +20%. Also your interrupt.", icon = 136026 },
           { name = "Lightning Bolt", tag = "With Maelstrom", text = "When Maelstrom Weapon has made it fast and cheap (5 stacks: instant).", icon = 136048 },
         } },
+        { title = "Several targets", note = "", items = {
+          { name = "Magma Totem", tag = "Packs", text = "Your Fire totem when several enemies stand around you.", icon = 135826 },
+          { name = "Fire Nova", tag = "Packs", text = "Hits the enemies near your Fire totem: drop one first.", icon = 135824 },
+        } },
       } },
       { level = 40, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
           { name = "Windfury Weapon", tag = "Keep up", text = "Your main-hand imbue: chances of extra attacks on every hit.", icon = 136018 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Windfury Totem", tag = "Totem", text = "For the rest of your melee group (your own Windfury Weapon replaces it for you).", icon = 136114 },
+          { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
           { name = "Stormstrike", tag = "On cooldown", text = "Weapon damage, and your next Earth Shock, Lightning Bolt or Chain Lightning hits 20% harder.", icon = 132314 },
@@ -3705,6 +4137,10 @@ KP.Priority = {
           { name = "Earth Shock", tag = "On cooldown", text = "Right after Stormstrike for the +20%. Also your interrupt.", icon = 136026 },
           { name = "Frost Shock", tag = "Situational", text = "Slows the target.", icon = 135849 },
           { name = "Lightning Bolt", tag = "With Maelstrom", text = "When Maelstrom Weapon has made it fast and cheap (5 stacks: instant).", icon = 136048 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Magma Totem", tag = "Packs", text = "Your Fire totem when several enemies stand around you.", icon = 135826 },
+          { name = "Fire Nova", tag = "Packs", text = "Hits the enemies near your Fire totem: drop one first.", icon = 135824 },
         } },
       } },
       { level = 45, title = "Enhancement Shaman", sections = {
@@ -3713,6 +4149,7 @@ KP.Priority = {
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Grace of Air Totem", tag = "Totem", text = "Agility for your melee group.", icon = 136046 },
           { name = "Windfury Totem", tag = "Totem", text = "For the rest of your melee group (your own Windfury Weapon replaces it for you).", icon = 136114 },
+          { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
           { name = "Stormstrike", tag = "On cooldown", text = "Weapon damage, and your next Earth Shock, Lightning Bolt or Chain Lightning hits 20% harder.", icon = 132314 },
@@ -3720,6 +4157,10 @@ KP.Priority = {
           { name = "Earth Shock", tag = "On cooldown", text = "Right after Stormstrike for the +20%. Also your interrupt.", icon = 136026 },
           { name = "Frost Shock", tag = "Situational", text = "Slows the target.", icon = 135849 },
           { name = "Lightning Bolt", tag = "With Maelstrom", text = "When Maelstrom Weapon has made it fast and cheap (5 stacks: instant).", icon = 136048 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Magma Totem", tag = "Packs", text = "Your Fire totem when several enemies stand around you.", icon = 135826 },
+          { name = "Fire Nova", tag = "Packs", text = "Hits the enemies near your Fire totem: drop one first.", icon = 135824 },
         } },
       } },
       { level = 50, title = "Restoration Shaman", sections = {
@@ -3792,9 +4233,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
-          { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
-          { name = "Wrack", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 460687 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -3812,19 +4251,19 @@ KP.Priority = {
       { level = 60, title = "Destruction Warlock", sections = {
         { title = "Before the fight", note = "", items = {
           { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
-          { name = "Demonic Sacrifice", tag = "Before the fight", text = "Summon the Imp and sacrifice it.", icon = 136184 },
+          { name = "Demonic Sacrifice", tag = "Before the fight", text = "Summon the Succubus and sacrifice it.", icon = 136184 },
         } },
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Doom", tag = "Keep up", text = "Your Bane while the target will live another minute: its damage lands after 1 min.", icon = 136122 },
           { name = "Bane of Agony", tag = "Short fights", text = "Your Bane instead when the target won't live another minute.", icon = 136139 },
-          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
           { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
-          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
+          { name = "Incinerate", tag = "Filler", text = "The most damage per second of casting.", icon = 135789 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -3852,9 +4291,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Soul Fire", tag = "Below 35%", text = "On a target near death, Shadow Bolt or Searing Pain makes your next Soul Fire faster and free of a Soul Shard: cast it then.", icon = 135808 },
-          { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
-          { name = "Searing Pain", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135827 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -3902,6 +4339,27 @@ KP.Priority = {
           { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
         } },
       } },
+      { level = 25, title = "Affliction Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
+        } },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
+          { name = "Searing Pain", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135827 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
+        } },
+      } },
       { level = 30, title = "Affliction Warlock", sections = {
         { title = "Before the fight", note = "", items = {
           { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
@@ -3911,11 +4369,9 @@ KP.Priority = {
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
           { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
-          { name = "Siphon Life", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136188 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
-          { name = "Searing Pain", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135827 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -3934,7 +4390,6 @@ KP.Priority = {
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
           { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
-          { name = "Siphon Life", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136188 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
@@ -3956,7 +4411,6 @@ KP.Priority = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
           { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
-          { name = "Siphon Life", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136188 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
@@ -3971,16 +4425,37 @@ KP.Priority = {
           { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
         } },
       } },
-      { level = 60, title = "Affliction Warlock", sections = {
+      { level = 50, title = "Affliction Warlock", sections = {
         { title = "Before the fight", note = "", items = {
           { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
         } },
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
-          { name = "Bane of Doom", tag = "Keep up", text = "Your Bane while the target will live another minute: its damage lands after 1 min.", icon = 136122 },
-          { name = "Bane of Agony", tag = "Short fights", text = "Your Bane instead when the target won't live another minute.", icon = 136139 },
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
           { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
-          { name = "Siphon Life", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136188 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
+          { name = "Wrack", tag = "Filler", text = "The most damage per second of casting.", icon = 460687 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 2% of the fight (it costs nothing).", icon = 135467 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
+          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
+        } },
+      } },
+      { level = 55, title = "Affliction Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
+        } },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
@@ -4024,6 +4499,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
+          { name = "Drain Life", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136169 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -4076,8 +4552,8 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
@@ -4181,54 +4657,6 @@ KP.Priority = {
           { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
         } },
       } },
-      { level = 55, title = "Demonology Warlock", sections = {
-        { title = "Before the fight", note = "", items = {
-          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
-          { name = "Summon Succubus", tag = "Pet out", text = "Keep your demon out: its attacks are part of your damage (the planner doesn't count them yet).", icon = 136220 },
-        } },
-        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
-          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
-          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
-          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
-        } },
-        { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Soul Fire", tag = "Below 35%", text = "On a target near death, Shadow Bolt or Searing Pain makes your next Soul Fire faster and free of a Soul Shard: cast it then.", icon = 135808 },
-          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
-          { name = "Searing Pain", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135827 },
-        } },
-        { title = "Mana", note = "", items = {
-          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
-        } },
-        { title = "Several targets", note = "", items = {
-          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
-          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
-        } },
-      } },
-      { level = 60, title = "Demonology Warlock", sections = {
-        { title = "Before the fight", note = "", items = {
-          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
-          { name = "Summon Succubus", tag = "Pet out", text = "Keep your demon out: its attacks are part of your damage (the planner doesn't count them yet).", icon = 136220 },
-        } },
-        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
-          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
-          { name = "Bane of Doom", tag = "Keep up", text = "Your Bane while the target will live another minute: its damage lands after 1 min.", icon = 136122 },
-          { name = "Bane of Agony", tag = "Short fights", text = "Your Bane instead when the target won't live another minute.", icon = 136139 },
-          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
-          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
-        } },
-        { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Soul Fire", tag = "Below 35%", text = "On a target near death, Shadow Bolt or Searing Pain makes your next Soul Fire faster and free of a Soul Shard: cast it then.", icon = 135808 },
-          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
-        } },
-        { title = "Mana", note = "", items = {
-          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
-        } },
-        { title = "Several targets", note = "", items = {
-          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
-          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
-        } },
-      } },
     },
     ["destro-lvl"] = {
       { level = 10, title = "Destruction Warlock", sections = {
@@ -4258,9 +4686,7 @@ KP.Priority = {
           { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
-          { name = "Searing Pain", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135827 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -4280,6 +4706,7 @@ KP.Priority = {
           { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
           { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
         } },
@@ -4329,7 +4756,6 @@ KP.Priority = {
           { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
           { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
           { name = "Immolate", tag = "Filler", text = "The most damage per second of casting.", icon = 135817 },
-          { name = "Shadow Bolt", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136197 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -4348,13 +4774,11 @@ KP.Priority = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
           { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
           { name = "Incinerate", tag = "Filler", text = "The most damage per second of casting.", icon = 135789 },
-          { name = "Shadow Bolt", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136197 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -4365,32 +4789,7 @@ KP.Priority = {
           { name = "Bane of Havoc", tag = "Two targets", text = "On a second target, as your Bane there: part of your damage to others also hits it.", icon = 460695 },
         } },
       } },
-      { level = 45, title = "Destruction Warlock", sections = {
-        { title = "Before the fight", note = "", items = {
-          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
-        } },
-        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
-          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
-          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
-        } },
-        { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
-          { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
-          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
-          { name = "Searing Pain", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135827 },
-        } },
-        { title = "Mana", note = "", items = {
-          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
-        } },
-        { title = "Several targets", note = "", items = {
-          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
-          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
-          { name = "Bane of Havoc", tag = "Two targets", text = "On a second target, as your Bane there: part of your damage to others also hits it.", icon = 460695 },
-        } },
-      } },
-      { level = 50, title = "Destruction Warlock", sections = {
+      { level = 55, title = "Destruction Warlock", sections = {
         { title = "Before the fight", note = "", items = {
           { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
         } },
@@ -4404,6 +4803,7 @@ KP.Priority = {
           { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
           { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
           { name = "Incinerate", tag = "Filler", text = "The most damage per second of casting.", icon = 135789 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 2% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -4417,19 +4817,18 @@ KP.Priority = {
       { level = 60, title = "Destruction Warlock", sections = {
         { title = "Before the fight", note = "", items = {
           { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
-          { name = "Demonic Sacrifice", tag = "Before the fight", text = "Summon the Imp and sacrifice it.", icon = 136184 },
+          { name = "Demonic Sacrifice", tag = "Before the fight", text = "Summon the Succubus and sacrifice it.", icon = 136184 },
         } },
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Doom", tag = "Keep up", text = "Your Bane while the target will live another minute: its damage lands after 1 min.", icon = 136122 },
           { name = "Bane of Agony", tag = "Short fights", text = "Your Bane instead when the target won't live another minute.", icon = 136139 },
-          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
           { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
-          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
+          { name = "Incinerate", tag = "Filler", text = "The most damage per second of casting.", icon = 135789 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -4504,6 +4903,7 @@ KP.Priority = {
           { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342 },
           { name = "Whirlwind", tag = "On cooldown", text = "Use every time it's ready (hits up to 4 enemies).", icon = 132369 },
           { name = "Bloodthirst", tag = "On cooldown", text = "Use every time it's ready.", icon = 136012 },
+          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast holds back your next one.", icon = 132340 },
           { name = "Hamstring", tag = "Spare rage", text = "Only with rage left after the attacks above: a cheap extra hit whose crits set off Deep Wounds and Flurry (and a Shaman's Windfury Totem can proc on it).", icon = 132316 },
           { name = "Heroic Strike", tag = "Rage dump", text = "Only with rage left over after the attacks above (it replaces your next swing).", icon = 132282 },
         } },
@@ -4512,6 +4912,7 @@ KP.Priority = {
           { name = "Execute", tag = "Spam", text = "Every global cooldown. All your rage goes in: each extra point adds damage.", icon = 135358 },
           { name = "Whirlwind", tag = "Skip", text = "Put the rage into Execute instead.", icon = 132369 },
           { name = "Bloodthirst", tag = "Skip", text = "Put the rage into Execute instead.", icon = 136012 },
+          { name = "Slam", tag = "Skip", text = "Put the rage into Execute instead.", icon = 132340 },
           { name = "Heroic Strike", tag = "Stop", text = "Don't: every rage point is worth more in Execute.", icon = 132282 },
         } },
         { title = "Cooldowns", note = "Long cooldowns: line them up with each other and with the Execute phase.", items = {
@@ -4611,8 +5012,8 @@ KP.Priority = {
         { title = "Attack priority", note = "Press the first one that's ready. Within this group the order is damage per rage with your current talents and gear.", items = {
           { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342 },
           { name = "Overpower", tag = "When it lights up", text = "Only after the target dodges. Cheap and can't be dodged.", icon = 132223 },
-          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast delays your next one (until Improved Slam).", icon = 132340 },
           { name = "Rend", tag = "If missing", text = "When it isn't on the target and the target will live through most of its 15 sec. Don't renew it on a target that's about to die.", icon = 132155 },
+          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast holds back your next one.", icon = 132340 },
           { name = "Hamstring", tag = "Spare rage", text = "Only with rage left after the attacks above: a cheap extra hit whose crits set off Deep Wounds (and a Shaman's Windfury Totem can proc on it).", icon = 132316 },
           { name = "Heroic Strike", tag = "Rage dump", text = "Only with rage left over after the attacks above (it replaces your next swing).", icon = 132282 },
         } },
@@ -4638,7 +5039,7 @@ KP.Priority = {
           { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342 },
           { name = "Overpower", tag = "When it lights up", text = "Only after the target dodges. Cheap and can't be dodged.", icon = 132223 },
           { name = "Rend", tag = "If missing", text = "When it isn't on the target and the target will live through most of its 15 sec. Don't renew it on a target that's about to die.", icon = 132155 },
-          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast delays your next one (until Improved Slam).", icon = 132340 },
+          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast holds back your next one.", icon = 132340 },
           { name = "Hamstring", tag = "Spare rage", text = "Only with rage left after the attacks above: a cheap extra hit whose crits set off Deep Wounds (and a Shaman's Windfury Totem can proc on it).", icon = 132316 },
           { name = "Heroic Strike", tag = "Rage dump", text = "Only with rage left over after the attacks above (it replaces your next swing).", icon = 132282 },
         } },
@@ -4672,7 +5073,7 @@ KP.Priority = {
           { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342 },
           { name = "Overpower", tag = "When it lights up", text = "Only after the target dodges. Cheap and can't be dodged.", icon = 132223 },
           { name = "Rend", tag = "If missing", text = "When it isn't on the target and the target will live through most of its 18 sec. Don't renew it on a target that's about to die.", icon = 132155 },
-          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast delays your next one (until Improved Slam).", icon = 132340 },
+          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast holds back your next one.", icon = 132340 },
           { name = "Hamstring", tag = "Spare rage", text = "Only with rage left after the attacks above: a cheap extra hit whose crits set off Deep Wounds (and a Shaman's Windfury Totem can proc on it).", icon = 132316 },
           { name = "Heroic Strike", tag = "Rage dump", text = "Only with rage left over after the attacks above (it replaces your next swing).", icon = 132282 },
         } },
@@ -4703,12 +5104,12 @@ KP.Priority = {
           { name = "Battle Shout", tag = "Keep up", text = "Refresh before it runs out (lasts 3 min).", icon = 132333 },
           { name = "Demoralizing Shout", tag = "If no one else", text = "Early in the fight: enemies near you hit softer, so you (solo) or your tank take less damage. Skip it when another Warrior or a Druid keeps it up.", icon = 132366 },
           { name = "Sunder Armor", tag = "If no tank does it", text = "Stack it to 5 on the boss, then let it be (a tank usually keeps it up).", icon = 132363 },
+          { name = "Rend", tag = "Keep up", text = "Keep it on the target: Bloodthrill needs it. Don't renew it on a target that's about to die.", icon = 132155 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready. Within this group the order is damage per rage with your current talents and gear.", items = {
           { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342 },
-          { name = "Overpower", tag = "When it lights up", text = "Only after the target dodges. Cheap and can't be dodged.", icon = 132223 },
-          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast delays your next one (until Improved Slam).", icon = 132340 },
-          { name = "Rend", tag = "If missing", text = "When it isn't on the target and the target will live through most of its 18 sec. Don't renew it on a target that's about to die.", icon = 132155 },
+          { name = "Overpower", tag = "When it lights up", text = "Only after the target dodges or Bloodthrill procs. Cheap and can't be dodged.", icon = 132223 },
+          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast holds back your next one.", icon = 132340 },
           { name = "Hamstring", tag = "Spare rage", text = "Only with rage left after the attacks above: a cheap extra hit whose crits set off Deep Wounds (and a Shaman's Windfury Totem can proc on it).", icon = 132316 },
           { name = "Heroic Strike", tag = "Rage dump", text = "Only with rage left over after the attacks above (it replaces your next swing).", icon = 132282 },
         } },
@@ -4716,7 +5117,6 @@ KP.Priority = {
           { name = "Victory Rush", tag = "When it lights up", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132342 },
           { name = "Overpower", tag = "When it lights up", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132223 },
           { name = "Slam", tag = "Still on cooldown", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132340 },
-          { name = "Rend", tag = "If missing", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132155 },
           { name = "Execute", tag = "Spam", text = "Every global cooldown. All your rage goes in: each extra point adds damage.", icon = 135358 },
           { name = "Heroic Strike", tag = "Stop", text = "Don't: every rage point is worth more in Execute.", icon = 132282 },
         } },
@@ -4739,51 +5139,12 @@ KP.Priority = {
           { name = "Battle Shout", tag = "Keep up", text = "Refresh before it runs out (lasts 3 min).", icon = 132333 },
           { name = "Demoralizing Shout", tag = "If no one else", text = "Early in the fight: enemies near you hit softer, so you (solo) or your tank take less damage. Skip it when another Warrior or a Druid keeps it up.", icon = 132366 },
           { name = "Sunder Armor", tag = "If no tank does it", text = "Stack it to 5 on the boss, then let it be (a tank usually keeps it up).", icon = 132363 },
-        } },
-        { title = "Attack priority", note = "Press the first one that's ready. Within this group the order is damage per rage with your current talents and gear.", items = {
-          { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342 },
-          { name = "Overpower", tag = "When it lights up", text = "Only after the target dodges. Cheap and can't be dodged.", icon = 132223 },
-          { name = "Rend", tag = "If missing", text = "When it isn't on the target and the target will live through most of its 21 sec. Don't renew it on a target that's about to die.", icon = 132155 },
-          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast delays your next one (until Improved Slam).", icon = 132340 },
-          { name = "Mortal Strike", tag = "On cooldown", text = "Use every time it's ready.", icon = 132355 },
-          { name = "Hamstring", tag = "Spare rage", text = "Only with rage left after the attacks above: a cheap extra hit whose crits set off Deep Wounds (and a Shaman's Windfury Totem can proc on it).", icon = 132316 },
-          { name = "Heroic Strike", tag = "Rage dump", text = "Only with rage left over after the attacks above (it replaces your next swing).", icon = 132282 },
-        } },
-        { title = "Below 20% health: Execute phase", note = "The order changes: rage is worth more in Execute than almost anywhere else.", items = {
-          { name = "Victory Rush", tag = "When it lights up", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132342 },
-          { name = "Overpower", tag = "When it lights up", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132223 },
-          { name = "Rend", tag = "If missing", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132155 },
-          { name = "Slam", tag = "Still on cooldown", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132340 },
-          { name = "Execute", tag = "Spam", text = "Every global cooldown. All your rage goes in: each extra point adds damage.", icon = 135358 },
-          { name = "Mortal Strike", tag = "Skip", text = "Put the rage into Execute instead.", icon = 132355 },
-          { name = "Heroic Strike", tag = "Stop", text = "Don't: every rage point is worth more in Execute.", icon = 132282 },
-        } },
-        { title = "Several targets", note = "", items = {
-          { name = "Sweeping Strikes", tag = "First", text = "Your next 5 hits also strike a second enemy.", icon = 132306 },
-          { name = "Whirlwind", tag = "On cooldown", text = "Up to 4 enemies (Berserker Stance).", icon = 132369 },
-          { name = "Cleave", tag = "Rage dump", text = "Instead of Heroic Strike when 2+ enemies stand together.", icon = 132338 },
-          { name = "Thunder Clap", tag = "Optional", text = "Slows their attacks; small damage.", icon = 136105 },
-        } },
-      } },
-      { level = 45, title = "Arms Warrior", sections = {
-        { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Two-hander.", items = {
-          { name = "Two-Handed Weapon Specialization", tag = "Counts", text = "Works with this setup.", icon = 132400 },
-          { name = "Weaponmaster", tag = "Counts", text = "Bonus depends on your main-hand weapon type (Primitive Fishing Pole).", icon = 1085608 },
-        } },
-        { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", items = {
-          { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun.", icon = 132337 },
-          { name = "Bloodrage", tag = "At the pull", text = "For rage: between pulls is best (the rage isn't lost while you wait), or whenever you're short.", icon = 132277 },
-        } },
-        { title = "Keep up", note = "Buffs and debuffs first: they make everything else hit harder.", items = {
-          { name = "Battle Shout", tag = "Keep up", text = "Refresh before it runs out (lasts 3 min).", icon = 132333 },
-          { name = "Demoralizing Shout", tag = "If no one else", text = "Early in the fight: enemies near you hit softer, so you (solo) or your tank take less damage. Skip it when another Warrior or a Druid keeps it up.", icon = 132366 },
-          { name = "Sunder Armor", tag = "If no tank does it", text = "Stack it to 5 on the boss, then let it be (a tank usually keeps it up).", icon = 132363 },
           { name = "Rend", tag = "Keep up", text = "Keep it on the target: Bloodthrill needs it. Don't renew it on a target that's about to die.", icon = 132155 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready. Within this group the order is damage per rage with your current talents and gear.", items = {
           { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342 },
           { name = "Overpower", tag = "When it lights up", text = "Only after the target dodges or Bloodthrill procs. Cheap and can't be dodged.", icon = 132223 },
-          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast delays your next one (until Improved Slam).", icon = 132340 },
+          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast holds back your next one.", icon = 132340 },
           { name = "Mortal Strike", tag = "On cooldown", text = "Use every time it's ready.", icon = 132355 },
           { name = "Hamstring", tag = "Spare rage", text = "Only with rage left after the attacks above: a cheap extra hit whose crits set off Deep Wounds (and a Shaman's Windfury Totem can proc on it).", icon = 132316 },
           { name = "Heroic Strike", tag = "Rage dump", text = "Only with rage left over after the attacks above (it replaces your next swing).", icon = 132282 },
@@ -4821,7 +5182,7 @@ KP.Priority = {
         { title = "Attack priority", note = "Press the first one that's ready. Within this group the order is damage per rage with your current talents and gear.", items = {
           { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342 },
           { name = "Overpower", tag = "When it lights up", text = "Only after the target dodges or Bloodthrill procs. Cheap and can't be dodged.", icon = 132223 },
-          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast delays your next one (until Improved Slam).", icon = 132340 },
+          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast holds back your next one.", icon = 132340 },
           { name = "Mortal Strike", tag = "On cooldown", text = "Use every time it's ready.", icon = 132355 },
           { name = "Hamstring", tag = "Spare rage", text = "Only with rage left after the attacks above: a cheap extra hit whose crits set off Deep Wounds (and a Shaman's Windfury Totem can proc on it).", icon = 132316 },
           { name = "Heroic Strike", tag = "Rage dump", text = "Only with rage left over after the attacks above (it replaces your next swing).", icon = 132282 },
@@ -4862,7 +5223,7 @@ KP.Priority = {
         { title = "Attack priority", note = "Press the first one that's ready. Within this group the order is damage per rage with your current talents and gear.", items = {
           { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342 },
           { name = "Overpower", tag = "When it lights up", text = "Only after the target dodges or Bloodthrill procs. Cheap and can't be dodged.", icon = 132223 },
-          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast delays your next one (until Improved Slam).", icon = 132340 },
+          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast holds back your next one.", icon = 132340 },
           { name = "Mortal Strike", tag = "On cooldown", text = "Use every time it's ready.", icon = 132355 },
           { name = "Hamstring", tag = "Spare rage", text = "Only with rage left after the attacks above: a cheap extra hit whose crits set off Deep Wounds (and a Shaman's Windfury Totem can proc on it).", icon = 132316 },
           { name = "Heroic Strike", tag = "Rage dump", text = "Only with rage left over after the attacks above (it replaces your next swing).", icon = 132282 },
@@ -4903,7 +5264,7 @@ KP.Priority = {
         { title = "Attack priority", note = "Press the first one that's ready. Within this group the order is damage per rage with your current talents and gear.", items = {
           { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342 },
           { name = "Overpower", tag = "When it lights up", text = "Only after the target dodges or Bloodthrill procs. Cheap and can't be dodged.", icon = 132223 },
-          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast delays your next one (until Improved Slam).", icon = 132340 },
+          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast holds back your next one.", icon = 132340 },
           { name = "Mortal Strike", tag = "On cooldown", text = "Use every time it's ready.", icon = 132355 },
           { name = "Hamstring", tag = "Spare rage", text = "Only with rage left after the attacks above: a cheap extra hit whose crits set off Deep Wounds (and a Shaman's Windfury Totem can proc on it).", icon = 132316 },
           { name = "Heroic Strike", tag = "Rage dump", text = "Only with rage left over after the attacks above (it replaces your next swing).", icon = 132282 },
@@ -4965,9 +5326,6 @@ KP.Priority = {
         } },
       } },
       { level = 20, title = "Fury Warrior", sections = {
-        { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Dual wield.", items = {
-          { name = "Furious Precision", tag = "Counts", text = "Works with this setup.", icon = 236309 },
-        } },
         { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", items = {
           { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun.", icon = 132337 },
           { name = "Bloodrage", tag = "At the pull", text = "For rage: between pulls is best (the rage isn't lost while you wait), or whenever you're short.", icon = 132277 },
@@ -4981,6 +5339,7 @@ KP.Priority = {
           { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342 },
           { name = "Overpower", tag = "When it lights up", text = "Only after the target dodges. Cheap and can't be dodged.", icon = 132223 },
           { name = "Rend", tag = "If missing", text = "When it isn't on the target and the target will live through most of its 15 sec. Don't renew it on a target that's about to die.", icon = 132155 },
+          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast holds back your next one.", icon = 132340 },
           { name = "Heroic Strike", tag = "Rage dump", text = "Only with rage left over after the attacks above (it replaces your next swing).", icon = 132282 },
         } },
         { title = "Several targets", note = "", items = {
@@ -4989,9 +5348,6 @@ KP.Priority = {
         } },
       } },
       { level = 25, title = "Fury Warrior", sections = {
-        { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Dual wield.", items = {
-          { name = "Furious Precision", tag = "Counts", text = "Works with this setup.", icon = 236309 },
-        } },
         { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", items = {
           { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun.", icon = 132337 },
           { name = "Bloodrage", tag = "At the pull", text = "For rage: between pulls is best (the rage isn't lost while you wait), or whenever you're short.", icon = 132277 },
@@ -5005,12 +5361,14 @@ KP.Priority = {
           { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342 },
           { name = "Overpower", tag = "When it lights up", text = "Only after the target dodges. Cheap and can't be dodged.", icon = 132223 },
           { name = "Rend", tag = "If missing", text = "When it isn't on the target and the target will live through most of its 15 sec. Don't renew it on a target that's about to die.", icon = 132155 },
+          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast holds back your next one.", icon = 132340 },
           { name = "Heroic Strike", tag = "Rage dump", text = "Only with rage left over after the attacks above (it replaces your next swing).", icon = 132282 },
         } },
         { title = "Below 20% health: Execute phase", note = "The order changes: rage is worth more in Execute than almost anywhere else.", items = {
           { name = "Victory Rush", tag = "When it lights up", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132342 },
           { name = "Overpower", tag = "When it lights up", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132223 },
           { name = "Rend", tag = "If missing", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132155 },
+          { name = "Slam", tag = "Still on cooldown", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132340 },
           { name = "Execute", tag = "Spam", text = "Every global cooldown. All your rage goes in: each extra point adds damage.", icon = 135358 },
           { name = "Heroic Strike", tag = "Stop", text = "Don't: every rage point is worth more in Execute.", icon = 132282 },
         } },
@@ -5021,7 +5379,6 @@ KP.Priority = {
       } },
       { level = 30, title = "Fury Warrior", sections = {
         { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Dual wield.", items = {
-          { name = "Furious Precision", tag = "Counts", text = "Works with this setup.", icon = 236309 },
           { name = "Dual Wield Specialization", tag = "Counts", text = "Works with this setup.", icon = 132147 },
         } },
         { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", items = {
@@ -5035,10 +5392,12 @@ KP.Priority = {
         } },
         { title = "Attack priority", note = "Press the first one that's ready. Within this group the order is damage per rage with your current talents and gear.", items = {
           { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342 },
+          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast holds back your next one.", icon = 132340 },
           { name = "Heroic Strike", tag = "Rage dump", text = "Only with rage left over after the attacks above (it replaces your next swing).", icon = 132282 },
         } },
         { title = "Below 20% health: Execute phase", note = "The order changes: rage is worth more in Execute than almost anywhere else.", items = {
           { name = "Victory Rush", tag = "When it lights up", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132342 },
+          { name = "Slam", tag = "Still on cooldown", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132340 },
           { name = "Execute", tag = "Spam", text = "Every global cooldown. All your rage goes in: each extra point adds damage.", icon = 135358 },
           { name = "Heroic Strike", tag = "Stop", text = "Don't: every rage point is worth more in Execute.", icon = 132282 },
         } },
@@ -5065,12 +5424,14 @@ KP.Priority = {
         } },
         { title = "Attack priority", note = "Press the first one that's ready. Within this group the order is damage per rage with your current talents and gear.", items = {
           { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342 },
+          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast holds back your next one.", icon = 132340 },
           { name = "Hamstring", tag = "Spare rage", text = "Only with rage left after the attacks above: a cheap extra hit whose crits set off Flurry (and a Shaman's Windfury Totem can proc on it).", icon = 132316 },
           { name = "Heroic Strike", tag = "Rage dump", text = "Only with rage left over after the attacks above (it replaces your next swing).", icon = 132282 },
         } },
         { title = "Below 20% health: Execute phase", note = "The order changes: rage is worth more in Execute than almost anywhere else.", items = {
           { name = "Victory Rush", tag = "When it lights up", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132342 },
           { name = "Execute", tag = "Spam", text = "Every global cooldown. All your rage goes in: each extra point adds damage.", icon = 135358 },
+          { name = "Slam", tag = "Skip", text = "Put the rage into Execute instead.", icon = 132340 },
           { name = "Heroic Strike", tag = "Stop", text = "Don't: every rage point is worth more in Execute.", icon = 132282 },
         } },
         { title = "Cooldowns", note = "Long cooldowns: line them up with each other and with the Execute phase.", items = {
@@ -5081,6 +5442,44 @@ KP.Priority = {
         } },
       } },
       { level = 40, title = "Fury Warrior", sections = {
+        { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Dual wield.", items = {
+          { name = "Furious Precision", tag = "Counts", text = "Works with this setup.", icon = 236309 },
+          { name = "Dual Wield Specialization", tag = "Counts", text = "Works with this setup.", icon = 132147 },
+        } },
+        { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", items = {
+          { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun. Needs Battle Stance: charge, then switch to Berserker Stance.", icon = 132337 },
+          { name = "Bloodrage", tag = "At the pull", text = "For rage: between pulls is best (the rage isn't lost while you wait), or whenever you're short.", icon = 132277 },
+        } },
+        { title = "Keep up", note = "Buffs and debuffs first: they make everything else hit harder.", items = {
+          { name = "Battle Shout", tag = "Keep up", text = "Refresh before it runs out (lasts 3 min).", icon = 132333 },
+          { name = "Demoralizing Shout", tag = "If no one else", text = "Early in the fight: enemies near you hit softer, so you (solo) or your tank take less damage. Skip it when another Warrior or a Druid keeps it up.", icon = 132366 },
+          { name = "Sunder Armor", tag = "If no tank does it", text = "Stack it to 5 on the boss, then let it be (a tank usually keeps it up).", icon = 132363 },
+        } },
+        { title = "Attack priority", note = "Press the first one that's ready. Within this group the order is damage per rage with your current talents and gear.", items = {
+          { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342 },
+          { name = "Bloodthirst", tag = "On cooldown", text = "Use every time it's ready.", icon = 136012 },
+          { name = "Whirlwind", tag = "On cooldown", text = "Use every time it's ready (hits up to 4 enemies).", icon = 132369 },
+          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast holds back your next one.", icon = 132340 },
+          { name = "Hamstring", tag = "Spare rage", text = "Only with rage left after the attacks above: a cheap extra hit whose crits set off Flurry (and a Shaman's Windfury Totem can proc on it).", icon = 132316 },
+          { name = "Heroic Strike", tag = "Rage dump", text = "Only with rage left over after the attacks above (it replaces your next swing).", icon = 132282 },
+        } },
+        { title = "Below 20% health: Execute phase", note = "The order changes: rage is worth more in Execute than almost anywhere else.", items = {
+          { name = "Victory Rush", tag = "When it lights up", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132342 },
+          { name = "Execute", tag = "Spam", text = "Every global cooldown. All your rage goes in: each extra point adds damage.", icon = 135358 },
+          { name = "Bloodthirst", tag = "Skip", text = "Put the rage into Execute instead.", icon = 136012 },
+          { name = "Whirlwind", tag = "Skip", text = "Put the rage into Execute instead.", icon = 132369 },
+          { name = "Slam", tag = "Skip", text = "Put the rage into Execute instead.", icon = 132340 },
+          { name = "Heroic Strike", tag = "Stop", text = "Don't: every rage point is worth more in Execute.", icon = 132282 },
+        } },
+        { title = "Cooldowns", note = "Long cooldowns: line them up with each other and with the Execute phase.", items = {
+          { name = "Death Wish", tag = "Cooldown", text = "On cooldown in long fights; otherwise save it for the Execute phase.", icon = 136146 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Whirlwind", tag = "On cooldown", text = "Up to 4 enemies (Berserker Stance).", icon = 132369 },
+          { name = "Cleave", tag = "Rage dump", text = "Instead of Heroic Strike when 2+ enemies stand together.", icon = 132338 },
+        } },
+      } },
+      { level = 45, title = "Fury Warrior", sections = {
         { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Dual wield.", items = {
           { name = "Furious Precision", tag = "Counts", text = "Works with this setup.", icon = 236309 },
           { name = "Dual Wield Specialization", tag = "Counts", text = "Works with this setup.", icon = 132147 },
@@ -5190,9 +5589,51 @@ KP.Priority = {
           { name = "Cleave", tag = "Rage dump", text = "Instead of Heroic Strike when 2+ enemies stand together.", icon = 132338 },
         } },
       } },
+      { level = 60, title = "Fury Warrior", sections = {
+        { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Dual wield.", items = {
+          { name = "Furious Precision", tag = "Counts", text = "Works with this setup.", icon = 236309 },
+          { name = "Dual Wield Specialization", tag = "Counts", text = "Works with this setup.", icon = 132147 },
+        } },
+        { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", items = {
+          { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun. Needs Battle Stance: charge, then switch to Berserker Stance.", icon = 132337 },
+          { name = "Bloodrage", tag = "At the pull", text = "For rage: between pulls is best (the rage isn't lost while you wait), or whenever you're short.", icon = 132277 },
+        } },
+        { title = "Keep up", note = "Buffs and debuffs first: they make everything else hit harder.", items = {
+          { name = "Battle Shout", tag = "Keep up", text = "Refresh before it runs out (lasts 3 min).", icon = 132333 },
+          { name = "Demoralizing Shout", tag = "If no one else", text = "Early in the fight: enemies near you hit softer, so you (solo) or your tank take less damage. Skip it when another Warrior or a Druid keeps it up.", icon = 132366 },
+          { name = "Sunder Armor", tag = "If no tank does it", text = "Stack it to 5 on the boss, then let it be (a tank usually keeps it up).", icon = 132363 },
+        } },
+        { title = "Attack priority", note = "Press the first one that's ready. Within this group the order is damage per rage with your current talents and gear.", items = {
+          { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342 },
+          { name = "Bloodthirst", tag = "On cooldown", text = "Use every time it's ready.", icon = 136012 },
+          { name = "Whirlwind", tag = "On cooldown", text = "Use every time it's ready (hits up to 4 enemies).", icon = 132369 },
+          { name = "Slam", tag = "On cooldown", text = "Press it right after a swing: its cast holds back your next one.", icon = 132340 },
+          { name = "Hamstring", tag = "Spare rage", text = "Only with rage left after the attacks above: a cheap extra hit whose crits set off Deep Wounds and Flurry (and a Shaman's Windfury Totem can proc on it).", icon = 132316 },
+          { name = "Heroic Strike", tag = "Rage dump", text = "Only with rage left over after the attacks above (it replaces your next swing).", icon = 132282 },
+        } },
+        { title = "Below 20% health: Execute phase", note = "The order changes: rage is worth more in Execute than almost anywhere else.", items = {
+          { name = "Victory Rush", tag = "When it lights up", text = "Keep using it: with your gear it beats Execute per rage.", icon = 132342 },
+          { name = "Execute", tag = "Spam", text = "Every global cooldown. All your rage goes in: each extra point adds damage.", icon = 135358 },
+          { name = "Bloodthirst", tag = "Skip", text = "Put the rage into Execute instead.", icon = 136012 },
+          { name = "Whirlwind", tag = "Skip", text = "Put the rage into Execute instead.", icon = 132369 },
+          { name = "Slam", tag = "Skip", text = "Put the rage into Execute instead.", icon = 132340 },
+          { name = "Heroic Strike", tag = "Stop", text = "Don't: every rage point is worth more in Execute.", icon = 132282 },
+        } },
+        { title = "Cooldowns", note = "Long cooldowns: line them up with each other and with the Execute phase.", items = {
+          { name = "Death Wish", tag = "Cooldown", text = "On cooldown in long fights; otherwise save it for the Execute phase.", icon = 136146 },
+          { name = "Recklessness", tag = "Cooldown", text = "Once per fight: at the start of the Execute phase (Berserker Stance).", icon = 132109 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Whirlwind", tag = "On cooldown", text = "Up to 4 enemies (Berserker Stance).", icon = 132369 },
+          { name = "Cleave", tag = "Rage dump", text = "Instead of Heroic Strike when 2+ enemies stand together.", icon = 132338 },
+        } },
+      } },
     },
     ["prot-lvl"] = {
       { level = 10, title = "Protection Warrior, tanking", sections = {
+        { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Sword and board.", items = {
+          { name = "Shield Specialization", tag = "Counts", text = "Works with this setup.", icon = 134952 },
+        } },
         { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", items = {
           { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun. Needs Battle Stance: charge, then switch to Defensive Stance.", icon = 132337 },
           { name = "Bloodrage", tag = "At the pull", text = "Rage to start with; between pulls is best, so the rage isn't lost while you wait.", icon = 132277 },

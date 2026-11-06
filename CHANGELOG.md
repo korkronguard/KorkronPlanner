@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.19.0
+
+- **Leveling fights now end when the mob dies.** A mob of your level lives about 8 to 22 seconds, so damage over time
+  (Shadow Word: Pain, Corruption, Rend, Serpent Sting, Moonfire...) only counts the ticks that land before it dies,
+  and long cooldowns (Death Wish, racials) count as coming back while you eat and drink. Leveling builds that lean on
+  damage over time come out slower, and 12 leveling talent orders changed (Discipline, Shadow and Holy Priest,
+  Elemental and Enhancement, Protection Warrior, Restoration and Balance Druid, all three Warlocks). Affliction keeps
+  Bane of Agony while leveling: Bane of Doom's damage comes after a minute. Level 60 builds are unchanged.
+- **Warriors:** Overpower, Slam, Rend and Thunder Clap are now part of the damage math. Arms does about 25% more than
+  the planner thought, and the Arms, Arms leveling and both Protection leveling orders changed. Fury's Priority list
+  now has Slam, with the white damage its cast costs.
+- **Warlocks:** one Bane at a time, Conflagrate uses up your Immolate, Incinerate's bonus on an Immolated target, and
+  Shadow and Flame's bonus only when you cast Conflagrate and Shadowburn. Affliction and Demonology estimates drop by
+  about a tenth; builds and gear follow.
+- **Arcane Mages:** Arcane Blast's stacks are in the math; the Priority list says how many Blasts per 18 seconds pay off.
+- **Priority tab:** Shadow Priests (Mind Blast when you have mana to spare, wand when you're out), Balance Druids,
+  Rogues (Slice and Dice kept up, poisons counted) and Enhancement Shamans (Searing Totem; Magma Totem and Fire Nova
+  for packs) get lists that fit their talents.
+- **Fixes:** Wand Specialization, Ranged Weapon Specialization and Furious Precision only count with their weapon;
+  ranged attack power was counted twice; melee classes no longer get Auto Shot damage.
+- **Real numbers from the guild:** Warrior and Paladin base stats are now measured up to level 22, Priests to 12
+  (thanks to everyone sharing). Paladin Spirit above level 19 was a little low and is fixed.
+- Keep WowUp's auto-update on to get new versions without checking.
+
 ## 0.18.0
 
 - **Priority tab: Hunter, Mage and Warlock lists fixed.**
