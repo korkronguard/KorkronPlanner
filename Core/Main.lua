@@ -17,16 +17,15 @@ KP:On("ADDON_LOADED", function(name)
   KorkronPlannerCharDB = KorkronPlannerCharDB or {}
   KorkronPlannerCharDB.snapshots = KorkronPlannerCharDB.snapshots or {}
   KorkronPlannerCharDB.gear = KorkronPlannerCharDB.gear or {} -- your own gear choices (UI/Gear.lua)
-  KorkronPlannerCharDB.helper = KorkronPlannerCharDB.helper or { on = false, locked = false } -- UI/Helper.lua
+  -- left by the rotation helper and its combat check (removed in 0.17.0)
+  KorkronPlannerCharDB.helper, KorkronPlannerDB.helperNotice, KorkronPlannerDB.combatProbe = nil, nil, nil
 end)
 
 local HELP = {
   "/kp - your build: the next talent to take and the points after it",
-  "/kp helper - the rotation helper: what to press next for your build (" .. KP.Helper.COVERS .. " for now; " ..
-    "/kp helper lock keeps it in place)",
   "/kp export - your stats as a code for the planner website",
   "/kp share - whether your stats are shared with the guild planner (/kp share off stops it, /kp share on starts it)",
-  "/kp probe - check what the game lets the addon read (for the addon's author; /kp probe combat: during your next fights)",
+  "/kp probe - check what the game lets the addon read (for the addon's author)",
   "/kp errors - show errors the addon ran into (/kp errors clear empties the list)",
 }
 
@@ -46,10 +45,6 @@ SlashCmdList.KORKRONPLANNER = function(msg)
     KP.Safe(KP.ShowExport, KP)
   elseif cmd == "probe" then
     KP.Safe(KP.Probe, KP)
-  elseif cmd == "probe combat" then
-    KP.Safe(KP.ArmCombatProbe, KP)
-  elseif word == "helper" and (rest == "" or rest == "on" or rest == "off" or rest == "lock" or rest == "unlock") then
-    KP.Safe(KP.Helper.Command, rest)
   elseif (word == "share" or word == "collect") and (rest == "" or rest == "on" or rest == "off") then
     KP.Safe(word == "share" and KP.Share.SetSharing or KP.Share.SetCollector, SWITCH[rest])
   elseif cmd == "errors" then

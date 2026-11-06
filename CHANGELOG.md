@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.17.0
+
+- **The rotation helper is gone** (`/kp helper` and its bar). WoW: Forever hides too much from addons during a fight
+  for it to be right: inside dungeons it couldn't even tell which enemy you had targeted, or whether it was Undead for
+  Exorcism. The **Priority** tab stays: your build's rotation at your level, for reading outside a fight. The helper's
+  saved settings are cleared.
+
 ## 0.16.0
 
 - **Upgrade arrows in your bags:** with your bags open, a green arrow in the top-right corner of a slot marks an item

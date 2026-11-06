@@ -1,5 +1,5 @@
 -- Kor'kron Planner: the /kp window. On the left you pick one of your class's suggested builds or paste a planner
--- link (and switch the rotation helper on); on the right, tabs: Build (the next talent, the points after it, points
+-- link; on the right, tabs: Build (the next talent, the points after it, points
 -- spent outside the build), Talents (UI/Talents.lua), Priority (UI/Priority.lua), Gear (UI/Gear.lua) and Formulas
 -- (UI/Formulas.lua).
 local _, KP = ...
@@ -95,16 +95,6 @@ local function CreatePicker()
     end)
   end)
   frame.linkBox, frame.useButton, frame.linkNote = box, use, linkNote
-
-  -- the rotation helper's switch (UI/Helper.lua), for the classes it's ready for
-  local helper = CreateFrame("CheckButton", nil, frame, "UICheckButtonTemplate")
-  helper:SetSize(24, 24)
-  helper:SetPoint("TOPLEFT", 12, -350)
-  helper:SetScript("OnClick", function(self) KP.Safe(KP.Helper.SetOn, self:GetChecked() and true or false) end)
-  helper.label = Text(frame, "GameFontHighlightSmall")
-  helper.label:SetPoint("LEFT", helper, "RIGHT", 2, 0)
-  helper.label:SetText("Rotation helper: what to press next")
-  frame.helperBox = helper
 end
 
 -- the Build tab: name, provisional note, points, next talent, the points after it, points off the build
@@ -248,10 +238,6 @@ function Window.Refresh()
   if not (frame and frame:IsShown()) then return end
   local saved = KorkronPlannerCharDB.build
   ShowBuildButtons(saved and saved.key)
-  local helperReady = KP.Rotation.ForClass()
-  frame.helperBox:SetShown(helperReady)
-  frame.helperBox.label:SetShown(helperReady)
-  frame.helperBox:SetChecked(KP.Helper.IsOn())
   for key, pane in pairs(frame.panes) do pane:SetShown(key == tab) end
   for key, b in pairs(frame.tabButtons) do
     if key == tab then b:LockHighlight() else b:UnlockHighlight() end
