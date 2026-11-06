@@ -436,13 +436,20 @@ KP.Priority = {
           { name = "No pet (Lone Wolf)", tag = "Talent", text = "Leave your pet dismissed: Lone Wolf gives +20% damage only without an active pet." },
           { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
         } },
-        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Shots that share a cooldown are compared with your numbers.", items = {
+        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
+          { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
+          { name = "Aimed Shot", tag = "On cooldown", text = "Shares its cooldown with Multi-Shot: Aimed Shot hits harder for you. It has a cast time: start it right after an Auto Shot.", icon = 135130 },
+          { name = "Sniper Shot", tag = "On cooldown", text = "Long-range hit; also gives your next 3 shots +10 yards range.", icon = 1412205 },
+          { name = "Arcane Shot", tag = "On cooldown", text = "Instant. Improved Arcane Shot: 1.5 sec shorter cooldown.", icon = 132218 },
           { name = "Immolation Trap", tag = "Optional", text = "Usable in combat in Forever: worth it when the boss is tanked close enough to reach its feet.", icon = 135813 },
+          { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Rapid Fire", tag = "Cooldown", text = "On cooldown.", icon = 132208 },
         } },
         { title = "Several targets", note = "", items = {
+          { name = "Multi-Shot", tag = "On cooldown", text = "Instead of Aimed Shot when 3+ enemies stand together.", icon = 132330 },
+          { name = "Volley", tag = "Channel", text = "Big packs only (mana heavy).", icon = 132222 },
           { name = "Explosive Trap", tag = "Before the pull", text = "Drop it where the pack will stand.", icon = 135826 },
         } },
       } },
@@ -454,9 +461,13 @@ KP.Priority = {
           { name = "Call Pet", tag = "Pet out", text = "Send the pet in first. Focused Fire: +2% damage for you and the pet while it's out." },
           { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
         } },
-        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Shots that share a cooldown are compared with your numbers.", items = {
+        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
+          { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
+          { name = "Aimed Shot", tag = "On cooldown", text = "Shares its cooldown with Multi-Shot: Aimed Shot hits harder for you. It has a cast time: start it right after an Auto Shot.", icon = 135130 },
           { name = "Summon Hawk", tag = "On cooldown", text = "Shares its cooldown with Arcane Shot. Your Unleashed Fury and Ferocity make hawks stronger, so favour the hawk (2 at a time).", icon = 132158 },
+          { name = "Arcane Shot", tag = "On cooldown", text = "Shares its cooldown with Summon Hawk: use it while 2 hawks are already out (only 2 can be, game data).", icon = 132218 },
           { name = "Immolation Trap", tag = "Optional", text = "Usable in combat in Forever: worth it when the boss is tanked close enough to reach its feet.", icon = 135813 },
+          { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Rapid Fire", tag = "Cooldown", text = "On cooldown.", icon = 132208 },
@@ -464,6 +475,8 @@ KP.Priority = {
           { name = "Intimidation", tag = "Cooldown", text = "Pet stun with a guaranteed crit; also useful threat for the pet.", icon = 132111 },
         } },
         { title = "Several targets", note = "", items = {
+          { name = "Multi-Shot", tag = "On cooldown", text = "Instead of Aimed Shot when 3+ enemies stand together.", icon = 132330 },
+          { name = "Volley", tag = "Channel", text = "Big packs only (mana heavy).", icon = 132222 },
           { name = "Explosive Trap", tag = "Before the pull", text = "Drop it where the pack will stand.", icon = 135826 },
         } },
       } },
@@ -500,6 +513,11 @@ KP.Priority = {
           { name = "Call Pet", tag = "Pet out", text = "Send the pet in first." },
           { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
         } },
+        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
+          { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
+          { name = "Arcane Shot", tag = "On cooldown", text = "Instant.", icon = 132218 },
+          { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
+        } },
       } },
       { level = 20, title = "Beast Mastery Hunter, ranged", sections = {
         { title = "Before the pull", note = "", items = {
@@ -507,8 +525,15 @@ KP.Priority = {
           { name = "Call Pet", tag = "Pet out", text = "Send the pet in first. Focused Fire: +2% damage for you and the pet while it's out." },
           { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
         } },
-        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Shots that share a cooldown are compared with your numbers.", items = {
+        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
+          { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
+          { name = "Aimed Shot", tag = "On cooldown", text = "Shares its cooldown with Multi-Shot: Aimed Shot hits harder for you. It has a cast time: start it right after an Auto Shot.", icon = 135130 },
+          { name = "Arcane Shot", tag = "On cooldown", text = "Instant.", icon = 132218 },
           { name = "Immolation Trap", tag = "Optional", text = "Usable in combat in Forever: worth it when the boss is tanked close enough to reach its feet.", icon = 135813 },
+          { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Multi-Shot", tag = "On cooldown", text = "Instead of Aimed Shot when 3+ enemies stand together.", icon = 132330 },
         } },
       } },
       { level = 30, title = "Beast Mastery Hunter, ranged", sections = {
@@ -517,12 +542,19 @@ KP.Priority = {
           { name = "Call Pet", tag = "Pet out", text = "Send the pet in first. Focused Fire: +2% damage for you and the pet while it's out." },
           { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
         } },
-        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Shots that share a cooldown are compared with your numbers.", items = {
+        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
+          { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
+          { name = "Aimed Shot", tag = "On cooldown", text = "Shares its cooldown with Multi-Shot: Aimed Shot hits harder for you. It has a cast time: start it right after an Auto Shot.", icon = 135130 },
+          { name = "Arcane Shot", tag = "On cooldown", text = "Instant.", icon = 132218 },
           { name = "Immolation Trap", tag = "Optional", text = "Usable in combat in Forever: worth it when the boss is tanked close enough to reach its feet.", icon = 135813 },
+          { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Rapid Fire", tag = "Cooldown", text = "On cooldown.", icon = 132208 },
           { name = "Intimidation", tag = "Cooldown", text = "Pet stun with a guaranteed crit; also useful threat for the pet.", icon = 132111 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Multi-Shot", tag = "On cooldown", text = "Instead of Aimed Shot when 3+ enemies stand together.", icon = 132330 },
         } },
       } },
       { level = 35, title = "Beast Mastery Hunter, ranged", sections = {
@@ -531,15 +563,20 @@ KP.Priority = {
           { name = "Call Pet", tag = "Pet out", text = "Send the pet in first. Focused Fire: +2% damage for you and the pet while it's out." },
           { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
         } },
-        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Shots that share a cooldown are compared with your numbers.", items = {
+        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
+          { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
+          { name = "Aimed Shot", tag = "On cooldown", text = "Shares its cooldown with Multi-Shot: Aimed Shot hits harder for you. It has a cast time: start it right after an Auto Shot.", icon = 135130 },
           { name = "Summon Hawk", tag = "On cooldown", text = "Shares its cooldown with Arcane Shot. Your Unleashed Fury and Ferocity make hawks stronger, so favour the hawk (2 at a time).", icon = 132158 },
+          { name = "Arcane Shot", tag = "On cooldown", text = "Shares its cooldown with Summon Hawk: use it while 2 hawks are already out (only 2 can be, game data).", icon = 132218 },
           { name = "Immolation Trap", tag = "Optional", text = "Usable in combat in Forever: worth it when the boss is tanked close enough to reach its feet.", icon = 135813 },
+          { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Rapid Fire", tag = "Cooldown", text = "On cooldown.", icon = 132208 },
           { name = "Intimidation", tag = "Cooldown", text = "Pet stun with a guaranteed crit; also useful threat for the pet.", icon = 132111 },
         } },
         { title = "Several targets", note = "", items = {
+          { name = "Multi-Shot", tag = "On cooldown", text = "Instead of Aimed Shot when 3+ enemies stand together.", icon = 132330 },
           { name = "Explosive Trap", tag = "Before the pull", text = "Drop it where the pack will stand.", icon = 135826 },
         } },
       } },
@@ -549,9 +586,13 @@ KP.Priority = {
           { name = "Call Pet", tag = "Pet out", text = "Send the pet in first. Focused Fire: +2% damage for you and the pet while it's out." },
           { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
         } },
-        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Shots that share a cooldown are compared with your numbers.", items = {
+        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
+          { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
+          { name = "Aimed Shot", tag = "On cooldown", text = "Shares its cooldown with Multi-Shot: Aimed Shot hits harder for you. It has a cast time: start it right after an Auto Shot.", icon = 135130 },
           { name = "Summon Hawk", tag = "On cooldown", text = "Shares its cooldown with Arcane Shot. Your Unleashed Fury and Ferocity make hawks stronger, so favour the hawk (2 at a time).", icon = 132158 },
+          { name = "Arcane Shot", tag = "On cooldown", text = "Shares its cooldown with Summon Hawk: use it while 2 hawks are already out (only 2 can be, game data).", icon = 132218 },
           { name = "Immolation Trap", tag = "Optional", text = "Usable in combat in Forever: worth it when the boss is tanked close enough to reach its feet.", icon = 135813 },
+          { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Rapid Fire", tag = "Cooldown", text = "On cooldown.", icon = 132208 },
@@ -559,6 +600,83 @@ KP.Priority = {
           { name = "Intimidation", tag = "Cooldown", text = "Pet stun with a guaranteed crit; also useful threat for the pet.", icon = 132111 },
         } },
         { title = "Several targets", note = "", items = {
+          { name = "Multi-Shot", tag = "On cooldown", text = "Instead of Aimed Shot when 3+ enemies stand together.", icon = 132330 },
+          { name = "Volley", tag = "Channel", text = "Big packs only (mana heavy).", icon = 132222 },
+          { name = "Explosive Trap", tag = "Before the pull", text = "Drop it where the pack will stand.", icon = 135826 },
+        } },
+      } },
+      { level = 45, title = "Beast Mastery Hunter, ranged", sections = {
+        { title = "Before the pull", note = "", items = {
+          { name = "Aspect of the Hawk", tag = "Keep up", text = "Your ranged aspect.", icon = 136076 },
+          { name = "Call Pet", tag = "Pet out", text = "Send the pet in first. Focused Fire: +2% damage for you and the pet while it's out." },
+          { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
+        } },
+        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
+          { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
+          { name = "Summon Hawk", tag = "On cooldown", text = "Shares its cooldown with Arcane Shot. Your Unleashed Fury and Ferocity make hawks stronger, so favour the hawk (2 at a time).", icon = 132158 },
+          { name = "Arcane Shot", tag = "On cooldown", text = "Shares its cooldown with Summon Hawk: use it while 2 hawks are already out (only 2 can be, game data).", icon = 132218 },
+          { name = "Aimed Shot", tag = "On cooldown", text = "Shares its cooldown with Multi-Shot: Aimed Shot hits harder for you. It has a cast time: start it right after an Auto Shot.", icon = 135130 },
+          { name = "Immolation Trap", tag = "Optional", text = "Usable in combat in Forever: worth it when the boss is tanked close enough to reach its feet.", icon = 135813 },
+          { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Rapid Fire", tag = "Cooldown", text = "On cooldown.", icon = 132208 },
+          { name = "Bestial Wrath", tag = "Cooldown", text = "On cooldown: +50% pet damage for 18 sec.", icon = 132127 },
+          { name = "Intimidation", tag = "Cooldown", text = "Pet stun with a guaranteed crit; also useful threat for the pet.", icon = 132111 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Multi-Shot", tag = "On cooldown", text = "Instead of Aimed Shot when 3+ enemies stand together.", icon = 132330 },
+          { name = "Volley", tag = "Channel", text = "Big packs only (mana heavy).", icon = 132222 },
+          { name = "Explosive Trap", tag = "Before the pull", text = "Drop it where the pack will stand.", icon = 135826 },
+        } },
+      } },
+      { level = 55, title = "Beast Mastery Hunter, ranged", sections = {
+        { title = "Before the pull", note = "", items = {
+          { name = "Aspect of the Hawk", tag = "Keep up", text = "Your ranged aspect.", icon = 136076 },
+          { name = "Call Pet", tag = "Pet out", text = "Send the pet in first. Focused Fire: +2% damage for you and the pet while it's out." },
+          { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
+        } },
+        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
+          { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
+          { name = "Summon Hawk", tag = "On cooldown", text = "Shares its cooldown with Arcane Shot. Your Unleashed Fury and Ferocity make hawks stronger, so favour the hawk (2 at a time).", icon = 132158 },
+          { name = "Arcane Shot", tag = "On cooldown", text = "Shares its cooldown with Summon Hawk: use it while 2 hawks are already out (only 2 can be, game data). Improved Arcane Shot: 0.6 sec shorter cooldown.", icon = 132218 },
+          { name = "Aimed Shot", tag = "On cooldown", text = "Shares its cooldown with Multi-Shot: Aimed Shot hits harder for you. It has a cast time: start it right after an Auto Shot.", icon = 135130 },
+          { name = "Immolation Trap", tag = "Optional", text = "Usable in combat in Forever: worth it when the boss is tanked close enough to reach its feet.", icon = 135813 },
+          { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Rapid Fire", tag = "Cooldown", text = "On cooldown.", icon = 132208 },
+          { name = "Bestial Wrath", tag = "Cooldown", text = "On cooldown: +50% pet damage for 18 sec.", icon = 132127 },
+          { name = "Intimidation", tag = "Cooldown", text = "Pet stun with a guaranteed crit; also useful threat for the pet.", icon = 132111 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Multi-Shot", tag = "On cooldown", text = "Instead of Aimed Shot when 3+ enemies stand together.", icon = 132330 },
+          { name = "Volley", tag = "Channel", text = "Big packs only (mana heavy).", icon = 132222 },
+          { name = "Explosive Trap", tag = "Before the pull", text = "Drop it where the pack will stand.", icon = 135826 },
+        } },
+      } },
+      { level = 60, title = "Beast Mastery Hunter, ranged", sections = {
+        { title = "Before the pull", note = "", items = {
+          { name = "Aspect of the Hawk", tag = "Keep up", text = "Your ranged aspect.", icon = 136076 },
+          { name = "Call Pet", tag = "Pet out", text = "Send the pet in first. Focused Fire: +2% damage for you and the pet while it's out." },
+          { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
+        } },
+        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
+          { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
+          { name = "Summon Hawk", tag = "On cooldown", text = "Shares its cooldown with Arcane Shot. Your Unleashed Fury and Ferocity make hawks stronger, so favour the hawk (2 at a time).", icon = 132158 },
+          { name = "Arcane Shot", tag = "On cooldown", text = "Shares its cooldown with Summon Hawk: use it while 2 hawks are already out (only 2 can be, game data). Improved Arcane Shot: 1.5 sec shorter cooldown.", icon = 132218 },
+          { name = "Aimed Shot", tag = "On cooldown", text = "Shares its cooldown with Multi-Shot: Aimed Shot hits harder for you. It has a cast time: start it right after an Auto Shot.", icon = 135130 },
+          { name = "Immolation Trap", tag = "Optional", text = "Usable in combat in Forever: worth it when the boss is tanked close enough to reach its feet.", icon = 135813 },
+          { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Rapid Fire", tag = "Cooldown", text = "On cooldown.", icon = 132208 },
+          { name = "Bestial Wrath", tag = "Cooldown", text = "On cooldown: +50% pet damage for 18 sec.", icon = 132127 },
+          { name = "Intimidation", tag = "Cooldown", text = "Pet stun with a guaranteed crit; also useful threat for the pet.", icon = 132111 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Multi-Shot", tag = "On cooldown", text = "Instead of Aimed Shot when 3+ enemies stand together.", icon = 132330 },
+          { name = "Volley", tag = "Channel", text = "Big packs only (mana heavy).", icon = 132222 },
           { name = "Explosive Trap", tag = "Before the pull", text = "Drop it where the pack will stand.", icon = 135826 },
         } },
       } },
@@ -570,6 +688,11 @@ KP.Priority = {
           { name = "Call Pet", tag = "Pet out", text = "Send the pet in first." },
           { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
         } },
+        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
+          { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
+          { name = "Arcane Shot", tag = "On cooldown", text = "Instant.", icon = 132218 },
+          { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
+        } },
       } },
       { level = 20, title = "Marksmanship Hunter, ranged", sections = {
         { title = "Before the pull", note = "", items = {
@@ -577,8 +700,15 @@ KP.Priority = {
           { name = "Call Pet", tag = "Pet out", text = "Send the pet in first." },
           { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
         } },
-        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Shots that share a cooldown are compared with your numbers.", items = {
+        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
+          { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
+          { name = "Aimed Shot", tag = "On cooldown", text = "Shares its cooldown with Multi-Shot: Aimed Shot hits harder for you. It has a cast time: start it right after an Auto Shot.", icon = 135130 },
+          { name = "Arcane Shot", tag = "On cooldown", text = "Instant.", icon = 132218 },
           { name = "Immolation Trap", tag = "Optional", text = "Usable in combat in Forever: worth it when the boss is tanked close enough to reach its feet.", icon = 135813 },
+          { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Multi-Shot", tag = "On cooldown", text = "Instead of Aimed Shot when 3+ enemies stand together.", icon = 132330 },
         } },
       } },
       { level = 25, title = "Marksmanship Hunter, ranged", sections = {
@@ -588,8 +718,15 @@ KP.Priority = {
           { name = "Call Pet", tag = "Pet out", text = "Send the pet in first." },
           { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
         } },
-        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Shots that share a cooldown are compared with your numbers.", items = {
+        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
+          { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
+          { name = "Aimed Shot", tag = "On cooldown", text = "Shares its cooldown with Multi-Shot: Aimed Shot hits harder for you. It has a cast time: start it right after an Auto Shot.", icon = 135130 },
+          { name = "Arcane Shot", tag = "On cooldown", text = "Instant.", icon = 132218 },
           { name = "Immolation Trap", tag = "Optional", text = "Usable in combat in Forever: worth it when the boss is tanked close enough to reach its feet.", icon = 135813 },
+          { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Multi-Shot", tag = "On cooldown", text = "Instead of Aimed Shot when 3+ enemies stand together.", icon = 132330 },
         } },
       } },
       { level = 30, title = "Marksmanship Hunter, ranged", sections = {
@@ -599,11 +736,18 @@ KP.Priority = {
           { name = "Call Pet", tag = "Pet out", text = "Send the pet in first." },
           { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
         } },
-        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Shots that share a cooldown are compared with your numbers.", items = {
+        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
+          { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
+          { name = "Aimed Shot", tag = "On cooldown", text = "Shares its cooldown with Multi-Shot: Aimed Shot hits harder for you. It has a cast time: start it right after an Auto Shot.", icon = 135130 },
+          { name = "Arcane Shot", tag = "On cooldown", text = "Instant.", icon = 132218 },
           { name = "Immolation Trap", tag = "Optional", text = "Usable in combat in Forever: worth it when the boss is tanked close enough to reach its feet.", icon = 135813 },
+          { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Rapid Fire", tag = "Cooldown", text = "On cooldown.", icon = 132208 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Multi-Shot", tag = "On cooldown", text = "Instead of Aimed Shot when 3+ enemies stand together.", icon = 132330 },
         } },
       } },
       { level = 35, title = "Marksmanship Hunter, ranged", sections = {
@@ -613,13 +757,90 @@ KP.Priority = {
           { name = "Call Pet", tag = "Pet out", text = "Send the pet in first." },
           { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
         } },
-        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Shots that share a cooldown are compared with your numbers.", items = {
+        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
+          { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
+          { name = "Aimed Shot", tag = "On cooldown", text = "Shares its cooldown with Multi-Shot: Aimed Shot hits harder for you. It has a cast time: start it right after an Auto Shot.", icon = 135130 },
+          { name = "Arcane Shot", tag = "On cooldown", text = "Instant.", icon = 132218 },
           { name = "Immolation Trap", tag = "Optional", text = "Usable in combat in Forever: worth it when the boss is tanked close enough to reach its feet.", icon = 135813 },
+          { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Rapid Fire", tag = "Cooldown", text = "On cooldown.", icon = 132208 },
         } },
         { title = "Several targets", note = "", items = {
+          { name = "Multi-Shot", tag = "On cooldown", text = "Instead of Aimed Shot when 3+ enemies stand together.", icon = 132330 },
+          { name = "Explosive Trap", tag = "Before the pull", text = "Drop it where the pack will stand.", icon = 135826 },
+        } },
+      } },
+      { level = 40, title = "Marksmanship Hunter, ranged", sections = {
+        { title = "Before the pull", note = "", items = {
+          { name = "Aspect of the Hawk", tag = "Keep up", text = "Your ranged aspect.", icon = 136076 },
+          { name = "Trueshot Aura", tag = "Keep up", text = "Group ranged attack power; lasts 30 min.", icon = 132329 },
+          { name = "Call Pet", tag = "Pet out", text = "Send the pet in first." },
+          { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
+        } },
+        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
+          { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
+          { name = "Aimed Shot", tag = "On cooldown", text = "Shares its cooldown with Multi-Shot: Aimed Shot hits harder for you. It has a cast time: start it right after an Auto Shot.", icon = 135130 },
+          { name = "Arcane Shot", tag = "On cooldown", text = "Instant.", icon = 132218 },
+          { name = "Sniper Shot", tag = "On cooldown", text = "Long-range hit; also gives your next 3 shots +10 yards range.", icon = 1412205 },
+          { name = "Immolation Trap", tag = "Optional", text = "Usable in combat in Forever: worth it when the boss is tanked close enough to reach its feet.", icon = 135813 },
+          { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Rapid Fire", tag = "Cooldown", text = "On cooldown.", icon = 132208 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Multi-Shot", tag = "On cooldown", text = "Instead of Aimed Shot when 3+ enemies stand together.", icon = 132330 },
+          { name = "Volley", tag = "Channel", text = "Big packs only (mana heavy).", icon = 132222 },
+          { name = "Explosive Trap", tag = "Before the pull", text = "Drop it where the pack will stand.", icon = 135826 },
+        } },
+      } },
+      { level = 45, title = "Marksmanship Hunter, ranged", sections = {
+        { title = "Before the pull", note = "", items = {
+          { name = "Aspect of the Hawk", tag = "Keep up", text = "Your ranged aspect.", icon = 136076 },
+          { name = "Trueshot Aura", tag = "Keep up", text = "Group ranged attack power; lasts 30 min.", icon = 132329 },
+          { name = "Call Pet", tag = "Pet out", text = "Send the pet in first." },
+          { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
+        } },
+        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
+          { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
+          { name = "Aimed Shot", tag = "On cooldown", text = "Shares its cooldown with Multi-Shot: Aimed Shot hits harder for you. It has a cast time: start it right after an Auto Shot.", icon = 135130 },
+          { name = "Arcane Shot", tag = "On cooldown", text = "Instant. Improved Arcane Shot: 0.6 sec shorter cooldown.", icon = 132218 },
+          { name = "Sniper Shot", tag = "On cooldown", text = "Long-range hit; also gives your next 3 shots +10 yards range.", icon = 1412205 },
+          { name = "Immolation Trap", tag = "Optional", text = "Usable in combat in Forever: worth it when the boss is tanked close enough to reach its feet.", icon = 135813 },
+          { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Rapid Fire", tag = "Cooldown", text = "On cooldown.", icon = 132208 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Multi-Shot", tag = "On cooldown", text = "Instead of Aimed Shot when 3+ enemies stand together.", icon = 132330 },
+          { name = "Volley", tag = "Channel", text = "Big packs only (mana heavy).", icon = 132222 },
+          { name = "Explosive Trap", tag = "Before the pull", text = "Drop it where the pack will stand.", icon = 135826 },
+        } },
+      } },
+      { level = 50, title = "Marksmanship Hunter, ranged", sections = {
+        { title = "Before the pull", note = "", items = {
+          { name = "Aspect of the Hawk", tag = "Keep up", text = "Your ranged aspect.", icon = 136076 },
+          { name = "Trueshot Aura", tag = "Keep up", text = "Group ranged attack power; lasts 30 min.", icon = 132329 },
+          { name = "Call Pet", tag = "Pet out", text = "Send the pet in first." },
+          { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
+        } },
+        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
+          { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
+          { name = "Aimed Shot", tag = "On cooldown", text = "Shares its cooldown with Multi-Shot: Aimed Shot hits harder for you. It has a cast time: start it right after an Auto Shot.", icon = 135130 },
+          { name = "Arcane Shot", tag = "On cooldown", text = "Instant. Improved Arcane Shot: 1.5 sec shorter cooldown.", icon = 132218 },
+          { name = "Sniper Shot", tag = "On cooldown", text = "Long-range hit; also gives your next 3 shots +10 yards range.", icon = 1412205 },
+          { name = "Immolation Trap", tag = "Optional", text = "Usable in combat in Forever: worth it when the boss is tanked close enough to reach its feet.", icon = 135813 },
+          { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Rapid Fire", tag = "Cooldown", text = "On cooldown.", icon = 132208 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Multi-Shot", tag = "On cooldown", text = "Instead of Aimed Shot when 3+ enemies stand together.", icon = 132330 },
+          { name = "Volley", tag = "Channel", text = "Big packs only (mana heavy).", icon = 132222 },
           { name = "Explosive Trap", tag = "Before the pull", text = "Drop it where the pack will stand.", icon = 135826 },
         } },
       } },
@@ -630,13 +851,20 @@ KP.Priority = {
           { name = "Call Pet", tag = "Pet out", text = "Send the pet in first. Focused Fire: +2% damage for you and the pet while it's out." },
           { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
         } },
-        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Shots that share a cooldown are compared with your numbers.", items = {
+        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
+          { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
+          { name = "Aimed Shot", tag = "On cooldown", text = "Shares its cooldown with Multi-Shot: Aimed Shot hits harder for you. It has a cast time: start it right after an Auto Shot.", icon = 135130 },
+          { name = "Sniper Shot", tag = "On cooldown", text = "Long-range hit; also gives your next 3 shots +10 yards range.", icon = 1412205 },
+          { name = "Arcane Shot", tag = "On cooldown", text = "Instant. Improved Arcane Shot: 1.5 sec shorter cooldown.", icon = 132218 },
           { name = "Immolation Trap", tag = "Optional", text = "Usable in combat in Forever: worth it when the boss is tanked close enough to reach its feet.", icon = 135813 },
+          { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Rapid Fire", tag = "Cooldown", text = "On cooldown.", icon = 132208 },
         } },
         { title = "Several targets", note = "", items = {
+          { name = "Multi-Shot", tag = "On cooldown", text = "Instead of Aimed Shot when 3+ enemies stand together.", icon = 132330 },
+          { name = "Volley", tag = "Channel", text = "Big packs only (mana heavy).", icon = 132222 },
           { name = "Explosive Trap", tag = "Before the pull", text = "Drop it where the pack will stand.", icon = 135826 },
         } },
       } },
@@ -648,7 +876,7 @@ KP.Priority = {
           { name = "Call Pet", tag = "Pet out", text = "Send the pet in first." },
           { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
         } },
-        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Shots that share a cooldown are compared with your numbers.", items = {
+        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
           { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
           { name = "Arcane Shot", tag = "On cooldown", text = "Instant.", icon = 132218 },
           { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
@@ -660,9 +888,9 @@ KP.Priority = {
           { name = "Call Pet", tag = "Pet out", text = "Send the pet in first." },
           { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
         } },
-        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Shots that share a cooldown are compared with your numbers.", items = {
-          { name = "Aimed Shot", tag = "On cooldown", text = "Shares its cooldown with Multi-Shot: Aimed Shot hits harder for you. It has a cast time: start it right after an Auto Shot.", icon = 135130 },
+        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
           { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
+          { name = "Aimed Shot", tag = "On cooldown", text = "Shares its cooldown with Multi-Shot: Aimed Shot hits harder for you. It has a cast time: start it right after an Auto Shot.", icon = 135130 },
           { name = "Arcane Shot", tag = "On cooldown", text = "Instant.", icon = 132218 },
           { name = "Immolation Trap", tag = "Optional", text = "Usable in combat in Forever: worth it when the boss is tanked close enough to reach its feet.", icon = 135813 },
           { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
@@ -780,346 +1008,708 @@ KP.Priority = {
   },
   MAGE = {
     ["frost"] = {
-      { level = 60, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-          { name = "Ice Lance", tag = "On cooldown", text = "", icon = 135844 },
+      { level = 60, title = "Frost Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
+          { name = "Ice Barrier", tag = "Keep up", text = "Shield yourself at the pull and again as it runs out: it also raises your Frost damage.", icon = 135988 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Ice Lance", tag = "With Fingers of Frost", text = "Fingers of Frost makes your next spells act as if the target were Frozen: spend one on Ice Lance. Also when Frostbite freezes the target.", icon = 135844 },
+          { name = "Cone of Cold", tag = "At 5 Winter's Chill", text = "Frostbolt stacks Winter's Chill on the target for your next Cone of Cold: cast it at full stacks (a short cone in front of you, so stay close enough).", icon = 135852 },
+          { name = "Fire Blast", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+          { name = "Conjure Mana Ruby", tag = "Before the fight", text = "Make a gem before the fight; use it when your mana runs low.", icon = 134128 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
         } },
       } },
     },
     ["fire"] = {
-      { level = 60, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
-          { name = "Pyroblast", tag = "Filler", text = "", icon = 135808 },
+      { level = 60, title = "Fire Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
+        } },
+        { title = "Keep up", note = "Stacks and burns worth keeping on the target.", items = {
+          { name = "Scorch", tag = "Keep 5 stacks", text = "Build the stacks at the start, then one Scorch before they run out.", icon = 135827 },
+          { name = "Fireball", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135812 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Pyroblast", tag = "At 3 Heating Up", text = "Your Fire crits and every Fire Blast build Heating Up: cast Pyroblast at full stacks, before they run out.", icon = 135808 },
+          { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
+          { name = "Fire Blast", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
+          { name = "Scorch", tag = "Filler", text = "The most damage per mana: Fireball hits harder but runs you out of mana over a fight.", icon = 135827 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Combustion", tag = "Cooldown", text = "On cooldown.", icon = 135824 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+          { name = "Conjure Mana Ruby", tag = "Before the fight", text = "Make a gem before the fight; use it when your mana runs low.", icon = 134128 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
+          { name = "Cone of Cold", tag = "Packs", text = "Enemies in front of you; also slows them.", icon = 135852 },
         } },
       } },
     },
     ["arcane"] = {
-      { level = 60, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Arcane Blast", tag = "Filler", text = "", icon = 135735 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Arcane Wrath", tag = "On cooldown", text = "", icon = 236222 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
+      { level = 60, title = "Arcane Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
+        } },
+        { title = "Keep up", note = "Stacks and burns worth keeping on the target.", items = {
+          { name = "Arcane Blast", tag = "Keep 4 stacks", text = "Build the stacks, then one Arcane Blast before they run out. Each stack raises its next cost, so cast your other spells in between.", icon = 135735 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
+          { name = "Fire Blast", tag = "On cooldown", text = "More damage per second of casting than Frostbolt for you.", icon = 135807 },
+          { name = "Frostbolt", tag = "Filler", text = "Between Arcane Blasts: your other spell with the most damage per second of casting.", icon = 135846 },
+          { name = "Arcane Wrath", tag = "Skip", text = "Less damage per second of casting than Frostbolt for you.", icon = 236222 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Arcane Power", tag = "Cooldown", text = "On cooldown, together with your other cooldowns.", icon = 136048 },
+          { name = "Presence of Mind", tag = "Cooldown", text = "Your next spell is instant: use it on your longest cast.", icon = 136031 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+          { name = "Conjure Mana Ruby", tag = "Before the fight", text = "Make a gem before the fight; use it when your mana runs low.", icon = 134128 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
+          { name = "Cone of Cold", tag = "Packs", text = "Enemies in front of you; also slows them.", icon = 135852 },
         } },
       } },
     },
     ["frost-lvl"] = {
-      { level = 10, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
+      { level = 10, title = "Arcane Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Frost Armor", tag = "Keep up", text = "Armor for when something reaches you.", icon = 135843 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
         } },
       } },
-      { level = 15, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
+      { level = 15, title = "Arcane Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Frost Armor", tag = "Keep up", text = "Armor for when something reaches you.", icon = 135843 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
         } },
       } },
-      { level = 20, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
+      { level = 20, title = "Arcane Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Frost Armor", tag = "Keep up", text = "Armor for when something reaches you.", icon = 135843 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
         } },
       } },
-      { level = 25, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
+      { level = 25, title = "Frost Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Frost Armor", tag = "Keep up", text = "Armor for when something reaches you.", icon = 135843 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
         } },
       } },
-      { level = 30, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
+      { level = 30, title = "Frost Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Ice Armor", tag = "Keep up", text = "Armor for when something reaches you.", icon = 135843 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+          { name = "Conjure Mana Agate", tag = "Before the fight", text = "Make a gem before the fight; use it when your mana runs low.", icon = 134104 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
+          { name = "Cone of Cold", tag = "Packs", text = "Enemies in front of you; also slows them.", icon = 135852 },
         } },
       } },
-      { level = 35, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
+      { level = 35, title = "Frost Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+          { name = "Conjure Mana Agate", tag = "Before the fight", text = "Make a gem before the fight; use it when your mana runs low.", icon = 134104 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
+          { name = "Cone of Cold", tag = "Packs", text = "Enemies in front of you; also slows them.", icon = 135852 },
         } },
       } },
-      { level = 40, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-          { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
-          { name = "Ice Lance", tag = "On cooldown", text = "", icon = 135844 },
+      { level = 40, title = "Frost Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Ice Lance", tag = "On a frozen target", text = " Also when Frostbite freezes the target.", icon = 135844 },
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+          { name = "Conjure Mana Jade", tag = "Before the fight", text = "Make a gem before the fight; use it when your mana runs low.", icon = 134105 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
+          { name = "Cone of Cold", tag = "Packs", text = "Enemies in front of you; also slows them.", icon = 135852 },
         } },
       } },
-      { level = 45, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-          { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
-          { name = "Ice Lance", tag = "On cooldown", text = "", icon = 135844 },
+      { level = 45, title = "Frost Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Ice Lance", tag = "On a frozen target", text = " Also when Frostbite freezes the target.", icon = 135844 },
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+          { name = "Conjure Mana Jade", tag = "Before the fight", text = "Make a gem before the fight; use it when your mana runs low.", icon = 134105 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
+          { name = "Cone of Cold", tag = "Packs", text = "Enemies in front of you; also slows them.", icon = 135852 },
         } },
       } },
-      { level = 50, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-          { name = "Ice Lance", tag = "On cooldown", text = "", icon = 135844 },
+      { level = 50, title = "Frost Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
+          { name = "Ice Barrier", tag = "Keep up", text = "Shield yourself at the pull and again as it runs out: it also raises your Frost damage.", icon = 135988 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Ice Lance", tag = "On a frozen target", text = " Also when Frostbite freezes the target.", icon = 135844 },
+          { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+          { name = "Conjure Mana Citrine", tag = "Before the fight", text = "Make a gem before the fight; use it when your mana runs low.", icon = 134116 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
+          { name = "Cone of Cold", tag = "Packs", text = "Enemies in front of you; also slows them.", icon = 135852 },
         } },
       } },
-      { level = 55, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-          { name = "Ice Lance", tag = "On cooldown", text = "", icon = 135844 },
+      { level = 55, title = "Frost Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
+          { name = "Ice Barrier", tag = "Keep up", text = "Shield yourself at the pull and again as it runs out: it also raises your Frost damage.", icon = 135988 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Ice Lance", tag = "With Fingers of Frost", text = "Fingers of Frost makes your next spells act as if the target were Frozen: spend one on Ice Lance. Also when Frostbite freezes the target.", icon = 135844 },
+          { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+          { name = "Conjure Mana Citrine", tag = "Before the fight", text = "Make a gem before the fight; use it when your mana runs low.", icon = 134116 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
+          { name = "Cone of Cold", tag = "Packs", text = "Enemies in front of you; also slows them.", icon = 135852 },
         } },
       } },
-      { level = 60, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-          { name = "Ice Lance", tag = "On cooldown", text = "", icon = 135844 },
+      { level = 60, title = "Frost Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
+          { name = "Ice Barrier", tag = "Keep up", text = "Shield yourself at the pull and again as it runs out: it also raises your Frost damage.", icon = 135988 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Ice Lance", tag = "With Fingers of Frost", text = "Fingers of Frost makes your next spells act as if the target were Frozen: spend one on Ice Lance. Also when Frostbite freezes the target.", icon = 135844 },
+          { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
+          { name = "Cone of Cold", tag = "At 5 Winter's Chill", text = "Frostbolt stacks Winter's Chill on the target for your next Cone of Cold: cast it at full stacks (a short cone in front of you, so stay close enough).", icon = 135852 },
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+          { name = "Conjure Mana Ruby", tag = "Before the fight", text = "Make a gem before the fight; use it when your mana runs low.", icon = 134128 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
         } },
       } },
     },
     ["fire-lvl"] = {
-      { level = 10, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
+      { level = 10, title = "Arcane Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Frost Armor", tag = "Keep up", text = "Armor for when something reaches you.", icon = 135843 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
         } },
       } },
-      { level = 15, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
+      { level = 15, title = "Fire Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Frost Armor", tag = "Keep up", text = "Armor for when something reaches you.", icon = 135843 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
         } },
       } },
-      { level = 20, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
+      { level = 20, title = "Fire Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Frost Armor", tag = "Keep up", text = "Armor for when something reaches you.", icon = 135843 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
         } },
       } },
-      { level = 25, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
+      { level = 25, title = "Fire Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Frost Armor", tag = "Keep up", text = "Armor for when something reaches you.", icon = 135843 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Scorch", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135827 },
+          { name = "Frostbolt", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135846 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
         } },
       } },
-      { level = 40, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-          { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
+      { level = 30, title = "Fire Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Ice Armor", tag = "Keep up", text = "Armor for when something reaches you.", icon = 135843 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Scorch", tag = "Filler", text = "The most damage per mana: Fireball hits harder but runs you out of mana over a fight.", icon = 135827 },
+          { name = "Frostbolt", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135846 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+          { name = "Conjure Mana Agate", tag = "Before the fight", text = "Make a gem before the fight; use it when your mana runs low.", icon = 134104 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
+          { name = "Cone of Cold", tag = "Packs", text = "Enemies in front of you; also slows them.", icon = 135852 },
         } },
       } },
-      { level = 45, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
-          { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
+      { level = 35, title = "Fire Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Scorch", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135827 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+          { name = "Conjure Mana Agate", tag = "Before the fight", text = "Make a gem before the fight; use it when your mana runs low.", icon = 134104 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
+          { name = "Cone of Cold", tag = "Packs", text = "Enemies in front of you; also slows them.", icon = 135852 },
         } },
       } },
-      { level = 50, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-          { name = "Pyroblast", tag = "Filler", text = "", icon = 135808 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
+      { level = 40, title = "Fire Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Scorch", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135827 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+          { name = "Conjure Mana Jade", tag = "Before the fight", text = "Make a gem before the fight; use it when your mana runs low.", icon = 134105 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
+          { name = "Cone of Cold", tag = "Packs", text = "Enemies in front of you; also slows them.", icon = 135852 },
         } },
       } },
-      { level = 55, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Pyroblast", tag = "Filler", text = "", icon = 135808 },
-          { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
+      { level = 45, title = "Fire Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Fireball", tag = "Filler", text = "The most damage per second of casting.", icon = 135812 },
+          { name = "Scorch", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135827 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+          { name = "Conjure Mana Jade", tag = "Before the fight", text = "Make a gem before the fight; use it when your mana runs low.", icon = 134105 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
+          { name = "Cone of Cold", tag = "Packs", text = "Enemies in front of you; also slows them.", icon = 135852 },
         } },
       } },
-      { level = 60, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
-          { name = "Pyroblast", tag = "Filler", text = "", icon = 135808 },
+      { level = 50, title = "Fire Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Scorch", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135827 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+          { name = "Conjure Mana Citrine", tag = "Before the fight", text = "Make a gem before the fight; use it when your mana runs low.", icon = 134116 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
+          { name = "Cone of Cold", tag = "Packs", text = "Enemies in front of you; also slows them.", icon = 135852 },
+        } },
+      } },
+      { level = 55, title = "Fire Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Pyroblast", tag = "At 3 Heating Up", text = "Your Fire crits and every Fire Blast build Heating Up: cast Pyroblast at full stacks, before they run out.", icon = 135808 },
+          { name = "Fire Blast", tag = "On cooldown", text = "Every Fire Blast adds a Heating Up stack for your next Pyroblast.", icon = 135807 },
+          { name = "Scorch", tag = "Filler", text = "The most damage per mana: Fireball hits harder but runs you out of mana over a fight.", icon = 135827 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Combustion", tag = "Cooldown", text = "On cooldown.", icon = 135824 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+          { name = "Conjure Mana Citrine", tag = "Before the fight", text = "Make a gem before the fight; use it when your mana runs low.", icon = 134116 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
+          { name = "Cone of Cold", tag = "Packs", text = "Enemies in front of you; also slows them.", icon = 135852 },
+        } },
+      } },
+      { level = 60, title = "Fire Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Pyroblast", tag = "At 3 Heating Up", text = "Your Fire crits and every Fire Blast build Heating Up: cast Pyroblast at full stacks, before they run out.", icon = 135808 },
+          { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
+          { name = "Fire Blast", tag = "On cooldown", text = "Every Fire Blast adds a Heating Up stack for your next Pyroblast.", icon = 135807 },
+          { name = "Scorch", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135827 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Combustion", tag = "Cooldown", text = "On cooldown.", icon = 135824 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+          { name = "Conjure Mana Ruby", tag = "Before the fight", text = "Make a gem before the fight; use it when your mana runs low.", icon = 134128 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
+          { name = "Blast Wave", tag = "Packs", text = "Enemies around you; also slows them.", icon = 135903 },
+          { name = "Cone of Cold", tag = "Packs", text = "Enemies in front of you; also slows them.", icon = 135852 },
         } },
       } },
     },
     ["arcane-lvl"] = {
-      { level = 10, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
+      { level = 10, title = "Arcane Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Frost Armor", tag = "Keep up", text = "Armor for when something reaches you.", icon = 135843 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
         } },
       } },
-      { level = 15, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
+      { level = 15, title = "Arcane Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Frost Armor", tag = "Keep up", text = "Armor for when something reaches you.", icon = 135843 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
         } },
       } },
-      { level = 25, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
+      { level = 20, title = "Arcane Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Frost Armor", tag = "Keep up", text = "Armor for when something reaches you.", icon = 135843 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Arcane Missiles", tag = "Filler", text = "The most damage per second of casting.", icon = 136096 },
+          { name = "Frostbolt", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135846 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
         } },
       } },
-      { level = 30, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Arcane Blast", tag = "Filler", text = "", icon = 135735 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
+      { level = 25, title = "Arcane Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Frost Armor", tag = "Keep up", text = "Armor for when something reaches you.", icon = 135843 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
+          { name = "Arcane Missiles", tag = "Filler", text = "The most damage per second of casting.", icon = 136096 },
+          { name = "Frostbolt", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135846 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
         } },
       } },
-      { level = 35, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Arcane Blast", tag = "Filler", text = "", icon = 135735 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-          { name = "Arcane Wrath", tag = "On cooldown", text = "", icon = 236222 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
+      { level = 30, title = "Arcane Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Ice Armor", tag = "Keep up", text = "Armor for when something reaches you.", icon = 135843 },
+        } },
+        { title = "Keep up", note = "Stacks and burns worth keeping on the target.", items = {
+          { name = "Arcane Blast", tag = "Keep 4 stacks", text = "Build the stacks, then one Arcane Blast before they run out. Each stack raises its next cost, so cast your other spells in between.", icon = 135735 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
+          { name = "Arcane Missiles", tag = "Filler", text = "The most damage per mana: Arcane Blast hits harder but runs you out of mana over a fight.", icon = 136096 },
+          { name = "Frostbolt", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135846 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Presence of Mind", tag = "Cooldown", text = "Your next spell is instant: use it on your longest cast.", icon = 136031 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+          { name = "Conjure Mana Agate", tag = "Before the fight", text = "Make a gem before the fight; use it when your mana runs low.", icon = 134104 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
+          { name = "Cone of Cold", tag = "Packs", text = "Enemies in front of you; also slows them.", icon = 135852 },
         } },
       } },
-      { level = 40, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Arcane Blast", tag = "Filler", text = "", icon = 135735 },
-          { name = "Arcane Wrath", tag = "On cooldown", text = "", icon = 236222 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
-          { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
+      { level = 35, title = "Arcane Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
+        } },
+        { title = "Keep up", note = "Stacks and burns worth keeping on the target.", items = {
+          { name = "Arcane Blast", tag = "Keep 4 stacks", text = "Build the stacks, then one Arcane Blast before they run out. Each stack raises its next cost, so cast your other spells in between.", icon = 135735 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
+          { name = "Arcane Missiles", tag = "Filler", text = "The most damage per second of casting.", icon = 136096 },
+          { name = "Frostbolt", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135846 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Presence of Mind", tag = "Cooldown", text = "Your next spell is instant: use it on your longest cast.", icon = 136031 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+          { name = "Conjure Mana Agate", tag = "Before the fight", text = "Make a gem before the fight; use it when your mana runs low.", icon = 134104 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
+          { name = "Cone of Cold", tag = "Packs", text = "Enemies in front of you; also slows them.", icon = 135852 },
         } },
       } },
-      { level = 45, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Arcane Blast", tag = "Filler", text = "", icon = 135735 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Arcane Wrath", tag = "On cooldown", text = "", icon = 236222 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-          { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
+      { level = 40, title = "Arcane Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
+        } },
+        { title = "Keep up", note = "Stacks and burns worth keeping on the target.", items = {
+          { name = "Arcane Blast", tag = "Keep 4 stacks", text = "Build the stacks, then one Arcane Blast before they run out. Each stack raises its next cost, so cast your other spells in between.", icon = 135735 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
+          { name = "Arcane Missiles", tag = "Filler", text = "The most damage per second of casting.", icon = 136096 },
+          { name = "Frostbolt", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135846 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Arcane Power", tag = "Cooldown", text = "On cooldown, together with your other cooldowns.", icon = 136048 },
+          { name = "Presence of Mind", tag = "Cooldown", text = "Your next spell is instant: use it on your longest cast.", icon = 136031 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+          { name = "Conjure Mana Jade", tag = "Before the fight", text = "Make a gem before the fight; use it when your mana runs low.", icon = 134105 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
+          { name = "Cone of Cold", tag = "Packs", text = "Enemies in front of you; also slows them.", icon = 135852 },
         } },
       } },
-      { level = 50, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Arcane Blast", tag = "Filler", text = "", icon = 135735 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Arcane Wrath", tag = "On cooldown", text = "", icon = 236222 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-          { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
+      { level = 50, title = "Arcane Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
+        } },
+        { title = "Keep up", note = "Stacks and burns worth keeping on the target.", items = {
+          { name = "Arcane Blast", tag = "Keep 4 stacks", text = "Build the stacks, then one Arcane Blast before they run out. Each stack raises its next cost, so cast your other spells in between.", icon = 135735 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Blast hits harder but runs you out of mana over a fight.", icon = 135846 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Arcane Power", tag = "Cooldown", text = "On cooldown, together with your other cooldowns.", icon = 136048 },
+          { name = "Presence of Mind", tag = "Cooldown", text = "Your next spell is instant: use it on your longest cast.", icon = 136031 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+          { name = "Conjure Mana Citrine", tag = "Before the fight", text = "Make a gem before the fight; use it when your mana runs low.", icon = 134116 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
+          { name = "Cone of Cold", tag = "Packs", text = "Enemies in front of you; also slows them.", icon = 135852 },
         } },
       } },
-      { level = 55, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Arcane Blast", tag = "Filler", text = "", icon = 135735 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Arcane Wrath", tag = "On cooldown", text = "", icon = 236222 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
-          { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
+      { level = 60, title = "Arcane Mage", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Arcane Intellect", tag = "Keep up", text = "Intellect for you and your group.", icon = 135932 },
+          { name = "Mage Armor", tag = "Keep up", text = "For your mana. Ice Armor instead when you're the one being hit.", icon = 135991 },
         } },
-      } },
-      { level = 60, title = "Mage: basic list", sections = {
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Fire Blast", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Arcane Blast", tag = "Filler", text = "", icon = 135735 },
-          { name = "Fireball", tag = "Filler", text = "", icon = 135812 },
-          { name = "Arcane Missiles", tag = "Filler", text = "", icon = 136096 },
-          { name = "Arcane Wrath", tag = "On cooldown", text = "", icon = 236222 },
-          { name = "Frostfire Bolt", tag = "Filler", text = "", icon = 236217 },
-          { name = "Frostbolt", tag = "Filler", text = "", icon = 135846 },
-          { name = "Scorch", tag = "Filler", text = "", icon = 135827 },
+        { title = "Keep up", note = "Stacks and burns worth keeping on the target.", items = {
+          { name = "Arcane Blast", tag = "Keep 4 stacks", text = "Build the stacks, then one Arcane Blast before they run out. Each stack raises its next cost, so cast your other spells in between.", icon = 135735 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
+          { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Blast hits harder but runs you out of mana over a fight.", icon = 135846 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Arcane Power", tag = "Cooldown", text = "On cooldown, together with your other cooldowns.", icon = 136048 },
+          { name = "Presence of Mind", tag = "Cooldown", text = "Your next spell is instant: use it on your longest cast.", icon = 136031 },
+        } },
+        { title = "Mana", note = "Both are counted in the estimate.", items = {
+          { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
+          { name = "Conjure Mana Ruby", tag = "Before the fight", text = "Make a gem before the fight; use it when your mana runs low.", icon = 134128 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Arcane Explosion", tag = "Packs", text = "Enemies around you.", icon = 136116 },
+          { name = "Blizzard", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 135857 },
+          { name = "Flamestrike", tag = "Packs", text = "Cast it where the pack will stand.", icon = 135826 },
+          { name = "Cone of Cold", tag = "Packs", text = "Enemies in front of you; also slows them.", icon = 135852 },
         } },
       } },
     },
@@ -3188,391 +3778,666 @@ KP.Priority = {
   },
   WARLOCK = {
     ["aff"] = {
-      { level = 60, title = "Warlock: basic list", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
-          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
-          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
-          { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
-          { name = "Siphon Life", tag = "Keep up", text = "", icon = 136188 },
-          { name = "Wrack", tag = "Keep up", text = "", icon = 460687 },
-          { name = "Bane of Doom", tag = "Keep up", text = "", icon = 136122 },
+      { level = 60, title = "Affliction Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Conflagrate", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
-          { name = "Soul Fire", tag = "On cooldown", text = "", icon = 135808 },
-          { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Doom", tag = "Keep up", text = "Your Bane while the target will live another minute: its damage lands after 1 min.", icon = 136122 },
+          { name = "Bane of Agony", tag = "Short fights", text = "Your Bane instead when the target won't live another minute.", icon = 136139 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+          { name = "Siphon Life", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136188 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
+          { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
+          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
+          { name = "Wrack", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 460687 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Amplify Curse", tag = "Cooldown", text = "In a short fight, right before Bane of Agony (it doesn't boost Bane of Doom).", icon = 136132 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
+          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
         } },
       } },
     },
     ["destro"] = {
-      { level = 60, title = "Warlock: basic list", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
-          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
-          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
-          { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
-          { name = "Bane of Doom", tag = "Keep up", text = "", icon = 136122 },
+      { level = 60, title = "Destruction Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
+          { name = "Demonic Sacrifice", tag = "Before the fight", text = "Summon the Imp and sacrifice it.", icon = 136184 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Conflagrate", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Shadowburn", tag = "On cooldown", text = "", icon = 136191 },
-          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
-          { name = "Incinerate", tag = "Filler", text = "", icon = 135789 },
-          { name = "Soul Fire", tag = "On cooldown", text = "", icon = 135808 },
-          { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Doom", tag = "Keep up", text = "Your Bane while the target will live another minute: its damage lands after 1 min.", icon = 136122 },
+          { name = "Bane of Agony", tag = "Short fights", text = "Your Bane instead when the target won't live another minute.", icon = 136139 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
+          { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
+          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
+          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
+          { name = "Bane of Havoc", tag = "Two targets", text = "On a second target, as your Bane there: part of your damage to others also hits it.", icon = 460695 },
         } },
       } },
     },
     ["demo"] = {
-      { level = 60, title = "Warlock: basic list", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
-          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
-          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
-          { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
-          { name = "Bane of Doom", tag = "Keep up", text = "", icon = 136122 },
+      { level = 60, title = "Demonology Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
+          { name = "Summon Succubus", tag = "Pet out", text = "Keep your demon out: its attacks are part of your damage (the planner doesn't count them yet).", icon = 136220 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Conflagrate", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
-          { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
-          { name = "Soul Fire", tag = "On cooldown", text = "", icon = 135808 },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Doom", tag = "Keep up", text = "Your Bane while the target will live another minute: its damage lands after 1 min.", icon = 136122 },
+          { name = "Bane of Agony", tag = "Short fights", text = "Your Bane instead when the target won't live another minute.", icon = 136139 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
+          { name = "Searing Pain", tag = "Keep the brand", text = "Brands the target for your demon: its next attacks deal extra damage. Recast it as the brand runs out.", icon = 135827 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Soul Fire", tag = "Below 35%", text = "On a target near death, Shadow Bolt or Searing Pain makes your next Soul Fire faster and free of a Soul Shard: cast it then.", icon = 135808 },
+          { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
+          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
+          { name = "Searing Pain", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135827 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
+          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
         } },
       } },
     },
     ["aff-lvl"] = {
-      { level = 10, title = "Warlock: basic list", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
-          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
-          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
+      { level = 10, title = "Affliction Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Skin", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
-      } },
-      { level = 15, title = "Warlock: basic list", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
-          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
-          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
-          { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
         } },
       } },
-      { level = 20, title = "Warlock: basic list", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
-          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
-          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
-          { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
+      { level = 20, title = "Affliction Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
-          { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
-      } },
-      { level = 30, title = "Warlock: basic list", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
-          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
-          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
-          { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
-          { name = "Siphon Life", tag = "Keep up", text = "", icon = 136188 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
-          { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
         } },
       } },
-      { level = 40, title = "Warlock: basic list", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
-          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
-          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
-          { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
-          { name = "Siphon Life", tag = "Keep up", text = "", icon = 136188 },
-          { name = "Wrack", tag = "Keep up", text = "", icon = 460687 },
+      { level = 30, title = "Affliction Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
-          { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+          { name = "Siphon Life", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136188 },
         } },
-      } },
-      { level = 50, title = "Warlock: basic list", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
-          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
-          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
-          { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
-          { name = "Siphon Life", tag = "Keep up", text = "", icon = 136188 },
-          { name = "Wrack", tag = "Keep up", text = "", icon = 460687 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
+          { name = "Searing Pain", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135827 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
-          { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
-          { name = "Soul Fire", tag = "On cooldown", text = "", icon = 135808 },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
+          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
         } },
       } },
-      { level = 60, title = "Warlock: basic list", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
-          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
-          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
-          { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
-          { name = "Siphon Life", tag = "Keep up", text = "", icon = 136188 },
-          { name = "Wrack", tag = "Keep up", text = "", icon = 460687 },
-          { name = "Bane of Doom", tag = "Keep up", text = "", icon = 136122 },
+      { level = 35, title = "Affliction Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
-          { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
-          { name = "Soul Fire", tag = "On cooldown", text = "", icon = 135808 },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+          { name = "Siphon Life", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136188 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
+          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
+          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
+        } },
+      } },
+      { level = 40, title = "Affliction Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
+        } },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
+          { name = "Siphon Life", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136188 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
+          { name = "Wrack", tag = "Filler", text = "The most damage per second of casting.", icon = 460687 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
+          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
+        } },
+      } },
+      { level = 60, title = "Affliction Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
+        } },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Doom", tag = "Keep up", text = "Your Bane while the target will live another minute: its damage lands after 1 min.", icon = 136122 },
+          { name = "Bane of Agony", tag = "Short fights", text = "Your Bane instead when the target won't live another minute.", icon = 136139 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
+          { name = "Siphon Life", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136188 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
+          { name = "Wrack", tag = "Filler", text = "The most damage per second of casting.", icon = 460687 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
+          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
         } },
       } },
     },
     ["demo-lvl"] = {
-      { level = 10, title = "Warlock: basic list", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
-          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
-          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
+      { level = 10, title = "Demonology Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Skin", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
         } },
-      } },
-      { level = 15, title = "Warlock: basic list", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
-          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
-          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
-          { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
         } },
       } },
-      { level = 20, title = "Warlock: basic list", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
-          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
-          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
-          { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
+      { level = 15, title = "Demonology Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Skin", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
-          { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
-      } },
-      { level = 35, title = "Warlock: basic list", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
-          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
-          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
-          { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
-          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
         } },
       } },
-      { level = 40, title = "Warlock: basic list", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
-          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
-          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
-          { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
+      { level = 20, title = "Demonology Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
-          { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
         } },
-      } },
-      { level = 50, title = "Warlock: basic list", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
-          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
-          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
-          { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
-          { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
-          { name = "Soul Fire", tag = "On cooldown", text = "", icon = 135808 },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
         } },
       } },
-      { level = 60, title = "Warlock: basic list", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
-          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
-          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
-          { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
-          { name = "Bane of Doom", tag = "Keep up", text = "", icon = 136122 },
+      { level = 25, title = "Demonology Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
-          { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
-          { name = "Soul Fire", tag = "On cooldown", text = "", icon = 135808 },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
+        } },
+      } },
+      { level = 30, title = "Demonology Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
+        } },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
+          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
+        } },
+      } },
+      { level = 35, title = "Demonology Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
+          { name = "Summon Imp", tag = "Pet out", text = "Keep your demon out: its attacks are part of your damage (the planner doesn't count them yet).", icon = 136218 },
+        } },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Searing Pain", tag = "Filler", text = "The most damage per second of casting.", icon = 135827 },
+          { name = "Shadow Bolt", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136197 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
+          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
+        } },
+      } },
+      { level = 40, title = "Demonology Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
+          { name = "Summon Succubus", tag = "Pet out", text = "Keep your demon out: its attacks are part of your damage (the planner doesn't count them yet).", icon = 136220 },
+        } },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
+          { name = "Searing Pain", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135827 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
+          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
+        } },
+      } },
+      { level = 45, title = "Demonology Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
+          { name = "Summon Succubus", tag = "Pet out", text = "Keep your demon out: its attacks are part of your damage (the planner doesn't count them yet).", icon = 136220 },
+        } },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
+          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
+        } },
+      } },
+      { level = 50, title = "Demonology Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
+          { name = "Summon Succubus", tag = "Pet out", text = "Keep your demon out: its attacks are part of your damage (the planner doesn't count them yet).", icon = 136220 },
+        } },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Soul Fire", tag = "Below 35%", text = "On a target near death, Shadow Bolt or Searing Pain makes your next Soul Fire faster and free of a Soul Shard: cast it then.", icon = 135808 },
+          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
+          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
+        } },
+      } },
+      { level = 55, title = "Demonology Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
+          { name = "Summon Succubus", tag = "Pet out", text = "Keep your demon out: its attacks are part of your damage (the planner doesn't count them yet).", icon = 136220 },
+        } },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Soul Fire", tag = "Below 35%", text = "On a target near death, Shadow Bolt or Searing Pain makes your next Soul Fire faster and free of a Soul Shard: cast it then.", icon = 135808 },
+          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
+          { name = "Searing Pain", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135827 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
+          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
+        } },
+      } },
+      { level = 60, title = "Demonology Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
+          { name = "Summon Succubus", tag = "Pet out", text = "Keep your demon out: its attacks are part of your damage (the planner doesn't count them yet).", icon = 136220 },
+        } },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Doom", tag = "Keep up", text = "Your Bane while the target will live another minute: its damage lands after 1 min.", icon = 136122 },
+          { name = "Bane of Agony", tag = "Short fights", text = "Your Bane instead when the target won't live another minute.", icon = 136139 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Soul Fire", tag = "Below 35%", text = "On a target near death, Shadow Bolt or Searing Pain makes your next Soul Fire faster and free of a Soul Shard: cast it then.", icon = 135808 },
+          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
+          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
         } },
       } },
     },
     ["destro-lvl"] = {
-      { level = 10, title = "Warlock: basic list", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
-          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
-          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
+      { level = 10, title = "Destruction Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Skin", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
         } },
-      } },
-      { level = 15, title = "Warlock: basic list", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
-          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
-          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
-          { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
         } },
       } },
-      { level = 20, title = "Warlock: basic list", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
-          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
-          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
-          { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
+      { level = 20, title = "Destruction Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Shadowburn", tag = "On cooldown", text = "", icon = 136191 },
-          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
-          { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
         } },
-      } },
-      { level = 30, title = "Warlock: basic list", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
-          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
-          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
-          { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
+          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
+          { name = "Searing Pain", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135827 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Conflagrate", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Shadowburn", tag = "On cooldown", text = "", icon = 136191 },
-          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
-          { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
         } },
       } },
-      { level = 40, title = "Warlock: basic list", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
-          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
-          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
-          { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
+      { level = 25, title = "Destruction Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Conflagrate", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Shadowburn", tag = "On cooldown", text = "", icon = 136191 },
-          { name = "Incinerate", tag = "Filler", text = "", icon = 135789 },
-          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
-          { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
         } },
-      } },
-      { level = 45, title = "Warlock: basic list", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
-          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
-          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
-          { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
+          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Conflagrate", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Shadowburn", tag = "On cooldown", text = "", icon = 136191 },
-          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
-          { name = "Incinerate", tag = "Filler", text = "", icon = 135789 },
-          { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
         } },
       } },
-      { level = 50, title = "Warlock: basic list", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
-          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
-          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
-          { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
+      { level = 30, title = "Destruction Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Conflagrate", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Shadowburn", tag = "On cooldown", text = "", icon = 136191 },
-          { name = "Incinerate", tag = "Filler", text = "", icon = 135789 },
-          { name = "Soul Fire", tag = "On cooldown", text = "", icon = 135808 },
-          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
-          { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
         } },
-      } },
-      { level = 55, title = "Warlock: basic list", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
-          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
-          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
-          { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
+          { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
+          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per mana: Immolate hits harder but runs you out of mana over a fight.", icon = 136197 },
+          { name = "Searing Pain", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135827 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Conflagrate", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Shadowburn", tag = "On cooldown", text = "", icon = 136191 },
-          { name = "Incinerate", tag = "Filler", text = "", icon = 135789 },
-          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
-          { name = "Soul Fire", tag = "On cooldown", text = "", icon = 135808 },
-          { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
+          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
+          { name = "Bane of Havoc", tag = "Two targets", text = "On a second target, as your Bane there: part of your damage to others also hits it.", icon = 460695 },
         } },
       } },
-      { level = 60, title = "Warlock: basic list", sections = {
-        { title = "Keep up", note = "Damage over time: keep it on the target.", items = {
-          { name = "Immolate", tag = "Keep up", text = "", icon = 135817 },
-          { name = "Corruption", tag = "Keep up", text = "", icon = 136118 },
-          { name = "Bane of Agony", tag = "Keep up", text = "", icon = 136139 },
-          { name = "Drain Soul", tag = "Keep up", text = "", icon = 136163 },
-          { name = "Drain Life", tag = "Keep up", text = "", icon = 136169 },
-          { name = "Bane of Doom", tag = "Keep up", text = "", icon = 136122 },
+      { level = 35, title = "Destruction Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
         } },
-        { title = "Then", note = "Ordered by damage per second of casting.", items = {
-          { name = "Conflagrate", tag = "On cooldown", text = "", icon = 135807 },
-          { name = "Shadowburn", tag = "On cooldown", text = "", icon = 136191 },
-          { name = "Shadow Bolt", tag = "Filler", text = "", icon = 136197 },
-          { name = "Incinerate", tag = "Filler", text = "", icon = 135789 },
-          { name = "Soul Fire", tag = "On cooldown", text = "", icon = 135808 },
-          { name = "Searing Pain", tag = "Filler", text = "", icon = 135827 },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
+          { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
+          { name = "Immolate", tag = "Filler", text = "The most damage per second of casting.", icon = 135817 },
+          { name = "Shadow Bolt", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136197 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
+          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
+          { name = "Bane of Havoc", tag = "Two targets", text = "On a second target, as your Bane there: part of your damage to others also hits it.", icon = 460695 },
+        } },
+      } },
+      { level = 40, title = "Destruction Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
+        } },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
+          { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
+          { name = "Incinerate", tag = "Filler", text = "The most damage per second of casting.", icon = 135789 },
+          { name = "Shadow Bolt", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136197 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
+          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
+          { name = "Bane of Havoc", tag = "Two targets", text = "On a second target, as your Bane there: part of your damage to others also hits it.", icon = 460695 },
+        } },
+      } },
+      { level = 45, title = "Destruction Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
+        } },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
+          { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
+          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
+          { name = "Searing Pain", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135827 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
+          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
+          { name = "Bane of Havoc", tag = "Two targets", text = "On a second target, as your Bane there: part of your damage to others also hits it.", icon = 460695 },
+        } },
+      } },
+      { level = 50, title = "Destruction Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
+        } },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
+          { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
+          { name = "Incinerate", tag = "Filler", text = "The most damage per second of casting.", icon = 135789 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
+          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
+          { name = "Bane of Havoc", tag = "Two targets", text = "On a second target, as your Bane there: part of your damage to others also hits it.", icon = 460695 },
+        } },
+      } },
+      { level = 60, title = "Destruction Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
+          { name = "Demonic Sacrifice", tag = "Before the fight", text = "Summon the Imp and sacrifice it.", icon = 136184 },
+        } },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Doom", tag = "Keep up", text = "Your Bane while the target will live another minute: its damage lands after 1 min.", icon = 136122 },
+          { name = "Bane of Agony", tag = "Short fights", text = "Your Bane instead when the target won't live another minute.", icon = 136139 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
+          { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
+          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
+          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
+          { name = "Bane of Havoc", tag = "Two targets", text = "On a second target, as your Bane there: part of your damage to others also hits it.", icon = 460695 },
         } },
       } },
     },

@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.18.0
+
+- **Priority tab: Hunter, Mage and Warlock lists fixed.**
+  - **Hunters** (Marksmanship, Beast Mastery): the shots were missing (Aimed Shot, Arcane Shot, Serpent Sting, even
+    Auto Shot). They're back, in the order the planner's numbers give: at 60 your mana runs out before your
+    cooldowns do, so the most damage per mana goes first. Beast Mastery: Summon Hawk before Arcane Shot, which waits
+    until 2 hawks are out.
+  - **Mages** get a list per spec instead of the "basic list": Fire casts Pyroblast at 3 Heating Up and keeps 5
+    Improved Scorch stacks; Frost uses Ice Lance with Fingers of Frost, Cone of Cold at 5 Winter's Chill and keeps Ice
+    Barrier up for its Frost damage; Arcane keeps 4 Arcane Blast stacks and uses Arcane Missiles with Missile Barrage.
+  - **Warlocks** too: one Bane per target (Bane of Doom when the target lives another minute), Curse of the Elements,
+    the instant Shadow Bolt from Nightfall, Soul Fire below 35% with Decimation, Searing Pain for Demonic Brand,
+    Conflagrate and Shadowburn with Shadow and Flame, and which demon to sacrifice or keep out.
+
 ## 0.17.0
 
 - **The rotation helper is gone** (`/kp helper` and its bar). WoW: Forever hides too much from addons during a fight
