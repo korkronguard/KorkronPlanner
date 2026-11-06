@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.16.0
+
+- **Upgrade arrows in your bags:** with your bags open, a green arrow in the top-right corner of a slot marks an item
+  that's an upgrade for your build and that you can wear now (items for a later level get no arrow; their tooltip says
+  from which level). It updates when you change gear, level up or pick another build.
+- **Baganator users:** the Planner is now one of Baganator's upgrade icon choices. In Baganator's settings, choose
+  "Kor'kron Planner" as the upgrade icon (if you had Pawn there, it stays Pawn until you change it).
+- **Overall % on the tooltip:** the upgrade line now says how much better or worse the item is overall, e.g.
+  **"Upgrade +3.2%"**: the change in your build's damage per second (healers: healing per second) compared with what
+  the planner works out for your build at your level with its best gear. When an item only changes your survival, it
+  says so ("+1.6% survival"). Tanks: their mix of survival (70%) and damage (30%).
+
 ## 0.15.0
 
 - **Rotation helper for Protection Paladins and Elemental Shamans (first versions, to test):** pick a Protection or
