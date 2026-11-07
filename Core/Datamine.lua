@@ -6,6 +6,8 @@
 --   spells:  your spellbook's descriptions with your talents (C_Spell.GetSpellDescription)
 -- It all stays in KorkronPlannerDB.datamine on this PC; the planner website's tools/datamine.py compares it with the
 -- website's data. Nothing is sent anywhere.
+-- Once an account has run it, it keeps itself current at login: a new game build reads everything again, and items no
+-- run has read yet (new ones in the planner's data) are read too. /kp datamine clear stops that.
 -- KorkronPlannerDB.datamine = { on, build, items = { [item ID] = { [game stat key] = value } or false (no answer) },
 --   talents = { [class] = { [node ID] = { spell, ranks = { [rank] = text } } } },
 --   spells = { [class] = { level, talents = { [node ID] = rank }, list = { [spell ID] = text } } } }
@@ -128,6 +130,19 @@ local function Count(t)
   return n
 end
 
+local function GameBuild()
+  return KP.Text((select(2, GetBuildInfo())))
+end
+
+-- the addon's items that no run has read yet
+local function Unread()
+  local n = 0
+  for id in pairs(KP.Items) do
+    if DB().items[id] == nil then n = n + 1 end
+  end
+  return n
+end
+
 -- "8,000 of 8,593 items (12 unanswered), 51 talents, 34 spells"
 local function Summary()
   local _, class = UnitClass("player")
@@ -156,7 +171,7 @@ local function Step()
 end
 
 local function Start()
-  DB().build = KP.Text((select(2, GetBuildInfo())))
+  DB().build = GameBuild()
   ReadTalents()
   ReadSpells()
   wipe(queue)
@@ -169,23 +184,35 @@ local function Start()
   ticker = C_Timer.NewTicker(TICK, function() KP.Safe(Step) end)
 end
 
--- /kp datamine [clear]: no word switches it on or off (it carries on where it stopped); clear forgets what it read
+-- /kp datamine [clear]: no word switches it on or off (it carries on where it stopped, at the latest at the next
+-- login); clear forgets what it read and stops the automatic runs until the next /kp datamine
 function Datamine.Command(word)
   if word == "clear" then
     Stop()
     KorkronPlannerDB.datamine = { on = false, items = {}, talents = {}, spells = {} }
-    return KP:Print("datamine cleared.")
+    return KP:Print("datamine cleared: it no longer starts by itself (/kp datamine starts it again).")
   end
   DB().on = not DB().on
   if not DB().on then
     Stop()
-    return KP:Print("datamine paused: " .. Summary() .. ".")
+    return KP:Print("datamine paused until your next login: " .. Summary() .. ".")
   end
   Start()
   KP:Print(("datamine on: reading your talents, spells and %d items from the game, 10 a second (about %d minutes; " ..
     "it pauses in combat and inside instances). So far: %s."):format(#queue, math.ceil(#queue / 10 / 60), Summary()))
 end
 
+-- at login, on an account that has run it (it knows a build): carries on after a /reload or a pause, starts over on
+-- a new game build (the old readings describe the old build), and reads items no run has read yet
 KP:On("PLAYER_LOGIN", function()
-  if DB().on then KP.After(15, Start) end -- carries on after a /reload or the next login
+  local db, build = DB(), GameBuild()
+  if not db.build then return end
+  if build ~= db.build then
+    KP:Print(("datamine: new game build %s (was %s), so it reads everything again."):format(build, db.build))
+    KorkronPlannerDB.datamine = { on = true, items = {}, talents = {}, spells = {} }
+  elseif not db.on and Unread() > 0 then
+    KP:Print(("datamine: %d items not read yet, so it reads them."):format(Unread()))
+    db.on = true
+  end
+  if DB().on then KP.After(15, Start) end
 end)

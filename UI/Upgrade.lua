@@ -2,7 +2,9 @@
 -- item's worth to the build you follow is its stats, armor and weapon damage, each times what the planner website says
 -- one point is worth to that build at your level (Data/Weights.lua, worked out with the planner's best gear for that
 -- level on), compared with what you wear in that slot. The tooltip shows the totals (and the change in %) and, stat by
--- stat, what makes the difference; bag items that are an upgrade get an arrow (UI/BagIcons.lua). Effects ("Chance on hit:", "Use:") and set bonuses aren't counted, and the tooltip says so.
+-- stat, what makes the difference; bag items that are an upgrade get an arrow (UI/BagIcons.lua). On an item you wear it
+-- shows what that item gives you, stat by stat. Effects ("Chance on hit:", "Use:") and set bonuses aren't counted, and
+-- the tooltip says so.
 local _, KP = ...
 
 local Upgrade = {}
@@ -170,11 +172,12 @@ local function WornItem(inv, W)
   return { name = link and link:match("%[(.-)%]"), parts = parts, total = Total(W, parts) }
 end
 
--- what the hovered item would replace (as WornItem gives it), or why there's nothing to compare
+-- what the hovered item would replace (as WornItem gives it), or why there's nothing to compare ("worn" and the slot
+-- you wear it in)
 local function Replaced(item, link, W)
   local slots = INV[item[1]]
   for _, inv in ipairs(slots) do
-    if SameItem(select(2, Worn(inv)), link) then return nil, "worn" end
+    if SameItem(select(2, Worn(inv)), link) then return nil, "worn", inv end
   end
   local mainID = Worn(16)
   local main = mainID and KP.Items[mainID]
@@ -211,22 +214,22 @@ local function Percent(x, of)
   return Upgrade.Number(x / of * 100) .. "%"
 end
 
--- The word for the whole change and how much it is in %: by the build's number, or by survival when that doesn't move.
+-- Whether a change goes up, and how much it is in %: by the build's number, or by survival when that doesn't move.
 -- base = the build's number and survival themselves, with the planner's best gear at your level (Data/Weights.lua); a
--- tank's number is already relative (survival and damage on a log scale), so its change × 100 is the %. "overall" when
--- some of the numbers shown go the other way. nil: too small to show.
+-- tank's number is already relative (survival and damage on a log scale), so its change × 100 is the %.
+local function Change(total, role, base)
+  local main = (MEASURES[role] or MEASURES.dps)[1]
+  if role == "tank" then return total.v > 0, Upgrade.Number(total.v * 100) .. "%" end
+  if math.abs(total[main[1]]) >= main[3] then return total[main[1]] > 0, Percent(total[main[1]], base[main[1]]) end
+  return total.e > 0, Percent(total.e, base.e) .. " survival"
+end
+
+-- The word for the whole change and its % (Change); "overall" when some of the numbers shown go the other way. nil: too
+-- small to show.
 local function Verdict(total, role, base)
   local shown = Shown(total, role)
   if #shown == 0 then return nil end
-  local main = (MEASURES[role] or MEASURES.dps)[1]
-  local up, pct
-  if role == "tank" then
-    up, pct = total.v > 0, Upgrade.Number(total.v * 100) .. "%"
-  elseif math.abs(total[main[1]]) >= main[3] then
-    up, pct = total[main[1]] > 0, Percent(total[main[1]], base[main[1]])
-  else
-    up, pct = total.e > 0, Percent(total.e, base.e) .. " survival"
-  end
+  local up, pct = Change(total, role, base)
   local mixed = false
   for _, s in ipairs(shown) do mixed = mixed or (s[1] > 0) ~= up end
   return (up and "Upgrade " or "Downgrade ") .. pct .. (mixed and " overall" or ""), up
@@ -258,9 +261,9 @@ local function Breakdown(diff, W, role, class, inputs)
 end
 
 -- An item against what it would replace, for the build you follow: { build, W (its weights at your level), item,
--- replaced (as WornItem gives it), diff (part by part), total, from (the level you can wear it from), level }; or nil,
--- why there's nothing to compare ("worn", "twoHand": an off-hand item while you hold a two-hander) and the build; or
--- nil (no suggested build, an item the planner doesn't know or your class can't use)
+-- replaced (as WornItem gives it), diff (part by part), total, from (the level you can wear it from), level }; for the
+-- item you wear, worn = true and diff = all it gives (no replaced); or nil, "twoHand" (an off-hand item while you hold a
+-- two-hander) and the build; or nil (no suggested build, an item the planner doesn't know or your class can't use)
 local function Compare(link)
   local build = KP.Build.Current()
   local id = ItemID(link)
@@ -273,21 +276,39 @@ local function Compare(link)
   local level = UnitLevel("player")
   local W = KP.Build.ForLevel(KP.Weights, build.key, level)
   if not W then return nil end
-  local replaced, why = Replaced(item, link, W)
+  local from = (item.late and item.late[classID]) or math.max(1, item[2])
+  local replaced, why, inv = Replaced(item, link, W)
+  if why == "worn" then
+    local parts = Parts(id, link, HAND[inv])
+    return { build = build, W = W, item = item, worn = true, diff = parts, total = Total(W, parts), from = from, level = level }
+  end
   if why then return nil, why, build end
   local hand = HAND[INV[item[1]][1]]
   if item[1] == "oneHand" then hand, replaced = OneHandSlot(id, link, W, replaced) end
   local diff = Combine(Parts(id, link, hand), replaced.parts, -1)
-  return { build = build, W = W, item = item, replaced = replaced, diff = diff, total = Total(W, diff),
-    from = (item.late and item.late[classID]) or math.max(1, item[2]), level = level }
+  return { build = build, W = W, item = item, replaced = replaced, diff = diff, total = Total(W, diff), from = from,
+    level = level }
 end
 
 -- Whether an item is an upgrade for your build that you can wear now (the arrow on bag items, UI/BagIcons.lua)
 function Upgrade.IsUpgrade(link)
   local c = Compare(link)
-  if not c or c.from > c.level then return false end
+  if not c or c.worn or c.from > c.level then return false end
   local _, up = Verdict(c.total, c.build.role, c.W.base)
   return up == true
+end
+
+-- The tooltip's first line under the header: upgrade or downgrade and by how much; for the item you wear, what it's
+-- worth to you (as a share of the build's number, like an upgrade's %)
+local function Headline(c, role)
+  if c.worn then
+    if #Shown(c.total, role) == 0 then return { "You wear this: it adds nothing your build counts", GREY } end
+    return { "You wear this: worth " .. select(2, Change(c.total, role, c.W.base)), WHITE, right = Colored(c.total, role) }
+  end
+  local word, up = Verdict(c.total, role, c.W.base)
+  local when = c.from > c.level and (" from level " .. c.from) or ""
+  if word then return { word .. when, up and GREEN or RED, right = Colored(c.total, role) } end
+  return { "About the same as what you wear" .. when, GREY }
 end
 
 -- The tooltip lines for an item link: { text, colour } or, in two columns, { text, colour, right = text } (nil:
@@ -301,19 +322,15 @@ function Upgrade.Lines(link)
     table.insert(lines, { "Your main hand is a two-handed weapon.", GREY })
     return lines
   end
-  local word, up = Verdict(c.total, build.role, c.W.base)
-  local when = c.from > c.level and (" from level " .. c.from) or ""
-  if word then
-    table.insert(lines, { word .. when, up and GREEN or RED, right = Colored(c.total, build.role) })
-  else
-    table.insert(lines, { "About the same as what you wear" .. when, GREY })
-  end
+  table.insert(lines, Headline(c, build.role))
   local _, class = UnitClass("player")
   for _, row in ipairs(Breakdown(c.diff, c.W, build.role, class, KP.Sheet.Inputs(class))) do
     table.insert(lines, { "  " .. row.left, WHITE, right = row.right })
     if row.what then table.insert(lines, { "      " .. row.what, GREY }) end
   end
-  table.insert(lines, { c.replaced.name and ("vs. your " .. c.replaced.name) or "Your slot is empty.", GREY })
+  if not c.worn then
+    table.insert(lines, { c.replaced.name and ("vs. your " .. c.replaced.name) or "Your slot is empty.", GREY })
+  end
   if c.item.fx then table.insert(lines, { "Its special effect isn't counted.", GREY }) end
   if c.item.set then table.insert(lines, { "Its set bonus isn't counted.", GREY }) end
   return lines

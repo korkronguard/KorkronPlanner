@@ -2,7 +2,8 @@
 -- now (UI/Upgrade.lua decides, as on the tooltip). In the game's own bag windows it's our own arrow in each slot's top
 -- right corner: the game's arrow on the left is switched by other addons (Pawn, RXPGuides). Baganator replaces those
 -- windows: there the arrow is one of its corner icons (top right unless the player moves it), and the Planner is also
--- an upgrade source for its searches.
+-- an upgrade source for its searches. EllesmereUI's bags replace them too: there the arrow goes through its overlay
+-- API (EUI_Bags.RegisterItemOverlayIcon, EllesmereUIBags\EUI_Bags_Slots.lua).
 local _, KP = ...
 
 local BagIcons = {}
@@ -29,6 +30,21 @@ local function SafeIsUpgrade(link)
   return upgrade
 end
 
+-- EllesmereUI's slots: it asks to keep state off its (secure) buttons and to parent icons to btn._textOverlay, so the
+-- arrows are kept here, one per slot. data = { bag, slot, info, itemLink }; an empty slot has no itemLink.
+local ellesmereArrows = setmetatable({}, { __mode = "k" })
+local function EllesmereArrow(button, data)
+  local overlay = button._textOverlay
+  if not overlay then return end
+  local arrow = ellesmereArrows[button]
+  if not arrow then
+    arrow = NewArrow(overlay)
+    arrow:SetPoint("TOPRIGHT", overlay, "TOPRIGHT", 0, 0)
+    ellesmereArrows[button] = arrow
+  end
+  arrow:SetShown(data.itemLink ~= nil and SafeIsUpgrade(data.itemLink) == true)
+end
+
 local function MarkWindow(window)
   for _, button in window:EnumerateValidItems() do
     local link = KP.Text(C_Container.GetContainerItemLink(button:GetBagID(), button:GetID()))
@@ -49,6 +65,7 @@ function BagIcons.Refresh()
     if window:IsShown() then MarkWindow(window) end
   end
   if Baganator then Baganator.API.RequestItemButtonsRefresh() end
+  if EUI_Bags and EUI_Bags:IsVisible() then EUI_Bags:RefreshInventory() end
 end
 
 KP:On("PLAYER_LOGIN", function()
@@ -62,6 +79,9 @@ KP:On("PLAYER_LOGIN", function()
     Baganator.API.RegisterCornerWidget("Kor'kron Planner", "korkronplanner",
       function(_, details) return SafeIsUpgrade(details.itemLink) end, NewArrow,
       { corner = "top_right", priority = 1 })
+  end
+  if EUI_Bags and EUI_Bags.RegisterItemOverlayIcon then
+    EUI_Bags.RegisterItemOverlayIcon("Kor'kron Planner", EllesmereArrow)
   end
 end)
 KP:On("PLAYER_EQUIPMENT_CHANGED", BagIcons.Refresh)

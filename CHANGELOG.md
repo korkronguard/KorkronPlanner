@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.22.0
+
+- **Tanks are measured on threat.** The planner now works out threat per second from your damage and the game's
+  own threat bonuses, multiplied together (the original game's rule): Defensive Stance +80% and Defiance +20%,
+  Righteous Fury +33% (and +90% more on Holy damage), Bear Form +115%, Iron Creed on Holy Strike, Holy Shield's damage.
+  Sunder Armor's threat counts too. Tank Dungeon builds now weigh survival and threat (they used damage as a stand-in),
+  and hovering a threat talent's point shows what it adds. The extra threat that Shield Slam, Revenge, Heroic Strike,
+  Lacerate and Primal Bite add is worked out by the game's server and isn't counted.
+  - Warrior Protection's Dungeon build takes Master of Defense a little earlier (more rage for Sunder Armor).
+  - Protection Paladins: Holy Shield's damage on blocks now counts, and so does Shield Specialization's mana from
+    blocks.
+- **Hover the gear you're wearing** to see what it gives you for your build: its worth in % (like an upgrade's), then
+  stat by stat, with what those points do on your character sheet (Strength into attack power, Agility into crit,
+  dodge and armor...). Until now the tooltip said nothing on gear you wear.
+- **EllesmereUI's bags show the green upgrade arrow** (top right of the slot), as the game's own bags and Baganator do.
+- **Item data from the game's November 7 update:** about 430 more items the upgrade tooltips, the bag arrow and the
+  Gear tab know (new dungeon loot among them), and the lower stats Adaptive Combat Assistant, Weakness Analyzer and
+  Serenity Field got that day.
+
 ## 0.21.0
 
 - **Solo, Dungeon and PvP builds for every class.** In **/kp**, your class's builds are now grouped by spec, each with
