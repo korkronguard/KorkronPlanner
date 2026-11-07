@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.20.1
+
+- **Baganator: the green upgrade arrow shows now.** Choosing the Planner as Baganator's upgrade source only changed its
+  searches, so Baganator users never saw an arrow. The arrow is now one of Baganator's corner icons, in the top-right
+  corner by itself (move or remove it in Baganator's settings, Icons tab, "Kor'kron Planner"). Nothing to change in
+  your settings.
+
 ## 0.20.0
 
 - **Priests: the builds are right for Horde Priests now.** The planner gave every Priest Starshards, which only Night

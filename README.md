@@ -21,8 +21,8 @@ The in-game companion to the Kor'kron Guard talent planner: https://korkronguard
   tooltip says whether it beats what you wear for your build, by how much overall (in %, of your build's damage or
   healing per second at your level), in damage or healing per second and effective HP, and why: what each stat that
   differs adds, and what one point of it is worth. With your bags open, a **green arrow** in the top-right corner marks
-  each item that's an upgrade you can wear now. Using **Baganator**? Choose "Kor'kron Planner" as its upgrade icon in
-  Baganator's settings.
+  each item that's an upgrade you can wear now. Using **Baganator**? The arrow shows there too, top right (move it in
+  Baganator's settings, Icons tab, where it's called "Kor'kron Planner").
 - **How your numbers are worked out.** The **Formulas** tab shows the formula behind your health, mana, attack power,
   crit, armor, mana regen, rage and effective health, with your own numbers and the game's next to them, and for every
   number in it what it is and where it comes from; what 1 point of each stat does for you and your build; and your
