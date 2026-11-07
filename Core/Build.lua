@@ -31,26 +31,17 @@ function Build.Talent(id)
   return byId[class][id]
 end
 
--- "Improved Rend 2/3" for a step of Build.Steps
+-- "Improved Rend 2/3" for a step of Build.Follow
 function Build.Describe(step)
   local t = Build.Talent(step.id)
   return ("%s %d/%d"):format(t.name, step.rank, t.ranks)
 end
 
 -- A build's entry for your level in per-level data (KP.Priority, KP.Gear: [class][build key] = { { level, ... } }):
--- the last one that starts at or below the level (below the first, the first), or nil. A level 60 build only has 60,
--- so below that its leveling build's entries are used (the last one whose pair it is: Protection's dungeon-ready
--- leveling build comes after the solo one).
+-- the last one that starts at or below the level (below the first, the first), or nil
 function Build.ForLevel(data, key, level)
-  local class = MyClass()
-  local all = data[class] or {}
-  local list = key and all[key]
+  local list = key and (data[MyClass()] or {})[key]
   if not list then return nil end
-  if list[1].level > level then
-    for _, b in ipairs(Build.Suggested()) do
-      if b.pair == key and all[b.key] then list = all[b.key] end
-    end
-  end
   local found = list[1]
   for _, entry in ipairs(list) do
     if entry.level <= level then found = entry end
@@ -96,33 +87,87 @@ function Build.FromLink(text)
   return order
 end
 
--- Each point of a build: { id, rank (the talent's rank after this point), level, done }. A point is done when the
--- talent already has that many points, whatever order you took them in.
-function Build.Steps(order, ranks)
-  local given, steps = {}, {}
-  for i, id in ipairs(order) do
-    given[id] = (given[id] or 0) + 1
-    steps[i] = { id = id, rank = given[id], level = FIRST_LEVEL + i - 1, done = (ranks[id] or 0) >= given[id] }
+-- Your build as you follow it, your own choices counted. Each point of the build: { id, rank (the talent's rank after
+-- this point), level, index (its place in the order), choice (the build's "your choice" entry it belongs to, if any),
+-- done, dropped }. A point is done when the talent already has that many points, whatever order you took them in.
+-- You may deviate two ways:
+--  * a "your choice" point (build.flex) you put into one of its options counts as the build's point;
+--  * any other point outside the build is your own pick: the build drops its last points to make room (51 in all).
+-- Returns the steps, your own picks ({ { id, extra } }) and what the build now asks of each talent ({ [node ID] = n }).
+function Build.Follow(build, ranks)
+  local planned = {}
+  for _, id in ipairs(build.order) do planned[id] = (planned[id] or 0) + 1 end
+  local want, choiceOf = {}, {}
+  for id, n in pairs(planned) do want[id] = n end
+  -- the build's points of a flex talent you haven't taken yet move to the options you took instead
+  for _, f in ipairs(build.flex or {}) do
+    choiceOf[f.id] = f
+    local open = math.min(f.points, math.max(0, want[f.id] - (ranks[f.id] or 0)))
+    for _, o in ipairs(f.options) do
+      local n = math.min(open, math.max(0, (ranks[o] or 0) - (want[o] or 0)))
+      want[o], want[f.id], open = (want[o] or 0) + n, want[f.id] - n, open - n
+    end
   end
-  return steps
+  local own, extra = {}, 0
+  for id, rank in pairs(ranks) do
+    if rank > (want[id] or 0) then
+      table.insert(own, { id = id, extra = rank - (want[id] or 0) })
+      extra = extra + rank - (want[id] or 0)
+    end
+  end
+  table.sort(own, function(a, b) return a.id < b.id end)
+  local given, steps = {}, {}
+  for i, id in ipairs(build.order) do
+    given[id] = (given[id] or 0) + 1
+    local f = choiceOf[id]
+    steps[i] = { id = id, rank = given[id], level = FIRST_LEVEL + i - 1, index = i,
+      choice = f and given[id] > planned[id] - f.points and f or nil,
+      -- a rank above what the build now asks: a your-choice point you put elsewhere
+      done = (ranks[id] or 0) >= given[id] or given[id] > want[id] }
+  end
+  for i = #steps, 1, -1 do
+    if extra == 0 then break end
+    if not steps[i].done then
+      steps[i].dropped, extra = true, extra - 1
+      want[steps[i].id] = want[steps[i].id] - 1
+    end
+  end
+  return steps, own, want
 end
 
 function Build.NextStep(steps)
   for _, step in ipairs(steps) do
-    if not step.done then return step end
+    if not (step.done or step.dropped) then return step end
   end
 end
 
--- Talents with more points than the whole build gives them: { { id, extra }, ... }
-function Build.OffBuild(order, ranks)
-  local planned = {}
-  for _, id in ipairs(order) do planned[id] = (planned[id] or 0) + 1 end
-  local off = {}
-  for id, rank in pairs(ranks) do
-    if rank > (planned[id] or 0) then table.insert(off, { id = id, extra = rank - (planned[id] or 0) }) end
+-- Your class's suggested builds by spec (the tree a build puts most points in), in tree order, each spec's builds Solo
+-- first, then Dungeon, then PvP (on one path, a leveling build before a level 60 one):
+-- { { tree, name, builds = { ... } }, ... }
+local PATH_ORDER = { solo = 1, dungeon = 2, pvp = 3 }
+function Build.BySpec()
+  local specs, trees = {}, (KP.Talents[MyClass()] or {}).trees or {}
+  for n, b in ipairs(Build.Suggested()) do
+    local tree = 1
+    for t = 2, 3 do if b.points[t] > b.points[tree] then tree = t end end
+    specs[tree] = specs[tree] or { tree = tree, name = trees[tree], builds = {} }
+    table.insert(specs[tree].builds, { build = b, n = n })
   end
-  table.sort(off, function(a, b) return a.id < b.id end)
-  return off
+  local list = {}
+  for tree = 1, 3 do
+    local spec = specs[tree]
+    if spec then
+      table.sort(spec.builds, function(a, b)
+        local pa, pb = PATH_ORDER[a.build.path], PATH_ORDER[b.build.path]
+        if pa ~= pb then return pa < pb end
+        if a.build.kind ~= b.build.kind then return a.build.kind == "leveling" end
+        return a.n < b.n
+      end)
+      for i, entry in ipairs(spec.builds) do spec.builds[i] = entry.build end
+      table.insert(list, spec)
+    end
+  end
+  return list
 end
 
 -- Points spent and points your level gives: spent, available
@@ -151,7 +196,7 @@ function Build.Remind()
   if not (build and ranks) then return end
   local spent, available = Build.Points(ranks)
   if spent >= available then return end
-  local step = Build.NextStep(Build.Steps(build.order, ranks))
+  local step = Build.NextStep(Build.Follow(build, ranks))
   if step then KP:Print(("next talent (%s): %s. /kp shows the rest."):format(build.name, Build.Describe(step))) end
 end
 
@@ -164,7 +209,7 @@ function Build.LearnNext()
   local _, configID = KP.TalentNodes()
   local ranks = KP.TalentRanks()
   if not ranks then return KP:Print("the game isn't showing your talents here.") end
-  local step = Build.NextStep(Build.Steps(build.order, ranks))
+  local step = Build.NextStep(Build.Follow(build, ranks))
   if not step then return KP:Print("your build is complete.") end
   local bought = C_Traits.PurchaseRank(configID, step.id)
   local committed = bought and C_ClassTalents.CommitConfig(configID)

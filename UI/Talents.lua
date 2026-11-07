@@ -1,6 +1,7 @@
 -- Kor'kron Planner: the Talents tab of the /kp window. Your class's three trees (Data/Talents.lua: the game's own layout)
--- with your points next to the build's: a gold frame where the build wants (more) points, green where you've taken all
--- it wants, red for points the build doesn't use, white around the build's next point. Hover a talent for its tooltip.
+-- with your points next to the build's (as you follow it: Build.Follow counts your choices and your own picks): a gold
+-- frame where the build wants (more) points, green where you've taken all it wants, blue for your own picks outside
+-- the build, white around the build's next point. Hover a talent for its tooltip.
 local _, KP = ...
 
 local Pane = {}
@@ -11,7 +12,7 @@ KP.TalentsPane = Pane
 local CELL, ICON = 40, 34
 local HEADER = 24 -- the tree names above the grid
 local COLORS = {
-  next = { 1, 1, 1 }, done = { 0.2, 0.8, 0.2 }, todo = { 0.95, 0.75, 0.1 }, extra = { 0.9, 0.2, 0.2 }, none = { 0.15, 0.15, 0.15 },
+  next = { 1, 1, 1 }, done = { 0.2, 0.8, 0.2 }, todo = { 0.95, 0.75, 0.1 }, own = { 0.3, 0.6, 1 }, none = { 0.15, 0.15, 0.15 },
 }
 
 local function MyClass()
@@ -83,11 +84,9 @@ end
 -- which frame colour a talent gets
 local function Kind(yours, want, isNext)
   if isNext then return "next" end
-  if want > 0 then
-    if yours > want then return "extra" end
-    return yours >= want and "done" or "todo"
-  end
-  return yours > 0 and "extra" or "none"
+  if yours > want then return "own" end
+  if want > 0 then return yours >= want and "done" or "todo" end
+  return "none"
 end
 
 -- build: the chosen build (nil when none)
@@ -95,9 +94,14 @@ function Pane.Refresh(pane, build)
   local talents = KP.Talents[MyClass()] or {} -- the class's talents in order, and .trees = the three tree names
   if not pane.cells then CreateCells(pane, talents) end
   local ranks = KP.TalentRanks()
-  local planned = {}
-  for _, id in ipairs(build and build.order or {}) do planned[id] = (planned[id] or 0) + 1 end
-  local nextStep = build and ranks and KP.Build.NextStep(KP.Build.Steps(build.order, ranks))
+  -- what the build asks of each talent: as you follow it when the game shows your talents, else its own points
+  local planned, nextStep = {}, nil
+  if build and ranks then
+    local steps, _, want = KP.Build.Follow(build, ranks)
+    planned, nextStep = want, KP.Build.NextStep(steps)
+  elseif build then
+    for _, id in ipairs(build.order) do planned[id] = (planned[id] or 0) + 1 end
+  end
   local yoursIn, plannedIn = { 0, 0, 0 }, { 0, 0, 0 }
   for _, cell in ipairs(pane.cells) do
     local t = cell.talent
@@ -120,7 +124,7 @@ function Pane.Refresh(pane, build)
     pane.status:SetText("Your points. Choose a build on the left to see it next to yours.")
   else
     pane.status:SetText("Your points / the build's in each tree. |cfff2bf1aGold|r: the build wants more there. " ..
-      "|cff33cc33Green|r: done. |cffe63333Red|r: points the build doesn't use. White: the build's next point." ..
+      "|cff33cc33Green|r: done. |cff4d99ffBlue|r: your own picks (the build makes room). White: the build's next point." ..
       (nextStep and ("\nNext: " .. KP.Build.Describe(nextStep)) or "\nYour build is complete."))
   end
 end

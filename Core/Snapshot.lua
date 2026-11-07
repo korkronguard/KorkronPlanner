@@ -1,16 +1,22 @@
 -- Kor'kron Planner: snapshots of your own character, the data the guild's collector gathers (Share.lua).
--- KorkronPlannerCharDB.snapshots[level] = { stamp, body, delivered } keeps the latest snapshot for each level.
--- One is taken a few seconds after logging in, a level-up, a gear change or a talent change, but never in combat or
--- inside an instance (the game can hide values there, and group buffs would skew them). A snapshot that matches the
--- one already kept for that level is not kept again.
+-- KorkronPlannerCharDB.snapshots[level] = { stamp, body, delivered, pet } keeps the latest snapshot for each level.
+-- One is taken a few seconds after logging in, a level-up, a gear change, a talent change or your pet coming or going,
+-- but never in combat or inside an instance (the game can hide values there, and group buffs would skew them). A
+-- snapshot that matches the one already kept for that level is not kept again, and one taken with your pet out
+-- (pet = true) isn't replaced by one without it.
 --
--- Text format, version 3, fields separated by ";":
---   3;guid;stamp;CLASS;RACE;level;str;agi;sta;int;spi;maxHealth;maxMana;crit;rangedCrit;spellCrit;hit;spellHit;
+-- Text format, version 4, fields separated by ";":
+--   4;guid;stamp;CLASS;RACE;level;str;agi;sta;int;spi;maxHealth;maxMana;crit;rangedCrit;spellCrit;hit;spellHit;
 --   dodge;parry;block;attackPower;rangedAttackPower;spellDamage;healing;armor;manaRegen;ratings;items;talents;raceID;
---   critFromAgility;spellCritFromIntellect;dodgeFromAgility
+--   critFromAgility;spellCritFromIntellect;dodgeFromAgility;petFamily;petLevel;petStr;petAgi;petSta;petInt;petSpi;
+--   petHealth;petMana;petArmor;petAttackPower;petDamage;petAttackSpeed;petHappiness
 -- Version 2 added raceID (UnitRace's 3rd value, the game's race ID: both Skyborne races give the RACE "Skyborne").
 -- Version 3 added what the game's own character sheet says the whole of Agility / Intellect gives (empty when the
--- client has no such function). A snapshot kept before a version and sent later lacks its fields.
+-- client has no such function). Version 4 added your pet or demon (all 14 fields empty without one): the game files
+-- don't have a pet's own numbers, the server decides them. petFamily = UnitCreatureFamily's name,ID; the others as the
+-- game's functions give them for "pet" (UnitDamage, UnitAttackSpeed...); petHappiness = GetPetHappiness's numbers
+-- (happiness, damage %, loyalty rate), empty when the client has no such function. A snapshot kept before a version
+-- and sent later lacks its fields.
 -- The first six fields keep their place in every version (the collector reads them). stamp = server time in
 -- seconds. A field for a game function lists every number it returns, comma-separated: UnitStat base,effective,
 -- plus,minus; UnitAttackPower base,plus,minus; UnitArmor and GetManaRegen as the game gives them. spellCrit and
@@ -24,7 +30,7 @@ local _, KP = ...
 local Snapshot = {}
 KP.Snapshot = Snapshot
 
-local VERSION = 3
+local VERSION = 4
 local DELAY = 5 -- seconds: lets stats settle (UnitLevel still gives the old level during PLAYER_LEVEL_UP)
 local SCHOOLS = { 2, 3, 4, 5, 6, 7 }
 local RATINGS = { "CR_DEFENSE_SKILL", "CR_DODGE", "CR_PARRY", "CR_BLOCK", "CR_HIT_MELEE", "CR_HIT_RANGED",
@@ -94,6 +100,20 @@ local function FromStat(name)
   return ok and num(value) or ""
 end
 
+-- your pet or demon (Hunters, Warlocks)
+local function Pet()
+  if not UnitExists("pet") then return (";"):rep(13) end -- its 14 fields, empty
+  local family, familyID = UnitCreatureFamily("pet")
+  return table.concat({
+    (KP.Text(family) or "") .. "," .. num(familyID), num(UnitLevel("pet")),
+    All(UnitStat("pet", 1)), All(UnitStat("pet", 2)), All(UnitStat("pet", 3)),
+    All(UnitStat("pet", 4)), All(UnitStat("pet", 5)),
+    num(UnitHealthMax("pet")), num(UnitPowerMax("pet", 0)), All(UnitArmor("pet")),
+    All(UnitAttackPower("pet")), All(UnitDamage("pet")), All(UnitAttackSpeed("pet")),
+    GetPetHappiness and All(GetPetHappiness()) or "",
+  }, ";")
+end
+
 -- everything after the stamp
 local function Body()
   local _, class = UnitClass("player")
@@ -114,6 +134,7 @@ local function Body()
     All(UnitArmor("player")), All(GetManaRegen()),
     Ratings(), Items(), ok and talents or "", num(raceID),
     FromStat("GetCritChanceFromAgility"), FromStat("GetSpellCritChanceFromIntellect"), FromStat("GetDodgeChanceFromAgility"),
+    Pet(),
   }, ";")
 end
 
@@ -136,7 +157,10 @@ local function Take()
   local snapshots = KorkronPlannerCharDB.snapshots
   local old = snapshots[level]
   if old and old.body == body then return end
-  snapshots[level] = { stamp = GetServerTime(), body = body }
+  -- the pet's numbers are the rare part, and base stats don't change within a level
+  local pet = UnitExists("pet")
+  if old and old.pet and not pet then return end
+  snapshots[level] = { stamp = GetServerTime(), body = body, pet = pet or nil }
   KP.Share.Added()
 end
 
@@ -147,7 +171,7 @@ function Snapshot.Schedule()
 end
 
 for _, event in ipairs({ "PLAYER_ENTERING_WORLD", "PLAYER_LEVEL_UP", "PLAYER_EQUIPMENT_CHANGED",
-  "PLAYER_TALENT_UPDATE", "TRAIT_CONFIG_UPDATED" }) do
+  "PLAYER_TALENT_UPDATE", "TRAIT_CONFIG_UPDATED", "UNIT_PET" }) do
   KP:On(event, Snapshot.Schedule)
 end
 

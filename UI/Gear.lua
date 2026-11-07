@@ -254,5 +254,6 @@ function Pane.Refresh(pane, build)
   end
   pane.title:SetText(("Gear for level %d and up: you wear %d of %d"):format(entry.level, wearing, shown))
   pane.note:SetText("Click a slot for its other options and to choose your own (gold). Link = the item's Wowhead page" ..
-    ", which says where to get it. " .. TICK .. " = you're wearing it.")
+    ", which says where to get it. " .. TICK .. " = you're wearing it." ..
+    (build.path == "pvp" and " PvP: ranked by the planner's questing numbers (it has none for fights against players)." or ""))
 end

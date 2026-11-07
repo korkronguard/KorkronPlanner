@@ -5,12 +5,16 @@ The in-game companion to the Kor'kron Guard talent planner: https://korkronguard
 ## What it does
 
 - **Follow a build while you level.** Type **/kp** and pick one of the planner's suggested builds for your class, or
-  paste the link to your own build from the planner website (its **Copy link** button). The window shows the talent to
-  take next, the points after it with their levels, and any points you've spent outside the build. Hover a point to see
-  the talent's tooltip and why the planner picked it; hover the build's name for what the build is about. When you
-  level up and have a point to spend, a line in chat names the next talent.
+  paste the link to your own build from the planner website (its **Copy link** button). Builds are grouped by spec,
+  each with up to three paths: **Solo** (questing alone), **Dungeon** (ready for groups while you level, then dungeons
+  and raids at 60) and **PvP** (fighting players; its PvP talents are picked from class knowledge, and it says so). The
+  window shows the talent to take next and the points after it with their levels. Hover a point to see the talent's
+  tooltip, why the planner picked it and the talents it rates nearly as good there; hover the build's name for what
+  the build is about. When you level up and have a point to spend, a line in chat names the next talent.
+- **Make it yours.** Builds aren't set in stone. "Your choice" points can go either way, and any other point you spend
+  outside the build is fine too: the build makes room by dropping its last points, and the window lists your own picks.
 - **Your trees at a glance.** The **Talents** tab shows your three talent trees with your points and the build's:
-  gold where the build wants more, green where you're done, red for points it doesn't use, white for the next one.
+  gold where the build wants more, green where you're done, blue for your own picks, white for the next one.
 - **What to press.** The window's **Priority** tab shows the planner's rotation for your build at your level: what to
   keep up, what to use on cooldown, builders, finishers and cooldowns.
 - **What to wear.** The **Gear** tab shows the planner's best item for each slot for your build at your level, where
@@ -41,13 +45,16 @@ Builds marked **\*** have a talent the planner's math can't put a number on yet;
 
 ## What is shared
 
-A few seconds after you log in, level up, change gear or change talents (never in combat or inside a dungeon or raid),
-the addon notes your character's:
+A few seconds after you log in, level up, change gear, change talents or call your pet (never in combat or inside a
+dungeon or raid), the addon notes your character's:
 
 - class, race and level
 - stats: strength, agility, stamina, intellect, spirit, health, mana, armor, crit, hit, dodge, parry, block, attack
   power, spell power, healing, mana regeneration and combat ratings
 - the items you wear (with enchants) and your talent points
+- your pet or demon, if you have one out: its kind (Wolf, Voidwalker...), level, stats, health, mana, armor, attack
+  power, damage, attack speed and happiness. Not its name. The game's files don't say how hard pets hit on Forever,
+  so the planner learns it from yours.
 - the character's ID number, so the same character isn't counted twice
 
 A minute after you log in, it also checks the planner against the game, by itself, once per game patch:

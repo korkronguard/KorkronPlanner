@@ -1,5 +1,43 @@
 # Changelog
 
+## 0.21.0
+
+- **Solo, Dungeon and PvP builds for every class.** In **/kp**, your class's builds are now grouped by spec, each with
+  three paths: **Solo** (questing alone), **Dungeon** (ready for groups while you level, then dungeons and raids at 60)
+  and **PvP** (world PvP while you level, battlegrounds at 60). Druids have two Feral builds on Solo and Dungeon (Cat and
+  Bear).
+  - **Dungeon** paths are measured in dungeon pulls at each level (the gear you'd have then, no resting counted), with
+    their own Priority and Gear lists from level 10. Tanks take their threat talents as soon as they can (Paladin:
+    Holy Shield, Iron Creed; Warrior: Defiance, Improved Sunder Armor; Druid: Feral Instinct, Lacerate). The Warrior's
+    separate "Protection: leveling (dungeons)" build is now Protection's Dungeon path: if you followed it, you follow
+    that now.
+  - **PvP** builds, one per spec, for example: Paladin Retribution (Repentance, a quicker Hammer of Justice, Eye for an
+    Eye), Warrior Arms (Improved Hamstring, Piercing Howl), Priest Shadow (Blackout, Silence, Silent Resolve), Rogue
+    Subtlety (Preparation, Elusiveness, Improved Sprint), Mage Frost (Frostbite, Improved Frost Nova, Ice Block),
+    Hunter Survival (Improved Wing Clip, Counterattack, Deterrence), Druid Feral (Brutal Impact, Feral Charge), Shaman
+    Elemental (Earthbound, Eye of the Storm), Warlock Demonology (Soul Link, Fel Domination). They take the crowd
+    control, stuns and utility a PvE build skips. The planner can't measure a fight against a player, so these talents
+    are picked from class knowledge; Beast Mastery and Marksmanship Hunters and Elemental Shamans follow the PvP builds
+    Icy Veins publishes for WoW: Forever. Each build says which. The Gear tab ranks their gear with the planner's
+    questing numbers.
+- **Builds checked by the planner's own math:** a new search moves points wherever the math says the build gets
+  better, and 22 Solo and Dungeon builds changed. For example: Arms Solo takes Improved Slam; Frost and Fire Mages take
+  Arcane Blast (on Forever its stacks add spell damage to everything you cast); the Protection Paladin takes Conviction;
+  Combat Rogue Solo trades Hack and Slash for Improved Poisons; Restoration Shaman Solo takes Shamanistic Focus. Hover a
+  build's name to see how many of its 51 points the math measures. The rest are picked by judgment (utility and crowd
+  control the math can't put a number on yet), and the planner website names them.
+- **Warriors in dungeons:** a damage-dealing Warrior's Enrage no longer counts there (the tank is the one being hit).
+- **Make a build yours:**
+  - Hover a point to see the talents the planner rates as good or nearly as good there.
+  - "Your choice" points: a point or a few in every build can go either way (the window lists them; Warlocks can take
+    a stronger Succubus for faster kills). Taking the other option counts as following the build.
+  - Points you spend outside the build are your own picks, no longer marked red: the build drops its last points to
+    make room, and the Talents tab shows your picks in blue.
+- **Hunters and Warlocks: your pet's stats are shared too** (its kind, level, stats, health, mana, armor, attack
+  power, damage, attack speed and happiness; not its name). The game's files don't say how hard pets hit on Forever, so today
+  the planner counts no pet damage at all. Your pet's numbers let it value Beast Mastery and Demonology talents from
+  real numbers. You'll see the sharing message once more because of this; **/kp share off** still stops all sharing.
+
 ## 0.20.1
 
 - **Baganator: the green upgrade arrow shows now.** Choosing the Planner as Baganator's upgrade source only changed its

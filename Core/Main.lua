@@ -19,6 +19,9 @@ KP:On("ADDON_LOADED", function(name)
   KorkronPlannerCharDB.gear = KorkronPlannerCharDB.gear or {} -- your own gear choices (UI/Gear.lua)
   -- left by the rotation helper and its combat check (removed in 0.17.0)
   KorkronPlannerCharDB.helper, KorkronPlannerDB.helperNotice, KorkronPlannerDB.combatProbe = nil, nil, nil
+  -- the Warrior's dungeon-ready Protection leveling build became Protection's Dungeon path (0.21.0)
+  local build = KorkronPlannerCharDB.build
+  if build and build.key == "prot-dungeon-lvl" then build.key = "prot" end
 end)
 
 local HELP = {

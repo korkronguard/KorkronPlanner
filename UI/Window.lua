@@ -1,16 +1,17 @@
--- Kor'kron Planner: the /kp window. On the left you pick one of your class's suggested builds or paste a planner
--- link; on the right, tabs: Build (the next talent, the points after it, points
--- spent outside the build), Talents (UI/Talents.lua), Priority (UI/Priority.lua), Gear (UI/Gear.lua) and Formulas
--- (UI/Formulas.lua).
+-- Kor'kron Planner: the /kp window. On the left you pick one of your class's suggested builds (by spec: Solo, Dungeon,
+-- PvP) or paste a planner link; on the right, tabs: Build (the next talent, the points after it, your own picks and
+-- choices), Talents (UI/Talents.lua), Priority (UI/Priority.lua), Gear (UI/Gear.lua) and Formulas (UI/Formulas.lua).
 local _, KP = ...
 
 local Window = {}
 KP.Window = Window
 
-local MAX_BUILDS = 8 -- Druids have the most: four specs, each with a level 60 and a leveling build
-local ROWS = 14      -- upcoming points shown
-local RIGHT = 282    -- where the tabs start
-local PICK_W = 252   -- the build buttons on the left
+local MAX_BUILDS = 12 -- three paths for each of three specs, with room for a spec that has two builds on a path
+local ROWS = 14       -- upcoming points shown
+local RIGHT = 282     -- where the tabs start
+local PICK_W = 252    -- the build picker on the left
+local PATH_LABEL = { solo = "Solo", dungeon = "Dungeon", pvp = "PvP" }
+local ROLE_WORD = { tank = "tank", dps = "damage", heal = "healer" }
 local PANE_W, PANE_H = 520, 470
 local TABS = { { key = "build", label = "Build" }, { key = "talents", label = "Talents" }, { key = "priority", label = "Priority" },
   { key = "gear", label = "Gear" }, { key = "formulas", label = "Formulas" } }
@@ -19,24 +20,48 @@ local TAB_W = 100 -- five tabs across the pane
 local frame
 local tab = "build"
 
--- a point of the path: the talent's tooltip at the rank it gives, the planner's reason for it, the talent's note
+-- "Deflection, or Benediction: why" for a "your choice" entry of a build
+local function ChoiceText(f)
+  local names = {}
+  for _, id in ipairs(f.options) do table.insert(names, KP.Build.Talent(id).name) end
+  return ("%s, or %s: %s"):format(KP.Build.Talent(f.id).name, table.concat(names, " or "), f.why)
+end
+
+-- a point of the path: the talent's tooltip at the rank it gives, the planner's reason for it, the talents the math
+-- rates nearly as good there, whether it's your choice, the talent's note
 local function ShowPointTooltip(row)
-  local t = KP.Build.Talent(row.step.id)
+  local t, step = KP.Build.Talent(row.step.id), row.step
   GameTooltip:SetOwner(row, "ANCHOR_RIGHT")
-  GameTooltip:AddLine(KP.Build.Describe(row.step))
-  GameTooltip:AddLine(t.desc[row.step.rank], 1, 1, 1, true)
+  GameTooltip:AddLine(KP.Build.Describe(step))
+  GameTooltip:AddLine(t.desc[step.rank], 1, 1, 1, true)
   if row.why then GameTooltip:AddLine("Why: " .. row.why, 0.4, 0.8, 1, true) end
+  if row.alts then
+    GameTooltip:AddLine("Also good here (the build adapts if you take one):", 0.4, 0.8, 1)
+    for _, a in ipairs(row.alts) do
+      local alt = KP.Build.Talent(a[1])
+      GameTooltip:AddLine(("  %s %d/%d: %s"):format(alt.name, a[2], alt.ranks, a[3]), 1, 1, 1, true)
+    end
+  end
+  if step.choice then GameTooltip:AddLine("Your choice: " .. ChoiceText(step.choice), 1, 0.82, 0, true) end
   if t.note then GameTooltip:AddLine(t.note, 0.75, 0.75, 0.75, true) end
+  GameTooltip:Show()
+end
+
+local function ShowBuildTooltip(owner, build)
+  GameTooltip:SetOwner(owner, "ANCHOR_RIGHT")
+  GameTooltip:AddLine(build.name)
+  GameTooltip:AddLine(build.summary, 1, 1, 1, true)
+  if build.measured then
+    GameTooltip:AddLine(("Measured by the planner's math: %d of %d points (the rest picked by judgment)."):format(build.measured,
+      #build.order), 0.75, 0.75, 0.75, true)
+  end
+  if build.judgment then GameTooltip:AddLine("Judgment, not measured: " .. build.judgment, 0.4, 0.8, 1, true) end
   GameTooltip:Show()
 end
 
 local function ShowSummaryTooltip(owner)
   local build = KP.Build.Current()
-  if not (build and build.summary) then return end
-  GameTooltip:SetOwner(owner, "ANCHOR_RIGHT")
-  GameTooltip:AddLine(build.name)
-  GameTooltip:AddLine(build.summary, 1, 1, 1, true)
-  GameTooltip:Show()
+  if build and build.summary then ShowBuildTooltip(owner, build) end
 end
 
 local function HideTooltip()
@@ -50,16 +75,17 @@ local function Text(parent, font, width)
   return fs
 end
 
--- the left column: suggested builds and the link box
+-- the left column: suggested builds (a heading per spec, then its Solo / Dungeon / PvP buttons) and the link box
 local function CreatePicker()
   local pick = Text(frame, "GameFontNormal")
   pick:SetPoint("TOPLEFT", 16, -34)
   pick:SetText("Suggested builds")
+  frame.specHeaders = {}
+  for i = 1, 3 do frame.specHeaders[i] = Text(frame, "GameFontHighlightSmall", PICK_W) end
   frame.buildButtons = {}
   for i = 1, MAX_BUILDS do
     local b = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
-    b:SetSize(PICK_W, 22)
-    b:SetPoint("TOPLEFT", 14, -52 - (i - 1) * 25)
+    b:SetHeight(22)
     b:SetNormalFontObject("GameFontNormalSmall")
     b:SetHighlightFontObject("GameFontHighlightSmall") -- the chosen build is highlighted: same size, so it fits
     b:SetScript("OnClick", function(self)
@@ -69,6 +95,8 @@ local function CreatePicker()
         KP.BagIcons.Refresh()
       end)
     end)
+    b:SetScript("OnEnter", function(self) KP.Safe(ShowBuildTooltip, self, self.build) end)
+    b:SetScript("OnLeave", HideTooltip)
     frame.buildButtons[i] = b
   end
 
@@ -133,6 +161,8 @@ local function CreateBuildPane()
   end
   frame.off = Text(pane, "GameFontHighlightSmall", width)
   frame.off:SetPoint("TOPLEFT", frame.rows[ROWS], "BOTTOMLEFT", 0, -8)
+  frame.choices = Text(pane, "GameFontHighlightSmall", width)
+  frame.choices:SetPoint("TOPLEFT", frame.off, "BOTTOMLEFT", 0, -4)
   return pane
 end
 
@@ -168,29 +198,71 @@ local function Create()
   frame:Hide() -- new frames start shown; Toggle shows it, which fills it in (OnShow)
 end
 
-local function ShowBuildButtons(chosenKey)
-  local builds = KP.Build.Suggested()
-  for i, b in ipairs(frame.buildButtons) do
-    local build = builds[i]
-    b.key = build and build.key
-    b:SetShown(build ~= nil)
-    if build then b:SetText(build.name .. (build.provisional and " *" or "")) end
-    if build and build.key == chosenKey then b:LockHighlight() else b:UnlockHighlight() end
+-- a build's button: its path, and when the spec has two builds on that path, their roles (Feral: Cat or Bear) or
+-- which is the leveling one
+local function Label(build, siblings)
+  local same, rolesDiffer = 0, false
+  for _, b in ipairs(siblings) do
+    if b.path == build.path then
+      same = same + 1
+      rolesDiffer = rolesDiffer or b.role ~= build.role
+    end
   end
+  if same < 2 then return PATH_LABEL[build.path] end
+  return ("%s (%s)"):format(PATH_LABEL[build.path], rolesDiffer and ROLE_WORD[build.role] or
+    (build.kind == "group" and "60" or "leveling"))
 end
 
--- the upcoming points: the first not taken is "Next", the rest follow in the build's order. why = the planner's
--- reason for each point (a suggested build's; a pasted link has none)
-local function ShowRows(steps, why)
+-- a heading per spec, then its builds three to a row (two when a label needs the room)
+local function ShowBuildButtons(chosenKey)
+  local y, n = -52, 0
+  local specs = KP.Build.BySpec()
+  for s, header in ipairs(frame.specHeaders) do
+    local spec = specs[s]
+    header:SetShown(spec ~= nil)
+    if spec then
+      header:ClearAllPoints()
+      header:SetPoint("TOPLEFT", 16, y)
+      header:SetText(spec.name)
+      y = y - 15
+      local labels, perRow = {}, 3
+      for i, build in ipairs(spec.builds) do
+        labels[i] = Label(build, spec.builds) .. (build.provisional and " *" or "")
+        if #labels[i] > 12 then perRow = 2 end
+      end
+      local w = math.floor((PICK_W - (perRow - 1) * 4) / perRow)
+      for i, build in ipairs(spec.builds) do
+        n = n + 1
+        local b, col = frame.buildButtons[n], (i - 1) % perRow
+        if i > 1 and col == 0 then y = y - 24 end
+        b:ClearAllPoints()
+        b:SetPoint("TOPLEFT", 14 + col * (w + 4), y)
+        b:SetWidth(w)
+        b.key, b.build = build.key, build
+        b:SetText(labels[i])
+        b:Show()
+        if build.key == chosenKey then b:LockHighlight() else b:UnlockHighlight() end
+      end
+      y = y - 28
+    end
+  end
+  for i = n + 1, MAX_BUILDS do frame.buildButtons[i]:Hide() end
+end
+
+-- the upcoming points: the first not taken is "Next", the rest follow in the build's order (points dropped to make
+-- room for your own picks left out). build.why = the planner's reason for each point and build.alts the talents it
+-- rates nearly as good there (a suggested build's; a pasted link has neither)
+local function ShowRows(steps, build)
   local shown = 0
-  for i, step in ipairs(steps) do
-    if not step.done and shown < ROWS then
+  for _, step in ipairs(steps) do
+    if not (step.done or step.dropped) and shown < ROWS then
       shown = shown + 1
       local row, t = frame.rows[shown], KP.Build.Talent(step.id)
-      row.step, row.why = step, why and why[i]
+      row.step, row.why, row.alts = step, build.why and build.why[step.index], build.alts and build.alts[step.index]
       row.level:SetText(shown == 1 and "|cffffd100Next|r" or ("Lv " .. step.level))
       row.icon:SetTexture(t.icon)
-      row.name:SetText(KP.Build.Describe(step))
+      row.name:SetText(KP.Build.Describe(step) .. (step.choice and "  |cff999999(your choice)|r" or "") ..
+        (row.alts and "  |cff999999(or ...)|r" or ""))
       row:Show()
     end
   end
@@ -204,6 +276,7 @@ end
 
 local function RefreshBuildPane(build, why, saved)
   frame.off:SetText("")
+  frame.choices:SetText("")
   if not build then
     frame.heading:SetText("Choose a build")
     frame.note:SetText(saved and why or "Pick one of the planner's builds on the left, or paste a link to your own " ..
@@ -212,7 +285,13 @@ local function RefreshBuildPane(build, why, saved)
     return HideRows()
   end
   frame.heading:SetText(build.name)
-  frame.note:SetText(build.provisional and ("|cffff9933Provisional:|r " .. build.provisional) or "")
+  frame.note:SetText(build.provisional and ("|cffff9933Provisional:|r " .. build.provisional) or
+    build.judgment and "|cff66ccffPvP:|r its PvP talents are picked from class knowledge (hover the name)." or "")
+  local choices = {}
+  for _, f in ipairs(build.flex or {}) do
+    table.insert(choices, ("|cffffd100Your choice (%d point%s):|r %s"):format(f.points, f.points == 1 and "" or "s", ChoiceText(f)))
+  end
+  frame.choices:SetText(table.concat(choices, "\n"))
   local ranks = KP.TalentRanks()
   if not ranks then
     frame.status:SetText("The game isn't showing your talents here (inside a dungeon or raid?).")
@@ -226,12 +305,17 @@ local function RefreshBuildPane(build, why, saved)
   else
     frame.status:SetText(("All %d talent points spent."):format(spent))
   end
-  if ShowRows(KP.Build.Steps(build.order, ranks), build.why) == 0 then frame.status:SetText("Build complete!") end
-  local off = {}
-  for _, o in ipairs(KP.Build.OffBuild(build.order, ranks)) do
+  local steps, own = KP.Build.Follow(build, ranks)
+  if ShowRows(steps, build) == 0 then frame.status:SetText("Build complete!") end
+  local off, extra = {}, 0
+  for _, o in ipairs(own) do
     table.insert(off, ("%s +%d"):format(KP.Build.Talent(o.id).name, o.extra))
+    extra = extra + o.extra
   end
-  if #off > 0 then frame.off:SetText("|cffff9933Not in this build:|r " .. table.concat(off, ", ")) end
+  if #off > 0 then
+    frame.off:SetText(("|cff66b3ffYour own picks:|r %s (the build's last %s room)"):format(table.concat(off, ", "),
+      extra == 1 and "point makes" or (extra .. " points make")))
+  end
 end
 
 function Window.Refresh()

@@ -24,10 +24,11 @@ local RESEND_AFTER = 300 -- an undelivered snapshot (or check, Check.lua) is sen
 Share.RESEND_AFTER = RESEND_AFTER
 
 -- shown once per account, and once more when what's shared grows (NOTICE_VERSION)
-local NOTICE = "shares your character's level, stats, gear and talents with the Kor'kron Guard's planner, and "
-  .. "checks the planner's talent and spell numbers against the game, so its numbers match the game (never chat, "
-  .. "whispers or where you are; names never appear on the website). Type /kp share off to stop."
-local NOTICE_VERSION = 2
+local NOTICE = "shares your character's level, stats, gear and talents (and your pet's or demon's stats) with the "
+  .. "Kor'kron Guard's planner, and checks the planner's talent and spell numbers against the game, so its numbers "
+  .. "match the game (never chat, whispers or where you are; names never appear on the website). Type /kp share off to "
+  .. "stop."
+local NOTICE_VERSION = 3
 
 -- player side -------------------------------------------------------------------------------------------------
 
