@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.22.1
+
+- **Better leveling orders for every class that uses mana.** The planner now works out more carefully how hard to
+  spend your mana while leveling (a little more mana could make it pick a costly spell that cost more in drinking than
+  it saved). Warlocks now Life Tap and eat it back instead of drinking for everything. Many Solo and PvP builds take
+  their talents in a slightly different order; none levels slower than before.
+- **Five Solo builds changed a few points:**
+  - Frost, Fire and Arcane Mages take fewer points in Precision: against monsters of your level, more than 2 ranks of
+    hit does almost nothing. The points go to Arcane Concentration (Frost), Arcane Blast (Fire), and Improved Fire
+    Blast and Master of Elements (Arcane).
+  - Demonology Warlocks move two points from Malevolence into Bane (faster Shadow Bolts).
+  - Elemental Shamans move one Concussion point into Tidal Focus (more hit).
+  - If you follow one of these, `/kp` shows the new order; the points you've already spent still count.
+
 ## 0.22.0
 
 - **Tanks are measured on threat.** The planner now works out threat per second from your damage and the game's
