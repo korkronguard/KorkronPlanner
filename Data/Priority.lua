@@ -106,8 +106,9 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Starfire", tag = "With Eclipse", text = "After a Wrath, your next Starfires cast faster: one Wrath, then two Starfires.", icon = 135753 },
-          { name = "Starfire", tag = "Filler", text = "The most damage per second of casting.", icon = 135753 },
-          { name = "Wrath", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136006 },
+          { name = "Wrath", tag = "Filler", text = "The most damage per mana: Starfire hits harder but runs you out of mana over a fight.", icon = 136006 },
+          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 136096 },
+          { name = "Starfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 135753 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Innervate", tag = "When mana runs low", text = "On yourself when your mana runs low, or on a healer who needs it more.", icon = 136048 },
@@ -581,6 +582,27 @@ KP.Priority = {
         } },
       } },
       { level = 50, title = "Balance Druid", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Moonkin Form", tag = "Always", text = "Your casting form.", icon = 136036 },
+          { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
+        } },
+        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
+          { name = "Insect Swarm", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136045 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starfire", tag = "With Eclipse", text = "After a Wrath, your next Starfires cast faster: one Wrath, then two Starfires.", icon = 135753 },
+          { name = "Wrath", tag = "Filler", text = "The most damage per mana: Starfire hits harder but runs you out of mana over a fight.", icon = 136006 },
+          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 136096 },
+          { name = "Starfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 135753 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Innervate", tag = "When mana runs low", text = "On yourself when your mana runs low, or on a healer who needs it more.", icon = 136048 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Hurricane", tag = "Packs", text = "Channel it on a pack that stays put; it also slows their attacks.", icon = 136018 },
+        } },
+      } },
+      { level = 55, title = "Balance Druid", sections = {
         { title = "Before the fight", note = "", items = {
           { name = "Moonkin Form", tag = "Always", text = "Your casting form.", icon = 136036 },
           { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
@@ -2024,6 +2046,30 @@ KP.Priority = {
           { name = "Explosive Trap", tag = "Before the pull", text = "Drop it where the pack will stand.", icon = 135826 },
         } },
       } },
+      { level = 45, title = "Marksmanship Hunter, ranged", sections = {
+        { title = "Before the pull", note = "", items = {
+          { name = "Aspect of the Hawk", tag = "Keep up", text = "Your ranged aspect.", icon = 136076 },
+          { name = "Trueshot Aura", tag = "Keep up", text = "Group ranged attack power; lasts 30 min.", icon = 132329 },
+          { name = "Call Pet", tag = "Pet out", text = "Send the pet in first." },
+          { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
+        } },
+        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
+          { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
+          { name = "Aimed Shot", tag = "On cooldown", text = "Shares its cooldown with Multi-Shot: Aimed Shot hits harder for you. It has a cast time: start it right after an Auto Shot.", icon = 135130 },
+          { name = "Arcane Shot", tag = "On cooldown", text = "Instant. Improved Arcane Shot: 0.3 sec shorter cooldown.", icon = 132218 },
+          { name = "Sniper Shot", tag = "On cooldown", text = "Long-range hit; also gives your next 3 shots +10 yards range.", icon = 1412205 },
+          { name = "Immolation Trap", tag = "Optional", text = "Usable in combat in Forever: worth it when the boss is tanked close enough to reach its feet.", icon = 135813 },
+          { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Rapid Fire", tag = "Cooldown", text = "On cooldown.", icon = 132208 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Multi-Shot", tag = "On cooldown", text = "Instead of Aimed Shot when 3+ enemies stand together.", icon = 132330 },
+          { name = "Volley", tag = "Channel", text = "Big packs only (mana heavy).", icon = 132222 },
+          { name = "Explosive Trap", tag = "Before the pull", text = "Drop it where the pack will stand.", icon = 135826 },
+        } },
+      } },
       { level = 50, title = "Marksmanship Hunter, ranged", sections = {
         { title = "Before the pull", note = "", items = {
           { name = "Aspect of the Hawk", tag = "Keep up", text = "Your ranged aspect.", icon = 136076 },
@@ -2907,7 +2953,7 @@ KP.Priority = {
           { name = "Ice Lance", tag = "With Fingers of Frost", text = "Fingers of Frost makes your next spells act as if the target were Frozen: spend one on Ice Lance. Also when Frostbite freezes the target.", icon = 135844 },
           { name = "Cone of Cold", tag = "At 5 Winter's Chill", text = "Frostbolt stacks Winter's Chill on the target for your next Cone of Cold: cast it at full stacks (a short cone in front of you, so stay close enough).", icon = 135852 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 20% of the fight (it costs nothing).", icon = 135469 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 21% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
@@ -3121,7 +3167,7 @@ KP.Priority = {
           { name = "Pyroblast", tag = "At 3 Heating Up", text = "Your Fire crits and every Fire Blast build Heating Up: cast Pyroblast at full stacks, before they run out.", icon = 135808 },
           { name = "Fire Blast", tag = "On cooldown", text = "Every Fire Blast adds a Heating Up stack for your next Pyroblast.", icon = 135807 },
           { name = "Scorch", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135827 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 24% of the fight (it costs nothing).", icon = 135471 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 25% of the fight (it costs nothing).", icon = 135471 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Combustion", tag = "Cooldown", text = "On cooldown.", icon = 135824 },
@@ -3385,7 +3431,7 @@ KP.Priority = {
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 36% of the fight (it costs nothing).", icon = 135471 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 37% of the fight (it costs nothing).", icon = 135471 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Arcane Power", tag = "Cooldown", text = "On cooldown, together with your other cooldowns.", icon = 136048 },
@@ -3413,7 +3459,7 @@ KP.Priority = {
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 28% of the fight (it costs nothing).", icon = 135469 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 29% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Arcane Power", tag = "Cooldown", text = "On cooldown, together with your other cooldowns.", icon = 136048 },
@@ -3624,7 +3670,7 @@ KP.Priority = {
           { name = "Ice Lance", tag = "With Fingers of Frost", text = "Fingers of Frost makes your next spells act as if the target were Frozen: spend one on Ice Lance. Also when Frostbite freezes the target.", icon = 135844 },
           { name = "Cone of Cold", tag = "At 5 Winter's Chill", text = "Frostbolt stacks Winter's Chill on the target for your next Cone of Cold: cast it at full stacks (a short cone in front of you, so stay close enough).", icon = 135852 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 32% of the fight (it costs nothing).", icon = 135471 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 33% of the fight (it costs nothing).", icon = 135471 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
@@ -3856,7 +3902,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Scorch", tag = "Filler", text = "The most damage per mana: Fireball hits harder but runs you out of mana over a fight.", icon = 135827 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 24% of the fight (it costs nothing).", icon = 135471 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 25% of the fight (it costs nothing).", icon = 135471 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -3881,7 +3927,7 @@ KP.Priority = {
           { name = "Pyroblast", tag = "At 3 Heating Up", text = "Your Fire crits and every Fire Blast build Heating Up: cast Pyroblast at full stacks, before they run out.", icon = 135808 },
           { name = "Fire Blast", tag = "On cooldown", text = "Every Fire Blast adds a Heating Up stack for your next Pyroblast.", icon = 135807 },
           { name = "Scorch", tag = "Filler", text = "The most damage per mana: Fireball hits harder but runs you out of mana over a fight.", icon = 135827 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 28% of the fight (it costs nothing).", icon = 135469 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 29% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Combustion", tag = "Cooldown", text = "On cooldown.", icon = 135824 },
@@ -4122,7 +4168,7 @@ KP.Priority = {
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Fireball hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 18% of the fight (it costs nothing).", icon = 135469 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 19% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Presence of Mind", tag = "Cooldown", text = "Your next spell is instant: use it on your longest cast.", icon = 136031 },
@@ -4333,7 +4379,7 @@ KP.Priority = {
           { name = "Ice Lance", tag = "With Fingers of Frost", text = "Fingers of Frost makes your next spells act as if the target were Frozen: spend one on Ice Lance. Also when Frostbite freezes the target.", icon = 135844 },
           { name = "Cone of Cold", tag = "At 5 Winter's Chill", text = "Frostbolt stacks Winter's Chill on the target for your next Cone of Cold: cast it at full stacks (a short cone in front of you, so stay close enough).", icon = 135852 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 32% of the fight (it costs nothing).", icon = 135471 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 33% of the fight (it costs nothing).", icon = 135471 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
@@ -4585,7 +4631,7 @@ KP.Priority = {
           { name = "Pyroblast", tag = "At 3 Heating Up", text = "Your Fire crits and every Fire Blast build Heating Up: cast Pyroblast at full stacks, before they run out.", icon = 135808 },
           { name = "Fire Blast", tag = "On cooldown", text = "Every Fire Blast adds a Heating Up stack for your next Pyroblast.", icon = 135807 },
           { name = "Scorch", tag = "Filler", text = "The most damage per mana: Fireball hits harder but runs you out of mana over a fight.", icon = 135827 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 32% of the fight (it costs nothing).", icon = 135469 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 33% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Combustion", tag = "Cooldown", text = "On cooldown.", icon = 135824 },
@@ -4808,7 +4854,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 26% of the fight (it costs nothing).", icon = 135471 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 27% of the fight (it costs nothing).", icon = 135471 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Arcane Power", tag = "Cooldown", text = "On cooldown, together with your other cooldowns.", icon = 136048 },
@@ -6244,8 +6290,8 @@ KP.Priority = {
       { level = 50, title = "Holy Priest", sections = {
         { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
           { name = "Lesser Heal", tag = "Main heal", text = "", icon = 135929 },
-          { name = "Greater Heal", tag = "Heal", text = "", icon = 135913 },
           { name = "Heal", tag = "Heal", text = "", icon = 135915 },
+          { name = "Greater Heal", tag = "Heal", text = "", icon = 135913 },
           { name = "Flash Heal", tag = "Heal", text = "", icon = 135907 },
           { name = "Renew", tag = "Heal", text = "", icon = 135953 },
           { name = "Power Word: Shield", tag = "Cooldown", text = "", icon = 135940 },
@@ -6260,6 +6306,24 @@ KP.Priority = {
         } },
       } },
       { level = 55, title = "Holy Priest", sections = {
+        { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
+          { name = "Lesser Heal", tag = "Heal", text = "", icon = 135929 },
+          { name = "Greater Heal", tag = "Main heal", text = "", icon = 135913 },
+          { name = "Heal", tag = "Heal", text = "", icon = 135915 },
+          { name = "Renew", tag = "Heal", text = "", icon = 135953 },
+          { name = "Flash Heal", tag = "Heal", text = "", icon = 135907 },
+          { name = "Power Word: Shield", tag = "Cooldown", text = "", icon = 135940 },
+        } },
+        { title = "When someone is about to die", note = "", items = {
+          { name = "Power Word: Shield", tag = "Emergency", text = "Draws on the soul of the party member to shield them, absorbing 928 damage.", icon = 135940 },
+        } },
+        { title = "Group healing", note = "Not in the one-target estimate: use these when several people are hurt.", items = {
+          { name = "Prayer of Healing", tag = "Group", text = "A powerful prayer that heals the target and their party for 631 to 667.", icon = 135943 },
+          { name = "Holy Nova", tag = "Group", text = "Causes an explosion of holy light around the caster, causing 174 to 200 Holy damage to all enemy targets within 10 yards and healing all party members within 10 yards for 288 to 334.", icon = 135922 },
+          { name = "Prayer of Mending", tag = "Group", text = "Places a spell on the target that heals them for (413 + 42.9% of healing power) the next time they take damage or receive non-periodic healing.", icon = 135944 },
+        } },
+      } },
+      { level = 60, title = "Holy Priest", sections = {
         { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
           { name = "Lesser Heal", tag = "Heal", text = "", icon = 135929 },
           { name = "Heal", tag = "Heal", text = "", icon = 135915 },
@@ -6719,23 +6783,6 @@ KP.Priority = {
           { name = "Holy Nova", tag = "Group", text = "Causes an explosion of holy light around the caster, causing 174 to 200 Holy damage to all enemy targets within 10 yards and healing all party members within 10 yards for 288 to 334.", icon = 135922 },
         } },
       } },
-      { level = 55, title = "Holy Priest", sections = {
-        { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
-          { name = "Lesser Heal", tag = "Heal", text = "", icon = 135929 },
-          { name = "Heal", tag = "Heal", text = "", icon = 135915 },
-          { name = "Greater Heal", tag = "Main heal", text = "", icon = 135913 },
-          { name = "Renew", tag = "Heal", text = "", icon = 135953 },
-          { name = "Flash Heal", tag = "Heal", text = "", icon = 135907 },
-          { name = "Power Word: Shield", tag = "Cooldown", text = "", icon = 135940 },
-        } },
-        { title = "When someone is about to die", note = "", items = {
-          { name = "Power Word: Shield", tag = "Emergency", text = "Draws on the soul of the party member to shield them, absorbing 928 damage.", icon = 135940 },
-        } },
-        { title = "Group healing", note = "Not in the one-target estimate: use these when several people are hurt.", items = {
-          { name = "Prayer of Healing", tag = "Group", text = "A powerful prayer that heals the target and their party for 631 to 667.", icon = 135943 },
-          { name = "Holy Nova", tag = "Group", text = "Causes an explosion of holy light around the caster, causing 174 to 200 Holy damage to all enemy targets within 10 yards and healing all party members within 10 yards for 288 to 334.", icon = 135922 },
-        } },
-      } },
       { level = 60, title = "Holy Priest", sections = {
         { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
           { name = "Lesser Heal", tag = "Heal", text = "", icon = 135929 },
@@ -6809,7 +6856,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Holy Fire", tag = "Filler", text = "The most damage per mana: Smite hits harder but runs you out of mana over a fight.", icon = 135972 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 54% of the fight (it costs nothing).", icon = 135466 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 53% of the fight (it costs nothing).", icon = 135466 },
           { name = "Mind Blast", tag = "Mana to spare", text = "More damage per second of casting than Holy Fire, but less per mana: cast it when your mana can spare it.", icon = 136224 },
           { name = "Devouring Plague", tag = "Mana to spare", text = "More damage per second of casting than Holy Fire, but less per mana: cast it when your mana can spare it.", icon = 252997 },
         } },
@@ -6998,9 +7045,9 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Mind Blast", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136224 },
-          { name = "Mind Flay", tag = "Filler", text = "The most damage per mana: Smite hits harder but runs you out of mana over a fight.", icon = 136208 },
-          { name = "Smite", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 135924 },
-          { name = "Devouring Plague", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 252997 },
+          { name = "Smite", tag = "Filler", text = "The most damage per second of casting.", icon = 135924 },
+          { name = "Mind Flay", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136208 },
+          { name = "Devouring Plague", tag = "Mana to spare", text = "More damage per second of casting than Smite, but less per mana: cast it when your mana can spare it.", icon = 252997 },
         } },
       } },
       { level = 30, title = "Shadow Priest", sections = {
@@ -7215,8 +7262,8 @@ KP.Priority = {
       { level = 50, title = "Holy Priest", sections = {
         { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
           { name = "Lesser Heal", tag = "Heal", text = "", icon = 135929 },
-          { name = "Greater Heal", tag = "Main heal", text = "", icon = 135913 },
           { name = "Heal", tag = "Heal", text = "", icon = 135915 },
+          { name = "Greater Heal", tag = "Main heal", text = "", icon = 135913 },
           { name = "Flash Heal", tag = "Heal", text = "", icon = 135907 },
           { name = "Renew", tag = "Heal", text = "", icon = 135953 },
           { name = "Power Word: Shield", tag = "Cooldown", text = "", icon = 135940 },
@@ -7233,8 +7280,8 @@ KP.Priority = {
       { level = 55, title = "Holy Priest", sections = {
         { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
           { name = "Lesser Heal", tag = "Heal", text = "", icon = 135929 },
-          { name = "Heal", tag = "Heal", text = "", icon = 135915 },
           { name = "Greater Heal", tag = "Main heal", text = "", icon = 135913 },
+          { name = "Heal", tag = "Heal", text = "", icon = 135915 },
           { name = "Flash Heal", tag = "Heal", text = "", icon = 135907 },
           { name = "Renew", tag = "Heal", text = "", icon = 135953 },
           { name = "Power Word: Shield", tag = "Cooldown", text = "", icon = 135940 },
@@ -10607,58 +10654,6 @@ KP.Priority = {
           { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
         } },
       } },
-      { level = 50, title = "Affliction Warlock", sections = {
-        { title = "Before the fight", note = "", items = {
-          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
-        } },
-        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
-          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
-          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 135817 },
-        } },
-        { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
-          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
-          { name = "Wrack", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 460687 },
-        } },
-        { title = "Mana", note = "", items = {
-          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
-        } },
-        { title = "Cooldowns", note = "", items = {
-          { name = "Amplify Curse", tag = "Cooldown", text = "Right before Bane of Agony.", icon = 136132 },
-        } },
-        { title = "Several targets", note = "", items = {
-          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
-          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
-        } },
-      } },
-      { level = 55, title = "Affliction Warlock", sections = {
-        { title = "Before the fight", note = "", items = {
-          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
-        } },
-        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
-          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
-          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136118 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 135817 },
-        } },
-        { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
-          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
-          { name = "Wrack", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 460687 },
-        } },
-        { title = "Mana", note = "", items = {
-          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
-        } },
-        { title = "Cooldowns", note = "", items = {
-          { name = "Amplify Curse", tag = "Cooldown", text = "Right before Bane of Agony.", icon = 136132 },
-        } },
-        { title = "Several targets", note = "", items = {
-          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
-          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
-        } },
-      } },
       { level = 60, title = "Affliction Warlock", sections = {
         { title = "Before the fight", note = "", items = {
           { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
@@ -11066,7 +11061,7 @@ KP.Priority = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 18 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 17 sec a mob): one cast early in the fight.", icon = 136118 },
           { name = "Searing Pain", tag = "Keep the brand", text = "Brands the target for your demon: its next attacks deal extra damage. Recast it as the brand runs out.", icon = 135827 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
@@ -11293,29 +11288,6 @@ KP.Priority = {
           { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
         } },
       } },
-      { level = 50, title = "Affliction Warlock", sections = {
-        { title = "Before the fight", note = "", items = {
-          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
-        } },
-        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
-          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
-          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 135817 },
-        } },
-        { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
-          { name = "Wrack", tag = "Filler", text = "The most damage per second of casting.", icon = 460687 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 1% of the fight (it costs nothing).", icon = 135471 },
-        } },
-        { title = "Mana", note = "", items = {
-          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
-        } },
-        { title = "Several targets", note = "", items = {
-          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
-          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
-        } },
-      } },
       { level = 55, title = "Affliction Warlock", sections = {
         { title = "Before the fight", note = "", items = {
           { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
@@ -11329,6 +11301,7 @@ KP.Priority = {
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
           { name = "Wrack", tag = "Filler", text = "The most damage per second of casting.", icon = 460687 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 3% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -11752,7 +11725,6 @@ KP.Priority = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
           { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 12 sec a mob): one cast early in the fight.", icon = 135817 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 12 sec a mob): one cast early in the fight.", icon = 136118 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
@@ -11947,31 +11919,6 @@ KP.Priority = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
           { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
-          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
-        } },
-        { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
-          { name = "Wrack", tag = "Filler", text = "The most damage per second of casting.", icon = 460687 },
-        } },
-        { title = "Mana", note = "", items = {
-          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
-        } },
-        { title = "Cooldowns", note = "", items = {
-          { name = "Amplify Curse", tag = "Cooldown", text = "Right before Bane of Agony.", icon = 136132 },
-        } },
-        { title = "Several targets", note = "", items = {
-          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
-          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
-        } },
-      } },
-      { level = 50, title = "Affliction Warlock", sections = {
-        { title = "Before the fight", note = "", items = {
-          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
-        } },
-        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
-          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
-          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136118 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
@@ -12187,7 +12134,7 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 18 sec a mob): one cast early in the fight.", icon = 136118 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
@@ -12209,11 +12156,12 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 18 sec a mob): one cast early in the fight.", icon = 136118 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
+          { name = "Searing Pain", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135827 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },

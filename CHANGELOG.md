@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.24.1
+
+- **The latest server hotfixes,** with their new items (85 more dungeon drops and rewards).
+- **More real numbers from the guild:** Hunter, Druid and Priest base stats at more levels. The Hunter's pet now counts as
+  a well-fed one: the same pet read about 20% lower at other times, so keep yours fed. The mana rule for Spirit is now
+  confirmed up to 136 Spirit.
+
 ## 0.24.0
 
 - **Hunter pets now count.** A Hunter's numbers add your pet's melee, measured from a guild Hunter's pet and a combat log.
