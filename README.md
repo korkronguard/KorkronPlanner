@@ -11,6 +11,12 @@ The in-game companion to the Kor'kron Guard talent planner: https://korkronguard
   window shows the talent to take next and the points after it with their levels. Hover a point to see the talent's
   tooltip, why the planner picked it and the talents it rates nearly as good there; hover the build's name for what
   the build is about. When you level up and have a point to spend, a line in chat names the next talent.
+- **Right in the game's talent window.** Press **N**: your build is drawn on the game's own talent trees. The talent
+  to take next glows gold, the other points you can spend now are numbered in order (up to 5), and each talent of the
+  build shows your points and the build's in gold (a green tick once done). Talents outside the build are left as
+  they are. Click whatever you like: the marks follow your clicks before you press Apply. Hover a talent for what the
+  build says about it, why and what's nearly as good. Along the bottom of the window, pick your build (or **No build**
+  for the plain window), see the next talent, and open **/kp** with the **Planner** button.
 - **Make it yours.** Builds aren't set in stone. "Your choice" points can go either way, and any other point you spend
   outside the build is fine too: the build makes room by dropping its last points, and the window lists your own picks.
 - **Your trees at a glance.** The **Talents** tab shows your three talent trees with your points and the build's:

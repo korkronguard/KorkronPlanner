@@ -5,9 +5,10 @@ local _, KP = ...
 -- Every node of your active talent tree: { { id, purchased, current, active }, ... } and the config ID, or nil when
 -- the game can't tell (no talent config yet, or values hidden inside an instance: guessing 0 there would look like
 -- unspent points). Forever doesn't always fill all three rank numbers (ForeverAuras saw a partly filled talent
--- missing from one of them), so all three are kept.
-function KP.TalentNodes()
-  local configID = C_ClassTalents.GetActiveConfigID()
+-- missing from one of them), so all three are kept. configID: another config to read (the game's talent window's,
+-- whose points you clicked but haven't applied yet count), else your active one.
+function KP.TalentNodes(configID)
+  configID = configID or C_ClassTalents.GetActiveConfigID()
   if not (KP.Readable(configID) and type(configID) == "number") then return nil end
   local info = C_Traits.GetConfigInfo(configID)
   local treeID = info and info.treeIDs and info.treeIDs[1]
@@ -24,8 +25,8 @@ function KP.TalentNodes()
 end
 
 -- Points in each talent: { [nodeID] = rank } (the highest of the three numbers), or nil like KP.TalentNodes
-function KP.TalentRanks()
-  local nodes = KP.TalentNodes()
+function KP.TalentRanks(configID)
+  local nodes = KP.TalentNodes(configID)
   if not nodes then return nil end
   local ranks = {}
   for _, n in ipairs(nodes) do ranks[n.id] = math.max(n.purchased, n.current, n.active) end

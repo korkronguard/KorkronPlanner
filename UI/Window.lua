@@ -10,8 +10,6 @@ local MAX_BUILDS = 12 -- three paths for each of three specs, with room for a sp
 local ROWS = 14       -- upcoming points shown
 local RIGHT = 282     -- where the tabs start
 local PICK_W = 252    -- the build picker on the left
-local PATH_LABEL = { solo = "Solo", dungeon = "Dungeon", pvp = "PvP" }
-local ROLE_WORD = { tank = "tank", dps = "damage", heal = "healer" }
 local PANE_W, PANE_H = 520, 470
 local TABS = { { key = "build", label = "Build" }, { key = "talents", label = "Talents" }, { key = "priority", label = "Priority" },
   { key = "gear", label = "Gear" }, { key = "formulas", label = "Formulas" } }
@@ -19,13 +17,6 @@ local TAB_W = 100 -- five tabs across the pane
 
 local frame
 local tab = "build"
-
--- "Deflection, or Benediction: why" for a "your choice" entry of a build
-local function ChoiceText(f)
-  local names = {}
-  for _, id in ipairs(f.options) do table.insert(names, KP.Build.Talent(id).name) end
-  return ("%s, or %s: %s"):format(KP.Build.Talent(f.id).name, table.concat(names, " or "), f.why)
-end
 
 -- a point of the path: the talent's tooltip at the rank it gives, the planner's reason for it, the talents the math
 -- rates nearly as good there, whether it's your choice, the talent's note
@@ -42,7 +33,7 @@ local function ShowPointTooltip(row)
       GameTooltip:AddLine(("  %s %d/%d: %s"):format(alt.name, a[2], alt.ranks, a[3]), 1, 1, 1, true)
     end
   end
-  if step.choice then GameTooltip:AddLine("Your choice: " .. ChoiceText(step.choice), 1, 0.82, 0, true) end
+  if step.choice then GameTooltip:AddLine("Your choice: " .. KP.Build.ChoiceText(step.choice), 1, 0.82, 0, true) end
   if t.note then GameTooltip:AddLine(t.note, 0.75, 0.75, 0.75, true) end
   GameTooltip:Show()
 end
@@ -91,8 +82,7 @@ local function CreatePicker()
     b:SetScript("OnClick", function(self)
       KP.Safe(function()
         KP.Build.Choose(self.key)
-        Window.Refresh()
-        KP.BagIcons.Refresh()
+        Window.BuildChanged()
       end)
     end)
     b:SetScript("OnEnter", function(self) KP.Safe(ShowBuildTooltip, self, self.build) end)
@@ -118,8 +108,7 @@ local function CreatePicker()
     KP.Safe(function()
       linkNote:SetText(KP.Build.UseLink(box:GetText()))
       box:ClearFocus()
-      Window.Refresh()
-      KP.BagIcons.Refresh()
+      Window.BuildChanged()
     end)
   end)
   frame.linkBox, frame.useButton, frame.linkNote = box, use, linkNote
@@ -171,6 +160,7 @@ local function Create()
   frame:SetSize(RIGHT + PANE_W + 16, PANE_H + 72)
   frame:SetPoint("CENTER")
   frame:SetMovable(true)
+  frame:SetToplevel(true) -- comes to the front when clicked (over the game's talent window, which opens it too)
   frame:EnableMouse(true)
   frame:RegisterForDrag("LeftButton")
   frame:SetScript("OnDragStart", frame.StartMoving)
@@ -198,21 +188,6 @@ local function Create()
   frame:Hide() -- new frames start shown; Toggle shows it, which fills it in (OnShow)
 end
 
--- a build's button: its path, and when the spec has two builds on that path, their roles (Feral: Cat or Bear) or
--- which is the leveling one
-local function Label(build, siblings)
-  local same, rolesDiffer = 0, false
-  for _, b in ipairs(siblings) do
-    if b.path == build.path then
-      same = same + 1
-      rolesDiffer = rolesDiffer or b.role ~= build.role
-    end
-  end
-  if same < 2 then return PATH_LABEL[build.path] end
-  return ("%s (%s)"):format(PATH_LABEL[build.path], rolesDiffer and ROLE_WORD[build.role] or
-    (build.kind == "group" and "60" or "leveling"))
-end
-
 -- a heading per spec, then its builds three to a row (two when a label needs the room)
 local function ShowBuildButtons(chosenKey)
   local y, n = -52, 0
@@ -227,7 +202,7 @@ local function ShowBuildButtons(chosenKey)
       y = y - 15
       local labels, perRow = {}, 3
       for i, build in ipairs(spec.builds) do
-        labels[i] = Label(build, spec.builds) .. (build.provisional and " *" or "")
+        labels[i] = KP.Build.Label(build, spec.builds) .. (build.provisional and " *" or "")
         if #labels[i] > 12 then perRow = 2 end
       end
       local w = math.floor((PICK_W - (perRow - 1) * 4) / perRow)
@@ -289,7 +264,8 @@ local function RefreshBuildPane(build, why, saved)
     build.judgment and "|cff66ccffPvP:|r its PvP talents are picked from class knowledge (hover the name)." or "")
   local choices = {}
   for _, f in ipairs(build.flex or {}) do
-    table.insert(choices, ("|cffffd100Your choice (%d point%s):|r %s"):format(f.points, f.points == 1 and "" or "s", ChoiceText(f)))
+    table.insert(choices, ("|cffffd100Your choice (%d point%s):|r %s"):format(f.points, f.points == 1 and "" or "s",
+      KP.Build.ChoiceText(f)))
   end
   frame.choices:SetText(table.concat(choices, "\n"))
   local ranks = KP.TalentRanks()
@@ -348,6 +324,14 @@ end
 function Window.Toggle()
   if not frame then Create() end
   frame:SetShown(not frame:IsShown())
+  if frame:IsShown() then frame:Raise() end
+end
+
+-- after a build is chosen anywhere (here or on the game's talent window): everything that shows it
+function Window.BuildChanged()
+  Window.Refresh()
+  KP.BagIcons.Refresh()
+  KP.TalentFrame.Refresh()
 end
 
 for _, event in ipairs({ "TRAIT_CONFIG_UPDATED", "PLAYER_TALENT_UPDATE", "PLAYER_LEVEL_UP", "PLAYER_EQUIPMENT_CHANGED" }) do

@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.23.0
+
+- **Your build in the game's talent window.** Press **N**: the talent to take next glows gold, the other points you
+  can spend now are numbered in order (up to 5), and every talent of your build shows your points and the build's
+  (a green tick when it's done). Talents outside the build are left alone, and you can still click anything: the marks
+  follow your clicks before you press Apply. Hovering a talent adds what the build says about it, why the planner
+  picks it and the talents it rates nearly as good. No more switching between **/kp** and the talent window.
+- **A Kor'kron bar along the bottom of the talent window:** choose your build there (Solo, Dungeon or PvP for each
+  spec, or **No build** to keep the window plain), see the next talent, and open **/kp** with the **Planner** button.
+- **Mana regen corrected.** Spirit gives Spirit ÷ 4 mana a second, but each point above 50 Spirit counts half (read
+  from the guild's own characters, seen up to 91 Spirit). The Formulas tab, item tooltips and gear lists use it. Mana
+  users' gear lists moved, Mages and Hunters most, and Fire and Arcane Mages run lower at 60 because they run shorter
+  on mana. Some talent orders changed; no build changed its talents.
+- **Real base stats for Shamans, Hunters and Druids,** from the guild's first Shaman and Hunter and a Tauren Druid.
+  They're lower than the old estimates, by up to 13 Stamina at level 34.
+- **The latest server hotfixes,** with their new items.
+- **Fixed: gear with a random bonus.** Wearing the "of the Bear" version of an item, its "of the Monkey" version said
+  "You wear this" and got no upgrade check or bag arrow. Different bonuses are now compared properly.
+
 ## 0.22.1
 
 - **Better leveling orders for every class that uses mana.** The planner now works out more carefully how hard to

@@ -102,14 +102,14 @@ local function ItemID(link)
   return link and tonumber(link:match("item:(%d+)"))
 end
 
--- the same item: same ID and same random bonus (the link's 7th number: "of the Bear" and "of the Monkey" share an ID)
+-- the same item: same ID and same random bonus ("of the Bear" and "of the Monkey" share an ID)
 local function SameItem(a, b)
   local function Key(link)
-    local fields = {}
-    for v in ((link and link:match("item:([%-%d:]+)") or "") .. ":"):gmatch("([^:]*):") do table.insert(fields, v) end
-    return (fields[1] or "") .. ":" .. (tonumber(fields[7]) or 0)
+    local fields = KP.ItemFields(link)
+    return fields and fields[1] .. ":" .. KP.ItemBonusIDs(fields)
   end
-  return a ~= nil and b ~= nil and Key(a) == Key(b)
+  local key = Key(a)
+  return key ~= nil and key == Key(b)
 end
 
 -- the game's stats for this exact item (nil when it can't say yet, like an item it hasn't loaded). Which of the two

@@ -74,6 +74,24 @@ function KP.Num(v, places)
   return text
 end
 
+-- An item link's numbers in order, as text (a field left empty is ""), or nil when it isn't an item link
+function KP.ItemFields(link)
+  local itemString = link and link:match("item:([%-%d:]+)")
+  if not itemString then return nil end
+  local fields = {}
+  for v in (itemString .. ":"):gmatch("([^:]*):") do table.insert(fields, v) end
+  return fields
+end
+
+-- An item's random bonus ("of the Eagle", "of Stamina") from KP.ItemFields, as bonus IDs joined by "+" ("" for none):
+-- on Forever field 13 says how many there are and the IDs follow (item:727::::::::14:1491:::1:12718::::::), while
+-- field 7, where older clients kept it, stays empty
+function KP.ItemBonusIDs(fields)
+  local ids = {}
+  for i = 14, 13 + (tonumber(fields[13]) or 0) do table.insert(ids, fields[i]) end
+  return table.concat(ids, "+")
+end
+
 -- Run fn after `seconds`, through KP.Safe
 -- this addon's version from its .toc ("0.14.0"): C_AddOns on newer clients, the old global otherwise
 function KP.Version()

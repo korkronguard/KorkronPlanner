@@ -5,8 +5,8 @@
 -- snapshot that matches the one already kept for that level is not kept again, and one taken with your pet out
 -- (pet = true) isn't replaced by one without it.
 --
--- Text format, version 4, fields separated by ";":
---   4;guid;stamp;CLASS;RACE;level;str;agi;sta;int;spi;maxHealth;maxMana;crit;rangedCrit;spellCrit;hit;spellHit;
+-- Text format, version 5, fields separated by ";":
+--   5;guid;stamp;CLASS;RACE;level;str;agi;sta;int;spi;maxHealth;maxMana;crit;rangedCrit;spellCrit;hit;spellHit;
 --   dodge;parry;block;attackPower;rangedAttackPower;spellDamage;healing;armor;manaRegen;ratings;items;talents;raceID;
 --   critFromAgility;spellCritFromIntellect;dodgeFromAgility;petFamily;petLevel;petStr;petAgi;petSta;petInt;petSpi;
 --   petHealth;petMana;petArmor;petAttackPower;petDamage;petAttackSpeed;petHappiness
@@ -15,14 +15,14 @@
 -- client has no such function). Version 4 added your pet or demon (all 14 fields empty without one): the game files
 -- don't have a pet's own numbers, the server decides them. petFamily = UnitCreatureFamily's name,ID; the others as the
 -- game's functions give them for "pet" (UnitDamage, UnitAttackSpeed...); petHappiness = GetPetHappiness's numbers
--- (happiness, damage %, loyalty rate), empty when the client has no such function. A snapshot kept before a version
--- and sent later lacks its fields.
+-- (happiness, damage %, loyalty rate), empty when the client has no such function. Version 5 added each worn item's
+-- bonusIDs (Forever's random bonuses). A snapshot kept before a version and sent later lacks its fields.
 -- The first six fields keep their place in every version (the collector reads them). stamp = server time in
 -- seconds. A field for a game function lists every number it returns, comma-separated: UnitStat base,effective,
 -- plus,minus; UnitAttackPower base,plus,minus; UnitArmor and GetManaRegen as the game gives them. spellCrit and
 -- spellDamage have one number per school 2-7 (holy, fire, nature, frost, shadow, arcane). ratings:
 -- NAME:rating:percent for each combat rating that isn't 0 (NAME = the game's CR_ name without "CR_"). items:
--- slot:itemID:enchantID:suffixID per worn item. talents: nodeID:ranksPurchased:currentRank:activeRank per talent
+-- slot:itemID:enchantID:suffixID:bonusIDs per worn item (bonus IDs joined by "+"; suffixID is empty on Forever). talents: nodeID:ranksPurchased:currentRank:activeRank per talent
 -- node with points (the game's trait node IDs; Forever doesn't always fill all three). A hidden or missing number
 -- is left empty.
 local _, KP = ...
@@ -30,7 +30,7 @@ local _, KP = ...
 local Snapshot = {}
 KP.Snapshot = Snapshot
 
-local VERSION = 4
+local VERSION = 5
 local DELAY = 5 -- seconds: lets stats settle (UnitLevel still gives the old level during PLAYER_LEVEL_UP)
 local SCHOOLS = { 2, 3, 4, 5, 6, 7 }
 local RATINGS = { "CR_DEFENSE_SKILL", "CR_DODGE", "CR_PARRY", "CR_BLOCK", "CR_HIT_MELEE", "CR_HIT_RANGED",
@@ -70,12 +70,9 @@ local function Items()
   local out = {}
   for slot = 1, 19 do
     -- Forever's links look like |cnIQ4:|Hitem:12345:0:...|h[Name]|h|r
-    local link = KP.Text(GetInventoryItemLink("player", slot))
-    local itemString = link and link:match("item:([%-%d:]+)")
-    if itemString then
-      local f = {}
-      for v in (itemString .. ":"):gmatch("([^:]*):") do table.insert(f, v) end
-      table.insert(out, table.concat({ slot, f[1], f[2] or "", f[7] or "" }, ":"))
+    local f = KP.ItemFields(KP.Text(GetInventoryItemLink("player", slot)))
+    if f then
+      table.insert(out, table.concat({ slot, f[1], f[2] or "", f[7] or "", KP.ItemBonusIDs(f) }, ":"))
     end
   end
   return table.concat(out, ",")

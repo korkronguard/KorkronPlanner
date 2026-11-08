@@ -37,6 +37,30 @@ function Build.Describe(step)
   return ("%s %d/%d"):format(t.name, step.rank, t.ranks)
 end
 
+-- "Deflection, or Benediction: why" for a "your choice" entry of a build
+function Build.ChoiceText(f)
+  local names = {}
+  for _, id in ipairs(f.options) do table.insert(names, Build.Talent(id).name) end
+  return ("%s, or %s: %s"):format(Build.Talent(f.id).name, table.concat(names, " or "), f.why)
+end
+
+-- a build's short name among its spec's builds (Build.BySpec): its path, and when the spec has two builds on that
+-- path, their roles (Feral: Cat or Bear) or which is the leveling one
+local PATH_LABEL = { solo = "Solo", dungeon = "Dungeon", pvp = "PvP" }
+local ROLE_WORD = { tank = "tank", dps = "damage", heal = "healer" }
+function Build.Label(build, siblings)
+  local same, rolesDiffer = 0, false
+  for _, b in ipairs(siblings) do
+    if b.path == build.path then
+      same = same + 1
+      rolesDiffer = rolesDiffer or b.role ~= build.role
+    end
+  end
+  if same < 2 then return PATH_LABEL[build.path] end
+  return ("%s (%s)"):format(PATH_LABEL[build.path], rolesDiffer and ROLE_WORD[build.role] or
+    (build.kind == "group" and "60" or "leveling"))
+end
+
 -- A build's entry for your level in per-level data (KP.Priority, KP.Gear: [class][build key] = { { level, ... } }):
 -- the last one that starts at or below the level (below the first, the first), or nil
 function Build.ForLevel(data, key, level)
@@ -177,8 +201,9 @@ function Build.Points(ranks)
   return spent, math.max(0, UnitLevel("player") - FIRST_LEVEL + 1)
 end
 
+-- key: a suggested build's, or nil for no build
 function Build.Choose(key)
-  KorkronPlannerCharDB.build = { key = key }
+  KorkronPlannerCharDB.build = key and { key = key } or nil
 end
 
 -- returns what happened, in words
@@ -197,7 +222,10 @@ function Build.Remind()
   local spent, available = Build.Points(ranks)
   if spent >= available then return end
   local step = Build.NextStep(Build.Follow(build, ranks))
-  if step then KP:Print(("next talent (%s): %s. /kp shows the rest."):format(build.name, Build.Describe(step))) end
+  if step then
+    KP:Print(("next talent (%s): %s. Your talent window (N) marks it; /kp shows the rest."):format(build.name,
+      Build.Describe(step)))
+  end
 end
 
 -- /kp learn: the owner's test of whether an addon may spend talent points on Forever (not in the help yet). Spends
