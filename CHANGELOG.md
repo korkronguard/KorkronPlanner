@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.24.0
+
+- **Hunter pets now count.** A Hunter's numbers add your pet's melee, measured from a guild Hunter's pet and a combat log.
+  Beast Mastery rises by about a third at 60 and Survival by about 15%. Marksmanship's raid build goes without a pet
+  (Lone Wolf), so it stays the same. Above level 29 the pet's numbers are estimates until a higher level Hunter reports in.
+- **Pet talents have real values.** Unleashed Fury, Ferocity, Frenzy, Bestial Wrath and Focused Fire show what they add.
+  A pet doesn't crit without Ferocity, and Frenzy needs its crits. Some Hunter talent orders and gear lists changed; no
+  build changed its talents.
+- **The Formulas tab has a "Your pet" section** for Hunters, with what each pet family's damage bonus means: the numbers
+  count a family with no bonus, so a Cat or Raptor does 10% better and a Boar or Turtle 10% worse.
+
 ## 0.23.0
 
 - **Your build in the game's talent window.** Press **N**: the talent to take next glows gold, the other points you

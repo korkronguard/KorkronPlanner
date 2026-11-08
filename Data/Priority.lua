@@ -1248,7 +1248,7 @@ KP.Priority = {
       { level = 20, title = "Marksmanship Hunter, ranged", sections = {
         { title = "Before the pull", note = "", items = {
           { name = "Aspect of the Hawk", tag = "Keep up", text = "Your ranged aspect.", icon = 136076 },
-          { name = "No pet (Lone Wolf)", tag = "Talent", text = "Leave your pet dismissed: Lone Wolf gives +20% damage only without an active pet." },
+          { name = "Call Pet", tag = "Pet out", text = "Send the pet in first." },
           { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
         } },
         { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
@@ -1266,7 +1266,7 @@ KP.Priority = {
         { title = "Before the pull", note = "", items = {
           { name = "Aspect of the Hawk", tag = "Keep up", text = "Your ranged aspect.", icon = 136076 },
           { name = "Trueshot Aura", tag = "Keep up", text = "Group ranged attack power; lasts 30 min.", icon = 132329 },
-          { name = "No pet (Lone Wolf)", tag = "Talent", text = "Leave your pet dismissed: Lone Wolf gives +20% damage only without an active pet." },
+          { name = "Call Pet", tag = "Pet out", text = "Send the pet in first." },
           { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
         } },
         { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
@@ -1284,7 +1284,7 @@ KP.Priority = {
         { title = "Before the pull", note = "", items = {
           { name = "Aspect of the Hawk", tag = "Keep up", text = "Your ranged aspect.", icon = 136076 },
           { name = "Trueshot Aura", tag = "Keep up", text = "Group ranged attack power; lasts 30 min.", icon = 132329 },
-          { name = "No pet (Lone Wolf)", tag = "Talent", text = "Leave your pet dismissed: Lone Wolf gives +20% damage only without an active pet." },
+          { name = "Call Pet", tag = "Pet out", text = "Send the pet in first." },
           { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
         } },
         { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
@@ -1305,7 +1305,7 @@ KP.Priority = {
         { title = "Before the pull", note = "", items = {
           { name = "Aspect of the Hawk", tag = "Keep up", text = "Your ranged aspect.", icon = 136076 },
           { name = "Trueshot Aura", tag = "Keep up", text = "Group ranged attack power; lasts 30 min.", icon = 132329 },
-          { name = "No pet (Lone Wolf)", tag = "Talent", text = "Leave your pet dismissed: Lone Wolf gives +20% damage only without an active pet." },
+          { name = "Call Pet", tag = "Pet out", text = "Send the pet in first." },
           { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
         } },
         { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
@@ -1327,7 +1327,7 @@ KP.Priority = {
         { title = "Before the pull", note = "", items = {
           { name = "Aspect of the Hawk", tag = "Keep up", text = "Your ranged aspect.", icon = 136076 },
           { name = "Trueshot Aura", tag = "Keep up", text = "Group ranged attack power; lasts 30 min.", icon = 132329 },
-          { name = "No pet (Lone Wolf)", tag = "Talent", text = "Leave your pet dismissed: Lone Wolf gives +20% damage only without an active pet." },
+          { name = "Call Pet", tag = "Pet out", text = "Send the pet in first." },
           { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
         } },
         { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
@@ -1351,13 +1351,13 @@ KP.Priority = {
         { title = "Before the pull", note = "", items = {
           { name = "Aspect of the Hawk", tag = "Keep up", text = "Your ranged aspect.", icon = 136076 },
           { name = "Trueshot Aura", tag = "Keep up", text = "Group ranged attack power; lasts 30 min.", icon = 132329 },
-          { name = "No pet (Lone Wolf)", tag = "Talent", text = "Leave your pet dismissed: Lone Wolf gives +20% damage only without an active pet." },
+          { name = "Call Pet", tag = "Pet out", text = "Send the pet in first." },
           { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
         } },
         { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
           { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
           { name = "Aimed Shot", tag = "On cooldown", text = "Shares its cooldown with Multi-Shot: Aimed Shot hits harder for you. It has a cast time: start it right after an Auto Shot.", icon = 135130 },
-          { name = "Arcane Shot", tag = "On cooldown", text = "Instant. Improved Arcane Shot: 0.9 sec shorter cooldown.", icon = 132218 },
+          { name = "Arcane Shot", tag = "On cooldown", text = "Instant. Improved Arcane Shot: 1.2 sec shorter cooldown.", icon = 132218 },
           { name = "Sniper Shot", tag = "On cooldown", text = "Long-range hit; also gives your next 3 shots +10 yards range.", icon = 1412205 },
           { name = "Immolation Trap", tag = "Optional", text = "Usable in combat in Forever: worth it when the boss is tanked close enough to reach its feet.", icon = 135813 },
           { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
@@ -1425,6 +1425,18 @@ KP.Priority = {
         { title = "Before the pull", note = "", items = {
           { name = "Aspect of the Hawk", tag = "Keep up", text = "Your ranged aspect.", icon = 136076 },
           { name = "Call Pet", tag = "Pet out", text = "Send the pet in first." },
+          { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
+        } },
+        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
+          { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
+          { name = "Arcane Shot", tag = "On cooldown", text = "Instant.", icon = 132218 },
+          { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
+        } },
+      } },
+      { level = 15, title = "Beast Mastery Hunter, ranged", sections = {
+        { title = "Before the pull", note = "", items = {
+          { name = "Aspect of the Hawk", tag = "Keep up", text = "Your ranged aspect.", icon = 136076 },
+          { name = "Call Pet", tag = "Pet out", text = "Send the pet in first. Focused Fire: +2% damage for you and the pet while it's out." },
           { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
         } },
         { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
@@ -1748,6 +1760,18 @@ KP.Priority = {
           { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
         } },
       } },
+      { level = 15, title = "Beast Mastery Hunter, ranged", sections = {
+        { title = "Before the pull", note = "", items = {
+          { name = "Aspect of the Hawk", tag = "Keep up", text = "Your ranged aspect.", icon = 136076 },
+          { name = "Call Pet", tag = "Pet out", text = "Send the pet in first. Focused Fire: +2% damage for you and the pet while it's out." },
+          { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
+        } },
+        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
+          { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
+          { name = "Arcane Shot", tag = "On cooldown", text = "Instant.", icon = 132218 },
+          { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
+        } },
+      } },
       { level = 20, title = "Beast Mastery Hunter, ranged", sections = {
         { title = "Before the pull", note = "", items = {
           { name = "Aspect of the Hawk", tag = "Keep up", text = "Your ranged aspect.", icon = 136076 },
@@ -1859,31 +1883,6 @@ KP.Priority = {
           { name = "Explosive Trap", tag = "Before the pull", text = "Drop it where the pack will stand.", icon = 135826 },
         } },
       } },
-      { level = 55, title = "Beast Mastery Hunter, ranged", sections = {
-        { title = "Before the pull", note = "", items = {
-          { name = "Aspect of the Hawk", tag = "Keep up", text = "Your ranged aspect.", icon = 136076 },
-          { name = "Call Pet", tag = "Pet out", text = "Send the pet in first. Focused Fire: +2% damage for you and the pet while it's out." },
-          { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
-        } },
-        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
-          { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
-          { name = "Summon Hawk", tag = "On cooldown", text = "Shares its cooldown with Arcane Shot. Your Unleashed Fury and Ferocity make hawks stronger, so favour the hawk (2 at a time).", icon = 132158 },
-          { name = "Arcane Shot", tag = "On cooldown", text = "Shares its cooldown with Summon Hawk: use it while 2 hawks are already out (only 2 can be, game data). Improved Arcane Shot: 0.3 sec shorter cooldown.", icon = 132218 },
-          { name = "Aimed Shot", tag = "On cooldown", text = "Shares its cooldown with Multi-Shot: Aimed Shot hits harder for you. It has a cast time: start it right after an Auto Shot.", icon = 135130 },
-          { name = "Immolation Trap", tag = "Optional", text = "Usable in combat in Forever: worth it when the boss is tanked close enough to reach its feet.", icon = 135813 },
-          { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
-        } },
-        { title = "Cooldowns", note = "", items = {
-          { name = "Rapid Fire", tag = "Cooldown", text = "On cooldown.", icon = 132208 },
-          { name = "Bestial Wrath", tag = "Cooldown", text = "On cooldown: +50% pet damage for 18 sec.", icon = 132127 },
-          { name = "Intimidation", tag = "Cooldown", text = "Pet stun with a guaranteed crit; also useful threat for the pet.", icon = 132111 },
-        } },
-        { title = "Several targets", note = "", items = {
-          { name = "Multi-Shot", tag = "On cooldown", text = "Instead of Aimed Shot when 3+ enemies stand together.", icon = 132330 },
-          { name = "Volley", tag = "Channel", text = "Big packs only (mana heavy).", icon = 132222 },
-          { name = "Explosive Trap", tag = "Before the pull", text = "Drop it where the pack will stand.", icon = 135826 },
-        } },
-      } },
       { level = 60, title = "Beast Mastery Hunter, ranged", sections = {
         { title = "Before the pull", note = "", items = {
           { name = "Aspect of the Hawk", tag = "Keep up", text = "Your ranged aspect.", icon = 136076 },
@@ -1948,8 +1947,8 @@ KP.Priority = {
           { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
         } },
         { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
-          { name = "Aimed Shot", tag = "On cooldown", text = "Shares its cooldown with Multi-Shot: Aimed Shot hits harder for you. It has a cast time: start it right after an Auto Shot.", icon = 135130 },
           { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
+          { name = "Aimed Shot", tag = "On cooldown", text = "Shares its cooldown with Multi-Shot: Aimed Shot hits harder for you. It has a cast time: start it right after an Auto Shot.", icon = 135130 },
           { name = "Arcane Shot", tag = "On cooldown", text = "Instant.", icon = 132218 },
           { name = "Immolation Trap", tag = "Optional", text = "Usable in combat in Forever: worth it when the boss is tanked close enough to reach its feet.", icon = 135813 },
           { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
@@ -2420,6 +2419,18 @@ KP.Priority = {
           { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
         } },
       } },
+      { level = 15, title = "Beast Mastery Hunter, ranged", sections = {
+        { title = "Before the pull", note = "", items = {
+          { name = "Aspect of the Hawk", tag = "Keep up", text = "Your ranged aspect.", icon = 136076 },
+          { name = "Call Pet", tag = "Pet out", text = "Send the pet in first. Focused Fire: +2% damage for you and the pet while it's out." },
+          { name = "Hunter's Mark", tag = "Keep up", text = "On the boss for the whole fight.", icon = 132212 },
+        } },
+        { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
+          { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
+          { name = "Arcane Shot", tag = "On cooldown", text = "Instant.", icon = 132218 },
+          { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
+        } },
+      } },
       { level = 20, title = "Beast Mastery Hunter, ranged", sections = {
         { title = "Before the pull", note = "", items = {
           { name = "Aspect of the Hawk", tag = "Keep up", text = "Your ranged aspect.", icon = 136076 },
@@ -2446,8 +2457,7 @@ KP.Priority = {
         { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
           { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
           { name = "Aimed Shot", tag = "On cooldown", text = "Shares its cooldown with Multi-Shot: Aimed Shot hits harder for you. It has a cast time: start it right after an Auto Shot.", icon = 135130 },
-          { name = "Summon Hawk", tag = "On cooldown", text = "Shares its cooldown with Arcane Shot. Your Unleashed Fury and Ferocity make hawks stronger, so favour the hawk (2 at a time).", icon = 132158 },
-          { name = "Arcane Shot", tag = "On cooldown", text = "Shares its cooldown with Summon Hawk: use it while 2 hawks are already out (only 2 can be, game data).", icon = 132218 },
+          { name = "Arcane Shot", tag = "On cooldown", text = "Instant.", icon = 132218 },
           { name = "Immolation Trap", tag = "Optional", text = "Usable in combat in Forever: worth it when the boss is tanked close enough to reach its feet.", icon = 135813 },
           { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
         } },
@@ -2468,8 +2478,7 @@ KP.Priority = {
         { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
           { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
           { name = "Aimed Shot", tag = "On cooldown", text = "Shares its cooldown with Multi-Shot: Aimed Shot hits harder for you. It has a cast time: start it right after an Auto Shot.", icon = 135130 },
-          { name = "Summon Hawk", tag = "On cooldown", text = "Shares its cooldown with Arcane Shot. Your Unleashed Fury and Ferocity make hawks stronger, so favour the hawk (2 at a time).", icon = 132158 },
-          { name = "Arcane Shot", tag = "On cooldown", text = "Shares its cooldown with Summon Hawk: use it while 2 hawks are already out (only 2 can be, game data).", icon = 132218 },
+          { name = "Arcane Shot", tag = "On cooldown", text = "Instant.", icon = 132218 },
           { name = "Immolation Trap", tag = "Optional", text = "Usable in combat in Forever: worth it when the boss is tanked close enough to reach its feet.", icon = 135813 },
           { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
         } },
