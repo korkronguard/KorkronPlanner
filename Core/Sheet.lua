@@ -8,7 +8,7 @@ KP.Sheet = Sheet
 
 -- the numbers a formula can use (Data/Formulas.lua says which)
 Sheet.INPUTS = { "level", "str", "agi", "sta", "int", "spi", "gearArmor", "armor", "health", "dodge", "parry", "block",
-  "baseHealth", "baseMana", "hpPerSta", "hit", "agiPerCrit" }
+  "baseHealth", "baseMana", "hpPerSta", "speed", "agiPerCrit" }
 -- what each character sheet number is called: short (tooltips) and with what it does (Formulas tab)
 Sheet.EFFECTS = {
   health = { "health", "health" },
@@ -56,9 +56,7 @@ function Sheet.Inputs(class)
   else
     inputs.block = 0
   end
-  local low, high = UnitDamage("player") -- your main hand's damage range, as on your character sheet
-  low, high = Readable(low), Readable(high)
-  inputs.hit = low and high and (low + high) / 2
+  inputs.speed = Readable((UnitAttackSpeed("player"))) -- your main hand's swing time, as on your character sheet
   local gearArmor = 0
   for slot = 1, 19 do
     local id = Readable(GetInventoryItemID("player", slot))

@@ -38,6 +38,10 @@ The in-game companion to the Kor'kron Guard talent planner: https://korkronguard
   crit, armor, mana regen, rage and effective health, with your own numbers and the game's next to them, and for every
   number in it what it is and where it comes from; what 1 point of each stat does for you and your build; and your
   class's rules of combat.
+- **Your damage, worked out in game (Warriors so far).** The **DPS** tab shows your damage a second from your own
+  character sheet, talents and weapons, in each stance you know, against a normal mob of your level, an elite of your level
+  and an elite 3 levels up. Say whether you're tanking it or someone else is, and hover a number for what it's made of. Other
+  classes will come one at a time.
 - **Brings your real stats into the planner.** Type **/kp export**, copy the code, and paste it into the planner's
   "Import from the addon" box (under base stats): your base stats, race and level fill in.
 - **Makes the planner match the game.** WoW: Forever keeps some numbers on its servers (like your base stats at each

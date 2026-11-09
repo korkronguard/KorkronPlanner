@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.25.0
+
+- **New: the DPS tab (Warriors so far).** Your damage a second, worked out in game from your own character sheet, talents and
+  weapons, in each stance you know, against a normal mob of your level, an elite of your level and an elite 3 levels up. Say
+  whether you're tanking it or someone else is, and hover a number for what it's made of. Other classes will come one at a time.
+- **Warrior numbers now follow the game.** From a real combat log: your rage comes from your weapon's swing time, not how hard
+  you hit, so every weapon gives the same rage a second, and a crit gives double. Being hit gives rage in every stance. Thunder
+  Clap and Rend gain from attack power, though their tooltips don't say so, and armor reduces Thunder Clap. Revenge hits harder
+  than the planner thought. Most Warrior builds rise up to 7%; raid Fury and Arms fall about 10% at 60, because they counted on
+  big hits for rage. That rule hasn't been seen at level 60 yet, so those two are the planner's best reading until a level 60
+  Warrior's log confirms it.
+- **Protection's Priority list:** Slam is on it now, for when you're alone, and Revenge comes before Shield Slam: it does the most
+  damage for its rage.
+- **Enemies as they really are.** Armor, health and how hard mobs hit now come from the same log. Physical classes do more while
+  leveling, as enemy armor was set too high.
+- **Your Hunter pet's Bite now counts, so keep it on autocast and keep it trained.** It adds a hit every 10 seconds, using the
+  game's own numbers and a combat log's: a well-fed pet's Bite does 25% more. A pet keeps the rank it was taught, so a low-rank Bite
+  stays weak until you teach it a new one. A pet with Claw on autocast too bites less often, as Claw spends its focus. Hunters with a
+  pet rise a few percent at 60. Marksmanship's raid build goes without a pet (Lone Wolf), so it stays the same.
+- **The latest server hotfixes,** with 140 more items, and more real numbers from the guild: Paladin, Druid, Hunter and Shaman base
+  stats at higher levels.
+- **Some talent orders and gear lists changed.** No build changes its talents, but some take them at different levels. The
+  Formulas tab's rage lines follow the new rule.
+
 ## 0.24.1
 
 - **The latest server hotfixes,** with their new items (85 more dungeon drops and rewards).

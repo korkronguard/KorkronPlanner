@@ -16,8 +16,8 @@ local INDENT = 10
 local LABEL = { level = "level", str = "Strength", agi = "Agility", sta = "Stamina", int = "Intellect", spi = "Spirit",
   gearArmor = "armor on your gear", armor = "your armor", health = "your health", dodge = "dodge %", parry = "parry %",
   block = "block %", baseHealth = "base health", baseMana = "base mana", hpPerSta = "health per Stamina",
-  hit = "your average main-hand hit", agiPerCrit = "Agility per 1% crit at your level" }
-local DIGITS = { dodge = 2, parry = 2, block = 2, hit = 1, agiPerCrit = 2 }
+  speed = "your swing time", agiPerCrit = "Agility per 1% crit at your level" }
+local DIGITS = { dodge = 2, parry = 2, block = 2, speed = 2, agiPerCrit = 2 }
 -- the main stats, by their names in the formulas and in the stat weights
 local MAIN_STATS = { { "str", "strength" }, { "agi", "agility" }, { "sta", "stamina" }, { "int", "intellect" },
   { "spi", "spirit" } }
