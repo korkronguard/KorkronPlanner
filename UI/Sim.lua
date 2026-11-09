@@ -96,9 +96,10 @@ function Pane.Create(parent, width, height)
   pane.foot:SetText("The green number is your best stance for that enemy. Hover a number for what it's made of.\n\n" ..
     "An average over a fight against one enemy, from your character sheet right now: buffs count while they're up, and buttons you " ..
     "press like Retaliation don't count. It assumes you press your abilities whenever they're ready and you have the rage.\n\n" ..
-    "How sure this is: your rage, enemy armor up to level 31 and most of your abilities were measured in combat logs. Elites come " ..
-    "from 7 tough mobs at levels 16, 17 and 30: 3 times the health, the same armor, hits about 2.2 times as hard. Nothing has been " ..
-    "measured yet against enemies 3 levels above you, so that column uses the original game's rules. Set bonuses aren't counted.")
+    "How sure this is: your rage, enemy armor up to level 33 and most of your abilities were measured in combat logs. Elites come " ..
+    "from over 100 read at levels 16 to 33: 3 times the health, the same armor, hits a bit over twice as hard. Against enemies 3 levels " ..
+    "above you, glancing blows still follow the original game's rules; one log saw more of them than that, so that column may read a " ..
+    "little high. Set bonuses aren't counted.")
   return pane
 end
 
@@ -133,8 +134,9 @@ function Pane.Refresh(pane)
   local beingHit = KorkronPlannerCharDB.simNotHit ~= true
   local targets = KP.Sim.Targets(level)
   pane.title:SetText("Your damage a second")
-  pane.note:SetText(beingHit and "The enemy is hitting you: that's your rage from being hit, your shield talents and Revenge."
-    or "Someone else holds the enemy: no rage from being hit, and no Revenge.")
+  pane.note:SetText(not beingHit and "Someone else holds the enemy: no rage from being hit, and no Revenge."
+    or sheet.shield and "The enemy is hitting you: that's your rage from being hit, your shield talents and Revenge."
+    or "The enemy is hitting you: that's your rage from being hit and Revenge.")
   SetGridShown(pane, true)
   if beingHit then
     pane.tanking:LockHighlight()

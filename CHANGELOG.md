@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.26.0
+
+- **Enhancement Shamans: Stormstrike now counts as soon as you take it.** The planner had it locked until level 40, the level in the
+  game's files, but the talent gives it straight away: a level 36 Shaman used it 210 times in a real dungeon. Enhancement's Solo,
+  Dungeon and PvP orders now take it at level 25 to 27 instead of 34 to 38, and Restoration's Solo at 30 instead of 40. The Priority
+  tab and gear lists count it from then on.
+- **Counterattack and Vampiric Embrace** show from level 25, for the same reason.
+- **The DPS tab:** the small print now says what a real dungeon measured, and which column may still read a little high. The top line
+  only mentions shield talents when you're holding a shield.
+- **The latest server hotfixes,** with 56 more items, and more real numbers from the guild: Warrior, Druid and Shaman base stats at
+  higher levels.
+- **Some talent orders and gear lists changed.** No build changes its talents, but some take them at different levels.
+
 ## 0.25.0
 
 - **New: the DPS tab (Warriors so far).** Your damage a second, worked out in game from your own character sheet, talents and
