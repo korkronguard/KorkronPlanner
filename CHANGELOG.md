@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.27.1
+
+- **The Stats tab is easier to read.** It now has a section for each of your two numbers, "Staying alive" (your effective health)
+  and "Damage", each with your own total and only the stats that count for it. Every stat shows how much of it you have (a
+  rating with the chance it gives you, a weapon with its damage a second), what 1 more point adds, and what that's worth in
+  plain words: "0.5 Strength" instead of a bare number. Hover a heading to see what its number means, or a stat for the full
+  sentence.
+
 ## 0.27.0
 
 - **New: the Stats tab.** What 1 more point of each stat adds for you, in damage or healing a second and in effective HP, with

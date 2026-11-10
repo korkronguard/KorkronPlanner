@@ -35,12 +35,14 @@ The in-game companion to the Kor'kron Guard talent planner: https://korkronguard
   and what those points do on your character sheet. With your bags open, a **green arrow** in the top-right corner marks
   each item that's an upgrade you can wear now. Using **Baganator**? The arrow shows there too, top right (move it in
   Baganator's settings, Icons tab, where it's called "Kor'kron Planner"). **EllesmereUI**'s bags show it too.
-- **What each stat is worth to you.** The **Stats** tab lists what 1 more point of each stat adds, in damage or healing
-  per second and in effective HP, and compares each with your main stat (other tools call these stat weights). For
-  Warriors they're worked out from your own character sheet, talents and weapons, against the enemy you choose (a normal
-  one of your level, an elite, or an elite 3 levels up), and the tab says how many points are left before a cap, like the
-  hit you need. Your item tooltips and bag arrows judge gear by the same numbers. The other classes see the planner's
-  numbers for their build with its best gear at their level, until their class is added.
+- **What each stat is worth to you.** The **Stats** tab has a section for each of your build's two numbers, staying
+  alive (effective health) and damage or healing. Each lists the stats that count for it: how much of the stat you
+  have, what 1 more point adds, and what that's worth in your main stat ("0.5 Strength"; other tools call these stat
+  weights). For Warriors they're worked out from your own character sheet, talents and weapons, against the enemy you
+  choose (a normal one of your level, an elite, or an elite 3 levels up), with your own effective health and damage
+  on top of each section, and the tab says how many points are left before a cap, like the hit you need. Your item
+  tooltips and bag arrows judge gear by the same numbers. The other classes see the planner's numbers for their build
+  with its best gear at their level, until their class is added.
 - **How your numbers are worked out.** The **Formulas** tab shows the formula behind your health, mana, attack power,
   crit, armor, mana regen, rage and effective health, with your own numbers and the game's next to them, and for every
   number in it what it is and where it comes from; what 1 point of each stat does for you and your build; and your

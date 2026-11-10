@@ -70,13 +70,19 @@ function Sheet.Inputs(class)
   return inputs
 end
 
+-- the best of a number the game gives per school of magic (Holy 2 to Arcane 7); nil when it hides them all
+local function BestSchool(fn)
+  local best
+  for school = 2, 7 do
+    local v = Readable(fn(school))
+    if v and (not best or v > best) then best = v end
+  end
+  return best
+end
+
 -- the game's own numbers to compare the formulas with
 function Sheet.GameNumbers()
-  local spellCrit
-  for school = 2, 7 do
-    local crit = Readable(GetSpellCritChance(school))
-    if crit and (not spellCrit or crit > spellCrit) then spellCrit = crit end
-  end
+  local spellCrit = BestSchool(GetSpellCritChance)
   local _, armor = UnitArmor("player")
   armor = Readable(armor)
   local stops
@@ -88,6 +94,55 @@ function Sheet.GameNumbers()
     ap = Readable((UnitAttackPower("player"))), rap = Readable((UnitRangedAttackPower("player"))),
     crit = Readable(GetCritChance()), spellCrit = spellCrit, armor = armor, regen = Readable((GetManaRegen())),
     armorStops = stops, dodge = Readable(GetDodgeChance()) }
+end
+
+local MAIN_STAT = { strength = 1, agility = 2, stamina = 3, intellect = 4, spirit = 5 }
+local SCHOOL = { holyDamage = 2, fireDamage = 3, natureDamage = 4, frostDamage = 5, shadowDamage = 6, arcaneDamage = 7 }
+local WEAPON_SLOT = { mainHand = 16, offHand = 17, ranged = 18 }
+local CASTER = { MAGE = true, PRIEST = true, WARLOCK = true } -- their hit and crit ratings are read as spell hit and crit
+-- an item rating: the game's names for it (melee, spell; a client may lack one), and the chance it feeds, in %
+local RATING = {
+  crit = { "CR_CRIT_MELEE", "CR_CRIT_SPELL", function(caster) return caster and BestSchool(GetSpellCritChance) or Readable(GetCritChance()) end },
+  hit = { "CR_HIT_MELEE", "CR_HIT_SPELL", function(caster, index)
+    local talents, rating = Readable((caster and GetSpellHitModifier or GetHitModifier)()), Readable(GetCombatRatingBonus(index))
+    return talents and rating and talents + rating
+  end },
+  dodge = { "CR_DODGE", nil, function() return Readable(GetDodgeChance()) end },
+  parry = { "CR_PARRY", nil, function() return Readable(GetParryChance()) end },
+  block = { "CR_BLOCK", nil, function() return Readable(GetBlockChance()) end },
+  defense = { "CR_DEFENSE_SKILL" }, expertise = { "CR_EXPERTISE" },
+}
+
+-- How much of an item stat you have right now (the stat as Data/Weights.lua names it; a weapon's hand for its damage a
+-- second), and for a rating the chance it feeds, in %. nil: the game has no number for it, or hides it.
+function Sheet.Have(key)
+  if MAIN_STAT[key] then
+    local _, effective = UnitStat("player", MAIN_STAT[key])
+    return Readable(effective)
+  elseif key == "armor" then
+    local _, armor = UnitArmor("player")
+    return Readable(armor)
+  elseif key == "attackPower" or key == "rangedAttackPower" then
+    local base, plus, minus = (key == "attackPower" and UnitAttackPower or UnitRangedAttackPower)("player")
+    return Readable(base) and Readable(plus) and Readable(minus) and base + plus + minus or nil
+  elseif key == "healing" then
+    return Readable(GetSpellBonusHealing())
+  elseif key == "spellPower" or key == "spellDamage" then
+    return BestSchool(GetSpellBonusDamage)
+  elseif SCHOOL[key] then
+    return Readable(GetSpellBonusDamage(SCHOOL[key]))
+  elseif WEAPON_SLOT[key] then
+    local id = Readable(GetInventoryItemID("player", WEAPON_SLOT[key]))
+    local weapon = id and KP.Items[id] and KP.Items[id].w
+    return weapon and (weapon[1] + weapon[2]) / 2 / weapon[3] or nil
+  elseif RATING[key] then
+    local _, class = UnitClass("player")
+    local melee, spell, chance = unpack(RATING[key], 1, 3)
+    local index = _G[CASTER[class] and spell or melee]
+    local rating = index and Readable(GetCombatRating(index))
+    if not rating then return nil end
+    return rating, chance and chance(CASTER[class] and spell ~= nil, index) or nil
+  end
 end
 
 -- whether a formula's result is the planner's estimate at this level: marked so, or measured only up to a lower level
