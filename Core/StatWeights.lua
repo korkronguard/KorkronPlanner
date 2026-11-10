@@ -11,7 +11,8 @@ KP.StatWeights = StatWeights
 
 local DATA = KP.SimData.WARRIOR
 local RULES = KP.SimData.rules
-local SHARP = 0.15 -- a stat's worth changing by more than this from one step to the next is a turn (a cap), not a curve
+local SHARP = 0.15 -- a stat's worth changing by more than this from one step to the next: a turn may be there, not a curve
+local TURN = 0.25  -- and it is one (a cap) when the worth beyond differs by more than this from the worth before
 -- The stats whose worth can turn by the game's rules, in which of your numbers ("d" damage: hit caps, the white hits' crit
 -- cap; "e" survival: armor's 75%), in what steps (points) and how many of them to look ahead. Dodge, parry, block and defense
 -- are left out: their only turn is the planner's own 60% limit on avoidance, which isn't the game's.
@@ -75,17 +76,19 @@ function StatWeights.Of(ctx, role)
 end
 
 -- Where a line of readings turns sharply: xs = points of a stat added (or taken off: below 0), fs = your number there.
--- Up to two turns, nearest first: { { at = points from now, worth = per point beyond it } }
+-- Up to two turns, nearest first: { { at = points from now, worth = per point beyond it } }. The website's calc.js has the
+-- same in JavaScript (statScan): change them together.
 function StatWeights.Scan(xs, fs)
   local slopes, turns = {}, {}
   for i = 2, #xs do slopes[i] = (fs[i] - fs[i - 1]) / (xs[i] - xs[i - 1]) end -- slopes[i]: the worth over the step ending at xs[i]
   local noise = 1e-9 * math.max(1, math.abs(fs[1]))
-  local function Differ(x, y)
-    return math.abs(x - y) > math.max(noise, SHARP * math.max(math.abs(x), math.abs(y)))
+  local function Differ(x, y, by)
+    return math.abs(x - y) > math.max(noise, (by or SHARP) * math.max(math.abs(x), math.abs(y)))
   end
   local i, clean = 3, 2 -- clean: the first step known to lie wholly before the next turn
-  while i <= #xs and #turns < 2 do
-    local before, here, after = slopes[i - 1], slopes[i], slopes[i + 1] or slopes[i]
+  -- the last step is left out: with no step after it, a turn there can't be told from a jump
+  while i < #xs and #turns < 2 do
+    local before, here, after = slopes[i - 1], slopes[i], slopes[i + 1]
     local back = i - 2 >= clean and slopes[i - 2] or nil
     -- two steps back too: a turn near a step's end changes that step's worth too little to show against its neighbour
     if Differ(here, before) or (back and Differ(here, back)) then
@@ -94,7 +97,9 @@ function StatWeights.Scan(xs, fs)
       -- this step, which mixes the two.
       local from = back and math.abs(here - after) <= 0.03 * math.abs(here - back) and i - 2 or i - 1
       local a, b = slopes[from], from == i - 2 and here or after
-      if math.abs(a - b) > noise then
+      -- the worth after is about the worth before: your number jumped there or bent a little (rage running short), it
+      -- didn't turn
+      if Differ(a, b, TURN) then
         local at = xs[from] + ((fs[i] - fs[from]) - b * (xs[i] - xs[from])) / (a - b)
         at = math.max(math.min(xs[from], xs[i]), math.min(math.max(xs[from], xs[i]), at))
         table.insert(turns, { at = at, worth = b })

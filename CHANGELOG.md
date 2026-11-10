@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.27.2
+
+- **The Stats tab only calls a real cap a cap.** "Until a cap" now shows where a stat's worth truly changes (the hit caps,
+  the crit cap of your white swings, armor's limit): a point that's worth a little less further on, as when rage starts to
+  run short, is no longer listed as one.
+- **The planner website has the same tab now, for every class:** "Stat Weights", for the talents, gear, target and buffs you
+  set up on the page.
+- **The game's November 10 update is in:** 55 new items (dungeon gear for levels 52 to 58), Rage of the Storm with Strength
+  instead of Intellect, and Arcane Shot and Summon Hawk costing a share of your base mana (11%) at every rank. Gear lists,
+  stat numbers and builds are worked out again with them.
+- **Enhancement Shamans: a note on your builds.** Blizzard has said it will make Strength your strongest stat, and tells
+  leveling Enhancement Shamans to collect Strength and Attack Power gear from now on. That change isn't in the game's files
+  yet, so the planner's gear picks and stat numbers still rate Intellect higher. Your builds say so (marked with a *) until
+  the change lands.
+- More measured numbers from guild characters (Warriors to level 36, Priests to 24, Shamans to 41).
+
 ## 0.27.1
 
 - **The Stats tab is easier to read.** It now has a section for each of your two numbers, "Staying alive" (your effective health)
