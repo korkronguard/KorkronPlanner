@@ -43,8 +43,8 @@ function Sim.Targets(level)
   local armor, higher = Round(MobArmor(level)), Round(MobArmor(level + 3))
   return {
     same = { diff = 0, armor = armor, health = MobHealth(level), hitMult = 1 },
-    elite = { diff = 0, armor = armor, health = RULES.eliteHealth * MobHealth(level), hitMult = RULES.eliteHit },
-    elite3 = { diff = 3, armor = higher, health = RULES.eliteHealth * MobHealth(level + 3), hitMult = RULES.eliteHit },
+    elite = { diff = 0, armor = armor, health = RULES.eliteHealth * MobHealth(level), hitMult = RULES.eliteHit, ownSunder = true },
+    elite3 = { diff = 3, armor = higher, health = RULES.eliteHealth * MobHealth(level + 3), hitMult = RULES.eliteHit, ownSunder = true },
   }
 end
 
@@ -122,20 +122,59 @@ end
 
 -- ---------------------------------------------------------------- the attack table and your swings
 
+local function BookRank(name, level)
+  local best
+  for _, r in ipairs(DATA.book[name].ranks) do
+    if (r.level or 1) <= level then best = r end
+  end
+  return best
+end
+
+-- your own Sunder Armor against an elite (calc.js's ownSunder): one a global cooldown from the start until 5 are up, then again
+-- as it runs out
+local function OwnSunder(ctx)
+  local rank = ctx.target.ownSunder and BookRank("Sunder Armor", ctx.level)
+  if not rank then return nil end
+  local T = ctx.fightSec or RULES.longFight
+  local stacks = math.min(RULES.sunderStacks, math.ceil(T / 1.5))
+  local uses = stacks + math.max(0, T - (stacks - 1) * 1.5) / (rank.durMs / 1000)
+  local cost = rank.cost / 10 - TalentNumber(ctx, "Improved Sunder Armor", "by (%d+)")
+  return { perStack = rank.armor, stacks = stacks, share = 1.5 / T, ragePerSec = uses * cost / T }
+end
+
 local function Mitigation(ctx, tal)
-  local armor = ctx.target.armor * (1 - tal.armorIgnore / 100)
-  return math.min(0.75, armor / (armor + 400 + 85 * ctx.level))
+  local function Reduction(stacks, perStack)
+    local armor = math.max(0, ctx.target.armor - stacks * perStack) * (1 - tal.armorIgnore / 100)
+    return math.min(0.75, armor / (armor + 400 + 85 * ctx.level))
+  end
+  local own = OwnSunder(ctx)
+  if not own then return Reduction(0, 0) end
+  local total, left = 0, 1 -- over the fight: each stack on the way up, then the last one for the rest
+  for k = 1, own.stacks - 1 do
+    total = total + own.share * Reduction(k, own.perStack)
+    left = left - own.share
+  end
+  return total + left * Reduction(own.stacks, own.perStack)
 end
 
 local function CritSuppression(ctx) return Clamp(ctx.target.diff) end
 
-local function AttackTable(ctx, kind)
+-- moreMiss: misses on top of the table's, which hit takes off too (a dual wielder's white swings)
+local function AttackTable(ctx, kind, moreMiss)
   local d, sheet = Clamp(ctx.target.diff), ctx.sheet
   if kind == "magic" then
     return { miss = math.max(1, RULES.spellMiss[d + 1] - sheet.spellHit), dodge = 0 }
   end
   local hit = d >= 3 and math.max(0, sheet.hit - 1) or sheet.hit
-  return { miss = math.max(0, RULES.meleeMiss[d + 1] - hit), dodge = 5 + d * 0.5 }
+  return { miss = math.max(0, RULES.meleeMiss[d + 1] + (moreMiss or 0) - hit), dodge = 5 + d * 0.5 }
+end
+
+-- How much hit takes every miss off against a target (calc.js's hitCaps): abilities and white swings with one weapon, white
+-- swings with two, spells (1% of them always miss)
+function Sim.HitCaps(target)
+  local d = Clamp(target.diff)
+  local melee = RULES.meleeMiss[d + 1] + (d >= 3 and 1 or 0)
+  return { melee = melee, dualWhite = melee + RULES.dualWieldMiss, spell = RULES.spellMiss[d + 1] - 1 }
 end
 
 local function WhiteHits(ctx, tal)
@@ -151,8 +190,8 @@ local function WhiteHits(ctx, tal)
     local apBonus = (sheet.ap / 14) * item.speed
     local scale = mult * (1 + tal.dmgPct / 100) * (1 - mit)
     local avg = ((item.min + apBonus) * scale + (item.max + apBonus) * scale) / 2
-    local t = AttackTable(ctx, "melee")
-    local miss = math.max(0, t.miss + (dual and 19 or 0) - (label == "Off hand" and tal.offhandHit or 0))
+    local t = AttackTable(ctx, "melee", (dual and RULES.dualWieldMiss or 0) - (label == "Off hand" and tal.offhandHit or 0))
+    local miss = t.miss
     local glance = RULES.glanceChance[d + 1]
     local crit = math.max(0, math.min(sheet.crit - suppress, 100 - miss - t.dodge - glance))
     local hit = math.max(0, 100 - miss - t.dodge - glance - crit)
@@ -305,11 +344,22 @@ local function Outcomes(sheet)
     block = sheet.shield and sheet.block / 100 + d or 0 }
 end
 
-local function MeleeTaken(sheet, tal, level, hitMult)
+-- the share of swings at you that don't land in full (a block counted as avoided), at most 60% (calc.js's avoidance)
+local function Avoidance(sheet)
   local o = Outcomes(sheet)
-  local avoid = math.min(0.6, o.miss + o.dodge + o.parry + o.block)
+  return math.min(0.6, o.miss + o.dodge + o.parry + o.block)
+end
+
+local function MeleeTaken(sheet, tal, level, hitMult)
   local armorDR = math.min(0.75, sheet.armor / (sheet.armor + 400 + 85 * level))
-  return MobDps(level) * hitMult * (1 - avoid) * (1 - armorDR) * (1 + tal.damageTaken / 100)
+  return MobDps(level) * hitMult * (1 - Avoidance(sheet)) * (1 - armorDR) * (1 + tal.damageTaken / 100)
+end
+
+-- Survival: your health through armor and avoidance against a raid boss, 3 levels above you (calc.js's ehp)
+function Sim.Survival(ctx)
+  local sheet = ctx.sheet
+  local armorDR = math.min(0.75, sheet.armor / (sheet.armor + 400 + 85 * (ctx.level + 3)))
+  return sheet.health / ((1 - armorDR) * (1 - Avoidance(sheet))) / (1 + TalentEffects(ctx).damageTaken / 100)
 end
 
 local function RageConversion(level)
@@ -330,14 +380,6 @@ local function TankRage(ctx, tal)
     RULES.ragePerHitTaken * landed
   local shieldRage = swings * (o.block * perBlock + (o.dodge + o.parry) * perDodge)
   return { o = o, swings = swings, perBlock = perBlock, rage = hits + shieldRage }
-end
-
-local function BookRank(name, level)
-  local best
-  for _, r in ipairs(DATA.book[name].ranks) do
-    if (r.level or 1) <= level then best = r end
-  end
-  return best
 end
 
 -- Shield Block on cooldown: { perSec = extra blocks a second, rage = what it costs a second }
@@ -473,6 +515,8 @@ local function Rotation(ctx)
   if t then rage = rage + t.rage end
   local rageIncome, firstAbilityPart = rage, #parts + 1
   local state = { rage = rage, gcdUsed = 0 }
+  local own = OwnSunder(ctx)
+  if own then state.rage = math.max(0, state.rage - own.ragePerSec) end
   if t then
     local moreBlocks = ShieldBlock(ctx, t, state.rage)
     state.rage = state.rage - moreBlocks.rage
@@ -530,8 +574,14 @@ end
 -- ---------------------------------------------------------------- one fight
 
 -- calc.js's compute: the fight lasts as long as the enemy takes to die at the damage you do in a fight that long. A long
--- fight's damage gives the first guess, the damage in that fight the second; then the secant until one is within 1%.
+-- fight's damage gives the first guess, the damage in that fight the second; then the secant until one is within 1%. A length
+-- already worked out (ctx.fightSec) is kept: stat weights compare the same fight with and without a stat.
 function Sim.Compute(ctx)
+  if ctx.fightSec then
+    local R = Rotation(ctx)
+    if R then R.fightSec = ctx.fightSec end
+    return R
+  end
   local function WithFight(T)
     local copy = {}
     for k, v in pairs(ctx) do copy[k] = v end
@@ -610,8 +660,9 @@ function Sim.Sheet()
   local meleeHit, spellHit = Number(GetHitModifier()), Number(GetSpellHitModifier())
   local meleeRating, spellRating = Number(GetCombatRatingBonus(CR_HIT_MELEE)), Number(GetCombatRatingBonus(CR_HIT_SPELL))
   local spellCrit = Number(GetSpellCritChance(2))
+  local health = Number(UnitHealthMax("player"))
   if not (base and plus and minus and armor and crit and dodge and parry and block and attackSpeed and meleeHit and spellHit and
-    meleeRating and spellRating and spellCrit) then
+    meleeRating and spellRating and spellCrit and health) then
     return nil
   end
   local mh, oh, rg = Weapon(16), Weapon(17), Weapon(18)
@@ -621,10 +672,11 @@ function Sim.Sheet()
   local racial = DATA.racials[raceID] or {}
   local haste = mh and (mh.speed / attackSpeed - 1) * 100 or 0
   return {
-    ap = (base + plus + minus) * (1 + (racial.apPct or 0) / 100),
+    ap = (base + plus + minus) * (1 + (racial.apPct or 0) / 100), apPct = racial.apPct or 0,
     crit = crit + (racial.crit or 0), spellCrit = spellCrit + (racial.crit or 0),
     hit = meleeHit + meleeRating, spellHit = spellHit + spellRating, armor = armor, dodge = dodge, parry = parry, block = block,
-    defense = 0, damageTaken = racial.damageTaken or 0, meleeHaste = haste + (racial.meleeHaste or 0),
+    defense = 0, health = health, healthPct = racial.healthPct or 0, damageTaken = racial.damageTaken or 0,
+    meleeHaste = haste + (racial.meleeHaste or 0),
     castHaste = racial.castHaste or 0, shield = offItem and offItem[1] == "shield" or false, mh = mh, oh = oh, rg = rg,
   }
 end

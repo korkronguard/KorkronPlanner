@@ -1,5 +1,38 @@
 # Changelog
 
+## 0.27.0
+
+- **New: the Stats tab.** What 1 more point of each stat adds for you, in damage or healing a second and in effective HP, with
+  each stat compared with your main one (other tools call these stat weights). For Warriors the numbers come from your own
+  character sheet, talents and weapons, against the enemy you choose: a normal one of your level, an elite, or an elite 3 levels
+  up. Where a cap is in reach the tab says how many points are left, like "47 more, then nothing" for the hit you still need;
+  hover a stat for the details. The other classes see the planner's numbers for their build with its best gear at their level,
+  until their class is added.
+- **Warriors: item tooltips and bag arrows now judge gear by your own numbers,** not by the planner's best gear for your level.
+  An item's worth follows what you wear, your talents, your stance and whether you're tanking, and an upgrade's % is a share of
+  your own damage. The Formulas tab's "Worth" lines use the same numbers.
+- **Dual wielding: hit now counts for your white swings past the ability cap.** The planner said hit keeps helping them up to 24%
+  (28% against a raid boss), but its math stopped at 5% (9%). Real combat logs agree with the old rule behind it: dual wielders
+  missed 21.5% of their white swings, players with one weapon 4%. Nobody below the cap gets a different number; Subtlety's Solo
+  build now takes a point of Precision for it.
+- **The November 9 hotfixes,** with 297 more items, most of them level 50 to 60 world drops. Natural Instinct now counts for
+  Lacerate and Pounce.
+- **More real numbers from the guild:** Warrior base stats and crit from Agility to level 35, Paladin to 32, Priest to 23, Druid to
+  36, Shaman to 40, Hunter to 34, and Hunter pets to level 33.
+- **A few Solo builds move a point or two:** Protection Warriors take Improved Rend for 3 of their 5 points of Deflection (from
+  level 46 on), Restoration Druids move a point from Genesis to Vengeance, Restoration Shamans one from Ancestral Knowledge to
+  Elemental Weapons, and Destruction's point of Improved Corruption goes to Molten Skin. Fourteen other builds take the same
+  talents in a slightly different order, most of them from level 45 on.
+- **The Formulas tab** now says which rules real fights have confirmed: white-hit damage, an enemy's 5% chance to miss you, and
+  the dual-wield penalty.
+- **The DPS tab's elite columns now count your own Sunder Armor,** 5 from the start and then kept up: Warriors read about 17% higher
+  there. A real combat log shows each stack taking 180 armor off at level 31, so a long fight rewards stacking it early. The normal
+  column doesn't count it: a normal mob is usually close to dying by the time 5 are up, and that rage does as much elsewhere.
+- **Dungeon healers:** the talent orders now use the mana of a real dungeon run: short pulls, and no drinking between them, as a real
+  Restoration Druid's run in Gnomeregan shows. Bloom counts too, for what's left of it after overhealing. Restoration Druids take Bloom
+  at 20 instead of 28, Holy Priests start with Holy Specialization, and Restoration Shamans with Tidal Focus. Level 60 numbers don't
+  change.
+
 ## 0.26.0
 
 - **Enhancement Shamans: Stormstrike now counts as soon as you take it.** The planner had it locked until level 40, the level in the

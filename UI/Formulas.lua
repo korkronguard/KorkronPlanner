@@ -58,9 +58,10 @@ end
 -- What 1 point of each stat does: on your character sheet (main stats) and to the build you follow
 local function StatSection(L, class, inputs, build)
   L.text("What each stat does for you", "GameFontNormalLarge", 0, 0)
-  local W = build and KP.Build.ForLevel(KP.Weights, build.key, UnitLevel("player"))
+  local W = build and KP.StatWeights.For(build)
   L.text("For 1 point of each stat, from the game's own numbers where it gives them. " ..
-    (W and ("Worth: what the planner says it adds for " .. build.name:gsub(" %b()", "") .. " at your level.")
+    (W and (W.live and "Worth: what it adds for you with the gear you wear (the Stats tab lists them all)."
+        or "Worth: what the planner says it adds for " .. build.name:gsub(" %b()", "") .. " at your level.")
       or "Choose one of the planner's builds on the left to see what each point is worth to it."),
     "GameFontDisableSmall", 0, 2)
   local function Worth(key)

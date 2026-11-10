@@ -10,6 +10,8 @@ local TARGETS = { { key = "same", label = "Normal", under = "your level" }, { ke
   { key = "elite3", label = "Elite", under = "3 levels up" } }
 local STANCES = { { key = "battle", label = "Battle Stance" }, { key = "defensive", label = "Defensive Stance" },
   { key = "berserker", label = "Berserker Stance" } }
+Pane.StanceName = {} -- "Battle Stance" for "battle" (the Stats tab names your stance too)
+for _, stance in ipairs(STANCES) do Pane.StanceName[stance.key] = stance.label end
 local LABEL_W, COLUMN_W, ROW, TOP = 170, 110, 26, -118
 local BEST = "|cff40ff40%.1f|r"
 local PLAIN = "%.1f"
@@ -60,6 +62,7 @@ function Pane.Create(parent, width, height)
       KP.Safe(function()
         KorkronPlannerCharDB.simNotHit = notHit
         Pane.Refresh(pane)
+        KP.BagIcons.Refresh() -- the arrows judge gear by your stat weights, which follow this too
       end)
     end)
     return b
@@ -97,9 +100,10 @@ function Pane.Create(parent, width, height)
     "An average over a fight against one enemy, from your character sheet right now: buffs count while they're up, and buttons you " ..
     "press like Retaliation don't count. It assumes you press your abilities whenever they're ready and you have the rage.\n\n" ..
     "How sure this is: your rage, enemy armor up to level 33 and most of your abilities were measured in combat logs. Elites come " ..
-    "from over 100 read at levels 16 to 33: 3 times the health, the same armor, hits a bit over twice as hard. Against enemies 3 levels " ..
-    "above you, glancing blows still follow the original game's rules; one log saw more of them than that, so that column may read a " ..
-    "little high. Set bonuses aren't counted.")
+    "from over 100 read at levels 16 to 33: 3 times the health, the same armor, hits a bit over twice as hard. The elite columns count " ..
+    "your own Sunder Armor, 5 from the start and then kept up, so stack it early; on a normal mob it isn't worth the rage. Against " ..
+    "enemies 3 levels above you, glancing blows still follow the original game's rules; one log saw more of them than that, so that " ..
+    "column may read a little high. Set bonuses aren't counted.")
   return pane
 end
 

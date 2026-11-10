@@ -1,7 +1,8 @@
 -- Kor'kron Planner: upgrade or downgrade on item tooltips (bags, your character, loot, vendors, links in chat). An
--- item's worth to the build you follow is its stats, armor and weapon damage, each times what the planner website says
--- one point is worth to that build at your level (Data/Weights.lua, worked out with the planner's best gear for that
--- level on), compared with what you wear in that slot. The tooltip shows the totals (and the change in %) and, stat by
+-- item's worth to the build you follow is its stats, armor and weapon damage, each times what one point is worth to you
+-- (KP.StatWeights.For: from your own sheet where the addon has your class's math, else what the planner website says for
+-- that build at your level, Data/Weights.lua, worked out with the planner's best gear for that level on), compared with
+-- what you wear in that slot. The tooltip shows the totals (and the change in %) and, stat by
 -- stat, what makes the difference; bag items that are an upgrade get an arrow (UI/BagIcons.lua). On an item you wear it
 -- shows what that item gives you, stat by stat. Effects ("Chance on hit:", "Use:") and set bonuses aren't counted, and
 -- the tooltip says so.
@@ -31,6 +32,7 @@ local MEASURES = {
   heal = { { "v", "HPS", 0.01, "HPS" }, { "e", "effective HP", 0.5, "eff. HP" } },
   tank = { { "e", "effective HP", 0.5, "eff. HP" }, { "d", "DPS", 0.01, "DPS" } },
 }
+Upgrade.MEASURES = MEASURES
 -- the main stats' names in Core/Sheet.lua, for what a point of them does
 local SHEET_KEY = { strength = "str", agility = "agi", stamina = "sta", intellect = "int", spirit = "spi" }
 -- the stats the planner counts, in the order the Formulas tab lists them
@@ -215,8 +217,8 @@ local function Percent(x, of)
 end
 
 -- Whether a change goes up, and how much it is in %: by the build's number, or by survival when that doesn't move.
--- base = the build's number and survival themselves, with the planner's best gear at your level (Data/Weights.lua); a
--- tank's number is already relative (survival and damage on a log scale), so its change × 100 is the %.
+-- base = the build's number and survival themselves: yours, or with the planner's best gear at your level
+-- (Data/Weights.lua); a tank's number is already relative (survival and damage on a log scale), so its change × 100 is the %.
 local function Change(total, role, base)
   local main = (MEASURES[role] or MEASURES.dps)[1]
   if role == "tank" then return total.v > 0, Upgrade.Number(total.v * 100) .. "%" end
@@ -260,7 +262,7 @@ local function Breakdown(diff, W, role, class, inputs)
   return rows
 end
 
--- An item against what it would replace, for the build you follow: { build, W (its weights at your level), item,
+-- An item against what it would replace, for the build you follow: { build, W (the weights: KP.StatWeights.For), item,
 -- replaced (as WornItem gives it), diff (part by part), total, from (the level you can wear it from), level }; for the
 -- item you wear, worn = true and diff = all it gives (no replaced); or nil, "twoHand" (an off-hand item while you hold a
 -- two-hander) and the build; or nil (no suggested build, an item the planner doesn't know or your class can't use)
@@ -274,7 +276,7 @@ local function Compare(link)
   for _, c in ipairs(item.c) do can = can or c == classID end
   if not can then return nil end
   local level = UnitLevel("player")
-  local W = KP.Build.ForLevel(KP.Weights, build.key, level)
+  local W = KP.StatWeights.For(build)
   if not W then return nil end
   local from = (item.late and item.late[classID]) or math.max(1, item[2])
   local replaced, why, inv = Replaced(item, link, W)
