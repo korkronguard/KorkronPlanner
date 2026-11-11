@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.27.3
+
+- **The game's second update of November 10 is in.** Affliction Warlocks: Wrack now makes your Siphon Life, Corruption and
+  Bane of Agony tick twice as fast while you channel it, and deals less itself (60 a second at rank 1, down from 86); Soul
+  Siphon counts only those three spells; Bane of Havoc is on the global cooldown. 30 new items for levels 41 to 59. Gear
+  lists, stat numbers and builds are worked out again with them.
+- **Affliction Warlocks: your numbers read a little low for now.** The planner counts Wrack's own damage, but not yet the
+  faster ticks it gives your other spells.
+- **Enemies of level 36 and up have more armor than the planner thought.** Measured in real fights: 1,494 at level 36 and
+  1,607 at 37. Damage numbers and stat worths for melee classes and Hunters between 36 and 59 are a little lower (about 5%
+  at 40, 2% at 50); level 60 is unchanged.
+- **Enhancement Shamans:** Blizzard has now posted its change: Intellect gives a third less attack power (Mental Dexterity),
+  Stormstrike hits for 100% weapon damage every 8 seconds, Maelstrom Weapon is reworked, and Windfury Weapon works together
+  with Windfury Totem. Those numbers aren't in this update yet, so the note on your builds stays until the next one.
+- More measured numbers from guild characters (Warriors to level 37, Shamans to 43).
+
 ## 0.27.2
 
 - **The Stats tab only calls a real cap a cap.** "Until a cap" now shows where a stat's worth truly changes (the hit caps,
