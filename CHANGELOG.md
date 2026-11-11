@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.27.4
+
+- **Enemies parry.** An enemy that's facing you, because you fight it alone or you're its tank, parries about 5% of your
+  melee attacks; a raid boss parries 14% of its tank's. Measured in guild combat logs. Damage numbers, stat worths and gear
+  picks now count it: melee leveling numbers read about 5% lower, and a tank's damage on a raid boss 11 to 18% lower.
+  Damage dealers standing behind an enemy in a group lose nothing. Warriors: the DPS and Stats tabs count it when you set
+  them to "I'm tanking it".
+- **The Stats and DPS tabs say when your own Sunder Armor is counted.** Against an elite, the Stats tab's Damage heading
+  now reads "with your Sunder Armor at 5 stacks", and hovering it, or an elite's number on the DPS tab, explains: 5 stacks
+  from the start of the fight, kept up, paid for in rage. A normal enemy's number counts none, which is why an elite can
+  read higher.
+- **Affliction Warlocks: Wrack's faster ticks are counted.** Each second of Wrack now adds the extra ticks it gives your
+  Siphon Life, Corruption and Bane of Agony (Blizzard: they tick twice as often and last as long). The solo build reads
+  about 11% higher at 60.
+- **Enhancement Shamans: Blizzard's change isn't in the game yet.** Checked on the morning of November 11: in real fights
+  Stormstrike still hits for 150% weapon damage every 6 seconds, and the game's files still hold the old numbers for it and
+  for Mental Dexterity. So the planner's Shaman numbers match the game as it plays today, and the note on your builds stays
+  until the change arrives.
+- **133 new items** from the game's latest update, most of them for levels 53 to 58. Gear lists are worked out again with
+  them.
+- More measured numbers from guild characters (Warriors to level 38).
+
 ## 0.27.3
 
 - **The game's second update of November 10 is in.** Affliction Warlocks: Wrack now makes your Siphon Life, Corruption and

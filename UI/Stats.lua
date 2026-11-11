@@ -27,6 +27,12 @@ local SECTION = {
     about = "Your healing a second with the mana you have, by the planner's math." },
 }
 local FOR_UNIT = "%s: what a point adds to your %s" -- a section's heading when the numbers are the planner's, not your own
+-- Against an elite a Warrior's damage counts their own Sunder Armor (Core/Sim.lua's CountsSunder): on the Damage heading and
+-- in its tooltip, because the number is so much higher than a normal enemy's
+local SUNDER_HEAD = ", with your Sunder Armor at %d stacks"
+local SUNDER_ABOUT = "Against an elite this counts your own Sunder Armor: %d stacks from the start of the fight, then kept up, its rage " ..
+  "paid out of this number. That's why it's higher than against a normal enemy, where none is counted: it dies before the " ..
+  "stacks pay for themselves."
 local ROWS, ROW_H, TOP = 18, 18, -122
 local NAME_W, HAVE_W, ADDS_W, SAME_W, CAP_X = 150, 72, 62, 92, 390 -- the columns, left to right (the last runs to the edge)
 local CONTROLS_X = 116 -- where the two rows of buttons start, after their labels
@@ -110,6 +116,7 @@ local function ShowRow(row)
   if line.head then
     GameTooltip:AddLine(line.section.title)
     GameTooltip:AddLine(line.section.about, 1, 1, 1, true)
+    if line.sunder then GameTooltip:AddLine(SUNDER_ABOUT:format(KP.SimData.rules.sunderStacks), 0.4, 0.8, 1, true) end
     return GameTooltip:Show()
   end
   local unit = line.section.unit
@@ -249,8 +256,10 @@ local function Lines(pane, W)
     local stats, section = Section(W, m), SECTION[m[4]]
     if #stats > 0 then
       local yours = pane.live and W.base[TURNS_OF[m[1]]]
-      table.insert(lines, { head = yours and section.title .. ": " .. section.total:format(Amount(yours))
-        or FOR_UNIT:format(section.title, section.unit), section = section })
+      local sunder = yours and m[4] == "DPS" and KP.Sim.CountsSunder(W.ctx)
+      table.insert(lines, { head = yours and section.title .. ": " .. section.total:format(Amount(yours)) ..
+        (sunder and SUNDER_HEAD:format(KP.SimData.rules.sunderStacks) or "")
+        or FOR_UNIT:format(section.title, section.unit), section = section, sunder = sunder })
       for _, stat in ipairs(stats) do table.insert(lines, stat) end
     end
   end

@@ -142,6 +142,11 @@ local function OwnSunder(ctx)
   return { perStack = rank.armor, stacks = stacks, share = 1.5 / T, ragePerSec = uses * cost / T }
 end
 
+-- whether the numbers for this fight count your own Sunder Armor: the tabs say so where they do
+function Sim.CountsSunder(ctx)
+  return OwnSunder(ctx) ~= nil
+end
+
 local function Mitigation(ctx, tal)
   local function Reduction(stacks, perStack)
     local armor = math.max(0, ctx.target.armor - stacks * perStack) * (1 - tal.armorIgnore / 100)
@@ -159,14 +164,16 @@ end
 
 local function CritSuppression(ctx) return Clamp(ctx.target.diff) end
 
--- moreMiss: misses on top of the table's, which hit takes off too (a dual wielder's white swings)
+-- moreMiss: misses on top of the table's, which hit takes off too (a dual wielder's white swings). An enemy that's hitting
+-- you faces you, and parries some of what comes from the front
 local function AttackTable(ctx, kind, moreMiss)
   local d, sheet = Clamp(ctx.target.diff), ctx.sheet
   if kind == "magic" then
-    return { miss = math.max(1, RULES.spellMiss[d + 1] - sheet.spellHit), dodge = 0 }
+    return { miss = math.max(1, RULES.spellMiss[d + 1] - sheet.spellHit), dodge = 0, parry = 0 }
   end
   local hit = d >= 3 and math.max(0, sheet.hit - 1) or sheet.hit
-  return { miss = math.max(0, RULES.meleeMiss[d + 1] + (moreMiss or 0) - hit), dodge = 5 + d * 0.5 }
+  return { miss = math.max(0, RULES.meleeMiss[d + 1] + (moreMiss or 0) - hit), dodge = 5 + d * 0.5,
+    parry = ctx.beingHit and RULES.meleeParry[d + 1] or 0 }
 end
 
 -- How much hit takes every miss off against a target (calc.js's hitCaps): abilities and white swings with one weapon, white
@@ -193,8 +200,8 @@ local function WhiteHits(ctx, tal)
     local t = AttackTable(ctx, "melee", (dual and RULES.dualWieldMiss or 0) - (label == "Off hand" and tal.offhandHit or 0))
     local miss = t.miss
     local glance = RULES.glanceChance[d + 1]
-    local crit = math.max(0, math.min(sheet.crit - suppress, 100 - miss - t.dodge - glance))
-    local hit = math.max(0, 100 - miss - t.dodge - glance - crit)
+    local crit = math.max(0, math.min(sheet.crit - suppress, 100 - miss - t.dodge - t.parry - glance))
+    local hit = math.max(0, 100 - miss - t.dodge - t.parry - glance - crit)
     local perSwing = avg * (hit + crit * 2 + glance * RULES.glanceDamage[d + 1]) / 100
     local effSpeed = item.speed / ((1 + haste / 100) * (1 + sheet.meleeHaste / 100))
     local swings = label == "Main hand" and 1 + tal.extraAttack or 1
@@ -205,7 +212,8 @@ local function WhiteHits(ctx, tal)
       deepWounds = uptime * deepRate * ((item.min + item.max) / 2 + (sheet.ap / 14) * item.speed) / 12
     end
     table.insert(out, { label = label, avg = avg, speed = item.speed, effSpeed = effSpeed, perSwing = perSwing,
-      dps = perSwing * swings / effSpeed, miss = miss, dodge = t.dodge, glance = glance, crit = crit, hit = hit, deepWounds = deepWounds })
+      dps = perSwing * swings / effSpeed, miss = miss, dodge = t.dodge, parry = t.parry, glance = glance, crit = crit, hit = hit,
+      deepWounds = deepWounds })
   end
   if sheet.mh then Swing(sheet.mh, "Main hand", 1) end
   if sheet.oh then Swing(sheet.oh, "Off hand", 0.5 * (1 + tal.offhandPct / 100)) end
@@ -318,7 +326,7 @@ local function Ability(ctx, tal, name)
   local critMult = 1 + (isSpell and 0.5 or 1) * (1 + Pct(15) / 100)
   local t = AttackTable(ctx, isSpell and "magic" or "melee")
   local miss = math.max(0, t.miss - Flat(16))
-  local land = math.max(0, 100 - miss - t.dodge) / 100
+  local land = math.max(0, 100 - miss - t.dodge - t.parry) / 100
   local avg = (dmin + dmax) / 2
   local critFactor = 1 + math.min(100, critChance) / 100 * (critMult - 1)
   local closest = name == "Whirlwind" and TalentNumber(ctx, "Improved Whirlwind", "closest enemy by (%d+)%%") / 100 or 0
@@ -460,7 +468,7 @@ local function Attacks(ctx, white, use, state, add)
   if op and op.cdMs > 0 then
     local dodges = 0
     for _, w in ipairs(melee) do dodges = dodges + w.dodge / 100 / w.effSpeed end
-    local fromRend = rendUp and mh and bloodthrill * (math.max(0, 100 - mh.miss - mh.dodge) / 100) / mh.effSpeed or 0
+    local fromRend = rendUp and mh and bloodthrill * (math.max(0, 100 - mh.miss - mh.dodge - mh.parry) / 100) / mh.effSpeed or 0
     Push(op, math.min(1000 / op.cdMs, dodges + fromRend))
   end
   table.sort(list, function(x, y)

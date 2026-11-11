@@ -34,6 +34,10 @@ local function ShowBreakdown(cell)
   for _, p in ipairs(parts) do
     GameTooltip:AddDoubleLine(p.name, PLAIN:format(p.dps), 1, 1, 1, 1, 1, 1)
   end
+  if cell.sunder then
+    GameTooltip:AddLine(("Counts your own Sunder Armor: %d stacks from the start of the fight, then kept up, its rage paid out of these " ..
+      "numbers. A normal enemy's number counts none."):format(KP.SimData.rules.sunderStacks), 0.4, 0.8, 1, true)
+  end
   GameTooltip:AddLine(("A fight lasts about %d sec, with %.1f rage coming in a second."):format(math.floor(R.fightSec + 0.5), R.rageIncome), 0.6, 0.6, 0.6, true)
   GameTooltip:Show()
 end
@@ -157,10 +161,11 @@ function Pane.Refresh(pane)
     row.label:SetText(row.stance.label .. (key == current and " (you)" or ""))
     for i, cell in ipairs(row.cells) do
       cell:SetShown(has)
-      cell.result = nil
+      cell.result, cell.sunder = nil, nil
       if has then
-        cell.result = KP.Sim.Compute({ level = level, stance = key, ranks = ranks, sheet = KP.Sim.InStance(sheet, current, key),
-          target = targets[cell.target.key], beingHit = beingHit })
+        local ctx = { level = level, stance = key, ranks = ranks, sheet = KP.Sim.InStance(sheet, current, key),
+          target = targets[cell.target.key], beingHit = beingHit }
+        cell.result, cell.sunder = KP.Sim.Compute(ctx), KP.Sim.CountsSunder(ctx)
         cell.title = ("%s, %s %s"):format(row.stance.label, cell.target.label:lower(), cell.target.under)
         best[i] = math.max(best[i] or 0, cell.result.dps)
       end

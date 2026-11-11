@@ -48,6 +48,8 @@ SlashCmdList.KORKRONPLANNER = function(msg)
     KP.Safe(KP.ShowExport, KP)
   elseif cmd == "probe" then
     KP.Safe(KP.Probe, KP)
+  elseif cmd == "probe fight" then -- the owner's check of what a fight shows an addon (Core/Probe.lua), not in the help
+    KP.Safe(KP.ProbeFight, KP)
   elseif (word == "share" or word == "collect") and (rest == "" or rest == "on" or rest == "off") then
     KP.Safe(word == "share" and KP.Share.SetSharing or KP.Share.SetCollector, SWITCH[rest])
   elseif cmd == "errors" then
