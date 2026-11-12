@@ -21,7 +21,7 @@ local SECTION = {
     about = "Effective health is how much damage you can take before you die: your health, and what your armor, dodge, parry " ..
       "and block keep off you, measured against a raid boss." },
   DPS = { title = "Damage", total = "you do %s a second", unit = "damage a second",
-    about = "Your damage a second against this enemy, pressing your abilities whenever they're ready and you have the rage: " ..
+    about = "Your damage a second against this enemy, pressing your abilities whenever they're ready and you have the rage or energy: " ..
       "the DPS tab's math. Buffs count while they're up." },
   HPS = { title = "Healing", total = "you heal %s a second", unit = "healing a second",
     about = "Your healing a second with the mana you have, by the planner's math." },
@@ -306,8 +306,9 @@ function Pane.Refresh(pane, build)
     end
     local hit = KorkronPlannerCharDB.simNotHit ~= true
     if hit then pane.tanking:LockHighlight() pane.notTanking:UnlockHighlight() else pane.notTanking:LockHighlight() pane.tanking:UnlockHighlight() end
-    pane.note:SetText(("Worked out from the gear you wear, your talents and your weapons, in %s, against %s %s.%s%s"):format(
-      KP.SimPane.StanceName[W.stance], enemy, hit and "that's hitting you" or "that someone else is tanking",
+    local stance = W.stance ~= "none" and ", in " .. KP.SimPane.StanceName[W.stance] or "" -- a Rogue has none
+    pane.note:SetText(("Worked out from the gear you wear, your talents and your weapons%s, against %s %s.%s%s"):format(
+      stance, enemy, hit and "that's hitting you" or "that someone else is tanking",
       build and "" or " No planner build chosen: counted as a damage dealer.",
       current and "" or " The game hides your numbers right now (in a fight or a dungeon?): these are from before."))
     SetShown(pane, true, true)
@@ -321,7 +322,7 @@ function Pane.Refresh(pane, build)
   end
   pane.note:SetText(("The planner's numbers for %s with its best gear at level %d, not for the gear you wear. %s"):format(
     build.name:gsub(" %b()", ""), planned.level, knows and "The game hides your own numbers right now (in a fight or a dungeon?)."
-      or "The addon works these out from your own gear for Warriors only, so far."))
+      or "The addon works these out from your own gear for Warriors and Rogues only, so far."))
   SetShown(pane, false, true)
   ShowList(pane, planned)
 end

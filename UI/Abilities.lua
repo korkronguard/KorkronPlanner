@@ -9,7 +9,6 @@ local Pane = {}
 KP.AbilitiesPane = Pane
 
 local ROW, TOP, MAX_ROWS = 18, -100, 19
-local CLASSES = { WARRIOR = true, ROGUE = true } -- the classes Core/Sim.lua works out attacks for
 local ENEMY_COUNTS = { 1, 2, 3, 4, 5 } -- the last shows as "5+": no attack hits more than 4
 local ENEMIES = { { key = "same", label = "Normal" }, { key = "elite", label = "Elite" }, { key = "elite3", label = "Elite +3" } }
 local STANCE = { battle = "Battle", defensive = "Defensive", berserker = "Berserker" }
@@ -225,16 +224,14 @@ end
 
 function Pane.Refresh(pane)
   local _, class = UnitClass("player")
-  if not CLASSES[class] then
+  if not KP.Sim.Knows(class) then
     pane.title:SetText("Warriors and Rogues only, so far")
     pane.note:SetText("This tab works out every attack from your own character sheet. The other classes will come one at a time.")
     return SetGridShown(pane, false)
   end
   local s = Settings()
   pane.power = KP.SimData[class].power
-  -- a Rogue has no stance: its attacks are worked out as they are ("none")
-  local current, known
-  if class == "WARRIOR" then current, known = KP.Sim.Stances() else current, known = "none", {} end
+  local current, known = KP.Sim.Stances() -- a Rogue's: "none"
   local sheet, ranks = KP.Sim.Sheet(), KP.Sim.Ranks()
   pane.title:SetText("Your attacks")
   if not (current and sheet and ranks) then

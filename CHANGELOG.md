@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.29.0
+
+- **The DPS and Stats tabs for Rogues.** Your damage a second against a normal enemy, an elite and an elite 3 levels up,
+  worked out from your own character sheet, talents and weapons the way the planner website does it: Slice and Dice kept up
+  at the length that does most, the rest of your energy on your best builder to 5 combo points and Eviscerate, Shank
+  whenever it's ready, Instant Poison on both weapons, and Adrenaline Rush and Blade Flurry averaged over their cooldowns.
+  Hover a number for what it's made of. The Stats tab, your item tooltips and your bag arrows now judge gear for a Rogue by
+  your own numbers too, not the planner's best gear at your level.
+- **Warriors:** the DPS tab's note under the numbers now gives the measured enemy health (elites about 2.6 times a normal
+  enemy's).
+
 ## 0.28.1
 
 - **The Abilities tab for Rogues.** Every attack a Rogue has, side by side, as Warriors have had since 0.28.0: energy,

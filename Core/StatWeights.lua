@@ -1,15 +1,14 @@
 -- Kor'kron Planner: what a point of each stat is worth to you right now, from your own character sheet, talents and weapons.
 -- The planner website's recipe for a stat weight (calc.js's statProbe, gear.js's bisWeights): your number with a stand-in item
 -- on, less without, per point, in a fight of the same length. Core/Sim.lua does the working out, so only for the classes it
--- knows (Warriors so far). An answer has the shape of an entry of Data/Weights.lua (the same weights for the planner's best
--- gear at your level), which stays the answer for the other classes and until the game has shown your numbers once. The tests
--- check these against the weights calc.js itself gives its 198 characters (Tests/sim_cases.lua).
+-- knows (Warriors and Rogues so far). An answer has the shape of an entry of Data/Weights.lua (the same weights for the
+-- planner's best gear at your level), which stays the answer for the other classes and until the game has shown your numbers
+-- once. The tests check these against the weights calc.js itself gives its characters (Tests/sim_cases.lua).
 local _, KP = ...
 
 local StatWeights = {}
 KP.StatWeights = StatWeights
 
-local DATA = KP.SimData.WARRIOR
 local RULES = KP.SimData.rules
 local SHARP = 0.15 -- a stat's worth changing by more than this from one step to the next: a turn may be there, not a curve
 local TURN = 0.25  -- and it is one (a cap) when the worth beyond differs by more than this from the worth before
@@ -27,12 +26,17 @@ local function With(t, changes)
   return copy
 end
 
--- A character with some more points of a stat on: Data/Sim.lua's stats say what a point adds to the sheet (read from the
--- website's math by trying it); attack power and health grow by the race's share (an Orc's Blood Fury, a Tauren's Endurance)
--- like the rest of them
+-- what a point of each stat adds to a class's sheet (ctx.class, a Warrior when not given): Data/Sim.lua's stats, read from the
+-- website's math by trying it
+local function Stats(ctx)
+  return KP.SimData[ctx.class or "WARRIOR"].stats
+end
+
+-- A character with some more points of a stat on; attack power and health grow by the race's share (an Orc's Blood Fury, a
+-- Tauren's Endurance) like the rest of them
 local function WithStat(ctx, key, amount)
   local sheet = With(ctx.sheet, {})
-  for field, per in pairs(DATA.stats[key].adds) do
+  for field, per in pairs(Stats(ctx)[key].adds) do
     local each = type(per) == "table" and per[ctx.level] or per
     sheet[field] = sheet[field] + amount * each * (SCALED[field] and 1 + sheet[SCALED[field]] / 100 or 1)
   end
@@ -66,7 +70,7 @@ function StatWeights.Of(ctx, role)
   local function Per(m, amount)
     return (m.v - base.v) / amount, (m.e - base.e) / amount, (m.d - base.d) / amount
   end
-  for key, stat in pairs(DATA.stats) do
+  for key, stat in pairs(Stats(ctx)) do
     W.v[key], W.e[key], W.d[key] = Per(Measure(WithStat(fight, key, stat.amount), role), stat.amount)
   end
   for hand, field in pairs({ mainHand = "mh", offHand = "oh" }) do
@@ -157,17 +161,18 @@ end
 -- whether the addon has your class's math (Core/Sim.lua)
 function StatWeights.Knows()
   local _, class = UnitClass("player")
-  return class == "WARRIOR"
+  return KP.Sim.Knows(class)
 end
 
 local function Work(role, targetKey)
   if not StatWeights.Knows() then return nil end
+  local _, class = UnitClass("player")
   local stance = KP.Sim.Stances()
   local sheet, ranks = KP.Sim.Sheet(), KP.Sim.Ranks()
   if not (stance and sheet and ranks and sheet.mh) then return nil end
   local level = UnitLevel("player")
-  local W = StatWeights.Of({ level = level, stance = stance, ranks = ranks, sheet = sheet, target = KP.Sim.Targets(level)[targetKey],
-    beingHit = KorkronPlannerCharDB.simNotHit ~= true }, role)
+  local W = StatWeights.Of({ class = class, level = level, stance = stance, ranks = ranks, sheet = sheet,
+    target = KP.Sim.Targets(level)[targetKey], beingHit = KorkronPlannerCharDB.simNotHit ~= true }, role)
   if W then W.stance, W.target = stance, targetKey end
   return W
 end

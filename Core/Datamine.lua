@@ -41,11 +41,35 @@ local function ItemLink(id)
   return Text(link)
 end
 
+local function IsShield(id)
+  return KP.Items[id] and KP.Items[id][1] == "shield"
+end
+
+-- a shield's own Block Value: only its tooltip says it ("17 Block"; GetItemStats leaves it out), read from a hidden
+-- tooltip; 0 when no line says it. The line's wording is the game's own (SHIELD_BLOCK_TEMPLATE, English where a client
+-- lacks it)
+local scanner
+local function ShieldBlock(link)
+  scanner = scanner or CreateFrame("GameTooltip", "KorkronPlannerScanTooltip", nil, "GameTooltipTemplate")
+  scanner:SetOwner(UIParent, "ANCHOR_NONE")
+  scanner:SetHyperlink(link)
+  local pattern = "^" .. (SHIELD_BLOCK_TEMPLATE or "%d Block"):gsub("%%d", "(%%d+)") .. "$"
+  local block = 0
+  for i = 1, scanner:NumLines() do
+    local text = Text(_G["KorkronPlannerScanTooltipTextLeft" .. i]:GetText())
+    local n = text and text:match(pattern)
+    if n then block = tonumber(n) break end
+  end
+  scanner:Hide()
+  return block
+end
+
 local function RecordItem(id, link)
   local stats = {}
   for key, value in pairs(ItemApi("GetItemStats")(link) or {}) do
     if KP.Readable(key) and KP.Readable(value) then stats[key] = value end
   end
+  if IsShield(id) then stats.SHIELD_BLOCK = ShieldBlock(link) end
   DB().items[id] = stats
 end
 
@@ -134,11 +158,16 @@ local function GameBuild()
   return KP.Text((select(2, GetBuildInfo())))
 end
 
--- the addon's items that no run has read yet
+-- an item no run has read yet, or a shield read before its Block Value was (2026-11-12)
+local function NeedsReading(id)
+  local stats = DB().items[id]
+  return stats == nil or (stats and IsShield(id) and stats.SHIELD_BLOCK == nil)
+end
+
 local function Unread()
   local n = 0
   for id in pairs(KP.Items) do
-    if DB().items[id] == nil then n = n + 1 end
+    if NeedsReading(id) then n = n + 1 end
   end
   return n
 end
@@ -177,7 +206,7 @@ local function Start()
   wipe(queue)
   wipe(pending)
   for id in pairs(KP.Items) do
-    if DB().items[id] == nil then table.insert(queue, id) end
+    if NeedsReading(id) then table.insert(queue, id) end
   end
   table.sort(queue, function(a, b) return a > b end) -- taken from the end: lowest IDs first
   Stop()

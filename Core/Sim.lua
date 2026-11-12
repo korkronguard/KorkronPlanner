@@ -17,6 +17,11 @@ local function Data(ctx)
   return KP.SimData[ctx.class or "WARRIOR"]
 end
 
+-- whether this file works out a class (a class token): the DPS, Abilities and Stats tabs show it
+function Sim.Knows(class)
+  return KP.SimData[class] ~= nil
+end
+
 local function Clamp(diff) return math.max(0, math.min(3, diff)) end
 
 -- ---------------------------------------------------------------- the enemies
@@ -155,9 +160,10 @@ end
 
 -- ---------------------------------------------------------------- the attack table and your swings
 
-local function BookRank(name, level)
+-- a spell's rank at a level, from a class's book (data: a Warrior's unless given)
+local function BookRank(name, level, data)
   local best
-  for _, r in ipairs(DATA.book[name].ranks) do
+  for _, r in ipairs((data or DATA).book[name].ranks) do
     if (r.level or 1) <= level then best = r end
   end
   return best
@@ -422,6 +428,7 @@ local function Ability(ctx, tal, name, n)
     -- rage adds to a normal hit (Execute), and what multiplies its damage into threat
     dmax = dmax, avg = avg, land = land, critChance = math.min(100, critChance), critMult = critMult, hits = r.hits,
     extraPerRage = amp and amp * 10 * dmgMult * mit or 0, threatMult = tal.threatMult * (1 + Pct(2) / 100),
+    energy = rank.energy or 0, -- what it gives back (Shank)
   }
 end
 
@@ -560,7 +567,142 @@ local function Attacks(ctx, white, use, state, add)
   for _, c in ipairs(list) do Take(c.a, c.perSec, c.dmg) end
 end
 
--- calc.js's warriorRotation: rage in, then attacks in order. { dps, parts = { { name, dps } }, rageIncome }
+-- ---------------------------------------------------------------- a Rogue's rotation
+
+-- the share of a fight a cooldown's buff is up, used whenever it's ready (calc.js's cooldownShare for a fight, not leveling)
+local function CooldownShare(durMs, cdMs) return math.min(1, durMs / cdMs) end
+
+-- a poison's damage at a level: its rank's number, growing from the rank's level up to its last (calc.js's procAt)
+local function ProcAt(p, level)
+  return p.value + (p.perLevel or 0) * math.max(0, math.min(level, p.maxLevel or level) - (p.spellLevel or p.level))
+end
+
+local function Shown(parts)
+  local out = {}
+  for _, p in ipairs(parts) do
+    if p.dps > 0.05 then table.insert(out, p) end
+  end
+  return out
+end
+
+-- calc.js's rogueRotation, line for line: keep Slice and Dice up at the length that does most, spend the rest of the energy on
+-- the best builder to 5 combo points and Eviscerate; Shank on its cooldown (its energy, and Boot Knife's combo points standing in
+-- for builders), Instant Poison on both weapons, Adrenaline Rush and Blade Flurry averaged over their cooldowns. nil without a
+-- builder or Eviscerate. { dps, parts = { { name, dps } }, energy = energy a second for builders and finishers }
+local function RogueRotation(ctx, white, Use)
+  local data, level, sheet, CP = Data(ctx), ctx.level, ctx.sheet, RULES.comboPoints
+  local whiteDps = 0
+  for _, w in ipairs(white) do whiteDps = whiteDps + w.dps end
+  local dagger = sheet.mh and sheet.mh.subclass == 15
+  local names = { "Sinister Strike", "Hemorrhage" }
+  if dagger then table.insert(names, "Backstab") end
+  if dagger and sheet.oh and sheet.oh.subclass == 15 then table.insert(names, "Mutilate") end
+  local builders = {}
+  for _, n in ipairs(names) do
+    local a = Use(n)
+    if a and a.cost > 0 and a.expected > 0 then table.insert(builders, a) end
+  end
+  local evis = Use("Eviscerate")
+  if #builders == 0 or not evis then return nil end
+  -- energy: 10 a second, Adrenaline Rush doubles it for 15 sec every 5 min
+  local ar = HasTalent(ctx, "Adrenaline Rush") and BookRank("Adrenaline Rush", level, data)
+  local regen = 10 * (1 + (ar and CooldownShare(ar.durMs or 15000, ar.cdMs) or 0))
+  local sealFate = TalentNumber(ctx, "Seal Fate", "(%d+)%% chance") / 100
+  local ruthless = TalentNumber(ctx, "Ruthlessness", "(%d+)%% chance") / 100 -- a free point after a finisher
+  local rsChance = math.min(1, TalentNumber(ctx, "Relentless Strikes", "(%d+)%% chance per Combo Point") * CP / 100)
+  local refund = rsChance * TalentNumber(ctx, "Relentless Strikes", "restore (%d+) Energy")
+  local pick -- the builder with the most damage per energy over a 5-point cycle
+  for _, b in ipairs(builders) do
+    local cp = (b.name == "Mutilate" and 2 or 1) + (b.critChance / 100) * sealFate
+    local n = math.max(0, (CP - ruthless) / cp) -- builders per 5-point finisher
+    local p = { b = b, cp = cp, n = n, energy = n * b.cost + evis.cost - refund, dmg = n * b.expected + evis.expected }
+    if not pick or p.dmg / p.energy > pick.dmg / pick.energy then pick = p end
+  end
+  -- Shank on cooldown: energy back (Flash of Steel adds some) and Boot Knife's combo points, each standing in for part of a builder
+  local shank = Use("Shank")
+  local shankEvery = shank and shank.expected > 0 and shank.cdMs / 1000 or 0 -- sec between Shanks
+  local shankEnergy, replaced = 0, 0
+  if shankEvery > 0 then
+    local gain = shank.energy + TalentNumber(ctx, "Flash of Steel", "generated by your Shank ability by (%d+)")
+    local points = (TalentNumber(ctx, "Boot Knife", "(%d+)%% chance to add %d+ Combo Points") / 100) *
+      TalentNumber(ctx, "Boot Knife", "chance to add (%d+) Combo Points")
+    replaced = points / shankEvery / pick.cp
+    shankEnergy = (gain - shank.cost) / shankEvery + replaced * pick.b.cost
+  end
+  local energy = regen + shankEnergy
+  local bfRank = HasTalent(ctx, "Blade Flurry") and BookRank("Blade Flurry", level, data)
+  local bf = bfRank and 20 * CooldownShare(bfRank.durMs or 15000, bfRank.cdMs) or 0 -- +20% attack speed, averaged
+  local whiteBf = whiteDps * (1 + bf / 100)
+  local parts = { { name = "White hits", dps = whiteBf } }
+  local snd = BookRank("Slice and Dice", level, data)
+  local haste = 0 -- Slice and Dice's attack speed: the best rank you know
+  for _, h in ipairs(data.book["Slice and Dice"].haste) do
+    if h.level <= level then haste = math.max(haste, h.value) end
+  end
+  local shankDps = shankEvery > 0 and shank.expected / shankEvery or 0
+  -- Instant Poison on both weapons: a chance per hit of Nature damage (the spell table; poisons don't crit). Venom raises its
+  -- damage and chance for a while after each Shank. No Rogue talent or racial raises Nature damage: none is counted
+  local poison
+  for _, p in ipairs(data.poison) do
+    if p.level <= level then poison = p end
+  end
+  local venomUp = shankEvery > 0 and math.min(1, TalentNumber(ctx, "Venom", "for (%d+) sec") / shankEvery) or 0
+  local chance = (RULES.poisonChance + TalentNumber(ctx, "Improved Poisons", "apply Poisons to your target by (%d+)%%") +
+    venomUp * TalentNumber(ctx, "Venom", "chance to apply Poisons by (%d+)%%")) / 100
+  local vile = (1 + TalentNumber(ctx, "Vile Poisons", "dealt by your poisons by (%d+)%%") / 100) *
+    (1 + venomUp * TalentNumber(ctx, "Venom", "Poison damage by (%d+)%%") / 100)
+  local perHit = poison and chance * ProcAt(poison, level) * vile * (100 - AttackTable(ctx, "magic").miss) / 100 or 0
+  local swings = 0
+  for _, w in ipairs(white) do swings = swings + (math.max(0, 100 - w.miss - w.dodge - w.parry) / 100) / w.effSpeed end
+  swings = swings * (1 + bf / 100)
+  -- poison damage a second with this many ability casts a second and this much more attack speed (Shank can't miss)
+  local function PoisonDps(casts, more)
+    return perHit * (swings * (1 + more / 100) + math.max(0, casts) * 0.9 + (shankEvery > 0 and 1 / shankEvery or 0))
+  end
+  local noSndCasts = (energy / pick.energy) * (pick.n + 1) - replaced
+  local noSnd = whiteBf + (energy / pick.energy) * pick.dmg - replaced * pick.b.expected + shankDps + PoisonDps(noSndCasts, 0)
+  local poisonPart = PoisonDps(noSndCasts, 0)
+  local dps
+  if snd and haste > 0 then
+    -- Slice and Dice at 1 to 5 combo points: short and cheap, or long and expensive
+    local longer = TalentNumber(ctx, "Improved Slice and Dice", "by (%d+)%%")
+    local cp = pick.n > 0 and (CP - ruthless) / pick.n or 1 -- combo points per builder
+    local best
+    for points = 1, CP do
+      local D = ((snd.durMs + (snd.durPerPoint or 0) * points) / 1000) * (1 + longer / 100)
+      local nSnd = math.max(0, (points - ruthless) / cp)
+      local sndEnergy = nSnd * pick.b.cost + snd.cost - math.min(1, rsChance * points / CP) * (refund / (rsChance ~= 0 and rsChance or 1))
+      local k = math.max(0, (energy * D - sndEnergy) / pick.energy) -- Eviscerates per Slice and Dice
+      local builderDps = ((nSnd + pick.n * k) * pick.b.expected) / D - replaced * pick.b.expected
+      local evisDps = (k * evis.expected) / D
+      local poisoned = PoisonDps((nSnd + (pick.n + 1) * k) / D - replaced, haste)
+      local total = whiteBf * (1 + haste / 100) + builderDps + evisDps + shankDps + poisoned
+      if not best or total > best.total then
+        best = { builderDps = builderDps, evisDps = evisDps, poisoned = poisoned, total = total }
+      end
+    end
+    if best.total >= noSnd then
+      dps, poisonPart = best.total, best.poisoned
+      table.insert(parts, { name = ("Slice and Dice (+%g%% attack speed)"):format(haste), dps = whiteBf * haste / 100 })
+      table.insert(parts, { name = pick.b.name .. " (builder)", dps = best.builderDps })
+      table.insert(parts, { name = "Eviscerate (5 points)", dps = best.evisDps })
+    end
+  end
+  if not dps then
+    dps = noSnd
+    table.insert(parts, { name = pick.b.name .. " (builder)", dps = ((energy / pick.energy) * pick.n - replaced) * pick.b.expected })
+    table.insert(parts, { name = "Eviscerate (5 points)", dps = (energy / pick.energy) * evis.expected })
+  end
+  if shankDps > 0 then
+    local every = ("%.1f"):format(shankEvery):gsub("%.0$", "")
+    table.insert(parts, { name = ("Shank (every %s sec)"):format(every), dps = shankDps })
+  end
+  if poison then table.insert(parts, { name = "Instant Poison (both weapons)", dps = poisonPart }) end
+  return { dps = dps, parts = Shown(parts), energy = energy }
+end
+
+-- calc.js's warriorRotation: rage in, then attacks in order (a Rogue's: RogueRotation). { dps, parts = { { name, dps } },
+-- rageIncome }
 local function Rotation(ctx)
   local tal = TalentEffects(ctx)
   local white = WhiteHits(ctx, tal)
@@ -579,6 +721,8 @@ local function Rotation(ctx)
     if cache[name] == nil then cache[name] = Ability(ctx, tal, name, 1) or false end
     return cache[name] or nil
   end
+  -- a Rogue without a builder or Eviscerate yet: white hits only (calc.js's rotation)
+  if ctx.class == "ROGUE" then return RogueRotation(ctx, white, Use) or { dps = dps, parts = Shown(parts) } end
   local level, tank = ctx.level, ctx.stance == "defensive"
   local unbridled = TalentValue(ctx, "Unbridled Wrath") / 100 -- chance per hit of 1 extra rage
   local offhandBonus = TalentNumber(ctx, "Dual Wield Specialization", "Rage generated by your off%-hand attacks by (%d+)%%")
@@ -653,11 +797,7 @@ local function Rotation(ctx)
     dps = dps - normal * RULES.executePhase + exDps * RULES.executePhase
     table.insert(parts, { name = "Execute", dps = exDps * RULES.executePhase })
   end
-  local shown = {}
-  for _, p in ipairs(parts) do
-    if p.dps > 0.05 then table.insert(shown, p) end
-  end
-  return { dps = dps, parts = shown, rageIncome = rageIncome }
+  return { dps = dps, parts = Shown(parts), rageIncome = rageIncome }
 end
 
 -- ---------------------------------------------------------------- one fight
@@ -773,7 +913,7 @@ function Sim.Grid(base, current, known, n)
         table.insert(rows, GridRow(name, ability, one, Ability(ctx, tal, name, n), mh, other))
       end
     end
-    local sunder = data.book and not done["Sunder Armor"] and SunderRow(ctx, tal, other)
+    local sunder = data.book["Sunder Armor"] and not done["Sunder Armor"] and SunderRow(ctx, tal, other)
     if sunder then
       done["Sunder Armor"] = true
       table.insert(rows, sunder)
@@ -787,8 +927,10 @@ end
 local STANCE_OF_FORM = { [17] = "battle", [18] = "defensive", [19] = "berserker" }
 local STANCE_OF_SPELL = { [2457] = "battle", [71] = "defensive", [2458] = "berserker" }
 
--- the stance you're in, and the ones you know
+-- the stance you're in, and the ones you know; "none" for a class without stances; nil while the game hides your form
 function Sim.Stances()
+  local _, class = UnitClass("player")
+  if class ~= "WARRIOR" then return "none", {} end -- a Rogue's Stealth is a form, but no stance of the math's
   local known = {}
   for i = 1, GetNumShapeshiftForms() do
     local _, _, _, spellID = GetShapeshiftFormInfo(i)
@@ -859,8 +1001,9 @@ function Sim.Ranks()
   return ranks
 end
 
--- the sheet as it would read in another stance: only Berserker Stance's crit changes it
+-- the sheet as it would read in another stance: only Berserker Stance's crit changes it (a Rogue's "none" is never another)
 function Sim.InStance(sheet, from, to)
+  if from == to then return sheet end
   local copy = {}
   for k, v in pairs(sheet) do copy[k] = v end
   local change = DATA.stances[to].crit - DATA.stances[from].crit

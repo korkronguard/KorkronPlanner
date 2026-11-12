@@ -38,7 +38,7 @@ The in-game companion to the Kor'kron Guard talent planner: https://korkronguard
 - **What each stat is worth to you.** The **Stats** tab has a section for each of your build's two numbers, staying
   alive (effective health) and damage or healing. Each lists the stats that count for it: how much of the stat you
   have, what 1 more point adds, and what that's worth in your main stat ("0.5 Strength"; other tools call these stat
-  weights). For Warriors they're worked out from your own character sheet, talents and weapons, against the enemy you
+  weights). For Warriors and Rogues they're worked out from your own character sheet, talents and weapons, against the enemy you
   choose (a normal one of your level, an elite, or an elite 3 levels up), with your own effective health and damage
   on top of each section, and the tab says how many points are left before a cap, like the hit you need. Your item
   tooltips and bag arrows judge gear by the same numbers. The other classes see the planner's numbers for their build
@@ -47,8 +47,9 @@ The in-game companion to the Kor'kron Guard talent planner: https://korkronguard
   crit, armor, mana regen, rage and effective health, with your own numbers and the game's next to them, and for every
   number in it what it is and where it comes from; what 1 point of each stat does for you and your build; and your
   class's rules of combat.
-- **Your damage, worked out in game (Warriors so far).** The **DPS** tab shows your damage a second from your own
-  character sheet, talents and weapons, in each stance you know, against a normal mob of your level, an elite of your level
+- **Your damage, worked out in game (Warriors and Rogues so far).** The **DPS** tab shows your damage a second from your
+  own character sheet, talents and weapons, in each stance you know (a Rogue: Slice and Dice, builders, Eviscerate, Shank
+  and poison), against a normal mob of your level, an elite of your level
   and an elite 3 levels up. Say whether you're tanking it or someone else is, and hover a number for what it's made of. Other
   classes will come one at a time.
 - **Every attack side by side (Warriors and Rogues so far).** The **Abilities** tab lists each of your attacks with its
