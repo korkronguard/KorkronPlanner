@@ -11,7 +11,7 @@ local FUNCTIONS = {
   "UnitStat", "UnitAttackPower", "UnitRangedAttackPower", "UnitAttackSpeed", "UnitDamage", "UnitArmor",
   "GetCritChance", "GetRangedCritChance", "GetSpellCritChance", "GetHitModifier", "GetSpellHitModifier",
   "GetSpellBonusDamage", "GetSpellBonusHealing", "GetCombatRating", "GetCombatRatingBonus", "GetDodgeChance",
-  "GetParryChance", "GetBlockChance", "GetManaRegen", "UnitPowerMax", "UnitHealthMax",
+  "GetParryChance", "GetBlockChance", "GetShieldBlock", "GetManaRegen", "UnitPowerMax", "UnitHealthMax",
   -- what a stat gives, as the game's own character sheet shows it (Core/Sheet.lua uses them when they're there)
   "GetCritChanceFromAgility", "GetSpellCritChanceFromIntellect", "GetDodgeChanceFromAgility", "GetAttackPowerForStat",
   -- other

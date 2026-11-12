@@ -92,8 +92,9 @@ end
 -- what your talents and stance add beyond your character sheet, and each ability's modifiers from them
 local function TalentEffects(ctx)
   local sheet, stance = ctx.sheet, DATA.stances[ctx.stance]
+  -- threatMult: the stance's threat and each talent's, multiplied together (calc.js's threatOf: +80% and +20% make x2.16)
   local out = { dmgPct = stance.damage, damageTaken = sheet.damageTaken + stance.taken, offhandPct = 0, armorIgnore = 0,
-    extraAttack = 0, offhandHit = 0, mods = {} }
+    extraAttack = 0, offhandHit = 0, mods = {}, threatMult = 1 + stance.threat / 100 }
   local function Add(effect)
     out.dmgPct = out.dmgPct + (effect.dmgPct or 0)
     out.damageTaken = out.damageTaken + (effect.damageTaken or 0)
@@ -112,7 +113,11 @@ local function TalentEffects(ctx)
   for name, rank in pairs(ctx.ranks) do
     local t = rank > 0 and DATA.talents[name]
     if t and NeedsMet(t.needs, sheet) then
-      Add(t.ranks[rank] or {})
+      local effect = t.ranks[rank] or {}
+      Add(effect)
+      if effect.threatPct and (not t.stances or t.stances[ctx.stance]) then
+        out.threatMult = out.threatMult * (1 + effect.threatPct / 100)
+      end
       local bySubclass = t.bySubclass and sheet.mh and t.bySubclass[rank]
       if bySubclass then Add(bySubclass[sheet.mh.subclass] or {}) end
     end
@@ -211,7 +216,7 @@ local function WhiteHits(ctx, tal)
       local uptime = math.min(1, critsPerSec * 12)
       deepWounds = uptime * deepRate * ((item.min + item.max) / 2 + (sheet.ap / 14) * item.speed) / 12
     end
-    table.insert(out, { label = label, avg = avg, speed = item.speed, effSpeed = effSpeed, perSwing = perSwing,
+    table.insert(out, { label = label, twoHand = item.twoHand, avg = avg, speed = item.speed, effSpeed = effSpeed, perSwing = perSwing,
       dps = perSwing * swings / effSpeed, miss = miss, dodge = t.dodge, parry = t.parry, glance = glance, crit = crit, hit = hit,
       deepWounds = deepWounds })
   end
@@ -241,12 +246,28 @@ local function NormalSpeed(item)
   return RULES.normalSpeed.oneHand
 end
 
--- an ability's damage from its effects, before talents and armor (calc.js's effectDamage, for a Warrior's kinds of effect)
-local function EffectDamage(name, rank, ctx, durMs)
+-- How many of n enemies one effect hits, and what that multiplies its damage by (calc.js's targetsHit): an area hits them all up
+-- to the spell's limit (Thunder Clap and Whirlwind 4); a chain (Cleave) jumps to `chain` of them
+local ONE_TARGET = { [5] = true, [6] = true, [21] = true, [25] = true, [45] = true, [57] = true, [77] = true }
+local function TargetsHit(e, rank, n)
+  if n <= 1 or e.target == 1 then return 1, 1 end
+  if ONE_TARGET[e.target] then
+    if not (e.chain and e.chain > 1) then return 1, 1 end
+    local hits, amp, mult = math.min(n, e.chain), e.chainAmp or 1, 0
+    for k = 0, hits - 1 do mult = mult + amp ^ k end
+    return hits, mult
+  end
+  local hits = math.min(n, rank.maxTargets or n)
+  return hits, hits
+end
+
+-- an ability's damage from its effects on n enemies, before talents and armor (calc.js's effectDamage, for a Warrior's kinds of
+-- effect), with the weapon in that hand ("mainHand" or "offHand")
+local function EffectDamage(name, rank, ctx, durMs, hand, n)
   local sheet = ctx.sheet
-  local ap, item = sheet.ap, sheet.mh
-  local out = { dmin = 0, dmax = 0, dot = 0, ticks = 0, hasDirect = false }
-  local weapon, flat, wpct = nil, 0, 1
+  local ap, item = sheet.ap, hand == "offHand" and sheet.oh or sheet.mh
+  local out = { dmin = 0, dmax = 0, dot = 0, ticks = 0, hasDirect = false, hits = 1 }
+  local weapon, flat, wpct, wMult = nil, 0, 1, 1
   local textBonus = (not RULES.apDummy[name] and rank.textAP or 0) * ap
   for _, e in ipairs(rank.effects) do
     local isDamage = e.effect == 2 or e.effect == 17 or e.effect == 31 or e.effect == 58 or e.effect == 121 or
@@ -254,25 +275,31 @@ local function EffectDamage(name, rank, ctx, durMs)
     if not (isDamage and e.target == 1) then
       local v = EffectValue(e, rank, ctx.level)
       local spread = (e.variance or 0) / 2
+      local hits, m = TargetsHit(e, rank, n)
       if e.effect == 17 or e.effect == 58 or e.effect == 121 then
         local speed = e.effect == 121 and NormalSpeed(item) or item.speed
         weapon = { min = item.min + (ap / 14) * speed, max = item.max + (ap / 14) * speed }
         flat = flat + v
         out.hasDirect = true
+        wMult, out.hits = math.max(wMult, m), math.max(out.hits, hits)
       elseif e.effect == 31 then
         wpct = wpct * v / 100
         weapon = weapon or { min = item.min + (ap / 14) * item.speed, max = item.max + (ap / 14) * item.speed }
         out.hasDirect = true
+        wMult, out.hits = math.max(wMult, m), math.max(out.hits, hits)
       elseif e.effect == 2 then
-        local bonus = (e.apCoef or 0) * ap + (RULES.unshownAp[name] or 0) * ap + ((e.apCoef or 0) ~= 0 and 0 or textBonus)
+        -- Shield Slam: twice your Block Value (calc.js's BLOCK_VALUE_SHARE)
+        local bonus = (e.apCoef or 0) * ap + (RULES.unshownAp[name] or 0) * ap + (RULES.blockValueShare[name] or 0) * sheet.blockValue +
+          ((e.apCoef or 0) ~= 0 and 0 or textBonus)
         textBonus = 0
-        out.dmin = out.dmin + v * (1 - spread) + bonus
-        out.dmax = out.dmax + v * (1 + spread) + bonus
+        out.dmin = out.dmin + (v * (1 - spread) + bonus) * m
+        out.dmax = out.dmax + (v * (1 + spread) + bonus) * m
         out.hasDirect = true
+        out.hits = math.max(out.hits, hits)
       elseif e.effect == 3 then
         if RULES.apDummy[name] == e.i then
-          out.dmin = out.dmin + ap * v / 100
-          out.dmax = out.dmax + ap * v / 100
+          out.dmin = out.dmin + ap * v / 100 * m
+          out.dmax = out.dmax + ap * v / 100 * m
           out.hasDirect = true
         elseif name == "Execute" and e.i == 0 then
           out.dmin = out.dmin + v
@@ -280,23 +307,24 @@ local function EffectDamage(name, rank, ctx, durMs)
           out.hasDirect = true
         end
       elseif e.effect == 6 and (e.aura == 3 or e.aura == 53) then
-        local n = (e.period or 0) > 0 and math.floor(durMs / e.period) or 0
-        out.ticks = math.max(out.ticks, n)
-        out.dot = out.dot + n * (v + (RULES.unshownApPerTick[name] or 0) * ap)
+        local ticks = (e.period or 0) > 0 and math.floor(durMs / e.period) or 0
+        out.ticks = math.max(out.ticks, ticks)
+        out.dot = out.dot + ticks * (v + (RULES.unshownApPerTick[name] or 0) * ap) * m
+        out.hits = math.max(out.hits, hits)
       end
     end
   end
   if weapon then
-    out.dmin = out.dmin + (weapon.min + flat) * wpct
-    out.dmax = out.dmax + (weapon.max + flat) * wpct
+    out.dmin = out.dmin + (weapon.min + flat) * wpct * wMult
+    out.dmax = out.dmax + (weapon.max + flat) * wpct * wMult
   end
   return out
 end
 
 local NO_MODS = { flat = {}, pct = {} }
 
--- what one use does and costs, or nil when you can't use it (calc.js's abilityResult)
-local function Ability(ctx, tal, name)
+-- what one use on n enemies does and costs, or nil when you can't use it (calc.js's abilityResult)
+local function Ability(ctx, tal, name, n)
   local ability = DATA.abilities[name]
   if ability.talent and not HasTalent(ctx, ability.talent) then return nil end
   local rank = PickRank(ability, ctx.level)
@@ -308,7 +336,13 @@ local function Ability(ctx, tal, name)
   local function Flat(op) return mods.flat[op] or 0 end
   local function Pct(op) return mods.pct[op] or 0 end
   local durMs = math.max(0, (rank.durMs + Flat(1)) * (1 + Pct(1) / 100))
-  local r = EffectDamage(name, rank, ctx, durMs)
+  local r = EffectDamage(name, rank, ctx, durMs, "mainHand", n)
+  -- Whirlwind strikes with the off hand too, at half damage like every off-hand hit
+  if ability.bothHands and ctx.sheet.oh then
+    local oh = EffectDamage(name, rank, ctx, durMs, "offHand", n)
+    local share = 0.5 * (1 + tal.offhandPct / 100)
+    r.dmin, r.dmax = r.dmin + oh.dmin * share, r.dmax + oh.dmax * share
+  end
   local isSpell = rank.defense ~= 2 -- Thunder Clap: it uses the spell table, but it's Physical: armor stops it like the rest
   local dmgMult = (1 + Pct(0) / 100) * (1 + Pct(8) / 100) * (1 + tal.dmgPct / 100)
   local dotMult = (1 + Pct(22) / 100) * (1 + tal.dmgPct / 100)
@@ -329,18 +363,23 @@ local function Ability(ctx, tal, name)
   local land = math.max(0, 100 - miss - t.dodge - t.parry) / 100
   local avg = (dmin + dmax) / 2
   local critFactor = 1 + math.min(100, critChance) / 100 * (critMult - 1)
-  local closest = name == "Whirlwind" and TalentNumber(ctx, "Improved Whirlwind", "closest enemy by (%d+)%%") / 100 or 0
+  local closest = name == "Whirlwind" and
+    TalentNumber(ctx, "Improved Whirlwind", "closest enemy by (%d+)%%") / 100 / math.max(1, r.hits) or 0
   local directExpected = land * avg * critFactor * (1 + closest)
   local dotExpected = land * dot * (rank.dotCrit and critFactor or 1)
   local expected = directExpected + dotExpected
   local amp
   for _, e in ipairs(rank.effects) do amp = amp or e.amp end
   return {
-    name = name, expected = expected, dotExpected = dotExpected, ticks = r.ticks, durMs = durMs,
+    name = name, expected = expected, directExpected = directExpected, dotExpected = dotExpected, ticks = r.ticks, durMs = durMs,
     perRage = amp and avg > 0 and amp * 10 * dmgMult * mit * (expected / avg) or 0,
     castMs = math.max(0, (rank.castMs + Flat(10)) * (1 + Pct(10) / 100)) / (1 + ctx.sheet.castHaste / 100),
     cdMs = math.max(0, (rank.cdMs + Flat(11)) * (1 + Pct(11) / 100)),
     cost = math.max(0, (rank.cost + Flat(14)) * (1 + Pct(14) / 100)) / 10,
+    -- for the Abilities tab: a normal hit (after armor), the chance to land and crit, the enemies hit, what an extra point of
+    -- rage adds to a normal hit (Execute), and what multiplies its damage into threat
+    dmax = dmax, avg = avg, land = land, critChance = math.min(100, critChance), critMult = critMult, hits = r.hits,
+    extraPerRage = amp and amp * 10 * dmgMult * mit or 0, threatMult = tal.threatMult * (1 + Pct(2) / 100),
   }
 end
 
@@ -495,14 +534,14 @@ local function Rotation(ctx)
   end
   local cache = {}
   local function Use(name)
-    if cache[name] == nil then cache[name] = Ability(ctx, tal, name) or false end
+    if cache[name] == nil then cache[name] = Ability(ctx, tal, name, 1) or false end
     return cache[name] or nil
   end
   local level, tank = ctx.level, ctx.stance == "defensive"
   local unbridled = TalentValue(ctx, "Unbridled Wrath") / 100 -- chance per hit of 1 extra rage
   local offhandBonus = TalentNumber(ctx, "Dual Wield Specialization", "Rage generated by your off%-hand attacks by (%d+)%%")
   local function SwingRage(w)
-    return RULES.ragePerSwingSec * w.speed * ((w.hit + w.glance + w.crit * 2) / 100) *
+    return (w.twoHand and RULES.ragePerSwingSec2H or RULES.ragePerSwingSec) * w.speed * ((w.hit + w.glance + w.crit * 2) / 100) *
       (w.label == "Off hand" and RULES.offhandRage * (1 + offhandBonus / 100) or 1)
   end
   local rage = 0
@@ -628,6 +667,77 @@ function Sim.Compute(ctx)
   return best.R
 end
 
+-- ---------------------------------------------------------------- the Abilities tab: every attack, side by side
+
+local STANCE_ORDER = { "battle", "defensive", "berserker" }
+-- attacks on your next swing: they replace that swing and don't take a global cooldown
+local NEXT_SWING = { ["Heroic Strike"] = true, Cleave = true }
+
+-- An attack's row. one: on one enemy, all: on n. Per press counts misses, dodges and crits; the biggest is a crit at the top of the
+-- roll on one enemy (Execute's with all 100 rage); per second, pressed as often as it can be: on its cooldown, a bleed as it runs
+-- out, at most once a global cooldown; Heroic Strike and Cleave every swing, less the white hit they replace (mh). Threat: damage
+-- times your stance's and talents' threat (Sunder Armor's own is in its row); moreThreat: the server adds some the files don't hold.
+local function GridRow(name, one, all, mh, stance)
+  local total = all.directExpected + all.dotExpected
+  local dps
+  if NEXT_SWING[name] then
+    dps = (total - mh.perSwing) / mh.effSpeed
+  else
+    dps = total / (math.max(all.cdMs, all.dotExpected > 0 and all.durMs or 0, 1500) / 1000)
+  end
+  local threat = total * all.threatMult
+  return { name = name, stance = stance, rage = all.cost, cdMs = all.cdMs, land = one.land * 100, crit = one.critChance,
+    perPress = all.directExpected, bleed = all.dotExpected, hits = all.hits, dps = dps, threat = threat,
+    biggest = (one.dmax + one.extraPerRage * math.max(0, 100 - one.cost)) * one.critMult,
+    perRage = all.cost > 0 and total / all.cost or nil, threatPerRage = all.cost > 0 and threat / all.cost or nil,
+    moreThreat = DATA.abilities[name].moreThreat }
+end
+
+-- Sunder Armor's row: no damage, its own threat when it lands
+local function SunderRow(ctx, tal, stance)
+  local book = DATA.book["Sunder Armor"]
+  local rank = BookRank("Sunder Armor", ctx.level)
+  if not rank or (book.stances and not book.stances[ctx.stance]) then return nil end
+  local t = AttackTable(ctx, "melee")
+  local land = math.max(0, 100 - t.miss - t.dodge - t.parry) / 100
+  local cost = rank.cost / 10 - TalentNumber(ctx, "Improved Sunder Armor", "by (%d+)")
+  local threat = land * rank.threat * tal.threatMult
+  return { name = "Sunder Armor", stance = stance, rage = cost, cdMs = 0, land = land * 100, perPress = 0, bleed = 0, hits = 1,
+    dps = 0, threat = threat, perRage = 0, threatPerRage = cost > 0 and threat / cost or nil }
+end
+
+-- Every attack you have against n enemies like base.target, one row each, worked out in the stance you're in (`current`), or else
+-- in the first stance you know that allows it (its row's `stance` names that one). base: { level, ranks, sheet (read in your
+-- stance), target, beingHit }; known: the stances you know.
+function Sim.Grid(base, current, known, n)
+  local rows, done = {}, {}
+  local order = { current }
+  for _, s in ipairs(STANCE_ORDER) do
+    if s ~= current and known[s] then table.insert(order, s) end
+  end
+  for _, stance in ipairs(order) do
+    local ctx = {}
+    for k, v in pairs(base) do ctx[k] = v end
+    ctx.stance, ctx.sheet = stance, Sim.InStance(base.sheet, current, stance)
+    local tal = TalentEffects(ctx)
+    local mh = WhiteHits(ctx, tal)[1]
+    local other = stance ~= current and stance or nil
+    for name in pairs(DATA.abilities) do
+      local one = not done[name] and Ability(ctx, tal, name, 1)
+      if one then
+        done[name] = true
+        table.insert(rows, GridRow(name, one, Ability(ctx, tal, name, n), mh, other))
+      end
+    end
+    local sunder = not done["Sunder Armor"] and SunderRow(ctx, tal, other)
+    if sunder then
+      done["Sunder Armor"] = true
+      table.insert(rows, sunder)
+    end
+  end
+  return rows
+end
+
 -- ---------------------------------------------------------------- your character, from the game
 
 local STANCE_OF_FORM = { [17] = "battle", [18] = "defensive", [19] = "berserker" }
@@ -676,6 +786,9 @@ function Sim.Sheet()
   local mh, oh, rg = Weapon(16), Weapon(17), Weapon(18)
   local offHand = GetInventoryItemID("player", 17)
   local offItem = KP.Readable(offHand) and KP.Items[offHand]
+  local shield = offItem and offItem[1] == "shield" or false
+  -- your Block Value: Shield Slam adds twice it. The game's GetShieldBlock hasn't been seen on Forever yet; without it, none counts
+  local blockValue = shield and GetShieldBlock and Number(GetShieldBlock()) or 0
   local _, _, raceID = UnitRace("player")
   local racial = DATA.racials[raceID] or {}
   local haste = mh and (mh.speed / attackSpeed - 1) * 100 or 0
@@ -685,7 +798,7 @@ function Sim.Sheet()
     hit = meleeHit + meleeRating, spellHit = spellHit + spellRating, armor = armor, dodge = dodge, parry = parry, block = block,
     defense = 0, health = health, healthPct = racial.healthPct or 0, damageTaken = racial.damageTaken or 0,
     meleeHaste = haste + (racial.meleeHaste or 0),
-    castHaste = racial.castHaste or 0, shield = offItem and offItem[1] == "shield" or false, mh = mh, oh = oh, rg = rg,
+    castHaste = racial.castHaste or 0, shield = shield, blockValue = blockValue, mh = mh, oh = oh, rg = rg,
   }
 end
 

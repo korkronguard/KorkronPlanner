@@ -17,6 +17,9 @@ KP:On("ADDON_LOADED", function(name)
   KorkronPlannerCharDB = KorkronPlannerCharDB or {}
   KorkronPlannerCharDB.snapshots = KorkronPlannerCharDB.snapshots or {}
   KorkronPlannerCharDB.gear = KorkronPlannerCharDB.gear or {} -- your own gear choices (UI/Gear.lua)
+  KorkronPlannerCharDB.fights = KorkronPlannerCharDB.fights or {} -- your fights' totals until they're sent (Core/Fights.lua)
+  -- the Abilities tab's choices (UI/Abilities.lua): the column it's sorted by, how many enemies and what kind
+  KorkronPlannerCharDB.abilities = KorkronPlannerCharDB.abilities or { sort = "perPress", desc = true, targets = 1, enemy = "same" }
   -- left by the rotation helper and its combat check (removed in 0.17.0)
   KorkronPlannerCharDB.helper, KorkronPlannerDB.helperNotice, KorkronPlannerDB.combatProbe = nil, nil, nil
   -- the Warrior's dungeon-ready Protection leveling build became Protection's Dungeon path (0.21.0)

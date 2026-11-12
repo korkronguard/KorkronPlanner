@@ -1,7 +1,8 @@
 -- Kor'kron Planner: the /kp window. On the left you pick one of your class's suggested builds (by spec: Solo, Dungeon,
 -- PvP) or paste a planner link; on the right, tabs: Build (the next talent, the points after it, your own picks and
 -- choices), Talents (UI/Talents.lua), Priority (UI/Priority.lua), Gear (UI/Gear.lua), Stats (UI/Stats.lua), Formulas
--- (UI/Formulas.lua) and DPS (UI/Sim.lua).
+-- (UI/Formulas.lua), DPS (UI/Sim.lua) and Abilities (UI/Abilities.lua), which takes the whole width: the build picker steps
+-- aside while it's open.
 local _, KP = ...
 
 local Window = {}
@@ -12,10 +13,12 @@ local ROWS = 14       -- upcoming points shown
 local RIGHT = 282     -- where the tabs start
 local PICK_W = 252    -- the build picker on the left
 local PANE_W, PANE_H = 520, 470
+local LEFT = 16       -- where a pane that takes the whole width starts
 local TABS = { { key = "build", label = "Build" }, { key = "talents", label = "Talents" }, { key = "priority", label = "Priority" },
   { key = "gear", label = "Gear" }, { key = "stats", label = "Stats" }, { key = "formulas", label = "Formulas" },
-  { key = "sim", label = "DPS" } }
-local TAB_W = 72 -- seven tabs across the pane
+  { key = "sim", label = "DPS" }, { key = "abilities", label = "Abilities" } }
+local TAB_W = 63 -- eight tabs across the pane
+local WIDE = { abilities = true } -- the tabs that take the whole width
 
 local frame
 local tab = "build"
@@ -68,16 +71,20 @@ local function Text(parent, font, width)
   return fs
 end
 
--- the left column: suggested builds (a heading per spec, then its Solo / Dungeon / PvP buttons) and the link box
+-- the left column: suggested builds (a heading per spec, then its Solo / Dungeon / PvP buttons) and the link box, in one frame
+-- (frame.picker) that a wide tab hides
 local function CreatePicker()
-  local pick = Text(frame, "GameFontNormal")
+  local picker = CreateFrame("Frame", nil, frame)
+  picker:SetAllPoints()
+  frame.picker = picker
+  local pick = Text(picker, "GameFontNormal")
   pick:SetPoint("TOPLEFT", 16, -34)
   pick:SetText("Suggested builds")
   frame.specHeaders = {}
-  for i = 1, 3 do frame.specHeaders[i] = Text(frame, "GameFontHighlightSmall", PICK_W) end
+  for i = 1, 3 do frame.specHeaders[i] = Text(picker, "GameFontHighlightSmall", PICK_W) end
   frame.buildButtons = {}
   for i = 1, MAX_BUILDS do
-    local b = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
+    local b = CreateFrame("Button", nil, picker, "UIPanelButtonTemplate")
     b:SetHeight(22)
     b:SetNormalFontObject("GameFontNormalSmall")
     b:SetHighlightFontObject("GameFontHighlightSmall") -- the chosen build is highlighted: same size, so it fits
@@ -92,19 +99,19 @@ local function CreatePicker()
     frame.buildButtons[i] = b
   end
 
-  local linkLabel = Text(frame, "GameFontNormal")
+  local linkLabel = Text(picker, "GameFontNormal")
   linkLabel:SetPoint("TOPLEFT", 16, -262)
   linkLabel:SetText("Or paste a planner link")
-  local box = CreateFrame("EditBox", nil, frame, "InputBoxTemplate")
+  local box = CreateFrame("EditBox", nil, picker, "InputBoxTemplate")
   box:SetSize(PICK_W - 62, 22)
   box:SetPoint("TOPLEFT", 22, -280)
   box:SetAutoFocus(false)
   box:SetScript("OnEscapePressed", box.ClearFocus)
-  local use = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
+  local use = CreateFrame("Button", nil, picker, "UIPanelButtonTemplate")
   use:SetSize(52, 22)
   use:SetPoint("LEFT", box, "RIGHT", 6, 0)
   use:SetText("Use")
-  local linkNote = Text(frame, "GameFontHighlightSmall", PICK_W)
+  local linkNote = Text(picker, "GameFontHighlightSmall", PICK_W)
   linkNote:SetPoint("TOPLEFT", 16, -308)
   use:SetScript("OnClick", function()
     KP.Safe(function()
@@ -177,8 +184,8 @@ local function Create()
   frame.panes = { build = CreateBuildPane(), talents = KP.TalentsPane.Create(frame, PANE_W, PANE_H),
     priority = KP.PriorityPane.Create(frame, PANE_W, PANE_H), gear = KP.GearPane.Create(frame, PANE_W, PANE_H),
     stats = KP.StatsPane.Create(frame, PANE_W, PANE_H), formulas = KP.FormulasPane.Create(frame, PANE_W, PANE_H),
-    sim = KP.SimPane.Create(frame, PANE_W, PANE_H) }
-  for _, pane in pairs(frame.panes) do pane:SetPoint("TOPLEFT", RIGHT, -62) end
+    sim = KP.SimPane.Create(frame, PANE_W, PANE_H), abilities = KP.AbilitiesPane.Create(frame, RIGHT + PANE_W - LEFT, PANE_H) }
+  for key, pane in pairs(frame.panes) do pane:SetPoint("TOPLEFT", WIDE[key] and LEFT or RIGHT, -62) end
   frame.tabButtons = {}
   for i, t in ipairs(TABS) do
     local b = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
@@ -302,6 +309,7 @@ function Window.Refresh()
   local saved = KorkronPlannerCharDB.build
   ShowBuildButtons(saved and saved.key)
   for key, pane in pairs(frame.panes) do pane:SetShown(key == tab) end
+  frame.picker:SetShown(not WIDE[tab])
   for key, b in pairs(frame.tabButtons) do
     if key == tab then b:LockHighlight() else b:UnlockHighlight() end
   end
@@ -318,6 +326,8 @@ function Window.Refresh()
     KP.FormulasPane.Refresh(frame.panes.formulas, build)
   elseif tab == "sim" then
     KP.SimPane.Refresh(frame.panes.sim)
+  elseif tab == "abilities" then
+    KP.AbilitiesPane.Refresh(frame.panes.abilities)
   else
     RefreshBuildPane(build, why, saved)
   end

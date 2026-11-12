@@ -13,6 +13,7 @@
 -- Record text, fields split by "~" (taken out of the game's text):
 --   T~version~class~level~ranks checked~node ID,rank,game text~...   (only the talent ranks whose numbers differ)
 --   P~version~class~level~spell ID~text~spell ID~text~...
+-- The outbox also carries the totals of your fights (F2 records, Core/Fights.lua).
 local _, KP = ...
 
 local Check = {}
@@ -23,13 +24,13 @@ local DELAY = 60  -- seconds after login (or a spellbook change) before checking
 local sentAt = {} -- [key] = GetTime() a record was last sent
 
 -- the game build and this addon's version: a new one of either checks again
-local function Version()
+function Check.Version()
   return ("%s/%s"):format(KP.Text((select(2, GetBuildInfo()))) or "?", KP.Version() or "?")
 end
 
 -- this version's checks, started over when the version changes (records not yet delivered stay in the outbox)
 local function DB()
-  local checks, version = KorkronPlannerDB.checks, Version()
+  local checks, version = KorkronPlannerDB.checks, Check.Version()
   if checks.version ~= version then
     checks.version, checks.talents, checks.spells = version, {}, {}
   end
@@ -89,7 +90,8 @@ local function SpellRecord(class)
   return #fields > 4 and table.concat(fields, "~") or nil
 end
 
-local function Add(text)
+-- a record for the collector: kept until it acknowledges it (the collector's own go straight in)
+function Check.Add(text)
   local key = ("%d%04d"):format(GetServerTime(), math.random(0, 9999))
   if KorkronPlannerDB.collector then
     KorkronPlannerDB.checksCollected[key] = { from = KP.Text(UnitName("player")) or "?", text = text }
@@ -123,11 +125,11 @@ local function Run()
     local record = TalentRecord(class)
     if record then
       checks.talents[class] = true
-      Add(record)
+      Check.Add(record)
     end
   end
   local spells = SpellRecord(class)
-  if spells then Add(spells) end
+  if spells then Check.Add(spells) end
 end
 
 function Check.Schedule()

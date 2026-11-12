@@ -1,5 +1,31 @@
 # Changelog
 
+## 0.28.0
+
+- **New Abilities tab (Warriors).** Every attack you have, side by side: rage, cooldown, chance to hit and crit, damage per
+  press, your biggest single hit, bleed, damage per rage and per second, threat and threat per rage, and how many enemies it
+  hits. Click a column's name to sort by it, click again for the other way. Buttons switch between 1, 2, 3, 4 and 5+
+  enemies (Thunder Clap and Whirlwind hit up to 4, Cleave 2), and between a normal enemy, an elite and an elite 3 levels
+  up. Everything comes from your own character sheet, talents and weapons. The tab takes the whole window, so the build
+  list steps aside while it's open.
+- **Two-handed weapons give more rage than the planner thought.** Measured in the owner's fights: a two-hander gives about
+  30% more rage per swing than a one-hander of the same speed (16.2 a hit with the Whirlwind Axe). Arms numbers with a
+  two-hander read higher everywhere, the DPS tab too.
+- **Shield Slam counts your Block Value: twice it**, as the owner's fights showed. Whirlwind counts its off-hand strike
+  when you hold two weapons.
+- **The planner now learns from your real fights, so nobody has to send combat logs.** When you fight on your own,
+  outdoors, the addon adds up how long your fights last, how often your attacks hit, miss, are dodged, parried or
+  blocked, and (from the game's own damage meter) your damage by ability and the damage you take. Only totals, sent to
+  the guild's planner at your next login or level-up. Nothing is counted in a group, a dungeon or a raid, or in a fight
+  with another player in it, and `/kp share off` stops it along with the rest. You'll see the sharing notice once more,
+  because what's shared has grown.
+- **Enemies of level 38 to 42 have more armor than the planner thought.** Measured in real fights, outdoors and in
+  Razorfen Downs: 1,724, 1,849, 1,980, 2,117 and 2,262. Damage from weapons reads a little lower from 38 up while leveling
+  (a Warrior's DPS and Abilities tabs too); nothing changes at 60.
+- **52 new items** from the game's three latest updates are in the gear lists and tooltips.
+- **Enhancement Shamans: still waiting on Blizzard.** Checked again on November 11 in a dungeon: Stormstrike is as it
+  was. The planner's numbers follow the game, and will follow the change when it arrives.
+
 ## 0.27.4
 
 - **Enemies parry.** An enemy that's facing you, because you fight it alone or you're its tank, parries about 5% of your

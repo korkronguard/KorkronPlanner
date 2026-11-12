@@ -51,6 +51,10 @@ The in-game companion to the Kor'kron Guard talent planner: https://korkronguard
   character sheet, talents and weapons, in each stance you know, against a normal mob of your level, an elite of your level
   and an elite 3 levels up. Say whether you're tanking it or someone else is, and hover a number for what it's made of. Other
   classes will come one at a time.
+- **Every attack side by side (Warriors so far).** The **Abilities** tab lists each of your attacks with its rage,
+  cooldown, chance to hit and crit, damage per press, biggest single hit, bleed, damage per rage and per second, threat
+  and how many enemies it hits. Click a column's name to sort by it, like a spreadsheet, and switch between 1 and 5+
+  enemies, or a normal enemy, an elite and an elite 3 levels up. Hover a column's name for what it means.
 - **Brings your real stats into the planner.** Type **/kp export**, copy the code, and paste it into the planner's
   "Import from the addon" box (under base stats): your base stats, race and level fill in.
 - **Makes the planner match the game.** WoW: Forever keeps some numbers on its servers (like your base stats at each
@@ -82,6 +86,18 @@ A minute after you log in, it also checks the planner against the game, by itsel
 - your class's talent tooltips, compared right in your game with the planner's: only a talent whose numbers differ is
   sent (usually none), with a note that your class was checked
 - the descriptions of the spells you know, once each (and again when you learn a new rank)
+
+And it adds up the fights you fight on your own, outdoors, so the planner's damage numbers can be checked against real
+fights without anyone sending combat logs:
+
+- how long they lasted, how many attacks hit, missed, were dodged, parried or blocked, and how many were critical or
+  glancing (counted from the game's floating combat numbers)
+- your damage by ability and the damage you took, read from the game's own damage meter after each fight
+- against which kind of enemy (its level and the game's number for that creature), in which stance or form and with
+  which weapons
+
+Only totals, sent at your next login or level-up. Nothing is counted in a group, a dungeon or a raid, or in a fight
+with another player in it.
 
 It all goes to the Guild Master's addon over the guild's addon channel, a little at a time. **Never chat, whispers or
 where you are.** Names never appear on the website, only numbers combined from many characters.
