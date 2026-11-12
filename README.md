@@ -51,8 +51,8 @@ The in-game companion to the Kor'kron Guard talent planner: https://korkronguard
   character sheet, talents and weapons, in each stance you know, against a normal mob of your level, an elite of your level
   and an elite 3 levels up. Say whether you're tanking it or someone else is, and hover a number for what it's made of. Other
   classes will come one at a time.
-- **Every attack side by side (Warriors so far).** The **Abilities** tab lists each of your attacks with its rage,
-  cooldown, chance to hit and crit, damage per press, biggest single hit, bleed, damage per rage and per second, threat
+- **Every attack side by side (Warriors and Rogues so far).** The **Abilities** tab lists each of your attacks with its
+  rage or energy, cooldown, chance to hit and crit, damage per press, biggest single hit, bleed, damage per rage and per second, threat
   and how many enemies it hits. Click a column's name to sort by it, like a spreadsheet, and switch between 1 and 5+
   enemies, or a normal enemy, an elite and an elite 3 levels up. Hover a column's name for what it means.
 - **Brings your real stats into the planner.** Type **/kp export**, copy the code, and paste it into the planner's
@@ -74,7 +74,9 @@ dungeon or raid), the addon notes your character's:
 
 - class, race and level
 - stats: strength, agility, stamina, intellect, spirit, health, mana, armor, crit, hit, dodge, parry, block, attack
-  power, spell power, healing, mana regeneration and combat ratings
+  power, spell power, healing, mana regeneration and combat ratings, your melee damage and swing time, and the stance
+  or form you're in (Druids: also your melee damage in Cat and Bear Form, so the planner learns how your weapon counts
+  there)
 - the items you wear (with enchants) and your talent points
 - your pet or demon, if you have one out: its kind (Wolf, Voidwalker...), level, stats, health, mana, armor, attack
   power, damage, attack speed and happiness. Not its name. The game's files don't say how hard pets hit on Forever,

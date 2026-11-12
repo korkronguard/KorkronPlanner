@@ -51,7 +51,7 @@ KP.Priority = {
           { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
         } },
         { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
-          { name = "Insect Swarm", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 136045 },
+          { name = "Insect Swarm", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136045 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Starfire", tag = "Filler", text = "The most damage per second of casting.", icon = 135753 },
@@ -857,7 +857,7 @@ KP.Priority = {
           { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
         } },
         { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
-          { name = "Insect Swarm", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136045 },
+          { name = "Insect Swarm", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136045 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Wrath", tag = "Filler", text = "The most damage per mana: Starfire hits harder but runs you out of mana over a fight.", icon = 136006 },
@@ -870,7 +870,7 @@ KP.Priority = {
           { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
         } },
         { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
-          { name = "Insect Swarm", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 136045 },
+          { name = "Insect Swarm", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136045 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Starfire", tag = "Filler", text = "The most damage per second of casting.", icon = 135753 },
@@ -4670,7 +4670,7 @@ KP.Priority = {
           { name = "Ice Armor", tag = "Keep up", text = "Armor for when something reaches you.", icon = 135843 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Scorch", tag = "Filler", text = "The most damage per second of casting.", icon = 135827 },
+          { name = "Scorch", tag = "Filler", text = "The most damage per mana: Fireball hits harder but runs you out of mana over a fight.", icon = 135827 },
           { name = "Frostbolt", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135846 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
@@ -6687,7 +6687,7 @@ KP.Priority = {
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
         { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136207 },
+          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136207 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Smite", tag = "Filler", text = "The most damage per second of casting.", icon = 135924 },
@@ -6736,9 +6736,10 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Mind Blast", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136224 },
-          { name = "Smite", tag = "Filler", text = "The most damage per second of casting.", icon = 135924 },
-          { name = "Mind Flay", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136208 },
-          { name = "Devouring Plague", tag = "Mana to spare", text = "More damage per second of casting than Smite, but less per mana: cast it when your mana can spare it.", icon = 252997 },
+          { name = "Mind Flay", tag = "Filler", text = "The most damage per mana: Smite hits harder but runs you out of mana over a fight.", icon = 136208 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 11% of the fight (it costs nothing).", icon = 135466 },
+          { name = "Smite", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 135924 },
+          { name = "Devouring Plague", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 252997 },
         } },
       } },
       { level = 30, title = "Shadow Priest", sections = {
@@ -6748,7 +6749,7 @@ KP.Priority = {
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
         { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 12 sec a mob): one cast early in the fight.", icon = 136207 },
+          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 136207 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Mind Blast", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136224 },
@@ -6763,7 +6764,7 @@ KP.Priority = {
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
         { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 12 sec a mob): one cast early in the fight.", icon = 136207 },
+          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 136207 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Word: Death", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136149 },
@@ -6789,6 +6790,23 @@ KP.Priority = {
           { name = "Devouring Plague", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 252997 },
         } },
       } },
+      { level = 45, title = "Shadow Priest", sections = {
+        { title = "Buffs and protection", note = "", items = {
+          { name = "Shadowform", tag = "Always", text = "Stay in it (you can't cast healing spells in it).", icon = 136200 },
+          { name = "Vampiric Embrace", tag = "Keep up", text = "On your target: heals you and your party for part of your Shadow damage to it.", icon = 136230 },
+          { name = "Inner Fire", tag = "Keep up", text = "Armor for you; each hit you take uses up one of its charges.", icon = 135926 },
+          { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
+        } },
+        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
+          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 11 sec a mob): one cast early in the fight.", icon = 136207 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Word: Death", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136149 },
+          { name = "Mind Blast", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136224 },
+          { name = "Mind Flay", tag = "Filler", text = "The most damage per second of casting.", icon = 136208 },
+          { name = "Devouring Plague", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 252997 },
+        } },
+      } },
       { level = 60, title = "Shadow Priest", sections = {
         { title = "Buffs and protection", note = "", items = {
           { name = "Shadowform", tag = "Always", text = "Stay in it (you can't cast healing spells in it).", icon = 136200 },
@@ -6797,7 +6815,7 @@ KP.Priority = {
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
         { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 9 sec a mob): one cast early in the fight.", icon = 136207 },
+          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 10 sec a mob): one cast early in the fight.", icon = 136207 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Mind Blast", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136224 },
@@ -6813,7 +6831,7 @@ KP.Priority = {
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
         { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136207 },
+          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136207 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Smite", tag = "Filler", text = "The most damage per second of casting.", icon = 135924 },
@@ -6876,7 +6894,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Holy Fire", tag = "Filler", text = "The most damage per mana: Smite hits harder but runs you out of mana over a fight.", icon = 135972 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 77% of the fight (it costs nothing).", icon = 135466 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 78% of the fight (it costs nothing).", icon = 135466 },
           { name = "Smite", tag = "Mana to spare", text = "More damage per second of casting than Holy Fire, but less per mana: cast it when your mana can spare it.", icon = 135924 },
           { name = "Mind Blast", tag = "Mana to spare", text = "More damage per second of casting than Holy Fire, but less per mana: cast it when your mana can spare it.", icon = 136224 },
           { name = "Devouring Plague", tag = "Mana to spare", text = "More damage per second of casting than Holy Fire, but less per mana: cast it when your mana can spare it.", icon = 252997 },
@@ -6888,7 +6906,7 @@ KP.Priority = {
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
         { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 136207 },
+          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136207 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Word: Death", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136149 },
@@ -6990,7 +7008,7 @@ KP.Priority = {
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
         { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136207 },
+          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136207 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Smite", tag = "Filler", text = "The most damage per second of casting.", icon = 135924 },
@@ -7038,7 +7056,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Holy Fire", tag = "Filler", text = "The most damage per mana: Smite hits harder but runs you out of mana over a fight.", icon = 135972 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 54% of the fight (it costs nothing).", icon = 135466 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 53% of the fight (it costs nothing).", icon = 135466 },
           { name = "Mind Blast", tag = "Mana to spare", text = "More damage per second of casting than Holy Fire, but less per mana: cast it when your mana can spare it.", icon = 136224 },
           { name = "Devouring Plague", tag = "Mana to spare", text = "More damage per second of casting than Holy Fire, but less per mana: cast it when your mana can spare it.", icon = 252997 },
         } },
@@ -7053,7 +7071,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Holy Fire", tag = "Filler", text = "The most damage per mana: Smite hits harder but runs you out of mana over a fight.", icon = 135972 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 77% of the fight (it costs nothing).", icon = 135466 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 75% of the fight (it costs nothing).", icon = 135466 },
           { name = "Smite", tag = "Mana to spare", text = "More damage per second of casting than Holy Fire, but less per mana: cast it when your mana can spare it.", icon = 135924 },
           { name = "Mind Blast", tag = "Mana to spare", text = "More damage per second of casting than Holy Fire, but less per mana: cast it when your mana can spare it.", icon = 136224 },
           { name = "Devouring Plague", tag = "Mana to spare", text = "More damage per second of casting than Holy Fire, but less per mana: cast it when your mana can spare it.", icon = 252997 },
@@ -7065,12 +7083,13 @@ KP.Priority = {
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
         { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 136207 },
+          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136207 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Word: Death", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136149 },
           { name = "Mind Blast", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136224 },
           { name = "Smite", tag = "Filler", text = "The most damage per second of casting.", icon = 135924 },
+          { name = "Mind Flay", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136208 },
           { name = "Devouring Plague", tag = "Mana to spare", text = "More damage per second of casting than Smite, but less per mana: cast it when your mana can spare it.", icon = 252997 },
         } },
       } },
@@ -7080,7 +7099,7 @@ KP.Priority = {
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
         { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136207 },
+          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136207 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Word: Death", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136149 },
@@ -7095,7 +7114,7 @@ KP.Priority = {
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
         { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 136207 },
+          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136207 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Word: Death", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136149 },
@@ -7105,36 +7124,13 @@ KP.Priority = {
         } },
       } },
       { level = 50, title = "Discipline Priest", sections = {
-        { title = "Keep up and use on cooldown", note = "From the healing estimate: worth their time and mana for you.", items = {
-          { name = "Renew", tag = "Keep up", text = "", icon = 135953 },
-        } },
-        { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
-          { name = "Lesser Heal", tag = "Heal", text = "", icon = 135929 },
-          { name = "Greater Heal", tag = "Heal", text = "", icon = 135913 },
-          { name = "Heal", tag = "Heal", text = "", icon = 135915 },
-          { name = "Renew", tag = "Heal", text = "", icon = 135953 },
-          { name = "Flash Heal", tag = "Main heal", text = "", icon = 135907 },
-          { name = "Power Word: Shield", tag = "Cooldown", text = "", icon = 135940 },
-        } },
-        { title = "When someone is about to die", note = "", items = {
-          { name = "Power Word: Shield", tag = "Emergency", text = "Draws on the soul of the party member to shield them, absorbing 928 damage.", icon = 135940 },
-          { name = "Penance", tag = "Emergency", text = "Launches a volley of holy light at the target, causing 92 Holy damage to an enemy, or 425 healing to an ally, instantly and every 1 sec for 2 sec.", icon = 237545 },
-        } },
-        { title = "Mana", note = "", items = {
-          { name = "Inner Focus", tag = "Mana", text = "When activated, reduces the Mana cost of your next spell by 100% and increases its critical effect chance by 25% if it is a non-periodic spell and capable of a critical effect.", icon = 135863 },
-        } },
-        { title = "Group healing", note = "Not in the one-target estimate: use these when several people are hurt.", items = {
-          { name = "Prayer of Healing", tag = "Group", text = "A powerful prayer that heals the target and their party for 631 to 667.", icon = 135943 },
-        } },
-      } },
-      { level = 55, title = "Discipline Priest", sections = {
         { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
           { name = "Lesser Heal", tag = "Heal", text = "", icon = 135929 },
           { name = "Greater Heal", tag = "Main heal", text = "", icon = 135913 },
           { name = "Heal", tag = "Heal", text = "", icon = 135915 },
           { name = "Renew", tag = "Heal", text = "", icon = 135953 },
           { name = "Flash Heal", tag = "Heal", text = "", icon = 135907 },
-          { name = "Power Word: Shield", tag = "Heal", text = "", icon = 135940 },
+          { name = "Power Word: Shield", tag = "Cooldown", text = "", icon = 135940 },
         } },
         { title = "When someone is about to die", note = "", items = {
           { name = "Power Word: Shield", tag = "Emergency", text = "Draws on the soul of the party member to shield them, absorbing 928 damage.", icon = 135940 },
@@ -7239,7 +7235,7 @@ KP.Priority = {
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
         { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 12 sec a mob): one cast early in the fight.", icon = 136207 },
+          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 136207 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Mind Blast", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136224 },
@@ -7254,7 +7250,7 @@ KP.Priority = {
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
         { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 12 sec a mob): one cast early in the fight.", icon = 136207 },
+          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 136207 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Word: Death", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136149 },
@@ -7271,7 +7267,7 @@ KP.Priority = {
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
         { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 10 sec a mob): one cast early in the fight.", icon = 136207 },
+          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 11 sec a mob): one cast early in the fight.", icon = 136207 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Word: Death", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136149 },
@@ -7288,7 +7284,7 @@ KP.Priority = {
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
         { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 9 sec a mob): one cast early in the fight.", icon = 136207 },
+          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 10 sec a mob): one cast early in the fight.", icon = 136207 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Mind Blast", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136224 },
@@ -7347,7 +7343,7 @@ KP.Priority = {
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
         { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 12 sec a mob): one cast early in the fight.", icon = 136207 },
+          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 136207 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Mind Blast", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136224 },
@@ -7432,7 +7428,7 @@ KP.Priority = {
           { name = "Power Word: Shield", tag = "Before you're hit", text = "Solo: shield yourself before the mob reaches you, then keep casting.", icon = 135940 },
         } },
         { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
-          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136207 },
+          { name = "Shadow Word: Pain", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136207 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Smite", tag = "Filler", text = "The most damage per second of casting.", icon = 135924 },
@@ -10709,8 +10705,8 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 136118 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
@@ -10732,8 +10728,8 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136118 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
@@ -10756,13 +10752,12 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 17 sec a mob): one cast early in the fight.", icon = 136118 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
-          { name = "Drain Soul", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136163 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -10782,33 +10777,8 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 135817 },
-        } },
-        { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
-          { name = "Wrack", tag = "Filler", text = "The most damage per second of casting.", icon = 460687 },
-        } },
-        { title = "Mana", note = "", items = {
-          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
-        } },
-        { title = "Cooldowns", note = "", items = {
-          { name = "Amplify Curse", tag = "Cooldown", text = "Right before Bane of Agony.", icon = 136132 },
-        } },
-        { title = "Several targets", note = "", items = {
-          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
-          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
-        } },
-      } },
-      { level = 45, title = "Affliction Warlock", sections = {
-        { title = "Before the fight", note = "", items = {
-          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
-        } },
-        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
-          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
-          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136118 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
@@ -10832,8 +10802,9 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+          { name = "Siphon Life", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136188 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
@@ -10857,8 +10828,8 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136118 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
@@ -10988,8 +10959,8 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 135817 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136118 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
@@ -11012,8 +10983,8 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 135817 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
@@ -11036,7 +11007,7 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 12 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
@@ -11060,54 +11031,8 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 135817 },
-        } },
-        { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
-          { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
-          { name = "Incinerate", tag = "Filler", text = "The most damage per second of casting.", icon = 135789 },
-        } },
-        { title = "Mana", note = "", items = {
-          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
-        } },
-        { title = "Several targets", note = "", items = {
-          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
-          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
-          { name = "Bane of Havoc", tag = "Two targets", text = "On a second target, as your Bane there: part of your damage to others also hits it.", icon = 460695 },
-        } },
-      } },
-      { level = 50, title = "Destruction Warlock", sections = {
-        { title = "Before the fight", note = "", items = {
-          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
-        } },
-        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
-          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
-          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 12 sec a mob): one cast early in the fight.", icon = 135817 },
-        } },
-        { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
-          { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
-          { name = "Incinerate", tag = "Filler", text = "The most damage per second of casting.", icon = 135789 },
-        } },
-        { title = "Mana", note = "", items = {
-          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
-        } },
-        { title = "Several targets", note = "", items = {
-          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
-          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
-          { name = "Bane of Havoc", tag = "Two targets", text = "On a second target, as your Bane there: part of your damage to others also hits it.", icon = 460695 },
-        } },
-      } },
-      { level = 55, title = "Destruction Warlock", sections = {
-        { title = "Before the fight", note = "", items = {
-          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
-        } },
-        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
-          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
-          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 135817 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136118 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
@@ -11231,8 +11156,8 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 17 sec a mob): one cast early in the fight.", icon = 136118 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
           { name = "Searing Pain", tag = "Keep the brand", text = "Brands the target for your demon: its next attacks deal extra damage. Recast it as the brand runs out.", icon = 135827 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
@@ -11255,7 +11180,7 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 18 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
           { name = "Searing Pain", tag = "Keep the brand", text = "Brands the target for your demon: its next attacks deal extra damage. Recast it as the brand runs out.", icon = 135827 },
         } },
@@ -11350,7 +11275,7 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 18 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
           { name = "Searing Pain", tag = "Keep the brand", text = "Brands the target for your demon: its next attacks deal extra damage. Recast it as the brand runs out.", icon = 135827 },
         } },
@@ -11452,8 +11377,8 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 136118 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
@@ -11472,8 +11397,8 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136118 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
@@ -11493,13 +11418,12 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 17 sec a mob): one cast early in the fight.", icon = 136118 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
-          { name = "Drain Life", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136169 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -11516,12 +11440,13 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
           { name = "Wrack", tag = "Filler", text = "The most damage per second of casting.", icon = 460687 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 1% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -11538,7 +11463,8 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
@@ -11559,8 +11485,9 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+          { name = "Siphon Life", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136188 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
@@ -11581,7 +11508,7 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136118 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
@@ -11602,7 +11529,8 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
@@ -11678,8 +11606,8 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136118 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
@@ -11698,8 +11626,8 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 17 sec a mob): one cast early in the fight.", icon = 136118 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
@@ -11721,7 +11649,7 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 17 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
@@ -11789,7 +11717,7 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 18 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
@@ -11813,7 +11741,7 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 17 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
@@ -11836,7 +11764,7 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 17 sec a mob): one cast early in the fight.", icon = 136118 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
@@ -11936,7 +11864,7 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136118 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
@@ -11960,7 +11888,7 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 12 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
@@ -11984,7 +11912,8 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136118 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
@@ -12007,7 +11936,31 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 12 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 135817 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
+          { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
+          { name = "Incinerate", tag = "Filler", text = "The most damage per second of casting.", icon = 135789 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
+          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
+          { name = "Bane of Havoc", tag = "Two targets", text = "On a second target, as your Bane there: part of your damage to others also hits it.", icon = 460695 },
+        } },
+      } },
+      { level = 55, title = "Destruction Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
+        } },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136118 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
@@ -12032,13 +11985,12 @@ KP.Priority = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Doom", tag = "Keep up", text = "Your Bane while the target will live another minute: its damage lands after 1 min.", icon = 136122 },
           { name = "Bane of Agony", tag = "Short fights", text = "Your Bane instead when the target won't live another minute.", icon = 136139 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 11 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 12 sec a mob): one cast early in the fight.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
           { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
           { name = "Incinerate", tag = "Filler", text = "The most damage per second of casting.", icon = 135789 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 2% of the fight (it costs nothing)." },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -12132,8 +12084,8 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
@@ -12153,7 +12105,7 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 17 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 18 sec a mob): one cast early in the fight.", icon = 136118 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
@@ -12178,7 +12130,7 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136118 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
@@ -12202,64 +12154,12 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 17 sec a mob): one cast early in the fight.", icon = 136118 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
           { name = "Wrack", tag = "Filler", text = "The most damage per second of casting.", icon = 460687 },
-        } },
-        { title = "Mana", note = "", items = {
-          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
-        } },
-        { title = "Cooldowns", note = "", items = {
-          { name = "Amplify Curse", tag = "Cooldown", text = "Right before Bane of Agony.", icon = 136132 },
-        } },
-        { title = "Several targets", note = "", items = {
-          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
-          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
-        } },
-      } },
-      { level = 50, title = "Affliction Warlock", sections = {
-        { title = "Before the fight", note = "", items = {
-          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
-        } },
-        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
-          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
-          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136118 },
-          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
-        } },
-        { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
-          { name = "Wrack", tag = "Filler", text = "The most damage per second of casting.", icon = 460687 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 2% of the fight (it costs nothing).", icon = 135150 },
-        } },
-        { title = "Mana", note = "", items = {
-          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
-        } },
-        { title = "Cooldowns", note = "", items = {
-          { name = "Amplify Curse", tag = "Cooldown", text = "Right before Bane of Agony.", icon = 136132 },
-        } },
-        { title = "Several targets", note = "", items = {
-          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
-          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
-        } },
-      } },
-      { level = 55, title = "Affliction Warlock", sections = {
-        { title = "Before the fight", note = "", items = {
-          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
-        } },
-        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
-          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
-          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
-          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
-        } },
-        { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
-          { name = "Wrack", tag = "Filler", text = "The most damage per second of casting.", icon = 460687 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 2% of the fight (it costs nothing).", icon = 135654 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -12279,8 +12179,7 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136118 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136118 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
@@ -12379,8 +12278,8 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 17 sec a mob): one cast early in the fight.", icon = 136118 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136118 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
@@ -12401,7 +12300,7 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 18 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Corruption", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136118 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
@@ -12506,29 +12405,6 @@ KP.Priority = {
           { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
         } },
       } },
-      { level = 60, title = "Demonology Warlock", sections = {
-        { title = "Before the fight", note = "", items = {
-          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
-          { name = "Summon Succubus", tag = "Pet out", text = "Keep your demon out: its attacks are part of your damage (the planner doesn't count them yet).", icon = 136220 },
-        } },
-        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
-          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
-          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 18 sec a mob): one cast early in the fight.", icon = 136118 },
-          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
-        } },
-        { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
-          { name = "Searing Pain", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135827 },
-        } },
-        { title = "Mana", note = "", items = {
-          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
-        } },
-        { title = "Several targets", note = "", items = {
-          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
-          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
-        } },
-      } },
     },
     ["destro-pvp"] = {
       { level = 10, title = "Destruction Warlock", sections = {
@@ -12592,8 +12468,8 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 135817 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136118 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
@@ -12613,8 +12489,8 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 135817 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
@@ -12661,12 +12537,12 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 135817 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
           { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
-          { name = "Conflagrate", tag = "On cooldown", text = "Keeps Shadow and Flame's Shadow bonus up.", icon = 135807 },
           { name = "Incinerate", tag = "Filler", text = "The most damage per second of casting.", icon = 135789 },
         } },
         { title = "Mana", note = "", items = {
@@ -12685,55 +12561,8 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 135817 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136118 },
-        } },
-        { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
-          { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
-          { name = "Incinerate", tag = "Filler", text = "The most damage per second of casting.", icon = 135789 },
-        } },
-        { title = "Mana", note = "", items = {
-          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
-        } },
-        { title = "Several targets", note = "", items = {
-          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
-          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
-          { name = "Bane of Havoc", tag = "Two targets", text = "On a second target, as your Bane there: part of your damage to others also hits it.", icon = 460695 },
-        } },
-      } },
-      { level = 50, title = "Destruction Warlock", sections = {
-        { title = "Before the fight", note = "", items = {
-          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
-        } },
-        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
-          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
-          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 135817 },
-        } },
-        { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
-          { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
-          { name = "Incinerate", tag = "Filler", text = "The most damage per second of casting.", icon = 135789 },
-        } },
-        { title = "Mana", note = "", items = {
-          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
-        } },
-        { title = "Several targets", note = "", items = {
-          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
-          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
-          { name = "Bane of Havoc", tag = "Two targets", text = "On a second target, as your Bane there: part of your damage to others also hits it.", icon = 460695 },
-        } },
-      } },
-      { level = 55, title = "Destruction Warlock", sections = {
-        { title = "Before the fight", note = "", items = {
-          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
-        } },
-        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
-          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
-          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 135817 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
@@ -12757,7 +12586,7 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 12 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },

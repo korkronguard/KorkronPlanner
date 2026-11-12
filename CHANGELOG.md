@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.28.1
+
+- **The Abilities tab for Rogues.** Every attack a Rogue has, side by side, as Warriors have had since 0.28.0: energy,
+  cooldown, chance to hit and crit, damage per press (finishers with 5 combo points), bleed (Garrote, Rupture), damage per
+  energy and per second. Ambush and Garrote are marked "from Stealth". From your own character sheet, talents and weapons.
+- **Warriors: Intercept is on the Abilities tab.**
+- **Enemies above level 30 have more health than the planner thought, and elites much more.** Measured in the owner's
+  fights: about 10% more for a normal enemy of 33 to 40, and an elite has about 2.6 times a normal one's health. The DPS
+  tab's fights last that much longer.
+- **Builds:** with the longer fights, Arms Solo takes a second point of Impale in place of the second of Improved Charge,
+  and 18 builds take a few talents in a slightly different order while leveling.
+- **Suggested gear never puts a "Unique" weapon in both hands.**
+- **Druids: help the planner learn how your weapon counts in Cat and Bear Form.** On Forever nobody knows yet whether
+  a feral Druid's weapon damage counts in a form, or only its stats, and it decides when another weapon beats the
+  Manual Crowd Pummeler. Just play: a couple of seconds after you shift (out of combat), the addon notes the damage
+  your character sheet shows in that form, and it goes to the planner with your other stats. Every class now also
+  shares its melee damage, swing time and stance or form with its stats.
+
 ## 0.28.0
 
 - **New Abilities tab (Warriors).** Every attack you have, side by side: rage, cooldown, chance to hit and crit, damage per

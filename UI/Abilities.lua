@@ -1,13 +1,15 @@
 -- Kor'kron Planner: the Abilities tab of the /kp window. Every attack you have side by side, worked out by Core/Sim.lua (Sim.Grid)
 -- from your character sheet, talents and weapons right now, against 1 to 5 enemies: rage, cooldown, chance to land and to crit,
 -- damage per press, the biggest hit, bleed, damage per rage and per second, threat. Click a column's name to sort by it (again:
--- the other way). Warriors only so far. It takes the whole width of the window: the build list steps aside (UI/Window.lua).
+-- the other way). Warriors and Rogues so far (a Rogue's columns say energy, its openers "from Stealth"). It takes the whole width
+-- of the window: the build list steps aside (UI/Window.lua).
 local _, KP = ...
 
 local Pane = {}
 KP.AbilitiesPane = Pane
 
 local ROW, TOP, MAX_ROWS = 18, -100, 19
+local CLASSES = { WARRIOR = true, ROGUE = true } -- the classes Core/Sim.lua works out attacks for
 local ENEMY_COUNTS = { 1, 2, 3, 4, 5 } -- the last shows as "5+": no attack hits more than 4
 local ENEMIES = { { key = "same", label = "Normal" }, { key = "elite", label = "Elite" }, { key = "elite3", label = "Elite +3" } }
 local STANCE = { battle = "Battle", defensive = "Defensive", berserker = "Berserker" }
@@ -31,7 +33,7 @@ local COLUMNS = {
     "counting misses, dodges, parries and crits, after their armor." },
   { key = "biggest", label = "Biggest", width = 54, show = Whole, tip = "Its biggest single hit on one enemy: a crit at the top of its " ..
     "damage range. Execute's with all 100 rage." },
-  { key = "bleed", label = "Bleed", width = 48, show = Whole, tip = "Damage over time (Rend), on all the enemies it hits, counting misses." },
+  { key = "bleed", label = "Bleed", width = 48, show = Whole, tip = "Damage over time (Rend, Garrote, Rupture), on all the enemies it hits, counting misses." },
   { key = "perRage", label = "Per rage", width = 54, show = Tenth, tip = "Per press and bleed together, for each point of rage it costs." },
   { key = "dps", label = "DPS", width = 48, show = Tenth, tip = "Damage a second if you press it every time you can: on its cooldown, " ..
     "a bleed as it runs out, at most once a global cooldown (1.5 sec). Heroic Strike and Cleave every swing, less the white hit " ..
@@ -45,6 +47,12 @@ local COLUMNS = {
 }
 
 local function Settings() return KorkronPlannerCharDB.abilities end
+
+-- a column's words for your class's power: "rage" (the words as written) or "energy"
+local function Worded(text, power)
+  if power ~= "energy" then return text end
+  return (text:gsub("Rage", "Energy"):gsub("rage", "energy"))
+end
 
 local function Text(parent, font, width, justify)
   local fs = parent:CreateFontString(nil, "OVERLAY", font)
@@ -71,6 +79,9 @@ local function ShowRowTip(row)
   if r.name == "Overpower" then table.insert(lines, "Only after the enemy dodges.") end
   if r.name == "Shield Slam" then table.insert(lines, "Adds twice your Block Value (a combat log read it).") end
   if r.name == "Whirlwind" then table.insert(lines, "Strikes with your off-hand weapon too, at half damage.") end
+  if r.stealth then table.insert(lines, "Only from Stealth: an opener.") end
+  if r.name == "Eviscerate" or r.name == "Rupture" then table.insert(lines, "At 5 combo points.") end
+  if r.name == "Riposte" then table.insert(lines, "Only after you parry.") end
   if r.moreThreat then table.insert(lines, "The game adds threat of its own that the planner can't see.") end
   if #lines == 0 then return end
   Tip(row, r.name, table.concat(lines, "\n"))
@@ -135,7 +146,9 @@ function Pane.Create(parent, width, height)
         Pane.Refresh(pane)
       end)
     end)
-    h:SetScript("OnEnter", function(self) KP.Safe(Tip, self, c.label, c.tip .. "\n\nClick to sort by it, again for the other way.") end)
+    h:SetScript("OnEnter", function(self)
+      KP.Safe(Tip, self, Worded(c.label, pane.power), Worded(c.tip, pane.power) .. "\n\nClick to sort by it, again for the other way.")
+    end)
     h:SetScript("OnLeave", function() GameTooltip:Hide() end)
     pane.headers[i] = h
     x = x + c.width
@@ -199,7 +212,10 @@ end
 local ZERO_SHOWN = { rage = true, cdMs = true, land = true, crit = true }
 
 local function Cell(column, row)
-  if column.key == "name" then return row.name .. (row.stance and (" |cff999999(" .. STANCE[row.stance] .. ")|r") or "") end
+  if column.key == "name" then
+    local tag = row.stance and STANCE[row.stance] or row.stealth and "from Stealth"
+    return row.name .. (tag and (" |cff999999(" .. tag .. ")|r") or "")
+  end
   local v = row[column.key]
   if v == nil or (v == 0 and not ZERO_SHOWN[column.key]) then return "-" end
   local text = column.show(v)
@@ -209,13 +225,16 @@ end
 
 function Pane.Refresh(pane)
   local _, class = UnitClass("player")
-  if class ~= "WARRIOR" then
-    pane.title:SetText("Warriors only, so far")
+  if not CLASSES[class] then
+    pane.title:SetText("Warriors and Rogues only, so far")
     pane.note:SetText("This tab works out every attack from your own character sheet. The other classes will come one at a time.")
     return SetGridShown(pane, false)
   end
   local s = Settings()
-  local current, known = KP.Sim.Stances()
+  pane.power = KP.SimData[class].power
+  -- a Rogue has no stance: its attacks are worked out as they are ("none")
+  local current, known
+  if class == "WARRIOR" then current, known = KP.Sim.Stances() else current, known = "none", {} end
   local sheet, ranks = KP.Sim.Sheet(), KP.Sim.Ranks()
   pane.title:SetText("Your attacks")
   if not (current and sheet and ranks) then
@@ -230,17 +249,17 @@ function Pane.Refresh(pane)
     return SetGridShown(pane, false)
   end
   local level, notHit = UnitLevel("player"), KorkronPlannerCharDB.simNotHit == true
-  local base = { level = level, ranks = ranks, sheet = sheet, target = KP.Sim.Targets(level)[s.enemy], beingHit = not notHit }
+  local base = { class = class, level = level, ranks = ranks, sheet = sheet, target = KP.Sim.Targets(level)[s.enemy], beingHit = not notHit }
   local rows = Sorted(KP.Sim.Grid(base, current, known, s.targets), s.sort, s.desc)
-  pane.note:SetText(("In %s Stance, from your character sheet right now. Hover a column's name for what it means, an attack for when " ..
-    "it works."):format(STANCE[current]))
+  pane.note:SetText((STANCE[current] and ("In " .. STANCE[current] .. " Stance, from") or "From") .. " your character sheet right now. " ..
+    "Hover a column's name for what it means, an attack for when it works.")
   Highlight(pane.counts, s.targets)
   Highlight(pane.enemies, s.enemy)
   Highlight({ [false] = pane.tanking, [true] = pane.notTanking }, notHit)
   SetGridShown(pane, true)
   for i, h in ipairs(pane.headers) do
     local c = COLUMNS[i]
-    h.text:SetText(c.label .. (s.sort == c.key and (s.desc and " v" or " ^") or ""))
+    h.text:SetText(Worded(c.label, pane.power) .. (s.sort == c.key and (s.desc and " v" or " ^") or ""))
   end
   for r, row in ipairs(pane.rows) do
     local data = rows[r]
