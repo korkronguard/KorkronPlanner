@@ -3355,7 +3355,7 @@ KP.Priority = {
           { name = "Pyroblast", tag = "At 3 Heating Up", text = "Your Fire crits and every Fire Blast build Heating Up: cast Pyroblast at full stacks, before they run out.", icon = 135808 },
           { name = "Fire Blast", tag = "On cooldown", text = "Every Fire Blast adds a Heating Up stack for your next Pyroblast.", icon = 135807 },
           { name = "Scorch", tag = "Filler", text = "The most damage per mana: Fireball hits harder but runs you out of mana over a fight.", icon = 135827 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 29% of the fight (it costs nothing).", icon = 135654 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 28% of the fight (it costs nothing).", icon = 135654 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Combustion", tag = "Cooldown", text = "On cooldown.", icon = 135824 },
@@ -3854,7 +3854,7 @@ KP.Priority = {
           { name = "Ice Lance", tag = "With Fingers of Frost", text = "Fingers of Frost makes your next spells act as if the target were Frozen: spend one on Ice Lance. Also when Frostbite freezes the target.", icon = 135844 },
           { name = "Cone of Cold", tag = "At 5 Winter's Chill", text = "Frostbolt stacks Winter's Chill on the target for your next Cone of Cold: cast it at full stacks (a short cone in front of you, so stay close enough).", icon = 135852 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 28% of the fight (it costs nothing).", icon = 135654 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 27% of the fight (it costs nothing).", icon = 135654 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
@@ -4563,7 +4563,7 @@ KP.Priority = {
           { name = "Ice Lance", tag = "With Fingers of Frost", text = "Fingers of Frost makes your next spells act as if the target were Frozen: spend one on Ice Lance. Also when Frostbite freezes the target.", icon = 135844 },
           { name = "Cone of Cold", tag = "At 5 Winter's Chill", text = "Frostbolt stacks Winter's Chill on the target for your next Cone of Cold: cast it at full stacks (a short cone in front of you, so stay close enough).", icon = 135852 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 28% of the fight (it costs nothing).", icon = 135654 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 27% of the fight (it costs nothing).", icon = 135654 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
@@ -9659,6 +9659,7 @@ KP.Priority = {
     ["enh"] = {
       { level = 10, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
@@ -9670,6 +9671,7 @@ KP.Priority = {
       } },
       { level = 15, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
@@ -9684,6 +9686,7 @@ KP.Priority = {
       } },
       { level = 20, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
@@ -9699,6 +9702,7 @@ KP.Priority = {
       } },
       { level = 25, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
@@ -9735,7 +9739,7 @@ KP.Priority = {
         { title = "Keep up", note = "", items = {
           { name = "Windfury Weapon", tag = "Keep up", text = "Your main-hand imbue: chances of extra attacks on every hit.", icon = 136018 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
-          { name = "Windfury Totem", tag = "Totem", text = "For the rest of your melee group (your own Windfury Weapon replaces it for you).", icon = 136114 },
+          { name = "Windfury Totem", tag = "Totem", text = "Extra attacks for your melee group, you included: it works beside your imbue (the planner counts it when you tick it in the group buffs).", icon = 136114 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
@@ -9754,7 +9758,7 @@ KP.Priority = {
         { title = "Keep up", note = "", items = {
           { name = "Windfury Weapon", tag = "Keep up", text = "Your main-hand imbue: chances of extra attacks on every hit.", icon = 136018 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
-          { name = "Windfury Totem", tag = "Totem", text = "For the rest of your melee group (your own Windfury Weapon replaces it for you).", icon = 136114 },
+          { name = "Windfury Totem", tag = "Totem", text = "Extra attacks for your melee group, you included: it works beside your imbue (the planner counts it when you tick it in the group buffs).", icon = 136114 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
@@ -9777,7 +9781,7 @@ KP.Priority = {
           { name = "Windfury Weapon", tag = "Keep up", text = "Your main-hand imbue: chances of extra attacks on every hit.", icon = 136018 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Grace of Air Totem", tag = "Totem", text = "Agility for your melee group.", icon = 136046 },
-          { name = "Windfury Totem", tag = "Totem", text = "For the rest of your melee group (your own Windfury Weapon replaces it for you).", icon = 136114 },
+          { name = "Windfury Totem", tag = "Totem", text = "Extra attacks for your melee group, you included: it works beside your imbue (the planner counts it when you tick it in the group buffs).", icon = 136114 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
@@ -9800,7 +9804,30 @@ KP.Priority = {
           { name = "Windfury Weapon", tag = "Keep up", text = "Your main-hand imbue: chances of extra attacks on every hit.", icon = 136018 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Grace of Air Totem", tag = "Totem", text = "Agility for your melee group.", icon = 136046 },
-          { name = "Windfury Totem", tag = "Totem", text = "For the rest of your melee group (your own Windfury Weapon replaces it for you).", icon = 136114 },
+          { name = "Windfury Totem", tag = "Totem", text = "Extra attacks for your melee group, you included: it works beside your imbue (the planner counts it when you tick it in the group buffs).", icon = 136114 },
+          { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
+        } },
+        { title = "Attack priority", note = "Press the first one that's ready.", items = {
+          { name = "Stormstrike", tag = "On cooldown", text = "Weapon damage, and your next Earth Shock, Lightning Bolt or Chain Lightning hits 20% harder.", icon = 132314 },
+          { name = "Flame Shock", tag = "Keep up", text = "Fire damage plus a burn over 21 sec. Cast it again only when the burn has run out: a new Flame Shock replaces the burn still going.", icon = 135813 },
+          { name = "Earth Shock", tag = "On cooldown", text = "Right after Stormstrike for the +20%. Also your interrupt.", icon = 136026 },
+          { name = "Frost Shock", tag = "Situational", text = "Slows the target.", icon = 135849 },
+          { name = "Lightning Bolt", tag = "With Maelstrom", text = "When Maelstrom Weapon has made it fast and cheap (5 stacks: instant).", icon = 136048 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Rage of the Farseer", tag = "Cooldown", text = "On cooldown: +30% attack speed for 25 sec, every 3 min.", icon = 136012 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Magma Totem", tag = "Packs", text = "Your Fire totem when several enemies stand around you.", icon = 135826 },
+          { name = "Fire Nova", tag = "Packs", text = "Hits the enemies near your Fire totem: drop one first.", icon = 135824 },
+        } },
+      } },
+      { level = 60, title = "Enhancement Shaman", sections = {
+        { title = "Keep up", note = "", items = {
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
+          { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
+          { name = "Grace of Air Totem", tag = "Totem", text = "Agility for your melee group.", icon = 136046 },
+          { name = "Windfury Totem", tag = "Totem", text = "Extra attacks for your melee group, you included: it works beside your imbue (the planner counts it when you tick it in the group buffs).", icon = 136114 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
@@ -9853,6 +9880,7 @@ KP.Priority = {
     ["resto"] = {
       { level = 10, title = "Restoration Shaman, dealing damage", sections = {
         { title = "Keep up", note = "", items = {
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
@@ -9864,6 +9892,7 @@ KP.Priority = {
       } },
       { level = 15, title = "Restoration Shaman, dealing damage", sections = {
         { title = "Keep up", note = "", items = {
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
@@ -9878,6 +9907,7 @@ KP.Priority = {
       } },
       { level = 20, title = "Restoration Shaman, dealing damage", sections = {
         { title = "Keep up", note = "", items = {
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
@@ -9893,6 +9923,7 @@ KP.Priority = {
       } },
       { level = 25, title = "Restoration Shaman, dealing damage", sections = {
         { title = "Keep up", note = "", items = {
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
@@ -9964,6 +9995,7 @@ KP.Priority = {
     ["enh-lvl"] = {
       { level = 10, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
@@ -9975,6 +10007,7 @@ KP.Priority = {
       } },
       { level = 15, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
@@ -9989,6 +10022,7 @@ KP.Priority = {
       } },
       { level = 20, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
@@ -10004,6 +10038,7 @@ KP.Priority = {
       } },
       { level = 25, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
@@ -10040,7 +10075,7 @@ KP.Priority = {
         { title = "Keep up", note = "", items = {
           { name = "Windfury Weapon", tag = "Keep up", text = "Your main-hand imbue: chances of extra attacks on every hit.", icon = 136018 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
-          { name = "Windfury Totem", tag = "Totem", text = "For the rest of your melee group (your own Windfury Weapon replaces it for you).", icon = 136114 },
+          { name = "Windfury Totem", tag = "Totem", text = "Extra attacks for your melee group, you included: it works beside your imbue (the planner counts it when you tick it in the group buffs).", icon = 136114 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
@@ -10059,7 +10094,7 @@ KP.Priority = {
         { title = "Keep up", note = "", items = {
           { name = "Windfury Weapon", tag = "Keep up", text = "Your main-hand imbue: chances of extra attacks on every hit.", icon = 136018 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
-          { name = "Windfury Totem", tag = "Totem", text = "For the rest of your melee group (your own Windfury Weapon replaces it for you).", icon = 136114 },
+          { name = "Windfury Totem", tag = "Totem", text = "Extra attacks for your melee group, you included: it works beside your imbue (the planner counts it when you tick it in the group buffs).", icon = 136114 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
@@ -10082,7 +10117,30 @@ KP.Priority = {
           { name = "Windfury Weapon", tag = "Keep up", text = "Your main-hand imbue: chances of extra attacks on every hit.", icon = 136018 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Grace of Air Totem", tag = "Totem", text = "Agility for your melee group.", icon = 136046 },
-          { name = "Windfury Totem", tag = "Totem", text = "For the rest of your melee group (your own Windfury Weapon replaces it for you).", icon = 136114 },
+          { name = "Windfury Totem", tag = "Totem", text = "Extra attacks for your melee group, you included: it works beside your imbue (the planner counts it when you tick it in the group buffs).", icon = 136114 },
+          { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
+        } },
+        { title = "Attack priority", note = "Press the first one that's ready.", items = {
+          { name = "Stormstrike", tag = "On cooldown", text = "Weapon damage, and your next Earth Shock, Lightning Bolt or Chain Lightning hits 20% harder.", icon = 132314 },
+          { name = "Flame Shock", tag = "Keep up", text = "Fire damage plus a burn over 12 sec. Cast it again only when the burn has run out: a new Flame Shock replaces the burn still going.", icon = 135813 },
+          { name = "Earth Shock", tag = "On cooldown", text = "Right after Stormstrike for the +20%. Also your interrupt.", icon = 136026 },
+          { name = "Frost Shock", tag = "Situational", text = "Slows the target.", icon = 135849 },
+          { name = "Lightning Bolt", tag = "With Maelstrom", text = "When Maelstrom Weapon has made it fast and cheap (5 stacks: instant).", icon = 136048 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Rage of the Farseer", tag = "Cooldown", text = "On cooldown: +30% attack speed for 25 sec, every 3 min.", icon = 136012 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Magma Totem", tag = "Packs", text = "Your Fire totem when several enemies stand around you.", icon = 135826 },
+          { name = "Fire Nova", tag = "Packs", text = "Hits the enemies near your Fire totem: drop one first.", icon = 135824 },
+        } },
+      } },
+      { level = 50, title = "Enhancement Shaman", sections = {
+        { title = "Keep up", note = "", items = {
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
+          { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
+          { name = "Grace of Air Totem", tag = "Totem", text = "Agility for your melee group.", icon = 136046 },
+          { name = "Windfury Totem", tag = "Totem", text = "Extra attacks for your melee group, you included: it works beside your imbue (the planner counts it when you tick it in the group buffs).", icon = 136114 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
@@ -10102,10 +10160,10 @@ KP.Priority = {
       } },
       { level = 55, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
-          { name = "Windfury Weapon", tag = "Keep up", text = "Your main-hand imbue: chances of extra attacks on every hit.", icon = 136018 },
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Grace of Air Totem", tag = "Totem", text = "Agility for your melee group.", icon = 136046 },
-          { name = "Windfury Totem", tag = "Totem", text = "For the rest of your melee group (your own Windfury Weapon replaces it for you).", icon = 136114 },
+          { name = "Windfury Totem", tag = "Totem", text = "Extra attacks for your melee group, you included: it works beside your imbue (the planner counts it when you tick it in the group buffs).", icon = 136114 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
@@ -10125,10 +10183,10 @@ KP.Priority = {
       } },
       { level = 60, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
-          { name = "Windfury Weapon", tag = "Keep up", text = "Your main-hand imbue: chances of extra attacks on every hit.", icon = 136018 },
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Grace of Air Totem", tag = "Totem", text = "Agility for your melee group.", icon = 136046 },
-          { name = "Windfury Totem", tag = "Totem", text = "For the rest of your melee group (your own Windfury Weapon replaces it for you).", icon = 136114 },
+          { name = "Windfury Totem", tag = "Totem", text = "Extra attacks for your melee group, you included: it works beside your imbue (the planner counts it when you tick it in the group buffs).", icon = 136114 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
@@ -10181,6 +10239,7 @@ KP.Priority = {
     ["resto-lvl"] = {
       { level = 10, title = "Restoration Shaman, dealing damage", sections = {
         { title = "Keep up", note = "", items = {
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
@@ -10192,6 +10251,7 @@ KP.Priority = {
       } },
       { level = 15, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
@@ -10206,6 +10266,7 @@ KP.Priority = {
       } },
       { level = 20, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
@@ -10221,6 +10282,7 @@ KP.Priority = {
       } },
       { level = 25, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
@@ -10241,6 +10303,7 @@ KP.Priority = {
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
+          { name = "Stormstrike", tag = "On cooldown", text = "Weapon damage, and your next Earth Shock, Lightning Bolt or Chain Lightning hits 20% harder.", icon = 132314 },
           { name = "Flame Shock", tag = "Keep up", text = "Fire damage plus a burn over 12 sec. Cast it again only when the burn has run out: a new Flame Shock replaces the burn still going.", icon = 135813 },
           { name = "Earth Shock", tag = "On cooldown", text = "Right after Stormstrike for the +20%. Also your interrupt.", icon = 136026 },
           { name = "Frost Shock", tag = "Situational", text = "Slows the target.", icon = 135849 },
@@ -10255,7 +10318,7 @@ KP.Priority = {
         { title = "Keep up", note = "", items = {
           { name = "Windfury Weapon", tag = "Keep up", text = "Your main-hand imbue: chances of extra attacks on every hit.", icon = 136018 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
-          { name = "Windfury Totem", tag = "Totem", text = "For the rest of your melee group (your own Windfury Weapon replaces it for you).", icon = 136114 },
+          { name = "Windfury Totem", tag = "Totem", text = "Extra attacks for your melee group, you included: it works beside your imbue (the planner counts it when you tick it in the group buffs).", icon = 136114 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
@@ -10274,7 +10337,7 @@ KP.Priority = {
         { title = "Keep up", note = "", items = {
           { name = "Windfury Weapon", tag = "Keep up", text = "Your main-hand imbue: chances of extra attacks on every hit.", icon = 136018 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
-          { name = "Windfury Totem", tag = "Totem", text = "For the rest of your melee group (your own Windfury Weapon replaces it for you).", icon = 136114 },
+          { name = "Windfury Totem", tag = "Totem", text = "Extra attacks for your melee group, you included: it works beside your imbue (the planner counts it when you tick it in the group buffs).", icon = 136114 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
@@ -10294,7 +10357,7 @@ KP.Priority = {
           { name = "Windfury Weapon", tag = "Keep up", text = "Your main-hand imbue: chances of extra attacks on every hit.", icon = 136018 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Grace of Air Totem", tag = "Totem", text = "Agility for your melee group.", icon = 136046 },
-          { name = "Windfury Totem", tag = "Totem", text = "For the rest of your melee group (your own Windfury Weapon replaces it for you).", icon = 136114 },
+          { name = "Windfury Totem", tag = "Totem", text = "Extra attacks for your melee group, you included: it works beside your imbue (the planner counts it when you tick it in the group buffs).", icon = 136114 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
@@ -10396,6 +10459,7 @@ KP.Priority = {
     ["enh-pvp"] = {
       { level = 10, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
@@ -10407,6 +10471,7 @@ KP.Priority = {
       } },
       { level = 15, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
@@ -10421,6 +10486,7 @@ KP.Priority = {
       } },
       { level = 20, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
@@ -10436,6 +10502,7 @@ KP.Priority = {
       } },
       { level = 25, title = "Enhancement Shaman", sections = {
         { title = "Keep up", note = "", items = {
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
@@ -10471,7 +10538,7 @@ KP.Priority = {
         { title = "Keep up", note = "", items = {
           { name = "Windfury Weapon", tag = "Keep up", text = "Your main-hand imbue: chances of extra attacks on every hit.", icon = 136018 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
-          { name = "Windfury Totem", tag = "Totem", text = "For the rest of your melee group (your own Windfury Weapon replaces it for you).", icon = 136114 },
+          { name = "Windfury Totem", tag = "Totem", text = "Extra attacks for your melee group, you included: it works beside your imbue (the planner counts it when you tick it in the group buffs).", icon = 136114 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
@@ -10490,7 +10557,7 @@ KP.Priority = {
         { title = "Keep up", note = "", items = {
           { name = "Windfury Weapon", tag = "Keep up", text = "Your main-hand imbue: chances of extra attacks on every hit.", icon = 136018 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
-          { name = "Windfury Totem", tag = "Totem", text = "For the rest of your melee group (your own Windfury Weapon replaces it for you).", icon = 136114 },
+          { name = "Windfury Totem", tag = "Totem", text = "Extra attacks for your melee group, you included: it works beside your imbue (the planner counts it when you tick it in the group buffs).", icon = 136114 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
@@ -10513,7 +10580,30 @@ KP.Priority = {
           { name = "Windfury Weapon", tag = "Keep up", text = "Your main-hand imbue: chances of extra attacks on every hit.", icon = 136018 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Grace of Air Totem", tag = "Totem", text = "Agility for your melee group.", icon = 136046 },
-          { name = "Windfury Totem", tag = "Totem", text = "For the rest of your melee group (your own Windfury Weapon replaces it for you).", icon = 136114 },
+          { name = "Windfury Totem", tag = "Totem", text = "Extra attacks for your melee group, you included: it works beside your imbue (the planner counts it when you tick it in the group buffs).", icon = 136114 },
+          { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
+        } },
+        { title = "Attack priority", note = "Press the first one that's ready.", items = {
+          { name = "Stormstrike", tag = "On cooldown", text = "Weapon damage, and your next Earth Shock, Lightning Bolt or Chain Lightning hits 20% harder.", icon = 132314 },
+          { name = "Flame Shock", tag = "Keep up", text = "Fire damage plus a burn over 12 sec. Cast it again only when the burn has run out: a new Flame Shock replaces the burn still going.", icon = 135813 },
+          { name = "Earth Shock", tag = "On cooldown", text = "Right after Stormstrike for the +20%. Also your interrupt.", icon = 136026 },
+          { name = "Frost Shock", tag = "Situational", text = "Slows the target.", icon = 135849 },
+          { name = "Lightning Bolt", tag = "With Maelstrom", text = "When Maelstrom Weapon has made it fast and cheap (5 stacks: instant).", icon = 136048 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Rage of the Farseer", tag = "Cooldown", text = "On cooldown: +30% attack speed for 25 sec, every 3 min.", icon = 136012 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Magma Totem", tag = "Packs", text = "Your Fire totem when several enemies stand around you.", icon = 135826 },
+          { name = "Fire Nova", tag = "Packs", text = "Hits the enemies near your Fire totem: drop one first.", icon = 135824 },
+        } },
+      } },
+      { level = 50, title = "Enhancement Shaman", sections = {
+        { title = "Keep up", note = "", items = {
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
+          { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
+          { name = "Grace of Air Totem", tag = "Totem", text = "Agility for your melee group.", icon = 136046 },
+          { name = "Windfury Totem", tag = "Totem", text = "Extra attacks for your melee group, you included: it works beside your imbue (the planner counts it when you tick it in the group buffs).", icon = 136114 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
         { title = "Attack priority", note = "Press the first one that's ready.", items = {
@@ -10535,6 +10625,7 @@ KP.Priority = {
     ["resto-pvp"] = {
       { level = 10, title = "Restoration Shaman, dealing damage", sections = {
         { title = "Keep up", note = "", items = {
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
@@ -10546,6 +10637,7 @@ KP.Priority = {
       } },
       { level = 15, title = "Restoration Shaman, dealing damage", sections = {
         { title = "Keep up", note = "", items = {
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
@@ -10560,6 +10652,7 @@ KP.Priority = {
       } },
       { level = 20, title = "Restoration Shaman, dealing damage", sections = {
         { title = "Keep up", note = "", items = {
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
@@ -10575,6 +10668,7 @@ KP.Priority = {
       } },
       { level = 25, title = "Restoration Shaman, dealing damage", sections = {
         { title = "Keep up", note = "", items = {
+          { name = "Rockbiter Weapon", tag = "Keep up", text = "Your main-hand imbue: more melee attack power.", icon = 136086 },
           { name = "Strength of Earth Totem", tag = "Totem", text = "Strength for your melee group.", icon = 136023 },
           { name = "Searing Totem", tag = "Totem", text = "Your Fire totem against one target (Magma Totem instead for packs).", icon = 135825 },
         } },
@@ -10690,6 +10784,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
+          { name = "Searing Pain", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135827 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -10732,6 +10827,7 @@ KP.Priority = {
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
         } },
         { title = "Mana", note = "", items = {
@@ -10758,6 +10854,7 @@ KP.Priority = {
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
+          { name = "Drain Life", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136169 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -10777,8 +10874,32 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136118 },
-          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 135817 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
+          { name = "Wrack", tag = "Filler", text = "The most damage per second of casting.", icon = 460687 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Amplify Curse", tag = "Cooldown", text = "Right before Bane of Agony.", icon = 136132 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
+          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
+        } },
+      } },
+      { level = 45, title = "Affliction Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
+        } },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
@@ -10802,9 +10923,9 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
-          { name = "Siphon Life", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136188 },
+          { name = "Siphon Life", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136188 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
@@ -10828,8 +10949,9 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136118 },
-          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Siphon Life", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136188 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
@@ -10943,7 +11065,6 @@ KP.Priority = {
           { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
           { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
-          { name = "Searing Pain", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135827 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -11103,7 +11224,6 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
-          { name = "Drain Life", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136169 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -11282,6 +11402,7 @@ KP.Priority = {
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Soul Fire", tag = "Below 35%", text = "On a target near death, Shadow Bolt or Searing Pain makes your next Soul Fire faster and free of a Soul Shard: cast it then.", icon = 135808 },
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
+          { name = "Searing Pain", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135827 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -11362,6 +11483,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
+          { name = "Searing Pain", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135827 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -11381,7 +11503,9 @@ KP.Priority = {
           { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
+          { name = "Searing Pain", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135827 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -11401,6 +11525,7 @@ KP.Priority = {
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
         } },
         { title = "Mana", note = "", items = {
@@ -11424,6 +11549,7 @@ KP.Priority = {
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
+          { name = "Drain Life", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136169 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -11440,13 +11566,12 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
           { name = "Wrack", tag = "Filler", text = "The most damage per second of casting.", icon = 460687 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 1% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -11463,8 +11588,7 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136118 },
-          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
@@ -11485,9 +11609,9 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
-          { name = "Siphon Life", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136188 },
+          { name = "Siphon Life", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136188 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
@@ -11508,7 +11632,7 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
@@ -11529,8 +11653,7 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136118 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
@@ -11573,7 +11696,6 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
-          { name = "Drain Life", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136169 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -11848,7 +11970,6 @@ KP.Priority = {
           { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
           { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
-          { name = "Searing Pain", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 135827 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -11865,6 +11986,30 @@ KP.Priority = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
           { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136118 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
+          { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
+          { name = "Immolate", tag = "Filler", text = "The most damage per second of casting.", icon = 135817 },
+          { name = "Shadow Bolt", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136197 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
+          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
+          { name = "Bane of Havoc", tag = "Two targets", text = "On a second target, as your Bane there: part of your damage to others also hits it.", icon = 460695 },
+        } },
+      } },
+      { level = 35, title = "Destruction Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
+        } },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
@@ -11966,6 +12111,7 @@ KP.Priority = {
           { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },
           { name = "Shadowburn", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136191 },
           { name = "Incinerate", tag = "Filler", text = "The most damage per second of casting.", icon = 135789 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 2% of the fight (it costs nothing).", icon = 135654 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -12088,6 +12234,7 @@ KP.Priority = {
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
         } },
         { title = "Mana", note = "", items = {
@@ -12109,14 +12256,11 @@ KP.Priority = {
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per mana: Searing Pain hits harder but runs you out of mana over a fight.", icon = 136197 },
-          { name = "Drain Life", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136169 },
+          { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
+          { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
-        } },
-        { title = "Cooldowns", note = "", items = {
-          { name = "Amplify Curse", tag = "Cooldown", text = "Right before Bane of Agony.", icon = 136132 },
         } },
         { title = "Several targets", note = "", items = {
           { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
@@ -12134,13 +12278,11 @@ KP.Priority = {
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
           { name = "Wrack", tag = "Filler", text = "The most damage per second of casting.", icon = 460687 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
-        } },
-        { title = "Cooldowns", note = "", items = {
-          { name = "Amplify Curse", tag = "Cooldown", text = "Right before Bane of Agony.", icon = 136132 },
         } },
         { title = "Several targets", note = "", items = {
           { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
@@ -12154,12 +12296,63 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 17 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136118 },
           { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
           { name = "Wrack", tag = "Filler", text = "The most damage per second of casting.", icon = 460687 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Amplify Curse", tag = "Cooldown", text = "Right before Bane of Agony.", icon = 136132 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
+          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
+        } },
+      } },
+      { level = 50, title = "Affliction Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
+        } },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Immolate", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 135817 },
+          { name = "Siphon Life", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136188 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
+          { name = "Wrack", tag = "Filler", text = "The most damage per second of casting.", icon = 460687 },
+        } },
+        { title = "Mana", note = "", items = {
+          { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
+        } },
+        { title = "Cooldowns", note = "", items = {
+          { name = "Amplify Curse", tag = "Cooldown", text = "Right before Bane of Agony.", icon = 136132 },
+        } },
+        { title = "Several targets", note = "", items = {
+          { name = "Rain of Fire", tag = "Packs", text = "Channel it on a pack that stays put.", icon = 136186 },
+          { name = "Hellfire", tag = "Packs", text = "Enemies around you; it burns you too.", icon = 135818 },
+        } },
+      } },
+      { level = 55, title = "Affliction Warlock", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Demon Armor", tag = "Keep up", text = "Armor and health regeneration.", icon = 136185 },
+        } },
+        { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
+          { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
+          { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136118 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
+          { name = "Wrack", tag = "Filler", text = "The most damage per second of casting.", icon = 460687 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 1% of the fight (it costs nothing).", icon = 135654 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -12179,7 +12372,7 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 16 sec a mob): one cast early in the fight.", icon = 136118 },
+          { name = "Corruption", tag = "Once per mob", text = "Its burn outlasts the fight (about 15 sec a mob): one cast early in the fight.", icon = 136118 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "With Shadow Trance", text = "Nightfall's Shadow Trance makes your next Shadow Bolt instant: cast it right away.", icon = 136197 },
@@ -12225,7 +12418,6 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
-          { name = "Drain Life", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136169 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },
@@ -12434,6 +12626,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Shadow Bolt", tag = "Filler", text = "The most damage per second of casting.", icon = 136197 },
+          { name = "Drain Life", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136169 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Life Tap", tag = "For mana", text = "Health into mana when your mana runs low (the estimate counts it, with the health healed back).", icon = 136126 },

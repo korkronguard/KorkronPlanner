@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.29.1
+
+- **Affliction Warlocks: Soul Siphon and Nightfall now count.** Soul Siphon makes your drains and Wrack hit harder for each
+  Corruption, Siphon Life and Bane of Agony on the target, and Nightfall's Shadow Trance gives instant Shadow Bolts from the
+  ticks of Corruption, Drain Life, Drain Soul and Wrack. Affliction's builds come out 7 to 9% higher at 60, and the Priority
+  tab says how many instant Shadow Bolts to expect.
+- **Blizzard's Enhancement change is in** (live since November 12): Stormstrike hits for 100% weapon damage every 8 sec,
+  Mental Dexterity turns up to 100% of your Intellect into attack power, and Windfury Totem now works for you beside your own
+  weapon imbue. The planner's math still rates Intellect above Strength for Enhancement (its mana keeps your shocks going),
+  so the builds keep their note about it. Enhancement's solo build takes a second point of Tidal Focus for a point of
+  Ancestral Knowledge.
+- **Shamans: Rockbiter Weapon now counts.** On Forever it gives melee attack power (653 at level 60, more with
+  Elemental Weapons), and the planner now weighs it against Windfury Weapon: Rockbiter does more for Enhancement from about
+  level 36 when leveling (44 in raid gear). The Priority tab shows the imbue to keep up at your level. Restoration's solo
+  build takes Elemental Weapons 3 for two points of Anticipation.
+- **Trinkets and other items with a "Use:" buff count.** Kiss of the Spider, Slayer's Crest, Earthstrike and the like add
+  their buff averaged over the fight, used whenever it's ready, so the best-gear lists pick them where they win. Drinks you
+  have to sit for don't count.
+- **Druids: your weapon's damage counts in Cat and Bear Form.** A guild Druid's character sheet at 40 settled it: in
+  form you hit for your weapon's damage at the form's speed, not with the form's own attack of the original game. Feral
+  builds and their best gear are worked out that way now (a little lower at 60).
+- **Game data from the evening of November 12:** 6 new items (the Heroism vendor pieces for Warriors, Treant's Bane,
+  Silithid Queen's Husk) and the guild's newest character sheets.
+
 ## 0.29.0
 
 - **The DPS and Stats tabs for Rogues.** Your damage a second against a normal enemy, an elite and an elite 3 levels up,
