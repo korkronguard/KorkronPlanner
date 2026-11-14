@@ -8,7 +8,8 @@
 -- website's data. Nothing is sent anywhere.
 -- Once an account has run it, it keeps itself current at login: a new game build reads everything again, and items no
 -- run has read yet (new ones in the planner's data) are read too. /kp datamine clear stops that.
--- KorkronPlannerDB.datamine = { on, build, items = { [item ID] = { [game stat key] = value } or false (no answer) },
+-- KorkronPlannerDB.datamine = { on, build, blockPattern (the Block line's pattern its shields were read with),
+--   items = { [item ID] = { [game stat key] = value, SHIELD_BLOCK = a shield's Block } or false (no answer) },
 --   talents = { [class] = { [node ID] = { spell, ranks = { [rank] = text } } } },
 --   spells = { [class] = { level, talents = { [node ID] = rank }, list = { [spell ID] = text } } } }
 local _, KP = ...
@@ -45,15 +46,20 @@ local function IsShield(id)
   return KP.Items[id] and KP.Items[id][1] == "shield"
 end
 
+-- the Block line's pattern, from the game's own wording: SHIELD_BLOCK_TEMPLATE is "%s Block" on Forever, "%d Block" in
+-- the original game (English where a client lacks it)
+local function BlockPattern()
+  return "^" .. (SHIELD_BLOCK_TEMPLATE or "%d Block"):gsub("%%[ds]", "(%%d+)") .. "$"
+end
+
 -- a shield's own Block Value: only its tooltip says it ("17 Block"; GetItemStats leaves it out), read from a hidden
--- tooltip; 0 when no line says it. The line's wording is the game's own (SHIELD_BLOCK_TEMPLATE, English where a client
--- lacks it)
+-- tooltip; 0 when no line says it
 local scanner
 local function ShieldBlock(link)
   scanner = scanner or CreateFrame("GameTooltip", "KorkronPlannerScanTooltip", nil, "GameTooltipTemplate")
   scanner:SetOwner(UIParent, "ANCHOR_NONE")
   scanner:SetHyperlink(link)
-  local pattern = "^" .. (SHIELD_BLOCK_TEMPLATE or "%d Block"):gsub("%%d", "(%%d+)") .. "$"
+  local pattern = BlockPattern()
   local block = 0
   for i = 1, scanner:NumLines() do
     local text = Text(_G["KorkronPlannerScanTooltipTextLeft" .. i]:GetText())
@@ -158,10 +164,12 @@ local function GameBuild()
   return KP.Text((select(2, GetBuildInfo())))
 end
 
--- an item no run has read yet, or a shield read before its Block Value was (2026-11-12)
+-- an item no run has read yet, or a shield read before its Block Value was (2026-11-12) or with another pattern (until
+-- 2026-11-14 the datamine missed Forever's "%s Block" and read every shield as 0)
 local function NeedsReading(id)
   local stats = DB().items[id]
-  return stats == nil or (stats and IsShield(id) and stats.SHIELD_BLOCK == nil)
+  return stats == nil
+    or (stats and IsShield(id) and (stats.SHIELD_BLOCK == nil or DB().blockPattern ~= BlockPattern()))
 end
 
 local function Unread()
@@ -195,6 +203,7 @@ local function Step()
   if #queue == 0 and next(pending) == nil then
     Stop()
     DB().on = false
+    DB().blockPattern = BlockPattern() -- every shield is read with it now
     KP:Print("datamine done: " .. Summary() .. ". Type /reload so the game saves it, then run the website's tools/datamine.py.")
   end
 end

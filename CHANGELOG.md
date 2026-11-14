@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.30.1
+
+- **The game's November 13 update and that day's hotfixes are in the planner:** 84 new items, and Darkspear Signet,
+  Channeler's Ring, Bad Hat, Souvenir Sea Shell, Blessed Band of Light and Taran Icebreaker as Blizzard changed them. Your
+  tooltips, bag arrows and the Gear tab judge them by their new numbers.
+- A few builds take their last talent points in a slightly different order after level 37 (Warrior, Hunter, Protection
+  Paladin, Combat Rogue, Elemental leveling, Feral Cat and Balance leveling Druids); the talents themselves are the same.
+
 ## 0.30.0
 
 - **A new look, shared by all the Kor'kron mods** for the `/kp` window: iron frame with a blood-red title band, new
