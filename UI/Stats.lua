@@ -146,11 +146,12 @@ end
 function Pane.Create(parent, width, height)
   local pane = CreateFrame("Frame", nil, parent)
   pane:SetSize(width, height)
-  pane.title = Text(pane, "GameFontNormalLarge", 0, 0, width - 10)
-  pane.note = Text(pane, "GameFontHighlightSmall", 0, -20, width - 10)
+  pane.title = Text(pane, "KorkronPlannerFontNormalLarge", 0, 0, width - 10)
+  pane.note = Text(pane, "KorkronPlannerFontHighlightSmall", 0, -20, width - 10)
   local function Choice(label, x, y, w, onClick)
-    local b = CreateFrame("Button", nil, pane, "UIPanelButtonTemplate")
+    local b = CreateFrame("Button", nil, pane)
     b:SetSize(w, 22)
+    KP.Style.Button(b)
     b:SetPoint("TOPLEFT", x, y)
     b:SetText(label)
     b:SetScript("OnClick", function()
@@ -162,21 +163,21 @@ function Pane.Create(parent, width, height)
     end)
     return b
   end
-  pane.against = Text(pane, "GameFontNormalSmall", 0, -52, CONTROLS_X)
+  pane.against = Text(pane, "KorkronPlannerFontNormalSmall", 0, -52, CONTROLS_X)
   pane.against:SetText("Measured against")
   pane.targets = {}
   for i, t in ipairs(TARGETS) do
     pane.targets[t.key] = Choice(t.label, CONTROLS_X + (i - 1) * 134, -46, 130, function() KorkronPlannerCharDB.statTarget = t.key end)
   end
-  pane.who = Text(pane, "GameFontNormalSmall", 0, -78, CONTROLS_X)
+  pane.who = Text(pane, "KorkronPlannerFontNormalSmall", 0, -78, CONTROLS_X)
   pane.who:SetText("Who's tanking it")
   pane.tanking = Choice("I'm tanking it", CONTROLS_X, -72, 130, function() KorkronPlannerCharDB.simNotHit = false end)
   pane.notTanking = Choice("Someone else is", CONTROLS_X + 134, -72, 130, function() KorkronPlannerCharDB.simNotHit = true end)
   local haveX, addsX, sameX = NAME_W, NAME_W + HAVE_W, NAME_W + HAVE_W + ADDS_W + 12
-  pane.heads = { have = Text(pane, "GameFontNormalSmall", haveX, TOP + 16, HAVE_W, "RIGHT"),
-    adds = Text(pane, "GameFontNormalSmall", addsX, TOP + 16, ADDS_W, "RIGHT"),
-    same = Text(pane, "GameFontNormalSmall", sameX, TOP + 16, SAME_W),
-    cap = Text(pane, "GameFontNormalSmall", CAP_X, TOP + 16, width - CAP_X) }
+  pane.heads = { have = Text(pane, "KorkronPlannerFontNormalSmall", haveX, TOP + 16, HAVE_W, "RIGHT"),
+    adds = Text(pane, "KorkronPlannerFontNormalSmall", addsX, TOP + 16, ADDS_W, "RIGHT"),
+    same = Text(pane, "KorkronPlannerFontNormalSmall", sameX, TOP + 16, SAME_W),
+    cap = Text(pane, "KorkronPlannerFontNormalSmall", CAP_X, TOP + 16, width - CAP_X) }
   pane.heads.have:SetText("You have")
   pane.heads.adds:SetText("+1 adds")
   pane.heads.same:SetText("Same worth as")
@@ -190,17 +191,17 @@ function Pane.Create(parent, width, height)
     row.shade = row:CreateTexture(nil, "BACKGROUND") -- every other stat, so the eye can follow a line across
     row.shade:SetAllPoints()
     row.shade:SetColorTexture(1, 1, 1, 0.05)
-    row.head = Text(row, "GameFontNormal", 0, -3, width, "LEFT", true)
-    row.name = Text(row, "GameFontHighlight", 8, -2, NAME_W - 8, "LEFT", true)
-    row.have = Text(row, "GameFontHighlight", haveX, -2, HAVE_W, "RIGHT", true)
-    row.adds = Text(row, "GameFontHighlight", addsX, -2, ADDS_W, "RIGHT", true)
-    row.same = Text(row, "GameFontHighlightSmall", sameX, -3, SAME_W, "LEFT", true)
-    row.cap = Text(row, "GameFontHighlightSmall", CAP_X, -3, width - CAP_X, "LEFT", true)
+    row.head = Text(row, "KorkronPlannerFontNormal", 0, -3, width, "LEFT", true)
+    row.name = Text(row, "KorkronPlannerFontHighlight", 8, -2, NAME_W - 8, "LEFT", true)
+    row.have = Text(row, "KorkronPlannerFontHighlight", haveX, -2, HAVE_W, "RIGHT", true)
+    row.adds = Text(row, "KorkronPlannerFontHighlight", addsX, -2, ADDS_W, "RIGHT", true)
+    row.same = Text(row, "KorkronPlannerFontHighlightSmall", sameX, -3, SAME_W, "LEFT", true)
+    row.cap = Text(row, "KorkronPlannerFontHighlightSmall", CAP_X, -3, width - CAP_X, "LEFT", true)
     row:SetScript("OnEnter", function(self) KP.Safe(ShowRow, self) end)
     row:SetScript("OnLeave", function() GameTooltip:Hide() end)
     pane.rows[r] = row
   end
-  pane.foot = Text(pane, "GameFontDisableSmall", 0, TOP - ROWS * ROW_H - 4, width - 10)
+  pane.foot = Text(pane, "KorkronPlannerFontDisableSmall", 0, TOP - ROWS * ROW_H - 4, width - 10)
   pane.foot:SetText("Hover a line for more. Your item tooltips and bag arrows judge gear by these numbers. Procs, \"Use:\" " ..
     "effects and set bonuses aren't counted.")
   return pane
@@ -302,10 +303,11 @@ function Pane.Refresh(pane, build)
     local enemy
     for _, t in ipairs(TARGETS) do
       if t.key == target then enemy = t.text end
-      if t.key == target then pane.targets[t.key]:LockHighlight() else pane.targets[t.key]:UnlockHighlight() end
+      KP.Style.SetButtonKind(pane.targets[t.key], t.key == target)
     end
     local hit = KorkronPlannerCharDB.simNotHit ~= true
-    if hit then pane.tanking:LockHighlight() pane.notTanking:UnlockHighlight() else pane.notTanking:LockHighlight() pane.tanking:UnlockHighlight() end
+    KP.Style.SetButtonKind(pane.tanking, hit)
+    KP.Style.SetButtonKind(pane.notTanking, not hit)
     local stance = W.stance ~= "none" and ", in " .. KP.SimPane.StanceName[W.stance] or "" -- a Rogue has none
     pane.note:SetText(("Worked out from the gear you wear, your talents and your weapons%s, against %s %s.%s%s"):format(
       stance, enemy, hit and "that's hitting you" or "that someone else is tanking",

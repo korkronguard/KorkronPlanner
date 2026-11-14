@@ -49,33 +49,33 @@ end
 -- Each number in a formula or rule: what it is and where it comes from (the game files, the original game's rule,
 -- Forever's patch notes, the planner's estimate...)
 local function Numbers(L, f, indent)
-  L.text("Where the numbers come from:", "GameFontDisableSmall", indent, 4)
+  L.text("Where the numbers come from:", "KorkronPlannerFontDisableSmall", indent, 4)
   for _, n in ipairs(f.numbers) do
-    L.text("|cffffd100" .. n[1] .. ":|r " .. n[2] .. ". |cff999999From: " .. n[3] .. ".|r", "GameFontHighlightSmall", indent + INDENT, 2)
+    L.text("|cffffd100" .. n[1] .. ":|r " .. n[2] .. ". |cff999999From: " .. n[3] .. ".|r", "KorkronPlannerFontHighlightSmall", indent + INDENT, 2)
   end
 end
 
 -- What 1 point of each stat does: on your character sheet (main stats) and to the build you follow
 local function StatSection(L, class, inputs, build)
-  L.text("What each stat does for you", "GameFontNormalLarge", 0, 0)
+  L.text("What each stat does for you", "KorkronPlannerFontNormalLarge", 0, 0)
   local W = build and KP.StatWeights.For(build)
   L.text("For 1 point of each stat, from the game's own numbers where it gives them. " ..
     (W and (W.live and "Worth: what it adds for you with the gear you wear (the Stats tab lists them all)."
         or "Worth: what the planner says it adds for " .. build.name:gsub(" %b()", "") .. " at your level.")
       or "Choose one of the planner's builds on the left to see what each point is worth to it."),
-    "GameFontDisableSmall", 0, 2)
+    "KorkronPlannerFontDisableSmall", 0, 2)
   local function Worth(key)
     return W and KP.Upgrade.Describe(KP.Upgrade.Value(W, key, 1), build.role, 0.0005)
   end
   for _, stat in ipairs(MAIN_STATS) do
-    L.text(LABEL[stat[1]], "GameFontNormal", 0, 10)
+    L.text(LABEL[stat[1]], "KorkronPlannerFontNormal", 0, 10)
     local effects = inputs and KP.Sheet.Effects(class, inputs, stat[1]) or {}
     for _, effect in ipairs(effects) do
-      L.text(KP.Sheet.EffectText(effect, 1, true), "GameFontHighlightSmall", INDENT, 2)
+      L.text(KP.Sheet.EffectText(effect, 1, true), "KorkronPlannerFontHighlightSmall", INDENT, 2)
     end
-    if #effects == 0 then L.text("Nothing on your character sheet.", "GameFontHighlightSmall", INDENT, 2) end
+    if #effects == 0 then L.text("Nothing on your character sheet.", "KorkronPlannerFontHighlightSmall", INDENT, 2) end
     local worth = Worth(stat[2])
-    if worth then L.text("|cff7fd7ffWorth " .. worth .. "|r", "GameFontHighlightSmall", INDENT, 2) end
+    if worth then L.text("|cff7fd7ffWorth " .. worth .. "|r", "KorkronPlannerFontHighlightSmall", INDENT, 2) end
   end
   if not W then return end
   local others = {}
@@ -85,8 +85,8 @@ local function StatSection(L, class, inputs, build)
     if worth then table.insert(others, name .. ": |cff7fd7ff" .. worth .. "|r") end
   end
   if #others > 0 then
-    L.text("Other stats, worth of 1 point", "GameFontNormal", 0, 10)
-    for _, line in ipairs(others) do L.text(line, "GameFontHighlightSmall", INDENT, 2) end
+    L.text("Other stats, worth of 1 point", "KorkronPlannerFontNormal", 0, 10)
+    for _, line in ipairs(others) do L.text(line, "KorkronPlannerFontHighlightSmall", INDENT, 2) end
   end
 end
 
@@ -97,31 +97,31 @@ function Pane.Refresh(pane, build)
   local list = KP.Formulas[class]
   local inputs = KP.Sheet.Inputs(class)
   if not inputs then
-    L.text("The game hides some of your numbers here (inside a dungeon or raid?).", "GameFontHighlight", 0, 0)
+    L.text("The game hides some of your numbers here (inside a dungeon or raid?).", "KorkronPlannerFontHighlight", 0, 0)
   end
   StatSection(L, class, inputs, build)
-  L.text("How your numbers are worked out", "GameFontNormalLarge", 0, 18)
-  L.text("The planner website's formulas, with your numbers. " .. TICK .. " = the game agrees.", "GameFontDisableSmall", 0, 2)
+  L.text("How your numbers are worked out", "KorkronPlannerFontNormalLarge", 0, 18)
+  L.text("The planner website's formulas, with your numbers. " .. TICK .. " = the game agrees.", "KorkronPlannerFontDisableSmall", 0, 2)
   L.text("Under each formula, where its numbers come from. Forever's game files: read from the game itself. The " ..
     "original game's rule: worked out by the game's server, so it isn't in the files; it's how WoW has always worked, " ..
     "and Classic servers use the same. Checked on Forever: matched against real characters. Patch notes: Forever's own. " ..
-    "Estimate: the planner's best guess until real characters show the game's rule.", "GameFontDisableSmall", 0, 4)
+    "Estimate: the planner's best guess until real characters show the game's rule.", "KorkronPlannerFontDisableSmall", 0, 4)
   local game = KP.Sheet.GameNumbers()
   local rules = {}
   for _, f in ipairs(list) do
     if f.expr and inputs then
-      L.text(ResultLine(f, KP.Sheet.Work(f.expr, inputs), f.game and game[f.game], inputs.level), "GameFontNormal", 0, 10)
-      L.text(f.text, "GameFontHighlightSmall", INDENT, 2)
-      L.text(YourNumbers(f.expr, inputs), "GameFontDisableSmall", INDENT, 2)
-      if f.note then L.text(f.note, "GameFontDisableSmall", INDENT, 2) end
+      L.text(ResultLine(f, KP.Sheet.Work(f.expr, inputs), f.game and game[f.game], inputs.level), "KorkronPlannerFontNormal", 0, 10)
+      L.text(f.text, "KorkronPlannerFontHighlightSmall", INDENT, 2)
+      L.text(YourNumbers(f.expr, inputs), "KorkronPlannerFontDisableSmall", INDENT, 2)
+      if f.note then L.text(f.note, "KorkronPlannerFontDisableSmall", INDENT, 2) end
       Numbers(L, f, INDENT)
     elseif not f.expr then
       table.insert(rules, f)
     end
   end
-  L.text("Rules of combat", "GameFontNormalLarge", 0, 18)
+  L.text("Rules of combat", "KorkronPlannerFontNormalLarge", 0, 18)
   for _, f in ipairs(rules) do
-    L.text("|cffffd100" .. f.name .. ":|r " .. f.text, "GameFontHighlightSmall", 0, 6)
+    L.text("|cffffd100" .. f.name .. ":|r " .. f.text, "KorkronPlannerFontHighlightSmall", 0, 6)
     Numbers(L, f, INDENT)
   end
   L.finish()

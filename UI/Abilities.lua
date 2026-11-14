@@ -89,14 +89,15 @@ end
 -- a row of small buttons, one per choice, after a label that takes labelWidth: set(choice.key) when clicked. Returns them by key,
 -- and where the next row of them starts
 local function Choices(pane, list, x, label, labelWidth, width, set)
-  local title = Text(pane, "GameFontNormalSmall", labelWidth)
+  local title = Text(pane, "KorkronPlannerFontNormalSmall", labelWidth)
   title:SetPoint("TOPLEFT", x, -52)
   title:SetText(label)
   local buttons = {}
   x = x + labelWidth
   for i, choice in ipairs(list) do
-    local b = CreateFrame("Button", nil, pane, "UIPanelButtonTemplate")
+    local b = CreateFrame("Button", nil, pane)
     b:SetSize(width, 22)
+    KP.Style.Button(b)
     b:SetPoint("TOPLEFT", x + (i - 1) * (width + 2), -46)
     b:SetText(choice.label)
     b:SetScript("OnClick", function()
@@ -113,9 +114,9 @@ end
 function Pane.Create(parent, width, height)
   local pane = CreateFrame("Frame", nil, parent)
   pane:SetSize(width, height)
-  pane.title = Text(pane, "GameFontNormalLarge", width - 10)
+  pane.title = Text(pane, "KorkronPlannerFontNormalLarge", width - 10)
   pane.title:SetPoint("TOPLEFT", 0, 0)
-  pane.note = Text(pane, "GameFontHighlightSmall", width - 10)
+  pane.note = Text(pane, "KorkronPlannerFontHighlightSmall", width - 10)
   pane.note:SetPoint("TOPLEFT", pane.title, "BOTTOMLEFT", 0, -4)
   local counts = {}
   for i, n in ipairs(ENEMY_COUNTS) do counts[i] = { key = n, label = i == #ENEMY_COUNTS and n .. "+" or tostring(n) } end
@@ -135,7 +136,7 @@ function Pane.Create(parent, width, height)
     local h = CreateFrame("Button", nil, pane)
     h:SetSize(c.width, 20)
     h:SetPoint("TOPLEFT", x, TOP + 22)
-    h.text = Text(h, "GameFontNormalSmall", c.width - 4, i == 1 and "LEFT" or "RIGHT")
+    h.text = Text(h, "KorkronPlannerFontNormalSmall", c.width - 4, i == 1 and "LEFT" or "RIGHT")
     h.text:SetPoint(i == 1 and "LEFT" or "RIGHT", i == 1 and 4 or -2, 0)
     h.column = c
     h:SetScript("OnClick", function()
@@ -165,7 +166,7 @@ function Pane.Create(parent, width, height)
     row.cells = {}
     local cx = 0
     for i, c in ipairs(COLUMNS) do
-      local cell = Text(row, "GameFontHighlightSmall", c.width - 6, i == 1 and "LEFT" or "RIGHT")
+      local cell = Text(row, "KorkronPlannerFontHighlightSmall", c.width - 6, i == 1 and "LEFT" or "RIGHT")
       cell:SetPoint("LEFT", cx + (i == 1 and 4 or 0), 0)
       row.cells[i] = cell
       cx = cx + c.width
@@ -174,7 +175,7 @@ function Pane.Create(parent, width, height)
     row:SetScript("OnLeave", function() GameTooltip:Hide() end)
     pane.rows[r] = row
   end
-  pane.foot = Text(pane, "GameFontDisableSmall", width - 10)
+  pane.foot = Text(pane, "KorkronPlannerFontDisableSmall", width - 10)
   pane.foot:SetPoint("TOPLEFT", 0, TOP - MAX_ROWS * ROW - 6)
   return pane
 end
@@ -189,7 +190,7 @@ end
 
 local function Highlight(buttons, chosen)
   for key, b in pairs(buttons) do
-    if key == chosen then b:LockHighlight() else b:UnlockHighlight() end
+    KP.Style.SetButtonKind(b, key == chosen)
   end
 end
 

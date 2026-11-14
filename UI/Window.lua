@@ -8,6 +8,8 @@ local _, KP = ...
 local Window = {}
 KP.Window = Window
 
+local Style = KP.Style
+local TOP = Style.TOP -- the tab row
 local MAX_BUILDS = 12 -- three paths for each of three specs, with room for a spec that has two builds on a path
 local ROWS = 14       -- upcoming points shown
 local RIGHT = 282     -- where the tabs start
@@ -77,17 +79,16 @@ local function CreatePicker()
   local picker = CreateFrame("Frame", nil, frame)
   picker:SetAllPoints()
   frame.picker = picker
-  local pick = Text(picker, "GameFontNormal")
-  pick:SetPoint("TOPLEFT", 16, -34)
+  local pick = Text(picker, "KorkronPlannerFontNormal")
+  pick:SetPoint("TOPLEFT", 16, TOP - 4)
   pick:SetText("Suggested builds")
   frame.specHeaders = {}
-  for i = 1, 3 do frame.specHeaders[i] = Text(picker, "GameFontHighlightSmall", PICK_W) end
+  for i = 1, 3 do frame.specHeaders[i] = Text(picker, "KorkronPlannerFontHighlightSmall", PICK_W) end
   frame.buildButtons = {}
   for i = 1, MAX_BUILDS do
-    local b = CreateFrame("Button", nil, picker, "UIPanelButtonTemplate")
+    local b = CreateFrame("Button", nil, picker)
     b:SetHeight(22)
-    b:SetNormalFontObject("GameFontNormalSmall")
-    b:SetHighlightFontObject("GameFontHighlightSmall") -- the chosen build is highlighted: same size, so it fits
+    Style.Button(b)
     b:SetScript("OnClick", function(self)
       KP.Safe(function()
         KP.Build.Choose(self.key)
@@ -99,20 +100,22 @@ local function CreatePicker()
     frame.buildButtons[i] = b
   end
 
-  local linkLabel = Text(picker, "GameFontNormal")
-  linkLabel:SetPoint("TOPLEFT", 16, -262)
+  local linkLabel = Text(picker, "KorkronPlannerFontNormal")
+  linkLabel:SetPoint("TOPLEFT", 16, TOP - 232)
   linkLabel:SetText("Or paste a planner link")
-  local box = CreateFrame("EditBox", nil, picker, "InputBoxTemplate")
-  box:SetSize(PICK_W - 62, 22)
-  box:SetPoint("TOPLEFT", 22, -280)
+  local box = CreateFrame("EditBox", nil, picker, "BackdropTemplate")
+  Style.EditBox(box)
+  box:SetSize(PICK_W - 56, 22)
+  box:SetPoint("TOPLEFT", 16, TOP - 250)
   box:SetAutoFocus(false)
   box:SetScript("OnEscapePressed", box.ClearFocus)
-  local use = CreateFrame("Button", nil, picker, "UIPanelButtonTemplate")
+  local use = CreateFrame("Button", nil, picker)
   use:SetSize(52, 22)
-  use:SetPoint("LEFT", box, "RIGHT", 6, 0)
+  Style.Button(use)
+  use:SetPoint("LEFT", box, "RIGHT", 4, 0)
   use:SetText("Use")
-  local linkNote = Text(picker, "GameFontHighlightSmall", PICK_W)
-  linkNote:SetPoint("TOPLEFT", 16, -308)
+  local linkNote = Text(picker, "KorkronPlannerFontHighlightSmall", PICK_W)
+  linkNote:SetPoint("TOPLEFT", 16, TOP - 278)
   use:SetScript("OnClick", function()
     KP.Safe(function()
       linkNote:SetText(KP.Build.UseLink(box:GetText()))
@@ -128,7 +131,7 @@ local function CreateBuildPane()
   local pane = CreateFrame("Frame", nil, frame)
   pane:SetSize(PANE_W, PANE_H)
   local width = PANE_W - 10
-  frame.heading = Text(pane, "GameFontNormalLarge", width)
+  frame.heading = Text(pane, "KorkronPlannerFontNormalLarge", width)
   frame.heading:SetPoint("TOPLEFT", 0, 0)
   -- hovering the build's name shows its summary (a font string can't take the mouse, so a frame lies over it)
   frame.headingHover = CreateFrame("Frame", nil, pane)
@@ -136,9 +139,9 @@ local function CreateBuildPane()
   frame.headingHover:EnableMouse(true)
   frame.headingHover:SetScript("OnEnter", function(self) KP.Safe(ShowSummaryTooltip, self) end)
   frame.headingHover:SetScript("OnLeave", HideTooltip)
-  frame.note = Text(pane, "GameFontHighlightSmall", width)
+  frame.note = Text(pane, "KorkronPlannerFontHighlightSmall", width)
   frame.note:SetPoint("TOPLEFT", frame.heading, "BOTTOMLEFT", 0, -4)
-  frame.status = Text(pane, "GameFontHighlight", width)
+  frame.status = Text(pane, "KorkronPlannerFontHighlight", width)
   frame.status:SetPoint("TOPLEFT", frame.note, "BOTTOMLEFT", 0, -8)
   frame.rows = {}
   for i = 1, ROWS do
@@ -148,25 +151,25 @@ local function CreateBuildPane()
     row.icon = row:CreateTexture(nil, "ARTWORK")
     row.icon:SetSize(18, 18)
     row.icon:SetPoint("LEFT", 38, 0)
-    row.level = Text(row, "GameFontHighlightSmall")
+    row.level = Text(row, "KorkronPlannerFontHighlightSmall")
     row.level:SetPoint("LEFT", 0, 0)
-    row.name = Text(row, "GameFontHighlight", width - 62)
+    row.name = Text(row, "KorkronPlannerFontHighlight", width - 62)
     row.name:SetPoint("LEFT", row.icon, "RIGHT", 6, 0)
     row:EnableMouse(true)
     row:SetScript("OnEnter", function(self) KP.Safe(ShowPointTooltip, self) end)
     row:SetScript("OnLeave", HideTooltip)
     frame.rows[i] = row
   end
-  frame.off = Text(pane, "GameFontHighlightSmall", width)
+  frame.off = Text(pane, "KorkronPlannerFontHighlightSmall", width)
   frame.off:SetPoint("TOPLEFT", frame.rows[ROWS], "BOTTOMLEFT", 0, -8)
-  frame.choices = Text(pane, "GameFontHighlightSmall", width)
+  frame.choices = Text(pane, "KorkronPlannerFontHighlightSmall", width)
   frame.choices:SetPoint("TOPLEFT", frame.off, "BOTTOMLEFT", 0, -4)
   return pane
 end
 
 local function Create()
-  frame = CreateFrame("Frame", "KorkronPlannerWindow", UIParent, "BasicFrameTemplateWithInset")
-  frame:SetSize(RIGHT + PANE_W + 16, PANE_H + 72)
+  frame = CreateFrame("Frame", "KorkronPlannerWindow", UIParent)
+  frame:SetSize(RIGHT + PANE_W + 16, PANE_H + 80)
   frame:SetPoint("CENTER")
   frame:SetMovable(true)
   frame:SetToplevel(true) -- comes to the front when clicked (over the game's talent window, which opens it too)
@@ -176,21 +179,20 @@ local function Create()
   frame:SetScript("OnDragStop", frame.StopMovingOrSizing)
   frame:SetScript("OnShow", function() KP.Safe(Window.Refresh) end)
   table.insert(UISpecialFrames, "KorkronPlannerWindow") -- Escape closes it
-  local title = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-  title:SetPoint("TOP", 0, -5)
-  title:SetText("Kor'kron Planner")
+  Style.Window(frame, "Kor'kron Planner")
 
   CreatePicker()
   frame.panes = { build = CreateBuildPane(), talents = KP.TalentsPane.Create(frame, PANE_W, PANE_H),
     priority = KP.PriorityPane.Create(frame, PANE_W, PANE_H), gear = KP.GearPane.Create(frame, PANE_W, PANE_H),
     stats = KP.StatsPane.Create(frame, PANE_W, PANE_H), formulas = KP.FormulasPane.Create(frame, PANE_W, PANE_H),
     sim = KP.SimPane.Create(frame, PANE_W, PANE_H), abilities = KP.AbilitiesPane.Create(frame, RIGHT + PANE_W - LEFT, PANE_H) }
-  for key, pane in pairs(frame.panes) do pane:SetPoint("TOPLEFT", WIDE[key] and LEFT or RIGHT, -62) end
+  for key, pane in pairs(frame.panes) do pane:SetPoint("TOPLEFT", WIDE[key] and LEFT or RIGHT, TOP - 32) end
   frame.tabButtons = {}
   for i, t in ipairs(TABS) do
-    local b = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
+    local b = CreateFrame("Button", nil, frame)
     b:SetSize(TAB_W, 22)
-    b:SetPoint("TOPLEFT", RIGHT + (i - 1) * (TAB_W + 2), -30)
+    Style.Button(b)
+    b:SetPoint("TOPLEFT", RIGHT + (i - 1) * (TAB_W + 2), TOP)
     b:SetText(t.label)
     b:SetScript("OnClick", function() KP.Safe(Window.ShowTab, t.key) end)
     frame.tabButtons[t.key] = b
@@ -200,7 +202,7 @@ end
 
 -- a heading per spec, then its builds three to a row (two when a label needs the room)
 local function ShowBuildButtons(chosenKey)
-  local y, n = -52, 0
+  local y, n = TOP - 22, 0
   local specs = KP.Build.BySpec()
   for s, header in ipairs(frame.specHeaders) do
     local spec = specs[s]
@@ -226,7 +228,7 @@ local function ShowBuildButtons(chosenKey)
         b.key, b.build = build.key, build
         b:SetText(labels[i])
         b:Show()
-        if build.key == chosenKey then b:LockHighlight() else b:UnlockHighlight() end
+        Style.SetButtonKind(b, build.key == chosenKey)
       end
       y = y - 28
     end
@@ -310,9 +312,7 @@ function Window.Refresh()
   ShowBuildButtons(saved and saved.key)
   for key, pane in pairs(frame.panes) do pane:SetShown(key == tab) end
   frame.picker:SetShown(not WIDE[tab])
-  for key, b in pairs(frame.tabButtons) do
-    if key == tab then b:LockHighlight() else b:UnlockHighlight() end
-  end
+  for key, b in pairs(frame.tabButtons) do Style.SetButtonKind(b, key == tab) end
   local build, why = KP.Build.Current()
   if tab == "talents" then
     KP.TalentsPane.Refresh(frame.panes.talents, build)

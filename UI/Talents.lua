@@ -45,13 +45,13 @@ function Pane.Create(parent, width, height)
   pane.treeWidth = math.floor(width / 3)
   pane.headers = {}
   for tree = 1, 3 do
-    local h = pane:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    local h = pane:CreateFontString(nil, "OVERLAY", "KorkronPlannerFontNormal")
     h:SetWidth(pane.treeWidth - 4)
     h:SetJustifyH("LEFT")
     h:SetPoint("TOPLEFT", (tree - 1) * pane.treeWidth, 0)
     pane.headers[tree] = h
   end
-  pane.status = pane:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+  pane.status = pane:CreateFontString(nil, "OVERLAY", "KorkronPlannerFontHighlightSmall")
   pane.status:SetWidth(width - 10)
   pane.status:SetJustifyH("LEFT")
   pane.status:SetPoint("TOPLEFT", 0, -(HEADER + 7 * CELL + 8))

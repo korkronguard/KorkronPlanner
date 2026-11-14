@@ -73,13 +73,14 @@ end
 function Pane.Create(parent, width, height)
   local pane = CreateFrame("Frame", nil, parent)
   pane:SetSize(width, height)
-  pane.title = Text(pane, "GameFontNormalLarge", width - 10)
+  pane.title = Text(pane, "KorkronPlannerFontNormalLarge", width - 10)
   pane.title:SetPoint("TOPLEFT", 0, 0)
-  pane.note = Text(pane, "GameFontDisableSmall", width - 10)
+  pane.note = Text(pane, "KorkronPlannerFontDisableSmall", width - 10)
   pane.note:SetPoint("TOPLEFT", pane.title, "BOTTOMLEFT", 0, -2)
   local function Switch(label, x, notHit)
-    local b = CreateFrame("Button", nil, pane, "UIPanelButtonTemplate")
+    local b = CreateFrame("Button", nil, pane)
     b:SetSize(130, 22)
+    KP.Style.Button(b)
     b:SetPoint("TOPLEFT", x, -58)
     b:SetText(label)
     b:SetScript("OnClick", function()
@@ -94,7 +95,7 @@ function Pane.Create(parent, width, height)
   pane.tanking, pane.notTanking = Switch("I'm tanking it", 0, false), Switch("Someone else is", 134, true)
   pane.headers = {}
   for i, t in ipairs(TARGETS) do
-    local header = Text(pane, "GameFontNormalSmall", COLUMN_W, "RIGHT")
+    local header = Text(pane, "KorkronPlannerFontNormalSmall", COLUMN_W, "RIGHT")
     header:SetPoint("TOPLEFT", LABEL_W + (i - 1) * COLUMN_W, TOP + 30)
     header:SetText(t.label .. "\n" .. t.under)
     pane.headers[i] = header
@@ -102,11 +103,11 @@ function Pane.Create(parent, width, height)
   pane.rows = {} -- placed one under the other as they're shown (Place)
   for r, stance in ipairs(STANCES) do
     local row = { stance = stance, cells = {} }
-    row.label = Text(pane, "GameFontHighlight", LABEL_W)
+    row.label = Text(pane, "KorkronPlannerFontHighlight", LABEL_W)
     for i, t in ipairs(TARGETS) do
       local cell = CreateFrame("Button", nil, pane)
       cell:SetSize(COLUMN_W, ROW - 4)
-      cell.text = Text(cell, "GameFontHighlightLarge", COLUMN_W, "RIGHT")
+      cell.text = Text(cell, "KorkronPlannerFontHighlightLarge", COLUMN_W, "RIGHT")
       cell.text:SetPoint("RIGHT", 0, 0)
       cell.target = t
       cell:SetScript("OnEnter", function(self) KP.Safe(ShowBreakdown, self) end)
@@ -115,7 +116,7 @@ function Pane.Create(parent, width, height)
     end
     pane.rows[r] = row
   end
-  pane.foot = Text(pane, "GameFontDisableSmall", width - 10)
+  pane.foot = Text(pane, "KorkronPlannerFontDisableSmall", width - 10)
   return pane
 end
 
@@ -174,13 +175,8 @@ function Pane.Refresh(pane)
   pane.title:SetText("Your damage a second")
   pane.note:SetText(HitNote(class, beingHit, sheet.shield))
   SetGridShown(pane, true)
-  if beingHit then
-    pane.tanking:LockHighlight()
-    pane.notTanking:UnlockHighlight()
-  else
-    pane.notTanking:LockHighlight()
-    pane.tanking:UnlockHighlight()
-  end
+  KP.Style.SetButtonKind(pane.tanking, beingHit)
+  KP.Style.SetButtonKind(pane.notTanking, not beingHit)
   local best, y = {}, TOP
   for _, row in ipairs(pane.rows) do
     local key = row.stance.key

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.30.0
+
+- **A new look, shared by all the Kor'kron mods** for the `/kp` window: iron frame with a blood-red title band, new
+  lettering, darker buttons with the open tab and your chosen build in red, and slim scroll bars. The bar on the game's
+  talent window, the bag arrows and the tooltip lines keep the game's own look. After updating, restart the game once (not
+  just `/reload`) so the new art and lettering load.
+
 ## 0.29.1
 
 - **Affliction Warlocks: Soul Siphon and Nightfall now count.** Soul Siphon makes your drains and Wrack hit harder for each

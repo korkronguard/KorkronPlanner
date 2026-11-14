@@ -26,10 +26,7 @@ local SOURCE = { quest = "Quest", drop = "Drop", vendor = "Vendor", crafted = "C
 local TICK = "|TInterface\\RaidFrame\\ReadyCheck-Ready:14|t"
 local WOWHEAD = "https://www.wowhead.com/forever/item=%d" -- Wowhead's WoW: Forever database, as on the website
 local ROW, OPTION, PAD = 22, 20, 10
-local MENU_BACKDROP = {
-  bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
-  tile = true, tileSize = 16, edgeSize = 16, insets = { left = 4, right = 4, top = 4, bottom = 4 },
-}
+local Style = KP.Style
 
 local function Text(parent, font, width, justify)
   local fs = parent:CreateFontString(nil, "OVERLAY", font)
@@ -75,20 +72,22 @@ local function AddItemParts(row, left, right)
   row.icon = row:CreateTexture(nil, "ARTWORK")
   row.icon:SetSize(16, 16)
   row.icon:SetPoint("LEFT", left, 0)
-  row.link = CreateFrame("Button", nil, row, "UIPanelButtonTemplate")
+  row.link = CreateFrame("Button", nil, row)
   row.link:SetSize(36, 16)
+  Style.Button(row.link)
   row.link:SetPoint("RIGHT", -right, 0)
-  row.link:SetNormalFontObject("GameFontNormalSmall")
-  row.link:SetHighlightFontObject("GameFontHighlightSmall")
   row.link:SetText("Link")
   row.link:SetScript("OnClick", function() KP.Safe(ShowLink, row.itemID) end)
-  row.src = Text(row, "GameFontHighlightSmall", 62, "RIGHT")
+  row.src = Text(row, "KorkronPlannerFontHighlightSmall", 62, "RIGHT")
   row.src:SetPoint("RIGHT", row.link, "LEFT", -4, 0)
-  row.name = Text(row, "GameFontHighlightSmall")
+  row.name = Text(row, "KorkronPlannerFontHighlightSmall")
   row.name:SetPoint("LEFT", row.icon, "RIGHT", 4, 0)
   row.name:SetPoint("RIGHT", row.src, "LEFT", -4, 0)
   row.name:SetWordWrap(false) -- a long name is cut short instead of running onto a second line
-  row:SetHighlightTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight", "ADD")
+  local gold = Style.COLOR.gold
+  local lit = row:CreateTexture(nil, "HIGHLIGHT")
+  lit:SetAllPoints()
+  lit:SetColorTexture(gold[1], gold[2], gold[3], 0.12)
   row:SetScript("OnEnter", function(self) KP.Safe(ShowItemTooltip, self) end)
   row:SetScript("OnLeave", HideTooltip)
 end
@@ -127,11 +126,9 @@ local function MenuLine(pane, i)
   local line = CreateFrame("Button", nil, menu)
   line:SetSize(menu:GetWidth() - 2 * PAD, OPTION)
   line:SetPoint("TOPLEFT", menu.title, "BOTTOMLEFT", 0, -4 - (i - 1) * OPTION)
-  line.check = line:CreateTexture(nil, "ARTWORK")
-  line.check:SetSize(14, 14)
+  line.check = Style.Tick(line, 14)
   line.check:SetPoint("LEFT", 0, 0)
-  line.check:SetTexture("Interface\\Buttons\\UI-CheckBox-Check")
-  line.pct = Text(line, "GameFontHighlightSmall", 32, "RIGHT")
+  line.pct = Text(line, "KorkronPlannerFontHighlightSmall", 32, "RIGHT")
   line.pct:SetPoint("LEFT", 14, 0)
   AddItemParts(line, 50, 0)
   line:SetScript("OnClick", function() KP.Safe(Choose, pane, i) end)
@@ -141,17 +138,14 @@ end
 
 local function CreateMenu(pane, width)
   local menu = CreateFrame("Frame", nil, pane, "BackdropTemplate")
-  menu:SetBackdrop(MENU_BACKDROP)
-  menu:SetBackdropColor(0, 0, 0, 0.95)
+  Style.Panel(menu)
   menu:SetWidth(width)
   menu:SetFrameStrata("HIGH") -- over the /kp window, under the copy box
   menu:SetClampedToScreen(true)
   menu:EnableMouse(true)
-  menu.title = Text(menu, "GameFontNormalSmall", width - 2 * PAD - 20)
+  menu.title = Text(menu, "KorkronPlannerFontNormalSmall", width - 2 * PAD - 20)
   menu.title:SetPoint("TOPLEFT", PAD, -PAD)
-  local close = CreateFrame("Button", nil, menu, "UIPanelCloseButton")
-  close:SetSize(24, 24)
-  close:SetPoint("TOPRIGHT", -2, -2)
+  Style.CloseButton(menu):SetPoint("TOPRIGHT", -6, -6)
   menu.lines = {}
   menu:Hide()
   return menu
@@ -187,9 +181,9 @@ end
 function Pane.Create(parent, width, height)
   local pane = CreateFrame("Frame", nil, parent)
   pane:SetSize(width, height)
-  pane.title = Text(pane, "GameFontNormalLarge", width - 10)
+  pane.title = Text(pane, "KorkronPlannerFontNormalLarge", width - 10)
   pane.title:SetPoint("TOPLEFT", 0, 0)
-  pane.note = Text(pane, "GameFontDisableSmall", width - 10)
+  pane.note = Text(pane, "KorkronPlannerFontDisableSmall", width - 10)
   pane.note:SetPoint("TOPLEFT", pane.title, "BOTTOMLEFT", 0, -2)
   pane.rows = {}
   for i, slot in ipairs(SLOTS) do
@@ -197,7 +191,7 @@ function Pane.Create(parent, width, height)
     row.index, row.slot = i, slot
     row:SetSize(width - 10, ROW)
     row:SetPoint("TOPLEFT", pane.note, "BOTTOMLEFT", 0, -6 - (i - 1) * ROW)
-    row.label = Text(row, "GameFontDisableSmall", 58)
+    row.label = Text(row, "KorkronPlannerFontDisableSmall", 58)
     row.label:SetPoint("LEFT", 0, 0)
     row.arrow = row:CreateTexture(nil, "ARTWORK")
     row.arrow:SetSize(14, 14)
