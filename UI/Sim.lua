@@ -1,6 +1,3 @@
--- Kor'kron Planner: the DPS tab of the /kp window. Your damage a second against a normal mob of your level, an elite of your
--- level and an elite 3 levels up, in each stance you know (one row for a class without stances), worked out by Core/Sim.lua from
--- your character sheet, talents and weapons right now. Warriors and Rogues so far.
 local _, KP = ...
 
 local Pane = {}
@@ -10,12 +7,11 @@ local TARGETS = { { key = "same", label = "Normal", under = "your level" }, { ke
   { key = "elite3", label = "Elite", under = "3 levels up" } }
 local STANCES = { { key = "battle", label = "Battle Stance" }, { key = "defensive", label = "Defensive Stance" },
   { key = "berserker", label = "Berserker Stance" }, { key = "none", label = "Your rotation" } }
-Pane.StanceName = {} -- "Battle Stance" for "battle" (the Stats tab names your stance too)
+Pane.StanceName = {}
 for _, stance in ipairs(STANCES) do Pane.StanceName[stance.key] = stance.label end
 local LABEL_W, COLUMN_W, ROW, TOP = 170, 110, 26, -118
 local BEST = "|cff40ff40%.1f|r"
 local PLAIN = "%.1f"
--- under the numbers, by class
 local FOOT = {
   WARRIOR = "The green number is your best stance for that enemy. Hover a number for what it's made of.\n\n" ..
     "An average over a fight against one enemy, from your character sheet right now: buffs count while they're up, and buttons you " ..
@@ -87,7 +83,7 @@ function Pane.Create(parent, width, height)
       KP.Safe(function()
         KorkronPlannerCharDB.simNotHit = notHit
         Pane.Refresh(pane)
-        KP.BagIcons.Refresh() -- the arrows judge gear by your stat weights, which follow this too
+        KP.BagIcons.Refresh()
       end)
     end)
     return b
@@ -100,7 +96,7 @@ function Pane.Create(parent, width, height)
     header:SetText(t.label .. "\n" .. t.under)
     pane.headers[i] = header
   end
-  pane.rows = {} -- placed one under the other as they're shown (Place)
+  pane.rows = {}
   for r, stance in ipairs(STANCES) do
     local row = { stance = stance, cells = {} }
     row.label = Text(pane, "KorkronPlannerFontHighlight", LABEL_W)
@@ -120,7 +116,6 @@ function Pane.Create(parent, width, height)
   return pane
 end
 
--- a shown row at height y
 local function Place(row, y)
   row.label:ClearAllPoints()
   row.label:SetPoint("TOPLEFT", 0, y)
@@ -130,7 +125,6 @@ local function Place(row, y)
   end
 end
 
--- the last numbers stay on screen while the game hides new ones
 local function ShowHidden(pane)
   pane.title:SetText("Your damage a second")
   if pane.shown then
@@ -141,7 +135,6 @@ local function ShowHidden(pane)
   SetGridShown(pane, false)
 end
 
--- the line under the title: what being hit means for this class's numbers
 local function HitNote(class, beingHit, shield)
   if class == "ROGUE" then
     return beingHit and "The enemy is attacking you: it faces you and parries some of your attacks."

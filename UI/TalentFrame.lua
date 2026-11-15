@@ -1,29 +1,17 @@
--- Kor'kron Planner: your build on the game's own talent window (N). Forever's window is Blizzard's modern talent frame
--- (PlayerSpellsFrame.TalentsFrame; the client's Blizzard_PlayerSpells and Blizzard_SharedTalentUI, "Camelot" files
--- for Forever, read 2026-11-08) showing the three classic trees, and its talent buttons carry the node IDs of
--- Data/Talents.lua. On the tree: the build's next point glows, the other points you can spend now are numbered, the
--- build's other talents show your points / the build's in gold and a tick once done; talents outside the build stay
--- as Blizzard drew them. Clicking a talent only stages it until Apply, and staged points count, so the marks move on
--- with each click. In the window's empty bottom corners: the build picker, the next talent and a button for /kp.
--- Blizzard's talent tooltips get the build's lines.
--- Nothing here changes Blizzard's frames or functions (addons that do cause "action blocked" errors): the marks are
--- our own frames laid over its buttons, and its public EventRegistry events say when to redraw.
 local _, KP = ...
 
 local TalentFrame = {}
 KP.TalentFrame = TalentFrame
 
-local MAX_NUMBERED = 5 -- points numbered on the tree at most (a respec at 60 would number all 51 at once)
+local MAX_NUMBERED = 5
 local GOLD = { 1, 0.82, 0 }
 
-local bar -- our bar on the talent window, made the first time it shows; bar.marks[node ID] = that talent's marks
+local bar
 
--- the game's talent window, once Blizzard's talent UI has loaded (it loads the first time you open it)
 local function TalentWindow()
   return PlayerSpellsFrame and PlayerSpellsFrame.TalentsFrame
 end
 
--- whether it shows your own active talents: not someone you inspect, not your other spec's tab
 local function ShowsYours(talents)
   return not talents:IsInspecting() and talents:IsActiveTabSelected()
 end
@@ -38,7 +26,6 @@ local function IsChosen(key)
   return saved ~= nil and saved.key == key
 end
 
--- the picker's list: each spec's builds under its name (Solo, Dungeon, PvP as in /kp), a pasted link, no build
 local function MenuEntries(_, root)
   for _, spec in ipairs(KP.Build.BySpec()) do
     root:CreateTitle(spec.name)
@@ -54,7 +41,6 @@ local function MenuEntries(_, root)
     function() KP.Safe(Choose, nil) end)
 end
 
--- the bar in the window's bottom corners, left and right of Blizzard's Apply button
 local function CreateBar(talents)
   bar = CreateFrame("Frame", "KorkronPlannerTalentBar", talents)
   bar:SetPoint("BOTTOMLEFT", 48, 6)
@@ -79,7 +65,6 @@ local function CreateBar(talents)
   bar.next:SetPoint("RIGHT", bar.planner, "LEFT", -10, 0)
 end
 
--- one talent's marks: a pulsing glow (the next point), its numbers in the order, your points / the build's, a tick
 local function NewMark()
   local m = CreateFrame("Frame")
   m.glow = m:CreateTexture(nil, "OVERLAY")
@@ -103,21 +88,18 @@ local function NewMark()
   return m
 end
 
--- onto the button that shows the talent now (Blizzard reuses its buttons for other talents when it reloads the tree)
 local function Place(m, button)
   m:SetParent(button)
   m:ClearAllPoints()
   m:SetAllPoints(button)
   m:SetFrameLevel(button:GetFrameLevel() + 10)
-  local pad = button:GetWidth() * 0.4 -- the glow texture's ring sits well inside its square
+  local pad = button:GetWidth() * 0.4
   m.glow:ClearAllPoints()
   m.glow:SetPoint("TOPLEFT", -pad, pad)
   m.glow:SetPoint("BOTTOMRIGHT", pad, -pad)
   m:Show()
 end
 
--- the build's points still to take, in order: the next one, and as many more as you have points to spend now (at
--- most MAX_NUMBERED). Returns { [node ID] = { its numbers } }, how many are numbered, and the next step.
 local function Queue(steps, toSpend)
   local numbers, count, first = {}, 0, nil
   local limit = math.max(1, math.min(toSpend, MAX_NUMBERED))
@@ -142,7 +124,6 @@ local function NextText(step, toSpend)
   return ("Next, at level %d: %s"):format(math.max(10, UnitLevel("player") + 1), name)
 end
 
--- the marks for each talent the build wants (want: what it asks of each talent as you follow it)
 local function ShowMarks(talents, want, ranks, numbers, count, nextStep)
   for id, n in pairs(want) do
     local button = n > 0 and talents:GetTalentButtonByNodeID(id)
@@ -153,7 +134,6 @@ local function ShowMarks(talents, want, ranks, numbers, count, nextStep)
       local isNext = nextStep ~= nil and nextStep.id == id
       m.glow:SetShown(isNext)
       if isNext then m.pulse:Play() else m.pulse:Stop() end
-      -- numbers only when there's more than the next point to spend (the glow says "next" on its own)
       m.order:SetText(count > 1 and numbers[id] and table.concat(numbers[id], ",") or "")
       m.goal:SetText(have < n and ("%d/%d"):format(have, n) or "")
       m.tick:SetShown(have >= n)
@@ -181,8 +161,6 @@ function TalentFrame.Refresh()
   bar.next:SetText(NextText(nextStep, available - spent))
 end
 
--- what the build says about a talent: its place in the build, then (for its next point) why, the close
--- alternatives, whether it's your choice, the talent's note
 local function TooltipLines(tooltip, build, id, ranks)
   local t = KP.Build.Talent(id)
   local steps, _, want = KP.Build.Follow(build, ranks)
@@ -223,7 +201,6 @@ local function TooltipLines(tooltip, build, id, ranks)
   if t.note then tooltip:AddLine(t.note, 0.75, 0.75, 0.75, true) end
 end
 
--- Blizzard's tooltip for a talent of its talent window (display: the talent's button)
 local function AddTooltipLines(display, tooltip)
   local talents = TalentWindow()
   if not (talents and display.GetNodeID and ShowsYours(talents)) then return end
@@ -236,8 +213,6 @@ local function AddTooltipLines(display, tooltip)
   tooltip:Show()
 end
 
--- the talent window shows, loads its tree (also for a spec tab or someone you inspect), or redraws talents (each
--- click stages a point); Blizzard calls these listeners in a protected wrapper (CallbackRegistry: securecallfunction)
 for _, event in ipairs({ "PlayerSpellsFrame.TalentTab.Show", "TalentFrameBase.ButtonsUpdated",
   "TalentFrameBase.ConfigUpdated" }) do
   EventRegistry:RegisterCallback(event, function() KP.Safe(TalentFrame.Refresh) end)
@@ -245,4 +220,4 @@ end
 EventRegistry:RegisterCallback("TalentDisplay.TooltipCreated", function(_, display, tooltip)
   KP.Safe(AddTooltipLines, display, tooltip)
 end)
-KP:On("PLAYER_LEVEL_UP", function() KP.After(2, TalentFrame.Refresh) end) -- a new point to spend
+KP:On("PLAYER_LEVEL_UP", function() KP.After(2, TalentFrame.Refresh) end)

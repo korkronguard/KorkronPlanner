@@ -1,26 +1,17 @@
--- Kor'kron Planner: /kp probe. Finds out which talent, stat and spell functions Forever's client gives addons,
--- tries them read-only, and saves the answers to KorkronPlannerDB.probe (written to disk on /reload or logout).
--- Nothing here changes the character.
 local _, KP = ...
 
 local FUNCTIONS = {
-  -- classic talent functions
   "GetNumTalentTabs", "GetTalentTabInfo", "GetNumTalents", "GetTalentInfo", "GetTalentPrereqs", "LearnTalent",
   "UnitCharacterPoints", "GetUnspentTalentPoints",
-  -- stats
   "UnitStat", "UnitAttackPower", "UnitRangedAttackPower", "UnitAttackSpeed", "UnitDamage", "UnitArmor",
   "GetCritChance", "GetRangedCritChance", "GetSpellCritChance", "GetHitModifier", "GetSpellHitModifier",
   "GetSpellBonusDamage", "GetSpellBonusHealing", "GetCombatRating", "GetCombatRatingBonus", "GetDodgeChance",
   "GetParryChance", "GetBlockChance", "GetShieldBlock", "GetManaRegen", "UnitPowerMax", "UnitHealthMax",
-  -- what a stat gives, as the game's own character sheet shows it (Core/Sheet.lua uses them when they're there)
   "GetCritChanceFromAgility", "GetSpellCritChanceFromIntellect", "GetDodgeChanceFromAgility", "GetAttackPowerForStat",
-  -- other
   "GetSpellInfo", "IsSpellKnown", "GetShapeshiftFormID", "InCombatLockdown", "issecretvalue",
 }
 local NAMESPACES = { "C_Traits", "C_ClassTalents", "C_SpecializationInfo", "C_Spell", "C_SpellBook", "C_PaperDollInfo" }
 
--- a value that's safe to keep in the saved report: hidden ("secret") values become "<hidden>", functions and other
--- objects their type, and tables are copied the same way (a few levels deep)
 local function Clean(v, depth)
   if not KP.Readable(v) then return "<hidden>" end
   local kind = type(v)
@@ -40,7 +31,6 @@ end
 
 local function pack(...) return { n = select("#", ...), ... } end
 
--- call fn read-only and keep every result: n = how many (some can be nil), hidden ones as "<hidden>"
 local function try(fn, ...)
   local r = pack(pcall(fn, ...))
   if not r[1] then return { error = Clean(r[2]) } end
@@ -49,14 +39,12 @@ local function try(fn, ...)
   return out
 end
 
--- which of these global functions exist
 local function Functions(names)
   local out = {}
   for _, name in ipairs(names) do out[name] = type(_G[name]) == "function" end
   return out
 end
 
--- every function in these C_ tables (the ones the game has)
 local function Namespaces(names)
   local out = {}
   for _, ns in ipairs(names) do
@@ -79,7 +67,6 @@ function KP:Probe()
   p.functions = Functions(FUNCTIONS)
   p.namespaces = Namespaces(NAMESPACES)
 
-  -- classic talents: tabs and the first few talents of each
   p.talents = {}
   if p.functions.GetNumTalentTabs then
     p.talents.tabs = try(GetNumTalentTabs)
@@ -97,19 +84,17 @@ function KP:Probe()
   end
   if p.functions.UnitCharacterPoints then p.talents.points = try(UnitCharacterPoints, "player") end
 
-  -- trait talents: the active config and its tree
   p.traits = {}
   if C_ClassTalents and C_ClassTalents.GetActiveConfigID then
     p.traits.activeConfig = try(C_ClassTalents.GetActiveConfigID)
     local configID = p.traits.activeConfig[1]
     if type(configID) == "number" and C_Traits and C_Traits.GetConfigInfo then
       local info = try(C_Traits.GetConfigInfo, configID)
-      local first = info[1] -- already cleaned by try
+      local first = info[1]
       p.traits.configInfo = type(first) == "table" and { type = first.type, name = first.name, treeIDs = first.treeIDs } or info
     end
   end
 
-  -- stats (each stat: base, effective, bonus, penalty)
   p.stats = {}
   if p.functions.UnitStat then for i = 1, 5 do p.stats["stat" .. i] = try(UnitStat, "player", i) end end
   for _, name in ipairs({ "GetCritChance", "GetRangedCritChance", "GetHitModifier", "GetSpellHitModifier",
@@ -134,7 +119,6 @@ function KP:Probe()
 
   KorkronPlannerDB.probe = p
 
-  -- summary in chat
   local talentKind = p.functions.GetTalentInfo and "classic talent functions" or
     (p.namespaces.C_Traits and "trait functions (C_Traits)" or "no talent functions found")
   self:Print(("probe done (%s, level %s %s): %s; LearnTalent %s; %d of the functions it looks for exist.")
@@ -144,20 +128,13 @@ function KP:Probe()
   self:Print("type /reload so the game saves the full report (SavedVariables\\KorkronPlanner.lua).")
 end
 
--- /kp probe fight: can the addon measure a fight without the combat log (addons can't read it on Forever)? It reads
--- the game's own damage meter now and two seconds after your next fight (C_DamageMeter: the client's notes mark its
--- numbers hidden only during a fight), and counts what the game's combat numbers (UNIT_COMBAT: the notes mark only
--- the amount hidden) showed in between. Saved to KorkronPlannerDB.fightProbe = { time, build, calm = { meter, target },
--- fight = { fights, seconds, target, combat = { [unit] = { [kind] = { count, amounts, hiddenAmounts, marks } } }, meter } }.
 local METER_TYPES = { "DamageDone", "DamageTaken", "EnemyDamageTaken", "HealingDone" }
 local COUNTED = { player = true, target = true, pet = true }
 
--- one of the damage meter's counts for the latest fight: everyone in it, and your own abilities
 local function MeterType(kind)
   local current = Enum.DamageMeterSessionType.Current
   local you = C_DamageMeter.GetCombatSessionSourceFromType(current, kind, UnitGUID("player"))
   local out = { session = Clean(C_DamageMeter.GetCombatSessionFromType(current, kind)), you = Clean(you) }
-  -- each ability cleaned by itself, so its list of targets is kept (Clean stops three levels down)
   if type(out.you) == "table" and type(out.you.combatSpells) == "table" then
     for i, spell in ipairs(you.combatSpells) do out.you.combatSpells[i] = Clean(spell) end
   end
@@ -181,11 +158,9 @@ local function Target()
     health = try(UnitHealth, "target"), healthMax = try(UnitHealthMax, "target") }
 end
 
-local watch -- the fights being watched, while the check is armed
--- its own frame: combat numbers come many times a second, so they're listened to only while the check is armed
+local watch
 local watcher = CreateFrame("Frame")
 
--- what the meter says you did, for the chat line
 local function MeterLine(meter)
   if meter.missing then return "this client has no damage meter" end
   local you = meter.types.DamageDone.you
@@ -194,7 +169,6 @@ local function MeterLine(meter)
 end
 
 local function FightOver()
-  -- armed again since that fight: wait for a fight of this check; fighting again: read it after that fight
   if not watch or not watch.start or InCombatLockdown() then return end
   watcher:UnregisterAllEvents()
   local fight = watch
@@ -217,10 +191,8 @@ function WATCHED.PLAYER_REGEN_DISABLED()
 end
 function WATCHED.PLAYER_REGEN_ENABLED()
   watch.seconds = watch.seconds + GetTime() - watch.start
-  KP.After(2, FightOver) -- the meter closes its count a moment after the fight
+  KP.After(2, FightOver)
 end
--- one combat number: counted by who it landed on and its kind ("WOUND", "MISS", "PARRY"...), with whether its amount
--- could be read and its mark ("CRITICAL", "GLANCING"...)
 function WATCHED.UNIT_COMBAT(unit, kind, mark, amount)
   if not KP.Readable(unit) or not COUNTED[unit] then return end
   if unit == "target" and not watch.target then watch.target = Target() end

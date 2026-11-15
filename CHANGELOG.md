@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.30.2
+
+- **The guild's crest**, the Kor'kron Guard's tabard emblem on crimson, now sits in the title band of the `/kp` window
+  and the copy box, the same in all the Kor'kron mods. After updating, restart the game once (not just `/reload`) so the
+  new art loads.
+- **The game's update of November 14:** its 39 new items (mostly dungeon set pieces) get upgrade tooltips, and the builds,
+  gear lists and stat weights take in the guild's newest measurements.
+
 ## 0.30.1
 
 - **The game's November 13 update and that day's hotfixes are in the planner:** 84 new items, and Darkspear Signet,

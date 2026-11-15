@@ -1,34 +1,16 @@
--- Kor'kron Planner: the guild's automatic check of the planner's talent and spell numbers against the game, so nobody
--- has to type /kp datamine. With sharing on (/kp share), out of combat and outside instances, a minute after login:
---   talents: your class's talent tooltips at every rank, compared here with the planner's (Data/Talents.lua). Only the
---            ranks whose numbers differ are kept, with a count of those checked. Once per class for each game build and
---            addon version (KorkronPlannerDB.checks.version), at any level.
---   spells:  the descriptions of the spells you know that no character on this account has recorded for this version
---            (again after you learn new ones). The addon doesn't carry spell texts, so these go to the collector whole
---            and the website's tools/datamine.py compares them.
--- Records wait in KorkronPlannerDB.checks.outbox until the guild's collector acknowledges them. Messages (Comm.lua):
---   D^key^i^n^part   player: a record in parts, when the collector asks (Share.lua) or right away while it's around
---   E^key            collector: stored it; the player drops it
--- The collector keeps KorkronPlannerDB.checksCollected[key] = { from = sender, text }; its own records go straight in.
--- Record text, fields split by "~" (taken out of the game's text):
---   T~version~class~level~ranks checked~node ID,rank,game text~...   (only the talent ranks whose numbers differ)
---   P~version~class~level~spell ID~text~spell ID~text~...
--- The outbox also carries the totals of your fights (F2 records, Core/Fights.lua).
 local _, KP = ...
 
 local Check = {}
 KP.Check = Check
 local Comm = KP.Comm
 
-local DELAY = 60  -- seconds after login (or a spellbook change) before checking: things settle first
-local sentAt = {} -- [key] = GetTime() a record was last sent
+local DELAY = 60
+local sentAt = {}
 
--- the game build and this addon's version: a new one of either checks again
 function Check.Version()
   return ("%s/%s"):format(KP.Text((select(2, GetBuildInfo()))) or "?", KP.Version() or "?")
 end
 
--- this version's checks, started over when the version changes (records not yet delivered stay in the outbox)
 local function DB()
   local checks, version = KorkronPlannerDB.checks, Check.Version()
   if checks.version ~= version then
@@ -37,7 +19,6 @@ local function DB()
   return checks
 end
 
--- the game's text made safe for a record: no "~" (the separator), color codes or line breaks
 local function Clean(text)
   return (text:gsub("|c%x%x%x%x%x%x%x%x", ""):gsub("|cn[^:]*:", ""):gsub("|r", ""):gsub("[\r\n~]", " "))
 end
@@ -48,7 +29,6 @@ local function Numbers(text)
   return out
 end
 
--- the same numbers in the same order ("5.0 sec" and "5 sec" agree; the wording may differ)
 local function SameNumbers(a, b)
   local x, y = Numbers(a), Numbers(b)
   if #x ~= #y then return false end
@@ -58,7 +38,6 @@ local function SameNumbers(a, b)
   return true
 end
 
--- your class's talent tooltips against the planner's: the record, or nil when the game gave none (it'll try again)
 local function TalentRecord(class)
   local game = KP.Datamine.TalentTexts(class)
   local fields, checked = { "T", DB().version, class, UnitLevel("player"), 0 }, 0
@@ -77,7 +56,6 @@ local function TalentRecord(class)
   return checked > 0 and table.concat(fields, "~") or nil
 end
 
--- the spells you know that this account hasn't recorded yet: the record, or nil when there are none
 local function SpellRecord(class)
   local recorded, fields = DB().spells, { "P", DB().version, class, UnitLevel("player") }
   for id, text in pairs(KP.Datamine.SpellTexts()) do
@@ -90,7 +68,6 @@ local function SpellRecord(class)
   return #fields > 4 and table.concat(fields, "~") or nil
 end
 
--- a record for the collector: kept until it acknowledges it (the collector's own go straight in)
 function Check.Add(text)
   local key = ("%d%04d"):format(GetServerTime(), math.random(0, 9999))
   if KorkronPlannerDB.collector then
@@ -101,7 +78,6 @@ function Check.Add(text)
   end
 end
 
--- Share.lua calls this when the collector asks
 function Check.SendUndelivered()
   if not KorkronPlannerDB.share or IsInInstance() then return end
   local now = GetTime()
@@ -118,7 +94,7 @@ local scheduled
 local function Run()
   scheduled = nil
   if not KorkronPlannerDB.share then return end
-  if InCombatLockdown() or IsInInstance() then return Check.Schedule() end -- the game can hide values there
+  if InCombatLockdown() or IsInInstance() then return Check.Schedule() end
   local _, class = UnitClass("player")
   local checks = DB()
   if not checks.talents[class] then
@@ -141,7 +117,7 @@ end
 Comm.OnLong("D", function(key, text, sender)
   if not KorkronPlannerDB.collector then return end
   KorkronPlannerDB.checksCollected[key] = { from = sender, text = text }
-  Comm.Send("E^" .. key) -- even when it was already here, so the player stops sending it
+  Comm.Send("E^" .. key)
 end)
 
 Comm.On("E", function(msg)
@@ -150,4 +126,4 @@ Comm.On("E", function(msg)
 end)
 
 KP:On("PLAYER_LOGIN", Check.Schedule)
-KP:On("SPELLS_CHANGED", Check.Schedule) -- a new spell's text goes out too
+KP:On("SPELLS_CHANGED", Check.Schedule)

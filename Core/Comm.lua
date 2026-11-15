@@ -1,5 +1,3 @@
--- Kor'kron Planner: guild addon messages. Sending goes through a queue with Kor'kron Roster's bandwidth budget
--- (~800 bytes a second, like ChatThrottleLib), so a long answer never floods the guild channel.
 local _, KP = ...
 
 local Comm = {}
@@ -8,7 +6,6 @@ KP.Comm = Comm
 local PREFIX = "KorkronPlanner"
 local MAX_MESSAGE = 255
 local CPS, BURST, OVERHEAD = 800, 2000, 25
--- Enum.SendAddonMessageResult values that mean "try again later" (AddonMessageThrottle, ChannelThrottle)
 local THROTTLED = { [3] = true, [8] = true }
 
 C_ChatInfo.RegisterAddonMessagePrefix(PREFIX)
@@ -22,11 +19,10 @@ local function Pump(frame, elapsed)
     local msg = queue[1]
     local cost = #msg + OVERHEAD
     if bucket < cost then return end
-    -- taken off the queue before sending, so a message the game rejects with an error isn't retried every frame
     table.remove(queue, 1)
     if THROTTLED[C_ChatInfo.SendAddonMessage(PREFIX, msg, "GUILD")] then
       table.insert(queue, 1, msg)
-      bucket = 0 -- the server pushed back; retry once the bucket refills
+      bucket = 0
       return
     end
     bucket = bucket - cost
@@ -38,7 +34,6 @@ local pump = CreateFrame("Frame")
 pump:Hide()
 pump:SetScript("OnUpdate", function(frame, elapsed) KP.Safe(Pump, frame, elapsed) end)
 
--- Queue a message for the guild channel (nothing happens outside a guild)
 function Comm.Send(msg)
   if not IsInGuild() then return end
   assert(#msg <= MAX_MESSAGE, "addon message too long")
@@ -46,17 +41,12 @@ function Comm.Send(msg)
   pump:Show()
 end
 
--- Receiving: Comm.On("Q", function(msg, sender) end) gets every guild message whose first "^" field is "Q".
--- The guild channel also delivers our own messages back to us.
 local handlers = {}
 
 function Comm.On(command, fn)
   handlers[command] = fn
 end
 
--- Long texts (a snapshot, a talent and spell check) in parts: "tag^key^i^n^part", PART characters each.
--- Comm.OnLong(tag, function(key, text, sender) end) gets the whole text once its last part is in. Parts arrive in
--- order; after a gap the text is dropped, and the sender's next try brings it whole.
 local PART = 230
 
 function Comm.SendLong(tag, key, text)
@@ -67,7 +57,7 @@ function Comm.SendLong(tag, key, text)
 end
 
 function Comm.OnLong(tag, fn)
-  local partial = {} -- [sender^key] = { n = parts expected, parts = { ... } }
+  local partial = {}
   Comm.On(tag, function(msg, sender)
     local key, i, n, part = msg:match("^[^%^]+%^([^%^]+)%^(%d+)%^(%d+)%^(.*)$")
     if not part then return end
@@ -87,7 +77,6 @@ function Comm.OnLong(tag, fn)
 end
 
 KP:On("CHAT_MSG_ADDON", function(prefix, msg, channel, sender)
-  -- the game can hide these inside instances; a hidden message can't be read, so it's skipped
   prefix, msg, channel, sender = KP.Text(prefix), KP.Text(msg), KP.Text(channel), KP.Text(sender)
   if prefix ~= PREFIX or channel ~= "GUILD" or not msg or not sender then return end
   local handler = handlers[msg:match("^[^%^]+")]

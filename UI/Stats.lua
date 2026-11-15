@@ -1,8 +1,3 @@
--- Kor'kron Planner: the Stats tab of the /kp window. For each of your build's two numbers (staying alive and damage, or
--- healing), the stats that count: how much of each you have, what 1 more point adds, how that compares with your main stat,
--- and how far a cap is. Where the addon has your class's math (Core/StatWeights.lua: Warriors so far) it's from your own
--- sheet, talents and weapons, against the enemy you choose. For the other classes it's the planner's numbers for your build
--- with its best gear at your level (Data/Weights.lua). The item tooltips and bag arrows judge gear by the same numbers.
 local _, KP = ...
 
 local Pane = {}
@@ -13,9 +8,7 @@ local TARGETS = { { key = "same", label = "Normal enemy", text = "a normal enemy
   { key = "elite3", label = "Elite, 3 levels up", text = "an elite 3 levels above you" } }
 local MAIN = { strength = true, agility = true, stamina = true, intellect = true, spirit = true }
 local WEAPON = { mainHand = "Main-hand weapon", offHand = "Off-hand weapon", ranged = "Ranged weapon" }
-local TURNS_OF = { v = "d", d = "d", e = "e" } -- which of a stat's turns goes with a measure (a damage dealer's v is its damage)
--- A section per number of the build, by the short name UI/Upgrade.lua's MEASURES give it: its heading, your own total in
--- words, what a point adds in words, and what the number is
+local TURNS_OF = { v = "d", d = "d", e = "e" }
 local SECTION = {
   ["eff. HP"] = { title = "Staying alive", total = "your effective health is %s", unit = "effective health",
     about = "Effective health is how much damage you can take before you die: your health, and what your armor, dodge, parry " ..
@@ -26,26 +19,21 @@ local SECTION = {
   HPS = { title = "Healing", total = "you heal %s a second", unit = "healing a second",
     about = "Your healing a second with the mana you have, by the planner's math." },
 }
-local FOR_UNIT = "%s: what a point adds to your %s" -- a section's heading when the numbers are the planner's, not your own
--- Against an elite a Warrior's damage counts their own Sunder Armor (Core/Sim.lua's CountsSunder): on the Damage heading and
--- in its tooltip, because the number is so much higher than a normal enemy's
+local FOR_UNIT = "%s: what a point adds to your %s"
 local SUNDER_HEAD = ", with your Sunder Armor at %d stacks"
 local SUNDER_ABOUT = "Against an elite this counts your own Sunder Armor: %d stacks from the start of the fight, then kept up, its rage " ..
   "paid out of this number. That's why it's higher than against a normal enemy, where none is counted: it dies before the " ..
   "stacks pay for themselves."
 local ROWS, ROW_H, TOP = 18, 18, -122
-local NAME_W, HAVE_W, ADDS_W, SAME_W, CAP_X = 150, 72, 62, 92, 390 -- the columns, left to right (the last runs to the edge)
-local CONTROLS_X = 116 -- where the two rows of buttons start, after their labels
-local SMALL = 0.0005 -- a worth below this shows as nothing
-local SHARE = 0.05 -- a stat that adds less than this share of its section's best is left out
-local CHUNK = { armor = 12, bonusArmor = 12 } -- armor comes in hundreds on an item where other stats come in tens
--- a stat that's another under a second name on items: left out when a point of it is worth the same
+local NAME_W, HAVE_W, ADDS_W, SAME_W, CAP_X = 150, 72, 62, 92, 390
+local CONTROLS_X = 116
+local SMALL = 0.0005
+local SHARE = 0.05
+local CHUNK = { armor = 12, bonusArmor = 12 }
 local TWIN = { bonusArmor = "armor", spellDamage = "spellPower" }
--- the chance a rating feeds, in words (Core/Sheet.lua's Have gives it in %)
 local CHANCE = { crit = "your crit chance is %s%%", hit = "with your talents that's %s%% more hit", dodge = "your dodge chance is %s%%",
   parry = "your parry chance is %s%%", block = "your block chance is %s%%" }
 
--- a piece of text at a place in its parent; oneLine: a table cell, cut short rather than wrapped onto the row below
 local function Text(parent, font, x, y, width, justify, oneLine)
   local fs = parent:CreateFontString(nil, "OVERLAY", font)
   fs:SetJustifyH(justify or "LEFT")
@@ -59,15 +47,12 @@ local function Worth(x)
   return math.abs(x) >= SMALL and KP.Upgrade.Number(x) or nil
 end
 
--- "1,759", "61.3": a whole number with its thousands apart, a small one with a decimal
 local function Amount(x)
   if x < 100 then return KP.Num(x, 1) end
   local text = ("%d"):format(x + 0.5):reverse():gsub("(%d%d%d)", "%1,"):reverse()
   return (text:gsub("^,", ""))
 end
 
--- How much of a stat you have, as the list shows it: "147", "31 (6.2%)" for a rating and the chance it feeds, "44.5 a sec"
--- for a weapon; "" when the game has no number for it or hides it
 local function Have(key)
   local amount, chance = KP.Sheet.Have(key)
   if not amount then return "" end
@@ -75,12 +60,10 @@ local function Have(key)
   return Amount(amount) .. (chance and (" (%s%%)"):format(KP.Num(chance, 1)) or "")
 end
 
--- a turn's place in whole points (it's worked out to a fraction of one)
 local function Points(x)
   return math.floor(x + 0.5)
 end
 
--- "47 more, then +0.021" for the nearest turn of a stat's worth, "capped: 12 to spare" past one; nil when there's none in reach
 local function Coming(found)
   if not found then return nil end
   if found.spare then return ("capped: %d to spare"):format(Points(found.spare)) end
@@ -88,7 +71,6 @@ local function Coming(found)
   return turn and ("%d more, then %s"):format(Points(turn.at), Worth(turn.worth) or "nothing") or nil
 end
 
--- the same in a sentence, for the row's tooltip
 local function ComingLine(found)
   if found.spare then return ("More adds nothing: you have %d more than you need."):format(Points(found.spare)) end
   local first, second = found.turns[1], found.turns[2]
@@ -100,7 +82,6 @@ local function ComingLine(found)
   return text .. "."
 end
 
--- what hit has to reach against the enemy your weights are measured on
 local function HitLine(W)
   local caps, sheet = KP.Sim.HitCaps(W.ctx.target), W.ctx.sheet
   local needs = ("your abilities stop missing at %s%% hit"):format(KP.Num(caps.melee, 1))
@@ -108,7 +89,6 @@ local function HitLine(W)
   return ("Against this enemy %s. You have %s%%."):format(needs, KP.Num(sheet.hit, 1))
 end
 
--- a line of the list under the mouse: what a section's number is, or a stat in full
 local function ShowRow(row)
   local line, pane = row.line, row.pane
   if not line then return end
@@ -158,7 +138,7 @@ function Pane.Create(parent, width, height)
       KP.Safe(function()
         onClick()
         KP.Window.Refresh()
-        KP.BagIcons.Refresh() -- the arrows judge gear by these weights
+        KP.BagIcons.Refresh()
       end)
     end)
     return b
@@ -188,7 +168,7 @@ function Pane.Create(parent, width, height)
     row:SetSize(width, ROW_H)
     row:SetPoint("TOPLEFT", 0, TOP - (r - 1) * ROW_H)
     row.pane = pane
-    row.shade = row:CreateTexture(nil, "BACKGROUND") -- every other stat, so the eye can follow a line across
+    row.shade = row:CreateTexture(nil, "BACKGROUND")
     row.shade:SetAllPoints()
     row.shade:SetColorTexture(1, 1, 1, 0.05)
     row.head = Text(row, "KorkronPlannerFontNormal", 0, -3, width, "LEFT", true)
@@ -218,10 +198,6 @@ local function SetShown(pane, controls, list)
   pane.foot:SetShown(list)
 end
 
--- The stats that count for one of the build's numbers (m: its entry in UI/Upgrade.lua's MEASURES), most per point first:
--- { key, name, measure, section, worth = what 1 point adds, main = the section's main stat, same = how many points of it a
--- point of this is worth (nil for the main stat itself) }. A stat that adds next to nothing beside the others is left out,
--- and one that's another stat's twin (bonus armor) when it's worth the same.
 local function Section(W, m)
   local stats, main, top = {}, nil, 0
   for _, s in ipairs(KP.Upgrade.STATS) do
@@ -249,8 +225,6 @@ local function Section(W, m)
   return kept
 end
 
--- The list's lines, top to bottom: a heading per number of the build (with your own total when the weights are yours), then
--- its stats
 local function Lines(pane, W)
   local lines = {}
   for _, m in ipairs(pane.measures) do
@@ -289,9 +263,8 @@ local function ShowList(pane, W)
   end
 end
 
--- build: the chosen build (nil when none): its role decides which number comes first
 function Pane.Refresh(pane, build)
-  KP.StatWeights.Stale() -- a buff changes your sheet with no event the addon follows: showing the tab reads it again
+  KP.StatWeights.Stale()
   local role = build and build.role or "dps"
   local target = KP.StatWeights.Target(build)
   local knows = KP.StatWeights.Knows()
@@ -308,7 +281,7 @@ function Pane.Refresh(pane, build)
     local hit = KorkronPlannerCharDB.simNotHit ~= true
     KP.Style.SetButtonKind(pane.tanking, hit)
     KP.Style.SetButtonKind(pane.notTanking, not hit)
-    local stance = W.stance ~= "none" and ", in " .. KP.SimPane.StanceName[W.stance] or "" -- a Rogue has none
+    local stance = W.stance ~= "none" and ", in " .. KP.SimPane.StanceName[W.stance] or ""
     pane.note:SetText(("Worked out from the gear you wear, your talents and your weapons%s, against %s %s.%s%s"):format(
       stance, enemy, hit and "that's hitting you" or "that someone else is tanking",
       build and "" or " No planner build chosen: counted as a damage dealer.",

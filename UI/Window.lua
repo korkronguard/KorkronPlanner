@@ -1,32 +1,25 @@
--- Kor'kron Planner: the /kp window. On the left you pick one of your class's suggested builds (by spec: Solo, Dungeon,
--- PvP) or paste a planner link; on the right, tabs: Build (the next talent, the points after it, your own picks and
--- choices), Talents (UI/Talents.lua), Priority (UI/Priority.lua), Gear (UI/Gear.lua), Stats (UI/Stats.lua), Formulas
--- (UI/Formulas.lua), DPS (UI/Sim.lua) and Abilities (UI/Abilities.lua), which takes the whole width: the build picker steps
--- aside while it's open.
 local _, KP = ...
 
 local Window = {}
 KP.Window = Window
 
 local Style = KP.Style
-local TOP = Style.TOP -- the tab row
-local MAX_BUILDS = 12 -- three paths for each of three specs, with room for a spec that has two builds on a path
-local ROWS = 14       -- upcoming points shown
-local RIGHT = 282     -- where the tabs start
-local PICK_W = 252    -- the build picker on the left
+local TOP = Style.TOP
+local MAX_BUILDS = 12
+local ROWS = 14
+local RIGHT = 282
+local PICK_W = 252
 local PANE_W, PANE_H = 520, 470
-local LEFT = 16       -- where a pane that takes the whole width starts
+local LEFT = 16
 local TABS = { { key = "build", label = "Build" }, { key = "talents", label = "Talents" }, { key = "priority", label = "Priority" },
   { key = "gear", label = "Gear" }, { key = "stats", label = "Stats" }, { key = "formulas", label = "Formulas" },
   { key = "sim", label = "DPS" }, { key = "abilities", label = "Abilities" } }
-local TAB_W = 63 -- eight tabs across the pane
-local WIDE = { abilities = true } -- the tabs that take the whole width
+local TAB_W = 63
+local WIDE = { abilities = true }
 
 local frame
 local tab = "build"
 
--- a point of the path: the talent's tooltip at the rank it gives, the planner's reason for it, the talents the math
--- rates nearly as good there, whether it's your choice, the talent's note
 local function ShowPointTooltip(row)
   local t, step = KP.Build.Talent(row.step.id), row.step
   GameTooltip:SetOwner(row, "ANCHOR_RIGHT")
@@ -73,8 +66,6 @@ local function Text(parent, font, width)
   return fs
 end
 
--- the left column: suggested builds (a heading per spec, then its Solo / Dungeon / PvP buttons) and the link box, in one frame
--- (frame.picker) that a wide tab hides
 local function CreatePicker()
   local picker = CreateFrame("Frame", nil, frame)
   picker:SetAllPoints()
@@ -126,14 +117,12 @@ local function CreatePicker()
   frame.linkBox, frame.useButton, frame.linkNote = box, use, linkNote
 end
 
--- the Build tab: name, provisional note, points, next talent, the points after it, points off the build
 local function CreateBuildPane()
   local pane = CreateFrame("Frame", nil, frame)
   pane:SetSize(PANE_W, PANE_H)
   local width = PANE_W - 10
   frame.heading = Text(pane, "KorkronPlannerFontNormalLarge", width)
   frame.heading:SetPoint("TOPLEFT", 0, 0)
-  -- hovering the build's name shows its summary (a font string can't take the mouse, so a frame lies over it)
   frame.headingHover = CreateFrame("Frame", nil, pane)
   frame.headingHover:SetAllPoints(frame.heading)
   frame.headingHover:EnableMouse(true)
@@ -172,13 +161,13 @@ local function Create()
   frame:SetSize(RIGHT + PANE_W + 16, PANE_H + 80)
   frame:SetPoint("CENTER")
   frame:SetMovable(true)
-  frame:SetToplevel(true) -- comes to the front when clicked (over the game's talent window, which opens it too)
+  frame:SetToplevel(true)
   frame:EnableMouse(true)
   frame:RegisterForDrag("LeftButton")
   frame:SetScript("OnDragStart", frame.StartMoving)
   frame:SetScript("OnDragStop", frame.StopMovingOrSizing)
   frame:SetScript("OnShow", function() KP.Safe(Window.Refresh) end)
-  table.insert(UISpecialFrames, "KorkronPlannerWindow") -- Escape closes it
+  table.insert(UISpecialFrames, "KorkronPlannerWindow")
   Style.Window(frame, "Kor'kron Planner")
 
   CreatePicker()
@@ -197,10 +186,9 @@ local function Create()
     b:SetScript("OnClick", function() KP.Safe(Window.ShowTab, t.key) end)
     frame.tabButtons[t.key] = b
   end
-  frame:Hide() -- new frames start shown; Toggle shows it, which fills it in (OnShow)
+  frame:Hide()
 end
 
--- a heading per spec, then its builds three to a row (two when a label needs the room)
 local function ShowBuildButtons(chosenKey)
   local y, n = TOP - 22, 0
   local specs = KP.Build.BySpec()
@@ -236,9 +224,6 @@ local function ShowBuildButtons(chosenKey)
   for i = n + 1, MAX_BUILDS do frame.buildButtons[i]:Hide() end
 end
 
--- the upcoming points: the first not taken is "Next", the rest follow in the build's order (points dropped to make
--- room for your own picks left out). build.why = the planner's reason for each point and build.alts the talents it
--- rates nearly as good there (a suggested build's; a pasted link has neither)
 local function ShowRows(steps, build)
   local shown = 0
   for _, step in ipairs(steps) do
@@ -344,7 +329,6 @@ function Window.Toggle()
   if frame:IsShown() then frame:Raise() end
 end
 
--- after a build is chosen anywhere (here or on the game's talent window): everything that shows it
 function Window.BuildChanged()
   Window.Refresh()
   KP.BagIcons.Refresh()
@@ -352,5 +336,5 @@ function Window.BuildChanged()
 end
 
 for _, event in ipairs({ "TRAIT_CONFIG_UPDATED", "PLAYER_TALENT_UPDATE", "PLAYER_LEVEL_UP", "PLAYER_EQUIPMENT_CHANGED", "UPDATE_SHAPESHIFT_FORM" }) do
-  KP:On(event, function() KP.After(2, Window.Refresh) end) -- the game's numbers settle a moment after these
+  KP:On(event, function() KP.After(2, Window.Refresh) end)
 end

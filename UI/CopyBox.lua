@@ -1,5 +1,3 @@
--- Kor'kron Planner: a small window with one line of text selected, ready for Ctrl+C (the game can't copy to the
--- clipboard or open web pages itself). Used by /kp export and the Gear tab's Wowhead links.
 local _, KP = ...
 
 local box
@@ -9,7 +7,7 @@ local function Create()
   box = CreateFrame("Frame", "KorkronPlannerCopy", UIParent)
   box:SetSize(520, 138)
   box:SetPoint("CENTER")
-  box:SetFrameStrata("DIALOG") -- over the /kp window
+  box:SetFrameStrata("DIALOG")
   box:SetMovable(true)
   box:EnableMouse(true)
   box:RegisterForDrag("LeftButton")
@@ -26,7 +24,6 @@ local function Create()
   edit:SetPoint("TOPLEFT", 16, Style.TOP - 40)
   edit:SetAutoFocus(true)
   edit:SetScript("OnEscapePressed", function() box:Hide() end)
-  -- typing puts the text back, so what gets copied is always the whole line
   edit:SetScript("OnTextChanged", function(self, user) if user then self:SetText(box.text); self:HighlightText() end end)
   box.edit = edit
 end

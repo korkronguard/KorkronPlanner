@@ -1,15 +1,10 @@
--- Kor'kron Planner: your character sheet. Your numbers and the game's, the planner website's formulas worked out with
--- them (Data/Formulas.lua), and what 1 point of a main stat does: the game's own conversions where it has them (crit
--- from Agility...), the website's formulas otherwise. Used by the Formulas tab and the item tooltips.
 local _, KP = ...
 
 local Sheet = {}
 KP.Sheet = Sheet
 
--- the numbers a formula can use (Data/Formulas.lua says which)
 Sheet.INPUTS = { "level", "str", "agi", "sta", "int", "spi", "gearArmor", "armor", "health", "dodge", "parry", "block",
   "baseHealth", "baseMana", "hpPerSta", "speed", "twoHand", "agiPerCrit" }
--- what each character sheet number is called: short (tooltips) and with what it does (Formulas tab)
 Sheet.EFFECTS = {
   health = { "health", "health" },
   mana = { "mana", "mana" },
@@ -22,20 +17,15 @@ Sheet.EFFECTS = {
   regen = { "mana regen", "mana per second from Spirit, once you haven't spent mana for 5 seconds" },
 }
 local PERCENT = { crit = true, spellCrit = true, dodge = true }
--- the game's own conversions, per main stat: what the game says the whole stat gives (divided by the stat for 1
--- point). Which of these Forever has isn't known yet (/kp probe records them); without one, the planner's formula
--- stays, marked as an estimate.
 local GAME_RATES = {
   agi = { { "crit", "GetCritChanceFromAgility" }, { "dodge", "GetDodgeChanceFromAgility" } },
   int = { { "spellCrit", "GetSpellCritChanceFromIntellect" } },
 }
 
--- a number the game gives, or nil when it's missing or hidden
 local function Readable(v)
   if KP.Readable(v) then return v end
 end
 
--- your numbers, from the game (nil: some are hidden, like inside a dungeon or raid)
 function Sheet.Inputs(class)
   local level = UnitLevel("player")
   local inputs = { level = level, hpPerSta = KP.LevelTables.hpPerSta[level],
@@ -48,7 +38,6 @@ function Sheet.Inputs(class)
   local _, armor = UnitArmor("player")
   inputs.armor, inputs.health = Readable(armor), Readable(UnitHealthMax("player"))
   inputs.dodge, inputs.parry = Readable(GetDodgeChance()), Readable(GetParryChance())
-  -- blocks need a shield: the planner counts none without one (the game's sheet shows a block chance anyway)
   local offHand = Readable(GetInventoryItemID("player", 17))
   local shield = offHand and KP.Items[offHand] and KP.Items[offHand][1] == "shield"
   if shield then
@@ -56,9 +45,9 @@ function Sheet.Inputs(class)
   else
     inputs.block = 0
   end
-  inputs.speed = Readable((UnitAttackSpeed("player"))) -- your main hand's swing time, as on your character sheet
+  inputs.speed = Readable((UnitAttackSpeed("player")))
   local mainHand = Readable(GetInventoryItemID("player", 16))
-  inputs.twoHand = mainHand and KP.Items[mainHand] and KP.Items[mainHand][1] == "twoHand" and 1 or 0 -- a two-hander: 1, else 0
+  inputs.twoHand = mainHand and KP.Items[mainHand] and KP.Items[mainHand][1] == "twoHand" and 1 or 0
   local gearArmor = 0
   for slot = 1, 19 do
     local id = Readable(GetInventoryItemID("player", slot))
@@ -72,7 +61,6 @@ function Sheet.Inputs(class)
   return inputs
 end
 
--- the best of a number the game gives per school of magic (Holy 2 to Arcane 7); nil when it hides them all
 local function BestSchool(fn)
   local best
   for school = 2, 7 do
@@ -82,7 +70,6 @@ local function BestSchool(fn)
   return best
 end
 
--- the game's own numbers to compare the formulas with
 function Sheet.GameNumbers()
   local spellCrit = BestSchool(GetSpellCritChance)
   local _, armor = UnitArmor("player")
@@ -101,8 +88,7 @@ end
 local MAIN_STAT = { strength = 1, agility = 2, stamina = 3, intellect = 4, spirit = 5 }
 local SCHOOL = { holyDamage = 2, fireDamage = 3, natureDamage = 4, frostDamage = 5, shadowDamage = 6, arcaneDamage = 7 }
 local WEAPON_SLOT = { mainHand = 16, offHand = 17, ranged = 18 }
-local CASTER = { MAGE = true, PRIEST = true, WARLOCK = true } -- their hit and crit ratings are read as spell hit and crit
--- an item rating: the game's names for it (melee, spell; a client may lack one), and the chance it feeds, in %
+local CASTER = { MAGE = true, PRIEST = true, WARLOCK = true }
 local RATING = {
   crit = { "CR_CRIT_MELEE", "CR_CRIT_SPELL", function(caster) return caster and BestSchool(GetSpellCritChance) or Readable(GetCritChance()) end },
   hit = { "CR_HIT_MELEE", "CR_HIT_SPELL", function(caster, index)
@@ -115,8 +101,6 @@ local RATING = {
   defense = { "CR_DEFENSE_SKILL" }, expertise = { "CR_EXPERTISE" },
 }
 
--- How much of an item stat you have right now (the stat as Data/Weights.lua names it; a weapon's hand for its damage a
--- second), and for a rating the chance it feeds, in %. nil: the game has no number for it, or hides it.
 function Sheet.Have(key)
   if MAIN_STAT[key] then
     local _, effective = UnitStat("player", MAIN_STAT[key])
@@ -147,7 +131,6 @@ function Sheet.Have(key)
   end
 end
 
--- whether a formula's result is the planner's estimate at this level: marked so, or measured only up to a lower level
 function Sheet.IsEstimate(f, level)
   return f.estimate or (f.estimateAbove ~= nil and level > f.estimateAbove)
 end
@@ -163,7 +146,6 @@ function Sheet.Work(expr, inputs)
   return fn()
 end
 
--- what the game says 1 point of a stat gives, by one of its conversion functions (nil when it has none)
 local function GameRate(name, stat)
   local fn = _G[name]
   if type(fn) ~= "function" or not (stat and stat > 0) then return nil end
@@ -172,8 +154,6 @@ local function GameRate(name, stat)
   return total / stat
 end
 
--- What 1 point of a main stat (key: str, agi, sta, int or spi) does on your character sheet:
--- { { game = "crit", value = 0.18, digits = 2, estimate = false }, ... }
 function Sheet.Effects(class, inputs, key)
   local out, at = {}, {}
   local more = setmetatable({ [key] = inputs[key] + 1 }, { __index = inputs })
@@ -196,8 +176,6 @@ function Sheet.Effects(class, inputs, key)
   return out
 end
 
--- "+0.37% crit" (long: "+0.37% crit chance: hits for double damage") for amount points of the stat; a small value
--- gets one more decimal (spell crit per point of Intellect is about 0.01%)
 function Sheet.EffectText(effect, amount, long)
   local value = effect.value * amount
   local digits = effect.digits + (math.abs(value) < 0.1 and 1 or 0)

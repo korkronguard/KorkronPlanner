@@ -1,11 +1,9 @@
--- Kor'kron Planner: a scrolling list of text lines and icons, filled top to bottom on each refresh (the Priority and
--- Formulas tabs).
 local _, KP = ...
 
 local ScrollList = {}
 KP.ScrollList = ScrollList
 
-local SCROLLBAR = 26 -- room for the scroll bar on the right
+local SCROLLBAR = 26
 ScrollList.ICON = 18
 
 function ScrollList.Create(parent, width, height)
@@ -22,8 +20,6 @@ function ScrollList.Create(parent, width, height)
   return pane
 end
 
--- L.text(text, font, indent, gap) and L.icon(file, gap) add the next line or icon; L.finish() hides the rest. Lines and
--- icons are reused from one refresh to the next (the game can't delete font strings).
 function ScrollList.Layout(pane)
   local L = { y = 0, lines = 0, icons = 0 }
   function L.text(text, font, indent, gap)

@@ -1,15 +1,8 @@
--- Kor'kron Planner: the Gear tab of the /kp window. The planner website's Equip BiS for your build at your level
--- (Data/Gear.lua, worked out by the website with the build's talents and its own kind of weapons): for each slot the
--- best item and the next best, where each comes from, and a tick when you're wearing it. Clicking a slot lists its
--- options, and you can choose your own (saved per character, build and gear level). Link gives the item's Wowhead page
--- to copy, which says where to get it. Hovering an item shows the game's tooltip for it.
 local _, KP = ...
 
 local Pane = {}
 KP.GearPane = Pane
 
--- the slots in the character screen's order, with the inventory slots to look in for what you wear (a ring or trinket
--- counts in either of its two)
 local SLOTS = {
   { key = "head", label = "Head", inv = { 1 } }, { key = "neck", label = "Neck", inv = { 2 } },
   { key = "shoulder", label = "Shoulders", inv = { 3 } }, { key = "back", label = "Back", inv = { 15 } },
@@ -24,7 +17,7 @@ local SLOTS = {
 local QUALITY = { [0] = "9d9d9d", [1] = "ffffff", [2] = "1eff00", [3] = "0070dd", [4] = "a335ee", [5] = "ff8000" }
 local SOURCE = { quest = "Quest", drop = "Drop", vendor = "Vendor", crafted = "Crafted" }
 local TICK = "|TInterface\\RaidFrame\\ReadyCheck-Ready:14|t"
-local WOWHEAD = "https://www.wowhead.com/forever/item=%d" -- Wowhead's WoW: Forever database, as on the website
+local WOWHEAD = "https://www.wowhead.com/forever/item=%d"
 local ROW, OPTION, PAD = 22, 20, 10
 local Style = KP.Style
 
@@ -35,8 +28,6 @@ local function Text(parent, font, width, justify)
   return fs
 end
 
--- the website doesn't know every item's icon (0), the game does. Which of its two icon functions Forever has isn't
--- known yet (the probe doesn't check), so either will do, and a question mark when neither answers.
 local function ItemIcon(id, item)
   if item.icon ~= 0 then return item.icon end
   return (C_Item and C_Item.GetItemIconByID and C_Item.GetItemIconByID(id)) or (GetItemIcon and GetItemIcon(id))
@@ -67,7 +58,6 @@ local function Wearing(invSlots, itemID)
   return false
 end
 
--- an item's icon (at left), name, source and Link button on a slot row or a menu line; right = room kept on the right
 local function AddItemParts(row, left, right)
   row.icon = row:CreateTexture(nil, "ARTWORK")
   row.icon:SetSize(16, 16)
@@ -83,7 +73,7 @@ local function AddItemParts(row, left, right)
   row.name = Text(row, "KorkronPlannerFontHighlightSmall")
   row.name:SetPoint("LEFT", row.icon, "RIGHT", 4, 0)
   row.name:SetPoint("RIGHT", row.src, "LEFT", -4, 0)
-  row.name:SetWordWrap(false) -- a long name is cut short instead of running onto a second line
+  row.name:SetWordWrap(false)
   local gold = Style.COLOR.gold
   local lit = row:CreateTexture(nil, "HIGHLIGHT")
   lit:SetAllPoints()
@@ -101,8 +91,6 @@ local function ShowItem(row, id, worn)
   row.link:Show()
 end
 
--- which of a slot's options is yours: the one you chose, else the planner's pick (also when a new version of the
--- website's gear no longer lists your choice)
 local function ChosenIndex(options, chosenID)
   for i, option in ipairs(options) do
     if option[1] == chosenID then return i end
@@ -110,7 +98,6 @@ local function ChosenIndex(options, chosenID)
   return 1
 end
 
--- choosing the first option (the planner's pick) forgets your own choice
 local function Choose(pane, i)
   local row, gear = pane.menu.row, KorkronPlannerCharDB.gear
   gear[pane.buildKey] = gear[pane.buildKey] or {}
@@ -140,7 +127,7 @@ local function CreateMenu(pane, width)
   local menu = CreateFrame("Frame", nil, pane, "BackdropTemplate")
   Style.Panel(menu)
   menu:SetWidth(width)
-  menu:SetFrameStrata("HIGH") -- over the /kp window, under the copy box
+  menu:SetFrameStrata("HIGH")
   menu:SetClampedToScreen(true)
   menu:EnableMouse(true)
   menu.title = Text(menu, "KorkronPlannerFontNormalSmall", width - 2 * PAD - 20)
@@ -151,7 +138,6 @@ local function CreateMenu(pane, width)
   return menu
 end
 
--- a slot's options under (or, low in the list, over) its row; clicking the row again closes it
 local function OpenMenu(pane, row)
   local menu = pane.menu
   if menu:IsShown() and menu.row == row then return menu:Hide() end
@@ -205,8 +191,6 @@ function Pane.Create(parent, width, height)
   return pane
 end
 
--- one slot's row: your item for it (gold label when it's your own choice), or a dash when the planner has none.
--- Returns whether there's an item and whether you wear it.
 local function ShowRow(row, options, chosenID)
   row.options = options
   if not options then
@@ -228,7 +212,6 @@ local function ShowRow(row, options, chosenID)
   return true, worn
 end
 
--- build: the chosen build (nil when none)
 function Pane.Refresh(pane, build)
   pane.menu:Hide()
   local entry = build and KP.Build.ForLevel(KP.Gear, build.key, UnitLevel("player"))

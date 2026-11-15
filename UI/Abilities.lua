@@ -1,15 +1,10 @@
--- Kor'kron Planner: the Abilities tab of the /kp window. Every attack you have side by side, worked out by Core/Sim.lua (Sim.Grid)
--- from your character sheet, talents and weapons right now, against 1 to 5 enemies: rage, cooldown, chance to land and to crit,
--- damage per press, the biggest hit, bleed, damage per rage and per second, threat. Click a column's name to sort by it (again:
--- the other way). Warriors and Rogues so far (a Rogue's columns say energy, its openers "from Stealth"). It takes the whole width
--- of the window: the build list steps aside (UI/Window.lua).
 local _, KP = ...
 
 local Pane = {}
 KP.AbilitiesPane = Pane
 
 local ROW, TOP, MAX_ROWS = 18, -100, 19
-local ENEMY_COUNTS = { 1, 2, 3, 4, 5 } -- the last shows as "5+": no attack hits more than 4
+local ENEMY_COUNTS = { 1, 2, 3, 4, 5 }
 local ENEMIES = { { key = "same", label = "Normal" }, { key = "elite", label = "Elite" }, { key = "elite3", label = "Elite +3" } }
 local STANCE = { battle = "Battle", defensive = "Defensive", berserker = "Berserker" }
 
@@ -19,7 +14,6 @@ local function Rage(v) return v == math.floor(v) and ("%d"):format(v) or Tenth(v
 local function Seconds(ms) return ms > 0 and ("%gs"):format(ms / 1000) or "-" end
 local function Percent(v) return ("%.0f%%"):format(v) end
 
--- key: the row's field (Core/Sim.lua's Sim.Grid); show: its text (nothing shown as "-"); tip: what the header's tooltip says
 local COLUMNS = {
   { key = "name", label = "Ability", width = 150, tip = "Your attacks at your level. One you can't use in the stance you're in is worked out " ..
     "in one you know that allows it (named after it)." },
@@ -47,7 +41,6 @@ local COLUMNS = {
 
 local function Settings() return KorkronPlannerCharDB.abilities end
 
--- a column's words for your class's power: "rage" (the words as written) or "energy"
 local function Worded(text, power)
   if power ~= "energy" then return text end
   return (text:gsub("Rage", "Energy"):gsub("rage", "energy"))
@@ -86,8 +79,6 @@ local function ShowRowTip(row)
   Tip(row, r.name, table.concat(lines, "\n"))
 end
 
--- a row of small buttons, one per choice, after a label that takes labelWidth: set(choice.key) when clicked. Returns them by key,
--- and where the next row of them starts
 local function Choices(pane, list, x, label, labelWidth, width, set)
   local title = Text(pane, "KorkronPlannerFontNormalSmall", labelWidth)
   title:SetPoint("TOPLEFT", x, -52)
@@ -123,11 +114,10 @@ function Pane.Create(parent, width, height)
   local x
   pane.counts, x = Choices(pane, counts, 0, "Enemies", 54, 34, function(n) Settings().targets = n end)
   pane.enemies, x = Choices(pane, ENEMIES, x, "Each one", 58, 70, function(key) Settings().enemy = key end)
-  -- the tanking choice is the DPS tab's and the Stats tab's too
   local hit = Choices(pane, { { key = false, label = "I'm tanking it" }, { key = true, label = "Someone else is" } }, x, "", 0, 116,
     function(notHit)
       KorkronPlannerCharDB.simNotHit = notHit
-      KP.BagIcons.Refresh() -- the arrows judge gear by your stat weights, which follow this too
+      KP.BagIcons.Refresh()
     end)
   pane.tanking, pane.notTanking = hit[false], hit[true]
   pane.headers = {}
@@ -158,7 +148,7 @@ function Pane.Create(parent, width, height)
     local row = CreateFrame("Button", nil, pane)
     row:SetSize(x, ROW)
     row:SetPoint("TOPLEFT", 0, TOP - (r - 1) * ROW)
-    if r % 2 == 0 then -- every other row shaded, so the eye can follow a line across
+    if r % 2 == 0 then
       local shade = row:CreateTexture(nil, "BACKGROUND")
       shade:SetAllPoints()
       shade:SetColorTexture(1, 1, 1, 0.05)
@@ -194,7 +184,6 @@ local function Highlight(buttons, chosen)
   end
 end
 
--- nothing (shown as "-") sorts last either way
 local function Sorted(rows, key, desc)
   table.sort(rows, function(a, b)
     local x, y = a[key], b[key]
@@ -208,7 +197,6 @@ local function Sorted(rows, key, desc)
   return rows
 end
 
--- the columns where 0 is a real answer (no rage, no cooldown, no chance), shown as one; elsewhere 0 means it doesn't do that: "-"
 local ZERO_SHOWN = { rage = true, cdMs = true, land = true, crit = true }
 
 local function Cell(column, row)
@@ -232,7 +220,7 @@ function Pane.Refresh(pane)
   end
   local s = Settings()
   pane.power = KP.SimData[class].power
-  local current, known = KP.Sim.Stances() -- a Rogue's: "none"
+  local current, known = KP.Sim.Stances()
   local sheet, ranks = KP.Sim.Sheet(), KP.Sim.Ranks()
   pane.title:SetText("Your attacks")
   if not (current and sheet and ranks) then

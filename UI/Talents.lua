@@ -1,16 +1,10 @@
--- Kor'kron Planner: the Talents tab of the /kp window. Your class's three trees (Data/Talents.lua: the game's own layout)
--- with your points next to the build's (as you follow it: Build.Follow counts your choices and your own picks): a gold
--- frame where the build wants (more) points, green where you've taken all it wants, blue for your own picks outside
--- the build, white around the build's next point. Hover a talent for its tooltip.
 local _, KP = ...
 
 local Pane = {}
 KP.TalentsPane = Pane
 
--- grid step and icon size (a coloured square 2 px wider on each side frames the icon): a tree's four columns fill its
--- third of the 520 px pane
 local CELL, ICON = 40, 34
-local HEADER = 24 -- the tree names above the grid
+local HEADER = 24
 local COLORS = {
   next = { 1, 1, 1 }, done = { 0.2, 0.8, 0.2 }, todo = { 0.95, 0.75, 0.1 }, own = { 0.3, 0.6, 1 }, none = { 0.15, 0.15, 0.15 },
 }
@@ -58,7 +52,6 @@ function Pane.Create(parent, width, height)
   return pane
 end
 
--- one framed icon per talent of your class, placed by its tree, row and column (made once: the class never changes)
 local function CreateCells(pane, talents)
   pane.cells = {}
   for i, t in ipairs(talents) do
@@ -81,7 +74,6 @@ local function CreateCells(pane, talents)
   end
 end
 
--- which frame colour a talent gets
 local function Kind(yours, want, isNext)
   if isNext then return "next" end
   if yours > want then return "own" end
@@ -89,12 +81,10 @@ local function Kind(yours, want, isNext)
   return "none"
 end
 
--- build: the chosen build (nil when none)
 function Pane.Refresh(pane, build)
-  local talents = KP.Talents[MyClass()] or {} -- the class's talents in order, and .trees = the three tree names
+  local talents = KP.Talents[MyClass()] or {}
   if not pane.cells then CreateCells(pane, talents) end
   local ranks = KP.TalentRanks()
-  -- what the build asks of each talent: as you follow it when the game shows your talents, else its own points
   local planned, nextStep = {}, nil
   if build and ranks then
     local steps, _, want = KP.Build.Follow(build, ranks)

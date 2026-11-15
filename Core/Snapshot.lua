@@ -1,43 +1,10 @@
--- Kor'kron Planner: snapshots of your own character, the data the guild's collector gathers (Share.lua).
--- KorkronPlannerCharDB.snapshots[level] = { stamp, body, delivered, pet } keeps the latest snapshot for each level.
--- One is taken a few seconds after logging in, a level-up, a gear change, a talent change or your pet coming or going,
--- but never in combat or inside an instance (the game can hide values there, and group buffs would skew them). A
--- snapshot that matches the one already kept for that level is not kept again, and one taken with your pet out
--- (pet = true) isn't replaced by one without it.
---
--- Text format, version 6, fields separated by ";":
---   6;guid;stamp;CLASS;RACE;level;str;agi;sta;int;spi;maxHealth;maxMana;crit;rangedCrit;spellCrit;hit;spellHit;
---   dodge;parry;block;attackPower;rangedAttackPower;spellDamage;healing;armor;manaRegen;ratings;items;talents;raceID;
---   critFromAgility;spellCritFromIntellect;dodgeFromAgility;petFamily;petLevel;petStr;petAgi;petSta;petInt;petSpi;
---   petHealth;petMana;petArmor;petAttackPower;petDamage;petAttackSpeed;petHappiness;form;damage;attackSpeed;forms
--- Version 2 added raceID (UnitRace's 3rd value, the game's race ID: both Skyborne races give the RACE "Skyborne").
--- Version 3 added what the game's own character sheet says the whole of Agility / Intellect gives (empty when the
--- client has no such function). Version 4 added your pet or demon (all 14 fields empty without one): the game files
--- don't have a pet's own numbers, the server decides them. petFamily = UnitCreatureFamily's name,ID; the others as the
--- game's functions give them for "pet" (UnitDamage, UnitAttackSpeed...); petHappiness = GetPetHappiness's numbers
--- (happiness, damage %, loyalty rate), empty when the client has no such function. Version 5 added each worn item's
--- bonusIDs (Forever's random bonuses). Version 6 added the form or stance you're in (GetShapeshiftFormID, empty in none),
--- your melee damage and swing time as your character sheet shows them (UnitDamage, UnitAttackSpeed for "player"), and
--- forms: a Druid's last reading in each feral form at this level (Cat 1, Bear 5, Dire Bear 8), kept apart
--- (KorkronPlannerCharDB.forms[level][form]) so a snapshot taken later in caster form still carries it; each reading is
--- form:min:max:posBuff:negBuff:percent:speed:apBase:apPlus:apMinus:mainHandItemID, readings joined by ",". They tell
--- whether the weapon's damage counts in a form (the website's tools/snapshots.py). A snapshot kept before a version and
--- sent later lacks its fields.
--- The first six fields keep their place in every version (the collector reads them). stamp = server time in
--- seconds. A field for a game function lists every number it returns, comma-separated: UnitStat base,effective,
--- plus,minus; UnitAttackPower base,plus,minus; UnitArmor and GetManaRegen as the game gives them. spellCrit and
--- spellDamage have one number per school 2-7 (holy, fire, nature, frost, shadow, arcane). ratings:
--- NAME:rating:percent for each combat rating that isn't 0 (NAME = the game's CR_ name without "CR_"). items:
--- slot:itemID:enchantID:suffixID:bonusIDs per worn item (bonus IDs joined by "+"; suffixID is empty on Forever). talents: nodeID:ranksPurchased:currentRank:activeRank per talent
--- node with points (the game's trait node IDs; Forever doesn't always fill all three). A hidden or missing number
--- is left empty.
 local _, KP = ...
 
 local Snapshot = {}
 KP.Snapshot = Snapshot
 
 local VERSION = 6
-local DELAY = 5 -- seconds: lets stats settle (UnitLevel still gives the old level during PLAYER_LEVEL_UP)
+local DELAY = 5
 local SCHOOLS = { 2, 3, 4, 5, 6, 7 }
 local RATINGS = { "CR_DEFENSE_SKILL", "CR_DODGE", "CR_PARRY", "CR_BLOCK", "CR_HIT_MELEE", "CR_HIT_RANGED",
   "CR_HIT_SPELL", "CR_CRIT_MELEE", "CR_CRIT_RANGED", "CR_CRIT_SPELL", "CR_HASTE_MELEE", "CR_HASTE_RANGED",
@@ -45,7 +12,6 @@ local RATINGS = { "CR_DEFENSE_SKILL", "CR_DODGE", "CR_PARRY", "CR_BLOCK", "CR_HI
 
 local function num(v) return KP.Num(v, 4) end
 
--- every number given, comma-separated
 local function All(...)
   local out = {}
   for i = 1, select("#", ...) do out[i] = num((select(i, ...))) end
@@ -75,7 +41,6 @@ end
 local function Items()
   local out = {}
   for slot = 1, 19 do
-    -- Forever's links look like |cnIQ4:|Hitem:12345:0:...|h[Name]|h|r
     local f = KP.ItemFields(KP.Text(GetInventoryItemLink("player", slot)))
     if f then
       table.insert(out, table.concat({ slot, f[1], f[2] or "", f[7] or "", KP.ItemBonusIDs(f) }, ":"))
@@ -94,8 +59,6 @@ local function Talents()
   return table.concat(out, ",")
 end
 
--- what the game says a whole stat gives ("" when the client has no such function; which ones Forever has isn't known
--- yet, so a failing one goes to /kp errors and the rest of the snapshot is still kept)
 local function FromStat(name)
   local fn = _G[name]
   if type(fn) ~= "function" then return "" end
@@ -103,9 +66,8 @@ local function FromStat(name)
   return ok and num(value) or ""
 end
 
--- your pet or demon (Hunters, Warlocks)
 local function Pet()
-  if not UnitExists("pet") then return (";"):rep(13) end -- its 14 fields, empty
+  if not UnitExists("pet") then return (";"):rep(13) end
   local family, familyID = UnitCreatureFamily("pet")
   return table.concat({
     (KP.Text(family) or "") .. "," .. num(familyID), num(UnitLevel("pet")),
@@ -117,10 +79,8 @@ local function Pet()
   }, ";")
 end
 
--- a Druid's feral forms (the game's form IDs): Cat, Bear, Dire Bear
 local FERAL = { [1] = true, [5] = true, [8] = true }
 
--- this level's feral form readings, as the snapshot's forms field
 local function Forms()
   local out = {}
   for _, text in pairs(KorkronPlannerCharDB.forms[UnitLevel("player")] or {}) do table.insert(out, text) end
@@ -128,8 +88,6 @@ local function Forms()
   return table.concat(out, ",")
 end
 
--- In a feral form, out of combat and outside instances: your melee damage, swing time, attack power and main hand as the
--- game shows them, kept as this level's reading for the form; a new one asks for a snapshot to carry it
 local function ReadForm()
   local form = GetShapeshiftFormID()
   if not (KP.Readable(form) and FERAL[form]) or InCombatLockdown() or IsInInstance() then return end
@@ -138,7 +96,7 @@ local function ReadForm()
   local values = { form, min, max, pos, neg, percent, (UnitAttackSpeed("player")), base, plus, minus,
     GetInventoryItemID("player", 16) or 0 }
   for i = 1, #values do
-    if not KP.Readable(values[i]) then return end -- hidden numbers: none of this reading is kept
+    if not KP.Readable(values[i]) then return end
     values[i] = num(values[i])
   end
   local level = UnitLevel("player")
@@ -150,12 +108,9 @@ local function ReadForm()
   Snapshot.Schedule()
 end
 
--- everything after the stamp
 local function Body()
   local _, class = UnitClass("player")
   local _, race, raceID = UnitRace("player")
-  -- the trait functions are the least known part of Forever's API: if they fail, the error goes to /kp errors and
-  -- the rest of the snapshot is still kept
   local ok, talents = KP.Safe(Talents)
   return table.concat({
     KP.Text(class) or "", KP.Text(race) or "", num(UnitLevel("player")),
@@ -175,7 +130,6 @@ local function Body()
   }, ";")
 end
 
--- A kept snapshot as the line the collector stores
 function Snapshot.Text(snap)
   return table.concat({ VERSION, KP.Text(UnitGUID("player")) or "", snap.stamp, snap.body }, ";")
 end
@@ -188,13 +142,12 @@ local function Take()
     afterCombat = true
     return
   end
-  if IsInInstance() then return end -- leaving it means a loading screen, which schedules a new one
+  if IsInInstance() then return end
   local level = UnitLevel("player")
   local body = Body()
   local snapshots = KorkronPlannerCharDB.snapshots
   local old = snapshots[level]
   if old and old.body == body then return end
-  -- the pet's numbers are the rare part, and base stats don't change within a level
   local pet = UnitExists("pet")
   if old and old.pet and not pet then return end
   snapshots[level] = { stamp = GetServerTime(), body = body, pet = pet or nil }
@@ -218,7 +171,6 @@ KP:On("PLAYER_REGEN_ENABLED", function()
   Snapshot.Schedule()
 end)
 
--- a feral form's reading, two seconds after you shift, change weapons, log in or leave a fight (numbers settle)
 for _, event in ipairs({ "UPDATE_SHAPESHIFT_FORM", "PLAYER_EQUIPMENT_CHANGED", "PLAYER_ENTERING_WORLD", "PLAYER_REGEN_ENABLED" }) do
   KP:On(event, function() KP.After(2, ReadForm) end)
 end

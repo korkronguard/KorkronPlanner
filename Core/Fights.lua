@@ -1,46 +1,16 @@
--- Kor'kron Planner: the fights you fight alone, in totals, for the guild's planner, so nobody has to send combat logs.
--- Addons can't read the combat log on Forever. What they can read (the client's own notes on its functions, and
--- /kp probe fight in Core/Probe.lua, run in game 2026-11-11):
---   * the game's combat numbers (UNIT_COMBAT): who was hit, the kind (WOUND, MISS, DODGE, PARRY, BLOCK, RESIST...) and
---     the mark (CRITICAL, GLANCING, CRUSHING, BLOCK_REDUCED...). The amount is hidden, and so is who hit or with what.
---   * the game's built-in damage meter (C_DamageMeter), hidden during a fight and readable after it: what you dealt,
---     ability by ability, what you took, and what each kind of enemy took. It keeps a count of its own per fight,
---     which ends a second or two after combat does.
---   * your own casts (UNIT_SPELLCAST_SUCCEEDED).
--- With sharing on, alone (no group) and outdoors, they're added up in KorkronPlannerCharDB.fights[your level][key],
--- key = "form:main hand:off hand:creature ID:enemy level:classification" (the stance or form's ID and the weapons'
--- item IDs when the enemy was first hit; 0 = none or hidden):
---   out      combat numbers on that enemy while you had it targeted, by "KIND" or "KIND.MARK" (yours, your pet's and a
---            passer-by's alike: the game doesn't say whose)
---   fights, sec, casts, inn   for fights against that enemy alone that you won (combat ended with you alive and the
---            enemy, still your target, dead: one you ran from, or that only chased you as you rode past, isn't one):
---            how many, their seconds, your casts by spell ID (one that starts the fight is missed), the combat
---            numbers on you
---   metered, msec, mdur, dealt, taken, spells, enemy   for those of them the damage meter still showed two seconds
---            later, as a fight of about that length against that creature alone: how many, their seconds, the meter's
---            own seconds, your damage, the damage you took, your damage by spell ID, and the damage the enemy took
---            from everyone (its health, when it died from full; more than `dealt` when someone helped)
--- At login and at each level-up the totals become records for the collector, carried by Check.lua's outbox:
---   F2~version~class~level~GUID~build key~key|fights|sec|metered|msec|mdur|dealt|taken|spells|casts|out|inn|enemy~...
--- (a map is "name:count,name:count"). The 2 is the rule the fights were counted by (RULE below): records starting "F~"
--- are the owner's first test runs, when a fight counted whether or not the enemy died; nothing reads them.
--- No names: enemies are creature IDs, and a fight with a player in it isn't kept.
 local _, KP = ...
 
 local Fights = {}
 KP.Fights = Fights
 
-local CLOSE_AFTER = 2 -- seconds after a fight before the damage meter is read: it closes its count a moment late
--- how a fight is counted (2: only when it's won). It's in a record's tag, and totals a character saved under another
--- rule (KorkronPlannerCharDB.fightsRule) are dropped at login, not sent as this one's
+local CLOSE_AFTER = 2
 local RULE = 2
 
-local fight       -- the fight in progress, when it counts: sharing on, alone, outdoors
-local started = 0 -- fights begun this session: a newer one means the meter no longer holds an older one's numbers
+local fight
+local started = 0
 
 local function Add(map, key, n) map[key] = (map[key] or 0) + n end
 
--- a game value when it can be read and is a number (or a table), else nil
 local function Number(v)
   if KP.Readable(v) and type(v) == "number" then return v end
 end
@@ -56,8 +26,6 @@ local function Bucket(level, key)
   return levels[level][key]
 end
 
--- the key of the enemy you have targeted, worked out once per enemy and fight. Anything that isn't a creature gives
--- nil, and makes the fight a mixed one unless it's you (a heal on yourself)
 local function TargetKey()
   local guid = KP.Text(UnitGUID("target"))
   if not guid then return nil end
@@ -106,10 +74,6 @@ KP:On("UNIT_SPELLCAST_SUCCEEDED", function(unit, _, spellID)
   if spellID then Add(fight.casts, spellID, 1) end
 end)
 
--- what the game's damage meter holds for this fight: your damage, by spell ID too, the damage you took, what the enemy
--- took from everyone, and the meter's own seconds. nil when it's hidden, or its count isn't this fight's (a meter
--- that's switched off counts none): it has to be about as long (seen in game: 1.2 to 1.8 sec longer, in whole seconds)
--- and against this one creature kind
 local function Metered(done)
   local kinds, current, me = Enum.DamageMeterType, Enum.DamageMeterSessionType.Current, UnitGUID("player")
   local mine = Table(C_DamageMeter.GetCombatSessionSourceFromType(current, kinds.DamageDone, me))
@@ -131,8 +95,6 @@ local function Metered(done)
     enemy = Number(enemy.totalAmount) or 0, seconds = seconds }
 end
 
--- did the fight end with you alive and its enemy dead? The enemy you kill stays your target, so that's where to look
--- (no target, or one that wasn't in the fight, has no key)
 local function Won(done)
   local dead, guid = UnitIsDeadOrGhost("player"), KP.Text(UnitGUID("target"))
   if not KP.Readable(dead) or dead or not done.keys[guid] then return false end
@@ -140,9 +102,6 @@ local function Won(done)
   return KP.Readable(killed) and killed
 end
 
--- a fight you won against one enemy goes into that enemy's totals (asked again here: the enemy's death may not show
--- until a moment after combat ends); the damage meter's numbers too, while it still holds this fight (no newer one
--- has begun) and shows it
 local function Close(done)
   if done.enemies ~= 1 or done.mixed or not (done.won or Won(done)) then return end
   local b = Bucket(done.level, done.only)
@@ -173,14 +132,12 @@ local function Sorted(map)
   return keys
 end
 
--- a map as "name:count,name:count", in the names' order (the same totals always give the same text)
 local function Map(map)
   local parts = {}
   for i, key in ipairs(Sorted(map)) do parts[i] = ("%s:%d"):format(key, math.floor(map[key] + 0.5)) end
   return table.concat(parts, ",")
 end
 
--- your totals for the levels up to this one become records for the collector, and start over
 function Fights.Flush(upTo)
   local _, class = UnitClass("player")
   local build = KorkronPlannerCharDB.build

@@ -1,6 +1,3 @@
--- Kor'kron Planner: the Priority tab of the /kp window. The planner website's Priority tab for your build at your
--- level (Data/Priority.lua, worked out by the website with the build's talents and gear at each level): what to keep
--- up, what to press first, the cooldowns. The website's own tab has the numbers for your gear.
 local _, KP = ...
 
 local Pane = {}
@@ -10,7 +7,6 @@ local ICON = KP.ScrollList.ICON
 
 Pane.Create = KP.ScrollList.Create
 
--- build: the chosen build (nil when none)
 function Pane.Refresh(pane, build)
   local L = KP.ScrollList.Layout(pane)
   local list = build and KP.Build.ForLevel(KP.Priority, build.key, UnitLevel("player"))

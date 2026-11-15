@@ -1,8 +1,3 @@
--- Kor'kron Planner: the Formulas tab of the /kp window. First what 1 point of each stat does for you: on your
--- character sheet (the game's own conversions where it has them, the planner's formulas otherwise; Core/Sheet.lua)
--- and what the planner says it's worth to your build (Data/Weights.lua). Then how the planner website works out your
--- character sheet's numbers (Data/Formulas.lua): each formula in words, worked out with your numbers, with the game's
--- number next to it and a tick when they agree. Last, the rules of combat for your class.
 local _, KP = ...
 
 local Pane = {}
@@ -12,17 +7,14 @@ Pane.Create = KP.ScrollList.Create
 
 local TICK = "|TInterface\\RaidFrame\\ReadyCheck-Ready:14|t"
 local INDENT = 10
--- what each input of a formula is called in "Your numbers" (and its decimals there)
 local LABEL = { level = "level", str = "Strength", agi = "Agility", sta = "Stamina", int = "Intellect", spi = "Spirit",
   gearArmor = "armor on your gear", armor = "your armor", health = "your health", dodge = "dodge %", parry = "parry %",
   block = "block %", baseHealth = "base health", baseMana = "base mana", hpPerSta = "health per Stamina",
   speed = "your swing time", twoHand = "a two-hander (1 yes, 0 no)", agiPerCrit = "Agility per 1% crit at your level" }
 local DIGITS = { dodge = 2, parry = 2, block = 2, speed = 2, agiPerCrit = 2 }
--- the main stats, by their names in the formulas and in the stat weights
 local MAIN_STATS = { { "str", "strength" }, { "agi", "agility" }, { "sta", "stamina" }, { "int", "intellect" },
   { "spi", "spirit" } }
 
--- "Your numbers: level 12, Strength 45" for the inputs this formula uses
 local function YourNumbers(expr, inputs)
   local used = {}
   for _, key in ipairs(KP.Sheet.INPUTS) do
@@ -33,7 +25,6 @@ local function YourNumbers(expr, inputs)
   return "Your numbers: " .. table.concat(used, ", ")
 end
 
--- "Attack power = 106   game: 106 ✓"
 local function ResultLine(f, value, game, level)
   local digits, unit = f.digits or 0, f.unit or ""
   local estimate = KP.Sheet.IsEstimate(f, level)
@@ -46,8 +37,6 @@ local function ResultLine(f, value, game, level)
   return text .. (estimate and "   |cffffffffgame: " or "   |cffff9933game: ") .. shown .. "|r"
 end
 
--- Each number in a formula or rule: what it is and where it comes from (the game files, the original game's rule,
--- Forever's patch notes, the planner's estimate...)
 local function Numbers(L, f, indent)
   L.text("Where the numbers come from:", "KorkronPlannerFontDisableSmall", indent, 4)
   for _, n in ipairs(f.numbers) do
@@ -55,7 +44,6 @@ local function Numbers(L, f, indent)
   end
 end
 
--- What 1 point of each stat does: on your character sheet (main stats) and to the build you follow
 local function StatSection(L, class, inputs, build)
   L.text("What each stat does for you", "KorkronPlannerFontNormalLarge", 0, 0)
   local W = build and KP.StatWeights.For(build)
@@ -90,7 +78,6 @@ local function StatSection(L, class, inputs, build)
   end
 end
 
--- build: the chosen build (nil when none), for what each stat is worth
 function Pane.Refresh(pane, build)
   local L = KP.ScrollList.Layout(pane)
   local _, class = UnitClass("player")
