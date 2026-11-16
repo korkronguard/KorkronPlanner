@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.30.3
+
+- **Sharper math from the guild's own fights, character sheets and three new combat logs:**
+  - **Feral Druids:** Cat Form gives 2 attack power for each level and Bear Form 3 (the planner had a small fixed amount),
+    Rake and Ferocious Bite get their share of your attack power, and Leader of the Pack's 3% crit counts for you too. Cat
+    builds come out 8 to 15% higher, and the Druid builds, gear lists and stat weights follow.
+  - **Warriors and Rogues (DPS, Stats and Abilities tabs):** glancing blows against enemies above your level land as the
+    game's do (95% of a hit one level up, 85% two up, 65% three up), enemies at levels 43 to 46 have their real armor, and
+    damage bonuses multiply the way the game does it (Defensive Stance with Bastion is 0.99 of your damage, not 1.00).
+  - **Set bonuses** that add armor, Defense, Block Value or attack speed now count in the builds' gear lists and stat
+    weights, and **Block Value** counts your Strength (1 for every 20, less 1), as the game does.
+- **The game's hotfixes of November 15 and 16:** their 29 new items get upgrade tooltips.
+
 ## 0.30.2
 
 - **The guild's crest**, the Kor'kron Guard's tabard emblem on crimson, now sits in the title band of the `/kp` window

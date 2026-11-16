@@ -27,6 +27,10 @@ local function WithStat(ctx, key, amount)
     local each = type(per) == "table" and per[ctx.level] or per
     sheet[field] = sheet[field] + amount * each * (SCALED[field] and 1 + sheet[SCALED[field]] / 100 or 1)
   end
+  if key == "strength" and sheet.shield then
+    sheet.blockValue = sheet.blockValue + math.floor((sheet.strength + amount) / 20) - math.floor(sheet.strength / 20)
+    sheet.strength = sheet.strength + amount
+  end
   return With(ctx, { sheet = sheet })
 end
 

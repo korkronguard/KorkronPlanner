@@ -111,14 +111,15 @@ local function TalentEffects(ctx)
       kind[m[2]] = (kind[m[2]] or 0) + m[4]
     end
   end
+  local function More(pct, by) return ((1 + pct / 100) * (1 + by / 100) - 1) * 100 end
   local function Add(effect)
-    out.dmgPct = out.dmgPct + (effect.dmgPct or 0)
+    out.dmgPct = More(out.dmgPct, effect.dmgPct or 0)
     out.damageTaken = out.damageTaken + (effect.damageTaken or 0)
     out.offhandPct = out.offhandPct + (effect.offhandPct or 0)
     out.armorIgnore = out.armorIgnore + (effect.armorIgnore or 0)
     out.extraAttack = out.extraAttack + (effect.extraAttack or 0)
     out.offhandHit = out.offhandHit + (effect.offhandHit or 0)
-    if ctx.beingHit then out.dmgPct = out.dmgPct + (effect.dmgPctHit or 0) end
+    if ctx.beingHit then out.dmgPct = More(out.dmgPct, effect.dmgPctHit or 0) end
     AddMods(effect.mods)
   end
   AddMods((data.racials[sheet.race] or {}).mods)
@@ -353,7 +354,9 @@ local function Ability(ctx, tal, name, n)
   local mit = 1 - Mitigation(ctx, tal)
   local stanceBack = 0
   if name == "Revenge" and rank.textAP then
-    stanceBack = (-data.stances[ctx.stance].damage / 100) * rank.textAP * ctx.sheet.ap * (1 + Pct(0) / 100) * (1 + Pct(8) / 100)
+    local stance = data.stances[ctx.stance].damage
+    stanceBack = (-stance / 100) * rank.textAP * ctx.sheet.ap * (1 + Pct(0) / 100) * (1 + Pct(8) / 100) *
+      (1 + tal.dmgPct / 100) / (1 + stance / 100)
   end
   local flatDmg = Flat(0)
   local dmin = r.hasDirect and ((r.dmin + flatDmg) * dmgMult + stanceBack) * mit or 0
@@ -870,8 +873,9 @@ function Sim.Sheet()
   local meleeRating, spellRating = Number(GetCombatRatingBonus(CR_HIT_MELEE)), Number(GetCombatRatingBonus(CR_HIT_SPELL))
   local spellCrit = Number(GetSpellCritChance(2))
   local health = Number(UnitHealthMax("player"))
+  local strength = Number((select(2, UnitStat("player", 1))))
   if not (base and plus and minus and armor and crit and dodge and parry and block and attackSpeed and meleeHit and spellHit and
-    meleeRating and spellRating and spellCrit and health) then
+    meleeRating and spellRating and spellCrit and health and strength) then
     return nil
   end
   local mh, oh, rg = Weapon(16), Weapon(17), Weapon(18)
@@ -889,7 +893,8 @@ function Sim.Sheet()
     hit = meleeHit + meleeRating, spellHit = spellHit + spellRating, armor = armor, dodge = dodge, parry = parry, block = block,
     defense = 0, health = health, healthPct = racial.healthPct or 0, damageTaken = racial.damageTaken or 0,
     meleeHaste = haste + (racial.meleeHaste or 0),
-    castHaste = racial.castHaste or 0, shield = shield, blockValue = blockValue, mh = mh, oh = oh, rg = rg, race = raceID,
+    castHaste = racial.castHaste or 0, shield = shield, blockValue = blockValue, strength = strength, mh = mh, oh = oh, rg = rg,
+    race = raceID,
   }
 end
 
