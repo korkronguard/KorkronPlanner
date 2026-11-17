@@ -851,11 +851,14 @@ function Sim.Stances()
   return KP.Readable(form) and STANCE_OF_FORM[form] or nil, known
 end
 
-local function Weapon(slot)
-  local id = GetInventoryItemID("player", slot)
-  local item = KP.Readable(id) and KP.Items[id]
+function Sim.Weapon(item)
   if not (item and item.w) then return nil end
   return { min = item.w[1], max = item.w[2], speed = item.w[3], subclass = item.w[4], twoHand = item[1] == "twoHand" }
+end
+
+local function Weapon(slot)
+  local id = GetInventoryItemID("player", slot)
+  return Sim.Weapon(KP.Readable(id) and KP.Items[id])
 end
 
 local function Number(v)

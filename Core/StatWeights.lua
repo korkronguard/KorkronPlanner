@@ -64,6 +64,16 @@ function StatWeights.Of(ctx, role)
   return W
 end
 
+function StatWeights.TryOn(W, stats, hands)
+  local ctx = With(W.ctx, { sheet = With(W.ctx.sheet, hands) })
+  local known = Stats(ctx)
+  for key, amount in pairs(stats) do
+    if known[key] and amount ~= 0 then ctx = WithStat(ctx, key, amount) end
+  end
+  local m = Measure(ctx, W.role)
+  return { v = m.v - W.base.v, e = m.e - W.base.e, d = m.d - W.base.d }
+end
+
 function StatWeights.Scan(xs, fs)
   local slopes, turns = {}, {}
   for i = 2, #xs do slopes[i] = (fs[i] - fs[i - 1]) / (xs[i] - xs[i - 1]) end

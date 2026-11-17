@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.31.0
+
+- **Warriors and Rogues: upgrade tooltips and bag arrows now try the item on.** Instead of adding up what each stat is
+  worth, the addon works out your damage and survival with the item in place of what it replaces, so a weapon's speed
+  and type count at last:
+  - a slower weapon hits harder with your abilities (and gives a Warrior more rage), so it can beat a faster one with
+    more damage a second;
+  - a Rogue keeps a dagger in the main hand for Backstab: a sword or axe goes in the off hand when that's better;
+  - a two-hander over a sword and shield counts the shield's block you'd give up.
+- Under the stat lines, **Wielding it** shows what the weapon's speed, type and hands add or cost, and **Caps and limits**
+  shows where a stat runs into a cap, such as hit. Other classes still see the planner's numbers.
+
 ## 0.30.3
 
 - **Sharper math from the guild's own fights, character sheets and three new combat logs:**

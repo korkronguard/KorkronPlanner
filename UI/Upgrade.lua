@@ -170,13 +170,36 @@ local function Replaced(item, link, W)
   return out
 end
 
+local tried = setmetatable({}, { __mode = "k" })
+
+local function Hands(item, hand)
+  local weapon = KP.Sim.Weapon(item)
+  if item[1] == "twoHand" then return weapon and { mh = weapon, oh = false, shield = false } end
+  if hand == "mainHand" then return weapon and { mh = weapon } end
+  if hand ~= "offHand" then return {} end
+  if item[1] == "shield" then return { oh = false } end
+  return { oh = weapon or false, shield = false }
+end
+
+local function Judged(W, link, item, hand, diff)
+  local total = Total(W, diff)
+  local hands = W.live and Hands(item, hand)
+  if not hands then return total end
+  local key = link .. (hand or "")
+  local mine = tried[W] or {}
+  tried[W] = mine
+  mine[key] = mine[key] or KP.StatWeights.TryOn(W, diff, hands)
+  local worth = mine[key]
+  return worth, { v = worth.v - total.v, e = worth.e - total.e, d = worth.d - total.d }, hands
+end
+
 local function OneHandSlot(id, link, W, mainWorn)
   local offID = Worn(17)
   local off = offID and KP.Items[offID]
   if not (off and OFF_HAND_WEAPON[off[1]]) then return "mainHand", mainWorn end
-  local offWorn = WornItem(17, W)
-  local inMain = Total(W, Combine(Parts(id, link, "mainHand"), mainWorn.parts, -1))
-  local inOff = Total(W, Combine(Parts(id, link, "offHand"), offWorn.parts, -1))
+  local offWorn, item = WornItem(17, W), KP.Items[id]
+  local inMain = Judged(W, link, item, "mainHand", Combine(Parts(id, link, "mainHand"), mainWorn.parts, -1))
+  local inOff = Judged(W, link, item, "offHand", Combine(Parts(id, link, "offHand"), offWorn.parts, -1))
   if Better(inOff, inMain) then return "offHand", offWorn end
   return "mainHand", mainWorn
 end
@@ -246,8 +269,9 @@ local function Compare(link)
   local hand = HAND[INV[item[1]][1]]
   if item[1] == "oneHand" then hand, replaced = OneHandSlot(id, link, W, replaced) end
   local diff = Combine(Parts(id, link, hand), replaced.parts, -1)
-  return { build = build, W = W, item = item, replaced = replaced, diff = diff, total = Total(W, diff), from = from,
-    level = level }
+  local total, rest, hands = Judged(W, link, item, hand, diff)
+  return { build = build, W = W, item = item, replaced = replaced, diff = diff, total = total, rest = rest, hands = hands,
+    from = from, level = level }
 end
 
 function Upgrade.IsUpgrade(link)
@@ -268,6 +292,34 @@ local function Headline(c, role)
   return { "About the same as what you wear" .. when, GREY }
 end
 
+local function Notable(rest, total, role)
+  for _, m in ipairs(MEASURES[role] or MEASURES.dps) do
+    local x = math.abs(rest[m[1]])
+    if x >= m[3] and x >= 0.05 * math.abs(total[m[1]]) then return true end
+  end
+  return false
+end
+
+local function Wielding(hands, sheet)
+  local out = {}
+  local new, old = hands.mh or hands.oh, hands.mh and sheet.mh or hands.oh and sheet.oh
+  if new and old and math.abs(new.speed - old.speed) >= 0.05 then
+    table.insert(out, ("%.1f sec a swing, yours %.1f"):format(new.speed, old.speed))
+  end
+  if hands.shield == false and sheet.shield then table.insert(out, "no shield") end
+  if hands.oh == false and sheet.oh then table.insert(out, "no off-hand weapon") end
+  return #out > 0 and table.concat(out, ", ") or nil
+end
+
+local function RestLines(c, role)
+  if not (c.rest and Notable(c.rest, c.total, role)) then return {} end
+  local wielding = next(c.hands) ~= nil
+  local out = { { "  " .. (wielding and "Wielding it" or "Caps and limits"), WHITE, right = Colored(c.rest, role) } }
+  local what = wielding and Wielding(c.hands, c.W.ctx.sheet)
+  if what then table.insert(out, { "      " .. what, GREY }) end
+  return out
+end
+
 function Upgrade.Lines(link)
   local c, why, build = Compare(link)
   if not (c or why == "twoHand") then return nil end
@@ -283,6 +335,7 @@ function Upgrade.Lines(link)
     table.insert(lines, { "  " .. row.left, WHITE, right = row.right })
     if row.what then table.insert(lines, { "      " .. row.what, GREY }) end
   end
+  for _, line in ipairs(RestLines(c, build.role)) do table.insert(lines, line) end
   if not c.worn then
     table.insert(lines, { c.replaced.name and ("vs. your " .. c.replaced.name) or "Your slot is empty.", GREY })
   end
