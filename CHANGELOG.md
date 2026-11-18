@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.31.2
+
+- **Undead: Touch of the Grave counts in your damage.** Some of your hits drain 5% of your maximum health from the
+  target, at most once every 15 seconds (30% of hits for Priests, Mages and Warlocks, 20% for Warriors, Paladins and
+  Rogues). The DPS tab counts it for Undead Warriors and Rogues, so Stamina now adds a little damage for them on the Stats
+  tab, item tooltips and bag arrows. Priests', Mages' and Paladins' gear numbers are worked out for an Undead character,
+  so Stamina adds a little damage on their tooltips too.
+- **Casters: Spirit counts while you use your wand.** A guild Priest's fights showed his mana coming back at the full
+  Spirit rate while he used his wand, once 5 seconds had passed after his last spell. The planner now counts it, so a
+  few leveling builds for Priests, Mages, Druids and Shamans take some talents in a different order.
+- **Fixed: the character stats shared with the guild could all read 0** when they were read during a loading screen, and
+  replace your real ones for that level. The addon now waits until your character has loaded.
+
 ## 0.31.1
 
 - **Healers see their damage too.** Priests, Druids, Shamans and Paladins on a healing build now get damage per second

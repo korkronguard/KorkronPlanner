@@ -136,6 +136,11 @@ end
 
 local scheduled, afterCombat = false, false
 
+local function Loaded()
+  local health = UnitHealthMax("player")
+  return not KP.Readable(health) or (health or 0) > 0
+end
+
 local function Take()
   scheduled = false
   if InCombatLockdown() then
@@ -143,6 +148,7 @@ local function Take()
     return
   end
   if IsInInstance() then return end
+  if not Loaded() then return Snapshot.Schedule() end
   local level = UnitLevel("player")
   local body = Body()
   local snapshots = KorkronPlannerCharDB.snapshots

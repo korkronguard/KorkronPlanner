@@ -634,7 +634,7 @@ local function RogueRotation(ctx, white, Use)
   return { dps = dps, parts = Shown(parts), energy = energy }
 end
 
-local function Rotation(ctx)
+local function ClassRotation(ctx)
   local tal = TalentEffects(ctx)
   local white = WhiteHits(ctx, tal)
   if #white == 0 then return nil end
@@ -728,6 +728,20 @@ local function Rotation(ctx)
     table.insert(parts, { name = "Execute", dps = exDps * RULES.executePhase })
   end
   return { dps = dps, parts = Shown(parts), rageIncome = rageIncome }
+end
+
+local function DrainOnHits(ctx, R)
+  local d = R and R.dps > 0 and (Data(ctx).racials[ctx.sheet.race] or {}).drain
+  if not d then return R end
+  local every = d.cdMs / 1000 + RULES.drainHitSec * (1 / d.chance - 0.5)
+  local dps = d.pct * ctx.sheet.health / every
+  table.insert(R.parts, { name = d.name, dps = dps })
+  R.dps = R.dps + dps
+  return R
+end
+
+local function Rotation(ctx)
+  return DrainOnHits(ctx, ClassRotation(ctx))
 end
 
 function Sim.Compute(ctx)
