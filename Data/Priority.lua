@@ -7132,7 +7132,6 @@ KP.Priority = {
           { name = "Shadow Word: Death", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136149 },
           { name = "Mind Blast", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136224 },
           { name = "Smite", tag = "Filler", text = "The most damage per second of casting.", icon = 135924 },
-          { name = "Mind Flay", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136208 },
           { name = "Devouring Plague", tag = "Mana to spare", text = "More damage per second of casting than Smite, but less per mana: cast it when your mana can spare it.", icon = 252997 },
         } },
       } },

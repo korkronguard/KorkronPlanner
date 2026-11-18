@@ -53,7 +53,7 @@ local function StatSection(L, class, inputs, build)
       or "Choose one of the planner's builds on the left to see what each point is worth to it."),
     "KorkronPlannerFontDisableSmall", 0, 2)
   local function Worth(key)
-    return W and KP.Upgrade.Describe(KP.Upgrade.Value(W, key, 1), build.role, 0.0005)
+    return W and KP.Upgrade.Describe(KP.Upgrade.Value(W, key, 1), KP.Upgrade.Role(build), 0.0005)
   end
   for _, stat in ipairs(MAIN_STATS) do
     L.text(LABEL[stat[1]], "KorkronPlannerFontNormal", 0, 10)

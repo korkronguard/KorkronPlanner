@@ -15,7 +15,8 @@ local SECTION = {
       "and block keep off you, measured against a raid boss." },
   DPS = { title = "Damage", total = "you do %s a second", unit = "damage a second",
     about = "Your damage a second against this enemy, pressing your abilities whenever they're ready and you have the rage or energy: " ..
-      "the DPS tab's math. Buffs count while they're up." },
+      "the DPS tab's math. Buffs count while they're up.",
+    planned = "Your damage a second by the planner's math, the same number as on the website." },
   HPS = { title = "Healing", total = "you heal %s a second", unit = "healing a second",
     about = "Your healing a second with the mana you have, by the planner's math." },
 }
@@ -95,7 +96,7 @@ local function ShowRow(row)
   GameTooltip:SetOwner(row, "ANCHOR_RIGHT")
   if line.head then
     GameTooltip:AddLine(line.section.title)
-    GameTooltip:AddLine(line.section.about, 1, 1, 1, true)
+    GameTooltip:AddLine(not pane.live and line.section.planned or line.section.about, 1, 1, 1, true)
     if line.sunder then GameTooltip:AddLine(SUNDER_ABOUT:format(KP.SimData.rules.sunderStacks), 0.4, 0.8, 1, true) end
     return GameTooltip:Show()
   end
@@ -269,7 +270,7 @@ function Pane.Refresh(pane, build)
   local target = KP.StatWeights.Target(build)
   local knows = KP.StatWeights.Knows()
   local W, current = KP.StatWeights.Live(role, target)
-  pane.measures = KP.Upgrade.MEASURES[role] or KP.Upgrade.MEASURES.dps
+  pane.measures = build and KP.Upgrade.MEASURES[KP.Upgrade.Role(build)] or KP.Upgrade.MEASURES.dps
   pane.live, pane.turns = W, W and KP.StatWeights.Turns(W) or nil
   pane.title:SetText("What each stat is worth to you")
   if W then

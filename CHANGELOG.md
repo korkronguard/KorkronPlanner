@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.31.1
+
+- **Healers see their damage too.** Priests, Druids, Shamans and Paladins on a healing build now get damage per second
+  on item tooltips, beside healing and effective HP, and a Damage section on the Stats tab. A **Solo** healing build
+  judges gear by its damage (that's what kills things while you level), so the verdict and the bag arrow follow it;
+  Dungeon and PvP healing builds still judge by healing.
+- **Fixed: random bonuses like "of the Physician" lost their healing and spell damage on upgrade tooltips.** Only their
+  main stats (Stamina, Intellect...) counted, so such an item could read as a downgrade when it wasn't. Every stat the
+  game shows for the item counts now.
+- **Protection Warriors: a shield's Block Value counts.** Shield Slam adds twice your Block Value, but the Stats tab,
+  upgrade tooltips and bag arrows counted it as nothing, so a shield with more Block Value never looked better for it.
+  With Shield Slam learned it now counts, and the Stats tab shows how much you have.
+- **The game's November 17 update and the hotfixes of November 16:** 94 new items (most of them the dungeon sets' other
+  pieces) get upgrade tooltips, and the changed ones (the Darkmoon Cards, Onyxia Blood Talisman, the Soulforge plate,
+  Everstaring Abomination Eye) read their new stats. Builds, gear lists and stat weights follow.
+
 ## 0.31.0
 
 - **Warriors and Rogues: upgrade tooltips and bag arrows now try the item on.** Instead of adding up what each stat is

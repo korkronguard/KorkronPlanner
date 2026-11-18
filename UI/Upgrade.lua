@@ -12,14 +12,41 @@ local INV = {
 local HAND = { [16] = "mainHand", [17] = "offHand", [18] = "ranged" }
 local WEAPON = { mainHand = true, offHand = true, ranged = true }
 local OFF_HAND_WEAPON = { oneHand = true, offHand = true }
-local PRIMARY = { strength = "ITEM_MOD_STRENGTH_SHORT", agility = "ITEM_MOD_AGILITY_SHORT",
-  stamina = "ITEM_MOD_STAMINA_SHORT", intellect = "ITEM_MOD_INTELLECT_SHORT", spirit = "ITEM_MOD_SPIRIT_SHORT" }
+local GAME_STAT = {
+  ITEM_MOD_STRENGTH_SHORT = "strength", ITEM_MOD_AGILITY_SHORT = "agility", ITEM_MOD_STAMINA_SHORT = "stamina",
+  ITEM_MOD_INTELLECT_SHORT = "intellect", ITEM_MOD_SPIRIT_SHORT = "spirit", ITEM_MOD_ATTACK_POWER_SHORT = "attackPower",
+  ITEM_MOD_RANGED_ATTACK_POWER_SHORT = "rangedAttackPower", ITEM_MOD_CRIT_RATING_SHORT = "crit",
+  ITEM_MOD_HIT_RATING_SHORT = "hit", ITEM_MOD_EXPERTISE_RATING_SHORT = "expertise",
+  ITEM_MOD_DEFENSE_SKILL_RATING_SHORT = "defense", ITEM_MOD_DODGE_RATING_SHORT = "dodge",
+  ITEM_MOD_PARRY_RATING_SHORT = "parry", ITEM_MOD_BLOCK_RATING_SHORT = "block", ITEM_MOD_BLOCK_VALUE_SHORT = "blockValue",
+  ITEM_MOD_SPELL_POWER_SHORT = "spellPower", ITEM_MOD_SPELL_DAMAGE_DONE_SHORT = "spellDamage",
+  ITEM_MOD_SPELL_HEALING_DONE_SHORT = "healing", ITEM_MOD_HOLY_DAMAGE_DONE_SHORT = "holyDamage",
+  ITEM_MOD_FIRE_DAMAGE_DONE_SHORT = "fireDamage", ITEM_MOD_FROST_DAMAGE_DONE_SHORT = "frostDamage",
+  ITEM_MOD_NATURE_DAMAGE_DONE_SHORT = "natureDamage", ITEM_MOD_SHADOW_DAMAGE_DONE_SHORT = "shadowDamage",
+  ITEM_MOD_ARCANE_DAMAGE_DONE_SHORT = "arcaneDamage", ITEM_MOD_SPELL_PENETRATION_SHORT = "spellPen",
+  ITEM_MOD_MANA_REGENERATION_SHORT = "manaRegen", ITEM_MOD_HEALTH_REGEN_SHORT = "healthRegen",
+  ITEM_MOD_ATTACK_POWER_VS_BEAST_SHORT = "attackPowerVsBeasts", ITEM_MOD_ATTACK_POWER_VS_DEMON_SHORT = "attackPowerVsDemons",
+  ITEM_MOD_ATTACK_POWER_VS_UNDEAD_SHORT = "attackPowerVsUndead",
+  ITEM_MOD_SPELL_DAMAGE_VS_UNDEAD_SHORT = "spellDamageVsUndead", ITEM_MOD_DAGGERS_SHORT = "daggerSkill",
+  ITEM_MOD_TWOHANDED_SWORDS_SHORT = "swordSkill", ITEM_MOD_TWOHANDED_AXES_SHORT = "axeSkill",
+  ITEM_MOD_TWOHANDED_MACES_SHORT = "maceSkill", ITEM_MOD_FIST_WEAPONS_SHORT = "fistSkill",
+}
+local DAMAGE = { "v", "DPS", 0.01, "DPS", "damage" }
+local HEALING = { "v", "HPS", 0.01, "HPS", "healing" }
+local ALSO_DAMAGE = { "d", "DPS", 0.01, "DPS", "damage" }
+local SURVIVAL = { "e", "effective HP", 0.5, "eff. HP", "survival" }
 local MEASURES = {
-  dps = { { "v", "DPS", 0.01, "DPS" }, { "e", "effective HP", 0.5, "eff. HP" } },
-  heal = { { "v", "HPS", 0.01, "HPS" }, { "e", "effective HP", 0.5, "eff. HP" } },
-  tank = { { "e", "effective HP", 0.5, "eff. HP" }, { "d", "DPS", 0.01, "DPS" } },
+  dps = { DAMAGE, SURVIVAL },
+  heal = { HEALING, ALSO_DAMAGE, SURVIVAL },
+  healSolo = { ALSO_DAMAGE, HEALING, SURVIVAL },
+  tank = { SURVIVAL, ALSO_DAMAGE },
 }
 Upgrade.MEASURES = MEASURES
+
+function Upgrade.Role(build)
+  if build.role == "heal" and build.path == "solo" then return "healSolo" end
+  return build.role
+end
 local SHEET_KEY = { strength = "str", agility = "agi", stamina = "sta", intellect = "int", spirit = "spi" }
 Upgrade.STATS = {
   { "strength", "Strength" }, { "agility", "Agility" }, { "stamina", "Stamina" }, { "intellect", "Intellect" },
@@ -102,15 +129,10 @@ end
 local function Parts(id, link, hand)
   local item, parts = KP.Items[id], {}
   if not item then return parts end
-  local game = link and GameStats(link)
-  for key, amount in pairs(item.s or {}) do
-    if not (game and PRIMARY[key]) then parts[key] = amount end
-  end
-  if game then
-    for key, name in pairs(PRIMARY) do
-      local amount = game[name]
-      if KP.Readable(amount) and amount then parts[key] = amount end
-    end
+  for key, amount in pairs(item.s or {}) do parts[key] = amount end
+  for name, amount in pairs(link and GameStats(link) or {}) do
+    local key = GAME_STAT[name]
+    if key and KP.Readable(amount) and amount then parts[key] = amount end
   end
   if item.a then parts.armor = item.a end
   if item.w then parts[hand] = (item.w[1] + item.w[2]) / 2 / item.w[3] end
@@ -133,8 +155,9 @@ local function Total(W, parts)
   return total
 end
 
-local function Better(a, b)
-  return a.v > b.v or (a.v == b.v and a.e > b.e)
+local function Better(a, b, role)
+  local k = role == "tank" and "v" or (MEASURES[role] or MEASURES.dps)[1][1]
+  return a[k] > b[k] or (a[k] == b[k] and a.e > b.e)
 end
 
 local function Worn(inv)
@@ -148,7 +171,7 @@ local function WornItem(inv, W)
   return { name = link and link:match("%[(.-)%]"), parts = parts, total = Total(W, parts) }
 end
 
-local function Replaced(item, link, W)
+local function Replaced(item, link, W, role)
   local slots = INV[item[1]]
   for _, inv in ipairs(slots) do
     if SameItem(select(2, Worn(inv)), link) then return nil, "worn", inv end
@@ -165,7 +188,7 @@ local function Replaced(item, link, W)
   local out
   for _, inv in ipairs(slots) do
     local worn = WornItem(inv, W)
-    if not out or Better(out.total, worn.total) then out = worn end
+    if not out or Better(out.total, worn.total, role) then out = worn end
   end
   return out
 end
@@ -193,14 +216,14 @@ local function Judged(W, link, item, hand, diff)
   return worth, { v = worth.v - total.v, e = worth.e - total.e, d = worth.d - total.d }, hands
 end
 
-local function OneHandSlot(id, link, W, mainWorn)
+local function OneHandSlot(id, link, W, mainWorn, role)
   local offID = Worn(17)
   local off = offID and KP.Items[offID]
   if not (off and OFF_HAND_WEAPON[off[1]]) then return "mainHand", mainWorn end
   local offWorn, item = WornItem(17, W), KP.Items[id]
   local inMain = Judged(W, link, item, "mainHand", Combine(Parts(id, link, "mainHand"), mainWorn.parts, -1))
   local inOff = Judged(W, link, item, "offHand", Combine(Parts(id, link, "offHand"), offWorn.parts, -1))
-  if Better(inOff, inMain) then return "offHand", offWorn end
+  if Better(inOff, inMain, role) then return "offHand", offWorn end
   return "mainHand", mainWorn
 end
 
@@ -209,10 +232,11 @@ local function Percent(x, of)
 end
 
 local function Change(total, role, base)
-  local main = (MEASURES[role] or MEASURES.dps)[1]
   if role == "tank" then return total.v > 0, Upgrade.Number(total.v * 100) .. "%" end
-  if math.abs(total[main[1]]) >= main[3] then return total[main[1]] > 0, Percent(total[main[1]], base[main[1]]) end
-  return total.e > 0, Percent(total.e, base.e) .. " survival"
+  for i, m in ipairs(MEASURES[role] or MEASURES.dps) do
+    local x = total[m[1]]
+    if math.abs(x) >= m[3] then return x > 0, Percent(x, base[m[1]]) .. (i > 1 and " " .. m[5] or "") end
+  end
 end
 
 local function Verdict(total, role, base)
@@ -260,24 +284,26 @@ local function Compare(link)
   local W = KP.StatWeights.For(build)
   if not W then return nil end
   local from = (item.late and item.late[classID]) or math.max(1, item[2])
-  local replaced, why, inv = Replaced(item, link, W)
+  local role = Upgrade.Role(build)
+  local replaced, why, inv = Replaced(item, link, W, role)
   if why == "worn" then
     local parts = Parts(id, link, HAND[inv])
-    return { build = build, W = W, item = item, worn = true, diff = parts, total = Total(W, parts), from = from, level = level }
+    return { build = build, role = role, W = W, item = item, worn = true, diff = parts, total = Total(W, parts), from = from,
+      level = level }
   end
   if why then return nil, why, build end
   local hand = HAND[INV[item[1]][1]]
-  if item[1] == "oneHand" then hand, replaced = OneHandSlot(id, link, W, replaced) end
+  if item[1] == "oneHand" then hand, replaced = OneHandSlot(id, link, W, replaced, role) end
   local diff = Combine(Parts(id, link, hand), replaced.parts, -1)
   local total, rest, hands = Judged(W, link, item, hand, diff)
-  return { build = build, W = W, item = item, replaced = replaced, diff = diff, total = total, rest = rest, hands = hands,
-    from = from, level = level }
+  return { build = build, role = role, W = W, item = item, replaced = replaced, diff = diff, total = total, rest = rest,
+    hands = hands, from = from, level = level }
 end
 
 function Upgrade.IsUpgrade(link)
   local c = Compare(link)
   if not c or c.worn or c.from > c.level then return false end
-  local _, up = Verdict(c.total, c.build.role, c.W.base)
+  local _, up = Verdict(c.total, c.role, c.W.base)
   return up == true
 end
 
@@ -329,13 +355,13 @@ function Upgrade.Lines(link)
     table.insert(lines, { "Your main hand is a two-handed weapon.", GREY })
     return lines
   end
-  table.insert(lines, Headline(c, build.role))
+  table.insert(lines, Headline(c, c.role))
   local _, class = UnitClass("player")
-  for _, row in ipairs(Breakdown(c.diff, c.W, build.role, class, KP.Sheet.Inputs(class))) do
+  for _, row in ipairs(Breakdown(c.diff, c.W, c.role, class, KP.Sheet.Inputs(class))) do
     table.insert(lines, { "  " .. row.left, WHITE, right = row.right })
     if row.what then table.insert(lines, { "      " .. row.what, GREY }) end
   end
-  for _, line in ipairs(RestLines(c, build.role)) do table.insert(lines, line) end
+  for _, line in ipairs(RestLines(c, c.role)) do table.insert(lines, line) end
   if not c.worn then
     table.insert(lines, { c.replaced.name and ("vs. your " .. c.replaced.name) or "Your slot is empty.", GREY })
   end

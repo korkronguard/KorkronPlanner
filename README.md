@@ -29,16 +29,17 @@ The in-game companion to the Kor'kron Guard talent planner: https://korkronguard
   database to copy into your browser, with the quest, the boss or the vendor it comes from.
 - **Upgrade or downgrade, on every item.** Hover an item in your bags, on your character, in loot or at a vendor: the
   tooltip says whether it beats what you wear for your build, by how much overall (in %: of your own damage for
-  Warriors and Rogues, of your build's damage or healing per second at your level for the other classes), in damage or
-  healing per second and effective HP, and why: what each stat that differs adds. Warriors and Rogues get each item
+  Warriors and Rogues, of your build's damage or healing per second at your level for the other classes; a healer's Solo
+  build goes by its damage, its Dungeon and PvP builds by healing), in damage per second (and healing per second for
+  healers) and effective HP, and why: what each stat that differs adds. Warriors and Rogues get each item
   tried on in place of what it replaces, so a weapon's speed and type count too ("Wielding it"), and so do caps like
   hit ("Caps and limits"). Hover gear you're wearing to see what it
   gives you, stat by stat,
   and what those points do on your character sheet. With your bags open, a **green arrow** in the top-right corner marks
   each item that's an upgrade you can wear now. Using **Baganator**? The arrow shows there too, top right (move it in
   Baganator's settings, Icons tab, where it's called "Kor'kron Planner"). **EllesmereUI**'s bags show it too.
-- **What each stat is worth to you.** The **Stats** tab has a section for each of your build's two numbers, staying
-  alive (effective health) and damage or healing. Each lists the stats that count for it: how much of the stat you
+- **What each stat is worth to you.** The **Stats** tab has a section for each of your build's numbers: staying alive
+  (effective health), damage, and healing for healers. Each lists the stats that count for it: how much of the stat you
   have, what 1 more point adds, and what that's worth in your main stat ("0.5 Strength"; other tools call these stat
   weights). For Warriors and Rogues they're worked out from your own character sheet, talents and weapons, against the enemy you
   choose (a normal one of your level, an elite, or an elite 3 levels up), with your own effective health and damage

@@ -111,6 +111,8 @@ function Sheet.Have(key)
   elseif key == "attackPower" or key == "rangedAttackPower" then
     local base, plus, minus = (key == "attackPower" and UnitAttackPower or UnitRangedAttackPower)("player")
     return Readable(base) and Readable(plus) and Readable(minus) and base + plus + minus or nil
+  elseif key == "blockValue" then
+    return GetShieldBlock and Readable(GetShieldBlock()) or nil
   elseif key == "healing" then
     return Readable(GetSpellBonusHealing())
   elseif key == "spellPower" or key == "spellDamage" then
