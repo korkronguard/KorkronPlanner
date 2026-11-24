@@ -65,8 +65,17 @@ Upgrade.STATS = {
   { "fistSkill", "Fist weapon skill" },
   { "mainHand", "main-hand weapon DPS" }, { "offHand", "off-hand weapon DPS" }, { "ranged", "ranged weapon DPS" },
 }
-local STAT_NAME = {}
+local EFFECT_STATS = {
+  { "critPct", "crit chance" }, { "spellCritPct", "spell crit chance" }, { "hitPct", "hit chance" },
+  { "spellHitPct", "spell hit chance" }, { "dodgePct", "dodge chance" }, { "parryPct", "parry chance" },
+  { "blockPct", "block chance" }, { "hastePct", "attack speed" }, { "meleeHastePct", "melee attack speed" },
+  { "rangedHastePct", "ranged attack speed" }, { "castHastePct", "casting speed" }, { "defenseSkill", "Defense" },
+  { "meleeAttackPower", "Melee attack power" },
+}
+local STAT_NAME, EFFECT_KEY = {}, {}
 for _, s in ipairs(Upgrade.STATS) do STAT_NAME[s[1]] = s[2] end
+for _, s in ipairs(EFFECT_STATS) do STAT_NAME[s[1]], EFFECT_KEY[s[1]] = s[2], true end
+local WORN_SLOTS = { 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 }
 local GREEN, RED, GREY, WHITE = { 0.1, 1, 0.1 }, { 1, 0.25, 0.25 }, { 0.6, 0.6, 0.6 }, { 0.9, 0.9, 0.9 }
 local GOLD = { 1, 0.82, 0 }
 
@@ -74,6 +83,11 @@ function Upgrade.Number(x)
   local a = math.abs(x)
   local text = a >= 10 and ("%.0f"):format(a) or a >= 1 and ("%.1f"):format(a) or ("%.2g"):format(a)
   return (x < 0 and "-" or "+") .. text
+end
+
+local function Amount(key, amount)
+  if key:find("Pct$") then return ("%+g%% %s"):format(math.floor(amount * 10 + 0.5) / 10, STAT_NAME[key]) end
+  return ((WEAPON[key] and "%+.1f %s") or "%+.0f %s"):format(amount, STAT_NAME[key] or key)
 end
 
 function Upgrade.Value(W, key, amount)
@@ -136,6 +150,7 @@ local function Parts(id, link, hand)
   end
   if item.a then parts.armor = item.a end
   if item.w then parts[hand] = (item.w[1] + item.w[2]) / 2 / item.w[3] end
+  for key, amount in pairs(item.x or {}) do parts[key] = (parts[key] or 0) + amount end
   return parts
 end
 
@@ -144,6 +159,43 @@ local function Combine(a, b, sign)
   for key, amount in pairs(a) do out[key] = amount end
   for key, amount in pairs(b) do out[key] = (out[key] or 0) + sign * amount end
   return out
+end
+
+local function SetOf(id)
+  return id and KP.Items[id] and KP.Items[id].set
+end
+
+local function SetCounts()
+  local counts = {}
+  for _, inv in ipairs(WORN_SLOTS) do
+    local set = SetOf(ItemID(KP.Text(GetInventoryItemLink("player", inv))))
+    if set then counts[set] = (counts[set] or 0) + 1 end
+  end
+  return counts
+end
+
+local function SetChange(counts, removed, added)
+  local after = {}
+  for set, n in pairs(counts) do after[set] = n end
+  for _, id in ipairs(removed) do
+    local set = SetOf(id)
+    if set then after[set] = after[set] - 1 end
+  end
+  local set = SetOf(added)
+  if set then after[set] = (after[set] or 0) + 1 end
+  local changes, parts = {}, {}
+  for s, n in pairs(after) do
+    local before, info = counts[s] or 0, KP.Sets[s]
+    for _, b in ipairs(info and n ~= before and info.b or {}) do
+      if (before >= b[1]) ~= (n >= b[1]) then
+        local sign = n >= b[1] and 1 or -1
+        table.insert(changes, { name = info.name, pieces = b[1], text = b.t, sign = sign, parts = b.s, uncounted = b.n })
+        for key, amount in pairs(b.s or {}) do parts[key] = (parts[key] or 0) + sign * amount end
+      end
+    end
+  end
+  table.sort(changes, function(a, b) return a.name < b.name or (a.name == b.name and a.pieces < b.pieces) end)
+  return changes, parts
 end
 
 local function Total(W, parts)
@@ -165,13 +217,18 @@ local function Worn(inv)
   return ItemID(link), link
 end
 
+local function UseOf(id)
+  return id and KP.Items[id] and KP.Items[id].u or {}
+end
+
 local function WornItem(inv, W)
   local id, link = Worn(inv)
   local parts = id and Parts(id, link, HAND[inv]) or {}
-  return { name = link and link:match("%[(.-)%]"), parts = parts, total = Total(W, parts) }
+  return { name = link and link:match("%[(.-)%]"), ids = id and { id } or {}, parts = parts, use = UseOf(id),
+    total = Total(W, parts) }
 end
 
-local function Replaced(item, link, W, role)
+local function Replaced(item, link, W, role, counts)
   local slots = INV[item[1]]
   for _, inv in ipairs(slots) do
     if SameItem(select(2, Worn(inv)), link) then return nil, "worn", inv end
@@ -182,13 +239,16 @@ local function Replaced(item, link, W, role)
   if item[1] == "twoHand" then
     local mh, oh = WornItem(16, W), WornItem(17, W)
     local parts = Combine(mh.parts, oh.parts, 1)
-    return { name = mh.name and oh.name and (mh.name .. " and " .. oh.name) or mh.name or oh.name, parts = parts,
-      total = Total(W, parts) }
+    local ids = { unpack(mh.ids) }
+    if oh.ids[1] then table.insert(ids, oh.ids[1]) end
+    return { name = mh.name and oh.name and (mh.name .. " and " .. oh.name) or mh.name or oh.name, ids = ids,
+      parts = parts, use = Combine(mh.use, oh.use, 1), total = Total(W, parts) }
   end
-  local out
+  local out, outKept
   for _, inv in ipairs(slots) do
     local worn = WornItem(inv, W)
-    if not out or Better(out.total, worn.total, role) then out = worn end
+    local kept = Total(W, Combine(Combine(worn.parts, worn.use, 1), select(2, SetChange(counts, worn.ids)), -1))
+    if not out or Better(outKept, kept, role) then out, outKept = worn, kept end
   end
   return out
 end
@@ -255,8 +315,7 @@ local function Breakdown(diff, W, role, class, inputs)
     local value = Upgrade.Value(W, key, amount)
     local right = Colored(value, role)
     if right ~= "" and amount ~= 0 then
-      local row = { left = ((WEAPON[key] and "%+.1f %s") or "%+.0f %s"):format(amount, STAT_NAME[key] or key),
-        right = right, size = math.abs(value[first]) + math.abs(value.e) / 1000 }
+      local row = { left = Amount(key, amount), right = right, size = math.abs(value[first]) + math.abs(value.e) / 1000 }
       if SHEET_KEY[key] and inputs then
         local what = {}
         for _, effect in ipairs(KP.Sheet.Effects(class, inputs, SHEET_KEY[key])) do
@@ -285,19 +344,26 @@ local function Compare(link)
   if not W then return nil end
   local from = (item.late and item.late[classID]) or math.max(1, item[2])
   local role = Upgrade.Role(build)
-  local replaced, why, inv = Replaced(item, link, W, role)
+  local counts = SetCounts()
+  local replaced, why, inv = Replaced(item, link, W, role, counts)
   if why == "worn" then
     local parts = Parts(id, link, HAND[inv])
-    return { build = build, role = role, W = W, item = item, worn = true, diff = parts, total = Total(W, parts), from = from,
-      level = level }
+    local sets, setParts = SetChange(counts, { id })
+    for _, s in ipairs(sets) do s.sign = -s.sign end
+    local all = Combine(Combine(parts, UseOf(id), 1), setParts, -1)
+    return { build = build, role = role, W = W, item = item, worn = true, diff = parts, use = UseOf(id), sets = sets,
+      total = Total(W, all), all = all, from = from, level = level }
   end
   if why then return nil, why, build end
   local hand = HAND[INV[item[1]][1]]
   if item[1] == "oneHand" then hand, replaced = OneHandSlot(id, link, W, replaced, role) end
   local diff = Combine(Parts(id, link, hand), replaced.parts, -1)
-  local total, rest, hands = Judged(W, link, item, hand, diff)
-  return { build = build, role = role, W = W, item = item, replaced = replaced, diff = diff, total = total, rest = rest,
-    hands = hands, from = from, level = level }
+  local use = Combine(UseOf(id), replaced.use, -1)
+  local sets, setParts = SetChange(counts, replaced.ids, id)
+  local all = Combine(Combine(diff, use, 1), setParts, 1)
+  local total, rest, hands = Judged(W, link, item, hand, all)
+  return { build = build, role = role, W = W, item = item, replaced = replaced, diff = diff, use = use, sets = sets,
+    total = total, all = all, rest = rest, hands = hands, from = from, level = level }
 end
 
 function Upgrade.IsUpgrade(link)
@@ -346,6 +412,32 @@ local function RestLines(c, role)
   return out
 end
 
+local function EffectLines(c)
+  local out = {}
+  if next(c.use) and Colored(Total(c.W, c.use), c.role) ~= "" then
+    table.insert(out, { "  Use: its buff averaged over the cooldown", WHITE, right = Colored(Total(c.W, c.use), c.role) })
+  end
+  for _, s in ipairs(c.sets) do
+    local word = c.worn and "Keeps" or s.sign > 0 and "Completes" or "Breaks"
+    local signed = {}
+    for key, amount in pairs(s.parts or {}) do signed[key] = s.sign * amount end
+    local right = Colored(Total(c.W, signed), c.role)
+    if right == "" then right = s.uncounted and "|cff999999not counted|r" or "|cff999999nothing your build counts|r" end
+    table.insert(out, { ("  %s %s (%d)"):format(word, s.name, s.pieces), WHITE, right = right })
+    table.insert(out, { "      " .. (s.sign > 0 and "" or "loses ") .. s.text, GREY })
+  end
+  return out
+end
+
+local function Uncounted(all, W)
+  local out = {}
+  for key, amount in pairs(all) do
+    if amount ~= 0 and EFFECT_KEY[key] and W.v[key] == nil and W.e[key] == nil then table.insert(out, Amount(key, amount)) end
+  end
+  table.sort(out)
+  return #out > 0 and table.concat(out, ", ") or nil
+end
+
 function Upgrade.Lines(link)
   local c, why, build = Compare(link)
   if not (c or why == "twoHand") then return nil end
@@ -361,12 +453,14 @@ function Upgrade.Lines(link)
     table.insert(lines, { "  " .. row.left, WHITE, right = row.right })
     if row.what then table.insert(lines, { "      " .. row.what, GREY }) end
   end
+  for _, line in ipairs(EffectLines(c)) do table.insert(lines, line) end
   for _, line in ipairs(RestLines(c, c.role)) do table.insert(lines, line) end
   if not c.worn then
     table.insert(lines, { c.replaced.name and ("vs. your " .. c.replaced.name) or "Your slot is empty.", GREY })
   end
   if c.item.fx then table.insert(lines, { "Its special effect isn't counted.", GREY }) end
-  if c.item.set then table.insert(lines, { "Its set bonus isn't counted.", GREY }) end
+  local unknown = c.W.live and Uncounted(c.all, c.W)
+  if unknown then table.insert(lines, { "Not counted: " .. unknown, GREY }) end
   return lines
 end
 

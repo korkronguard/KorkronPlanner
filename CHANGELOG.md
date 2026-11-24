@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.32.0
+
+- **Set bonuses count.** Item tooltips and bag arrows now count the set pieces you wear. An item that completes a bonus
+  says so ("Completes Battlegear of Valor (3)") with what the bonus is worth to you. One that would take a piece off says
+  what you'd lose ("Breaks Battlegear of Valor (3)": Sapphiron's Scale Boots over Boots of Valor now count the 15 Strength
+  you'd lose). A piece you wear says which bonus it keeps on. Bonuses that are a chance on hit or change one of your
+  abilities are named but not counted.
+- **The Gear tab's best gear goes for set bonuses.** The planner now tries putting on enough pieces of each set to reach
+  its bonuses (Devilsaur's +2% hit, Dal'Rend's +50 attack power, Valor's +15 Strength and the like) and keeps them when
+  the set beats the best single pieces. The pre-raid lists at 60 can change because of it.
+- **"Equip:" and "Use:" effects count on tooltips.** An item's "Equip: +1% hit" or "+1% crit" counts as that chance, and
+  a "Use:" buff counts averaged over its cooldown, as the planner's gear lists already did. Procs ("Chance on hit") still
+  aren't counted, and the tooltip says so.
+- **Updated for the game's latest patch and hotfixes (Nov 17 to 20):** the dungeon sets' new stats and the weaker
+  Crackling Staff are in the gear advice (casters' gear and numbers at 60 shift a little), and Hunter pets' damage is now
+  measured from the guild's own pets up to level 45, so Hunter builds read 2 to 3% higher at 60.
+- **Fixed: the character stats shared with the guild could still read 0** when the game knew your health before the
+  rest of your character had loaded. The addon now waits for your stats too.
+
 ## 0.31.2
 
 - **Undead: Touch of the Grave counts in your damage.** Some of your hits drain 5% of your maximum health from the

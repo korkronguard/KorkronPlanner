@@ -1,6 +1,6 @@
 local _, KP = ...
 KP.Talents = {
-  build = "1.60.1.70959",
+  build = "1.60.1.71037",
   DRUID = {
     trees = { "Balance", "Feral Combat", "Restoration" },
     { id = 104923, tree = 1, row = 0, col = 1, ranks = 5, name = "Improved Wrath", icon = 136006, desc = { "Reduces the cast time of your Wrath spell by 0.1 sec and its Mana cost by 10%.", "Reduces the cast time of your Wrath spell by 0.2 sec and its Mana cost by 20%.", "Reduces the cast time of your Wrath spell by 0.3 sec and its Mana cost by 30%.", "Reduces the cast time of your Wrath spell by 0.4 sec and its Mana cost by 40%.", "Reduces the cast time of your Wrath spell by 0.5 sec and its Mana cost by 50%." } },

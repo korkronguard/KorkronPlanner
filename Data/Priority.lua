@@ -2025,7 +2025,7 @@ KP.Priority = {
         { title = "Shot priority", note = "Keep Auto Shot going and fit these in without delaying it. Your mana runs out before your cooldowns do, so the most damage per mana goes first.", items = {
           { name = "Serpent Sting", tag = "Keep up", text = "Keep it on the target.", icon = 132204 },
           { name = "Summon Hawk", tag = "On cooldown", text = "Shares its cooldown with Arcane Shot. Your Unleashed Fury and Ferocity make hawks stronger, so favour the hawk (2 at a time).", icon = 132158 },
-          { name = "Arcane Shot", tag = "On cooldown", text = "Shares its cooldown with Summon Hawk: use it while 2 hawks are already out (only 2 can be, game data). Improved Arcane Shot: 0.6 sec shorter cooldown.", icon = 132218 },
+          { name = "Arcane Shot", tag = "On cooldown", text = "Shares its cooldown with Summon Hawk: use it while 2 hawks are already out (only 2 can be, game data).", icon = 132218 },
           { name = "Aimed Shot", tag = "On cooldown", text = "Shares its cooldown with Multi-Shot: Aimed Shot hits harder for you. It has a cast time: start it right after an Auto Shot.", icon = 135130 },
           { name = "Immolation Trap", tag = "Optional", text = "Usable in combat in Forever: worth it when the boss is tanked close enough to reach its feet.", icon = 135813 },
           { name = "Auto Shot", tag = "Always", text = "Never let it stop; don't move or cast through it.", icon = 132369 },
@@ -2995,7 +2995,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 28% of the fight (it costs nothing).", icon = 135473 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 30% of the fight (it costs nothing).", icon = 135473 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -3013,7 +3013,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 9% of the fight (it costs nothing).", icon = 135466 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 13% of the fight (it costs nothing).", icon = 135466 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -3054,7 +3054,7 @@ KP.Priority = {
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Ice Lance", tag = "On a frozen target", text = " Also when Frostbite freezes the target.", icon = 135844 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 14% of the fight (it costs nothing).", icon = 135469 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 17% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
@@ -3080,7 +3080,7 @@ KP.Priority = {
           { name = "Ice Lance", tag = "With Fingers of Frost", text = "Fingers of Frost makes your next spells act as if the target were Frozen: spend one on Ice Lance. Also when Frostbite freezes the target.", icon = 135844 },
           { name = "Cone of Cold", tag = "At 5 Winter's Chill", text = "Frostbolt stacks Winter's Chill on the target for your next Cone of Cold: cast it at full stacks (a short cone in front of you, so stay close enough).", icon = 135852 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 23% of the fight (it costs nothing).", icon = 135469 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 25% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
@@ -3105,7 +3105,7 @@ KP.Priority = {
           { name = "Ice Lance", tag = "With Fingers of Frost", text = "Fingers of Frost makes your next spells act as if the target were Frozen: spend one on Ice Lance. Also when Frostbite freezes the target.", icon = 135844 },
           { name = "Cone of Cold", tag = "At 5 Winter's Chill", text = "Frostbolt stacks Winter's Chill on the target for your next Cone of Cold: cast it at full stacks (a short cone in front of you, so stay close enough).", icon = 135852 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 29% of the fight (it costs nothing).", icon = 135471 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 31% of the fight (it costs nothing).", icon = 135471 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
@@ -3130,7 +3130,7 @@ KP.Priority = {
           { name = "Ice Lance", tag = "With Fingers of Frost", text = "Fingers of Frost makes your next spells act as if the target were Frozen: spend one on Ice Lance. Also when Frostbite freezes the target.", icon = 135844 },
           { name = "Cone of Cold", tag = "At 5 Winter's Chill", text = "Frostbolt stacks Winter's Chill on the target for your next Cone of Cold: cast it at full stacks (a short cone in front of you, so stay close enough).", icon = 135852 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 33% of the fight (it costs nothing).", icon = 135150 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 34% of the fight (it costs nothing).", icon = 135150 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
@@ -3229,7 +3229,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Fireball hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 16% of the fight (it costs nothing).", icon = 135473 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 19% of the fight (it costs nothing).", icon = 135473 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -3247,7 +3247,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Fireball hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 4% of the fight (it costs nothing).", icon = 135466 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 8% of the fight (it costs nothing).", icon = 135466 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -3288,7 +3288,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Scorch", tag = "Filler", text = "The most damage per mana: Fireball hits harder but runs you out of mana over a fight.", icon = 135827 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 24% of the fight (it costs nothing).", icon = 135469 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 27% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -3313,7 +3313,7 @@ KP.Priority = {
           { name = "Pyroblast", tag = "At 3 Heating Up", text = "Your Fire crits and every Fire Blast build Heating Up: cast Pyroblast at full stacks, before they run out.", icon = 135808 },
           { name = "Fire Blast", tag = "On cooldown", text = "Every Fire Blast adds a Heating Up stack for your next Pyroblast.", icon = 135807 },
           { name = "Scorch", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135827 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 33% of the fight (it costs nothing).", icon = 135469 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 35% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Combustion", tag = "Cooldown", text = "On cooldown.", icon = 135824 },
@@ -3341,7 +3341,7 @@ KP.Priority = {
           { name = "Pyroblast", tag = "At 3 Heating Up", text = "Your Fire crits and every Fire Blast build Heating Up: cast Pyroblast at full stacks, before they run out.", icon = 135808 },
           { name = "Fire Blast", tag = "On cooldown", text = "Every Fire Blast adds a Heating Up stack for your next Pyroblast.", icon = 135807 },
           { name = "Scorch", tag = "Filler", text = "The most damage per mana: Fireball hits harder but runs you out of mana over a fight.", icon = 135827 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 26% of the fight (it costs nothing).", icon = 135471 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 27% of the fight (it costs nothing).", icon = 135471 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Combustion", tag = "Cooldown", text = "On cooldown.", icon = 135824 },
@@ -3369,7 +3369,7 @@ KP.Priority = {
           { name = "Pyroblast", tag = "At 3 Heating Up", text = "Your Fire crits and every Fire Blast build Heating Up: cast Pyroblast at full stacks, before they run out.", icon = 135808 },
           { name = "Fire Blast", tag = "On cooldown", text = "Every Fire Blast adds a Heating Up stack for your next Pyroblast.", icon = 135807 },
           { name = "Scorch", tag = "Filler", text = "The most damage per mana: Fireball hits harder but runs you out of mana over a fight.", icon = 135827 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 27% of the fight (it costs nothing).", icon = 135150 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 28% of the fight (it costs nothing).", icon = 135150 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Combustion", tag = "Cooldown", text = "On cooldown.", icon = 135824 },
@@ -3398,7 +3398,7 @@ KP.Priority = {
           { name = "Pyroblast", tag = "At 3 Heating Up", text = "Your Fire crits and every Fire Blast build Heating Up: cast Pyroblast at full stacks, before they run out.", icon = 135808 },
           { name = "Fire Blast", tag = "On cooldown", text = "Every Fire Blast adds a Heating Up stack for your next Pyroblast.", icon = 135807 },
           { name = "Scorch", tag = "Filler", text = "The most damage per mana: Fireball hits harder but runs you out of mana over a fight.", icon = 135827 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 28% of the fight (it costs nothing).", icon = 135654 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 29% of the fight (it costs nothing).", icon = 135654 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Combustion", tag = "Cooldown", text = "On cooldown.", icon = 135824 },
@@ -3479,7 +3479,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 15% of the fight (it costs nothing).", icon = 135473 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 18% of the fight (it costs nothing).", icon = 135473 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -3501,7 +3501,7 @@ KP.Priority = {
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 2% of the fight (it costs nothing).", icon = 135466 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 7% of the fight (it costs nothing).", icon = 135466 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -3550,7 +3550,7 @@ KP.Priority = {
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 6% of the fight (it costs nothing).", icon = 135469 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 10% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Presence of Mind", tag = "Cooldown", text = "Your next spell is instant: use it on your longest cast.", icon = 136031 },
@@ -3577,7 +3577,7 @@ KP.Priority = {
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 18% of the fight (it costs nothing).", icon = 135469 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 20% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Arcane Power", tag = "Cooldown", text = "On cooldown, together with your other cooldowns.", icon = 136048 },
@@ -3605,7 +3605,7 @@ KP.Priority = {
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 30% of the fight (it costs nothing).", icon = 135471 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 31% of the fight (it costs nothing).", icon = 135471 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Arcane Power", tag = "Cooldown", text = "On cooldown, together with your other cooldowns.", icon = 136048 },
@@ -3633,7 +3633,7 @@ KP.Priority = {
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 39% of the fight (it costs nothing).", icon = 135150 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 40% of the fight (it costs nothing).", icon = 135150 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Arcane Power", tag = "Cooldown", text = "On cooldown, together with your other cooldowns.", icon = 136048 },
@@ -3737,7 +3737,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 28% of the fight (it costs nothing).", icon = 135473 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 30% of the fight (it costs nothing).", icon = 135473 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -3755,7 +3755,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 9% of the fight (it costs nothing).", icon = 135466 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 13% of the fight (it costs nothing).", icon = 135466 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -3796,7 +3796,7 @@ KP.Priority = {
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Ice Lance", tag = "On a frozen target", text = " Also when Frostbite freezes the target.", icon = 135844 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 14% of the fight (it costs nothing).", icon = 135469 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 17% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
@@ -3821,7 +3821,7 @@ KP.Priority = {
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Ice Lance", tag = "On a frozen target", text = " Also when Frostbite freezes the target.", icon = 135844 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 23% of the fight (it costs nothing).", icon = 135469 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 25% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
@@ -3847,7 +3847,7 @@ KP.Priority = {
           { name = "Ice Lance", tag = "With Fingers of Frost", text = "Fingers of Frost makes your next spells act as if the target were Frozen: spend one on Ice Lance. Also when Frostbite freezes the target.", icon = 135844 },
           { name = "Cone of Cold", tag = "At 5 Winter's Chill", text = "Frostbolt stacks Winter's Chill on the target for your next Cone of Cold: cast it at full stacks (a short cone in front of you, so stay close enough).", icon = 135852 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 29% of the fight (it costs nothing).", icon = 135471 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 31% of the fight (it costs nothing).", icon = 135471 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
@@ -3872,7 +3872,7 @@ KP.Priority = {
           { name = "Ice Lance", tag = "With Fingers of Frost", text = "Fingers of Frost makes your next spells act as if the target were Frozen: spend one on Ice Lance. Also when Frostbite freezes the target.", icon = 135844 },
           { name = "Cone of Cold", tag = "At 5 Winter's Chill", text = "Frostbolt stacks Winter's Chill on the target for your next Cone of Cold: cast it at full stacks (a short cone in front of you, so stay close enough).", icon = 135852 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 35% of the fight (it costs nothing).", icon = 135150 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 36% of the fight (it costs nothing).", icon = 135150 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
@@ -3923,7 +3923,7 @@ KP.Priority = {
           { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
           { name = "Cone of Cold", tag = "At 5 Winter's Chill", text = "Frostbolt stacks Winter's Chill on the target for your next Cone of Cold: cast it at full stacks (a short cone in front of you, so stay close enough).", icon = 135852 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 33% of the fight (it costs nothing)." },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 32% of the fight (it costs nothing)." },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
@@ -3970,7 +3970,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 11% of the fight (it costs nothing).", icon = 135473 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 12% of the fight (it costs nothing).", icon = 135473 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -3991,7 +3991,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 2% of the fight (it costs nothing).", icon = 135466 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 7% of the fight (it costs nothing).", icon = 135466 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -4035,7 +4035,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 9% of the fight (it costs nothing).", icon = 135469 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 13% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -4058,7 +4058,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 18% of the fight (it costs nothing).", icon = 135469 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 21% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -4081,7 +4081,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Scorch", tag = "Filler", text = "The most damage per mana: Fireball hits harder but runs you out of mana over a fight.", icon = 135827 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 18% of the fight (it costs nothing).", icon = 135471 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 19% of the fight (it costs nothing).", icon = 135471 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -4104,7 +4104,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Scorch", tag = "Filler", text = "The most damage per mana: Fireball hits harder but runs you out of mana over a fight.", icon = 135827 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 28% of the fight (it costs nothing).", icon = 135150 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 29% of the fight (it costs nothing).", icon = 135150 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -4158,7 +4158,7 @@ KP.Priority = {
           { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
           { name = "Fire Blast", tag = "On cooldown", text = "Every Fire Blast adds a Heating Up stack for your next Pyroblast.", icon = 135807 },
           { name = "Scorch", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135827 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 28% of the fight (it costs nothing)." },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 27% of the fight (it costs nothing)." },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Combustion", tag = "Cooldown", text = "On cooldown.", icon = 135824 },
@@ -4207,7 +4207,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 7% of the fight (it costs nothing).", icon = 135473 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 10% of the fight (it costs nothing).", icon = 135473 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -4228,7 +4228,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 2% of the fight (it costs nothing).", icon = 135466 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 7% of the fight (it costs nothing).", icon = 135466 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -4272,7 +4272,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 9% of the fight (it costs nothing).", icon = 135469 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 13% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -4295,7 +4295,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 18% of the fight (it costs nothing).", icon = 135469 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 21% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -4319,7 +4319,7 @@ KP.Priority = {
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
           { name = "Scorch", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135827 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 23% of the fight (it costs nothing).", icon = 135471 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 25% of the fight (it costs nothing).", icon = 135471 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -4343,7 +4343,7 @@ KP.Priority = {
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
           { name = "Scorch", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135827 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 29% of the fight (it costs nothing).", icon = 135150 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 30% of the fight (it costs nothing).", icon = 135150 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Presence of Mind", tag = "Cooldown", text = "Your next spell is instant: use it on your longest cast.", icon = 136031 },
@@ -4397,7 +4397,7 @@ KP.Priority = {
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Arcane Missiles", tag = "With Missile Barrage", text = "When Missile Barrage lights up, your next Arcane Missiles is free and twice as fast: use it.", icon = 136096 },
           { name = "Scorch", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135827 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 28% of the fight (it costs nothing)." },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 27% of the fight (it costs nothing)." },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Arcane Power", tag = "Cooldown", text = "On cooldown, together with your other cooldowns.", icon = 136048 },
@@ -4446,7 +4446,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 25% of the fight (it costs nothing).", icon = 135473 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 28% of the fight (it costs nothing).", icon = 135473 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -4464,7 +4464,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 22% of the fight (it costs nothing).", icon = 135466 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 25% of the fight (it costs nothing).", icon = 135466 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -4482,7 +4482,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 1% of the fight (it costs nothing).", icon = 135466 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 4% of the fight (it costs nothing).", icon = 135466 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
@@ -4505,7 +4505,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 14% of the fight (it costs nothing).", icon = 135469 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 17% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
@@ -4530,7 +4530,7 @@ KP.Priority = {
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Ice Lance", tag = "On a frozen target", text = " Also when Frostbite freezes the target.", icon = 135844 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 23% of the fight (it costs nothing).", icon = 135469 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 25% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
@@ -4556,7 +4556,7 @@ KP.Priority = {
           { name = "Ice Lance", tag = "With Fingers of Frost", text = "Fingers of Frost makes your next spells act as if the target were Frozen: spend one on Ice Lance. Also when Frostbite freezes the target.", icon = 135844 },
           { name = "Cone of Cold", tag = "At 5 Winter's Chill", text = "Frostbolt stacks Winter's Chill on the target for your next Cone of Cold: cast it at full stacks (a short cone in front of you, so stay close enough).", icon = 135852 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 29% of the fight (it costs nothing).", icon = 135471 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 31% of the fight (it costs nothing).", icon = 135471 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
@@ -4581,7 +4581,7 @@ KP.Priority = {
           { name = "Ice Lance", tag = "With Fingers of Frost", text = "Fingers of Frost makes your next spells act as if the target were Frozen: spend one on Ice Lance. Also when Frostbite freezes the target.", icon = 135844 },
           { name = "Cone of Cold", tag = "At 5 Winter's Chill", text = "Frostbolt stacks Winter's Chill on the target for your next Cone of Cold: cast it at full stacks (a short cone in front of you, so stay close enough).", icon = 135852 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per second of casting.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 35% of the fight (it costs nothing).", icon = 135150 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 36% of the fight (it costs nothing).", icon = 135150 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Cold Snap", tag = "Cooldown", text = "Finishes your other Frost cooldowns (Ice Barrier, Ice Lance, Cone of Cold...).", icon = 135865 },
@@ -4678,7 +4678,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 16% of the fight (it costs nothing).", icon = 135473 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 19% of the fight (it costs nothing).", icon = 135473 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -4696,7 +4696,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 4% of the fight (it costs nothing).", icon = 135466 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 9% of the fight (it costs nothing).", icon = 135466 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -4734,7 +4734,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Scorch", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135827 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 23% of the fight (it costs nothing).", icon = 135469 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 26% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -4755,7 +4755,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Scorch", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135827 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 33% of the fight (it costs nothing).", icon = 135469 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 34% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Combustion", tag = "Cooldown", text = "On cooldown.", icon = 135824 },
@@ -4781,7 +4781,7 @@ KP.Priority = {
           { name = "Pyroblast", tag = "At 3 Heating Up", text = "Your Fire crits and every Fire Blast build Heating Up: cast Pyroblast at full stacks, before they run out.", icon = 135808 },
           { name = "Fire Blast", tag = "On cooldown", text = "Every Fire Blast adds a Heating Up stack for your next Pyroblast.", icon = 135807 },
           { name = "Scorch", tag = "Filler", text = "The most damage per mana: Fireball hits harder but runs you out of mana over a fight.", icon = 135827 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 25% of the fight (it costs nothing).", icon = 135471 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 27% of the fight (it costs nothing).", icon = 135471 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Combustion", tag = "Cooldown", text = "On cooldown.", icon = 135824 },
@@ -4807,7 +4807,7 @@ KP.Priority = {
           { name = "Pyroblast", tag = "At 3 Heating Up", text = "Your Fire crits and every Fire Blast build Heating Up: cast Pyroblast at full stacks, before they run out.", icon = 135808 },
           { name = "Fire Blast", tag = "On cooldown", text = "Every Fire Blast adds a Heating Up stack for your next Pyroblast.", icon = 135807 },
           { name = "Scorch", tag = "Filler", text = "The most damage per mana: Fireball hits harder but runs you out of mana over a fight.", icon = 135827 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 31% of the fight (it costs nothing).", icon = 135150 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 32% of the fight (it costs nothing).", icon = 135150 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Combustion", tag = "Cooldown", text = "On cooldown.", icon = 135824 },
@@ -4859,7 +4859,7 @@ KP.Priority = {
           { name = "Pyroblast", tag = "At 3 Heating Up", text = "Your Fire crits and every Fire Blast build Heating Up: cast Pyroblast at full stacks, before they run out.", icon = 135808 },
           { name = "Fire Blast", tag = "On cooldown", text = "Every Fire Blast adds a Heating Up stack for your next Pyroblast.", icon = 135807 },
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 23% of the fight (it costs nothing)." },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 22% of the fight (it costs nothing)." },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Combustion", tag = "Cooldown", text = "On cooldown.", icon = 135824 },
@@ -4908,7 +4908,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 11% of the fight (it costs nothing).", icon = 135473 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 14% of the fight (it costs nothing).", icon = 135473 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -4929,7 +4929,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 2% of the fight (it costs nothing).", icon = 135466 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 7% of the fight (it costs nothing).", icon = 135466 },
         } },
         { title = "Mana", note = "Both are counted in the estimate.", items = {
           { name = "Evocation", tag = "When mana runs low", text = "Channel it when your mana runs low.", icon = 136075 },
@@ -4976,7 +4976,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 6% of the fight (it costs nothing).", icon = 135469 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 10% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Presence of Mind", tag = "Cooldown", text = "Your next spell is instant: use it on your longest cast.", icon = 136031 },
@@ -5002,7 +5002,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 18% of the fight (it costs nothing).", icon = 135469 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 20% of the fight (it costs nothing).", icon = 135469 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Arcane Power", tag = "Cooldown", text = "On cooldown, together with your other cooldowns.", icon = 136048 },
@@ -5029,7 +5029,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 24% of the fight (it costs nothing).", icon = 135471 },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 25% of the fight (it costs nothing).", icon = 135471 },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Arcane Power", tag = "Cooldown", text = "On cooldown, together with your other cooldowns.", icon = 136048 },
@@ -5110,7 +5110,7 @@ KP.Priority = {
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Frostbolt", tag = "Filler", text = "The most damage per mana: Arcane Missiles hits harder but runs you out of mana over a fight.", icon = 135846 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 20% of the fight (it costs nothing)." },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 19% of the fight (it costs nothing)." },
         } },
         { title = "Cooldowns", note = "", items = {
           { name = "Arcane Power", tag = "Cooldown", text = "On cooldown, together with your other cooldowns.", icon = 136048 },
@@ -7125,7 +7125,7 @@ KP.Priority = {
           { name = "Shadow Word: Death", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136149 },
           { name = "Mind Blast", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 136224 },
           { name = "Mind Flay", tag = "Filler", text = "The most damage per mana: Smite hits harder but runs you out of mana over a fight.", icon = 136208 },
-          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 8% of the fight (it costs nothing)." },
+          { name = "Wand", tag = "Out of mana", text = "When your mana is gone: the estimate has you on your wand 10% of the fight (it costs nothing)." },
           { name = "Smite", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 135924 },
           { name = "Devouring Plague", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 252997 },
           { name = "Holy Fire", tag = "Mana to spare", text = "More damage per second of casting than Mind Flay, but less per mana: cast it when your mana can spare it.", icon = 135972 },
@@ -7190,14 +7190,11 @@ KP.Priority = {
         } },
       } },
       { level = 60, title = "Discipline Priest", sections = {
-        { title = "Keep up and use on cooldown", note = "From the healing estimate: worth their time and mana for you.", items = {
-          { name = "Renew", tag = "Keep up", text = "", icon = 135953 },
-        } },
         { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
           { name = "Lesser Heal", tag = "Heal", text = "", icon = 135929 },
+          { name = "Greater Heal", tag = "Main heal", text = "", icon = 135913 },
           { name = "Renew", tag = "Heal", text = "", icon = 135953 },
           { name = "Heal", tag = "Heal", text = "", icon = 135915 },
-          { name = "Greater Heal", tag = "Main heal", text = "", icon = 135913 },
           { name = "Flash Heal", tag = "Heal", text = "", icon = 135907 },
           { name = "Power Word: Shield", tag = "Heal", text = "", icon = 135940 },
         } },
@@ -7621,14 +7618,11 @@ KP.Priority = {
         } },
       } },
       { level = 60, title = "Discipline Priest", sections = {
-        { title = "Keep up and use on cooldown", note = "From the healing estimate: worth their time and mana for you.", items = {
-          { name = "Renew", tag = "Keep up", text = "", icon = 135953 },
-        } },
         { title = "Your heals by the numbers", note = "Most efficient first. When mana is tight, lean on the top of this list; when someone is dropping fast, the biggest heal wins.", items = {
           { name = "Lesser Heal", tag = "Heal", text = "", icon = 135929 },
+          { name = "Greater Heal", tag = "Main heal", text = "", icon = 135913 },
           { name = "Renew", tag = "Heal", text = "", icon = 135953 },
           { name = "Heal", tag = "Heal", text = "", icon = 135915 },
-          { name = "Greater Heal", tag = "Main heal", text = "", icon = 135913 },
           { name = "Flash Heal", tag = "Heal", text = "", icon = 135907 },
           { name = "Power Word: Shield", tag = "Heal", text = "", icon = 135940 },
         } },
@@ -12861,7 +12855,7 @@ KP.Priority = {
         { title = "Keep up", note = "One Bane and one Curse of yours per target (game data).", items = {
           { name = "Curse of the Elements", tag = "Keep up", text = "Your curse, unless your group gives you another one.", icon = 615099 },
           { name = "Bane of Agony", tag = "Keep up", text = "Your Bane: recast it as it runs out.", icon = 136139 },
-          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 135817 },
+          { name = "Immolate", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 135817 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Conflagrate", tag = "On cooldown", text = "Does more per second of casting than your filler.", icon = 135807 },

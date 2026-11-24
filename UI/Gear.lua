@@ -19,6 +19,7 @@ local SOURCE = { quest = "Quest", drop = "Drop", vendor = "Vendor", crafted = "C
 local TICK = "|TInterface\\RaidFrame\\ReadyCheck-Ready:14|t"
 local WOWHEAD = "https://www.wowhead.com/forever/item=%d"
 local ROW, OPTION, PAD = 22, 20, 10
+local PRE_RAID_ILVL = 63
 local Style = KP.Style
 
 local function Text(parent, font, width, justify)
@@ -102,8 +103,8 @@ local function Choose(pane, i)
   local row, gear = pane.menu.row, KorkronPlannerCharDB.gear
   gear[pane.buildKey] = gear[pane.buildKey] or {}
   local byLevel = gear[pane.buildKey]
-  byLevel[pane.gearLevel] = byLevel[pane.gearLevel] or {}
-  byLevel[pane.gearLevel][row.slot.key] = i > 1 and row.options[i][1] or nil
+  byLevel[pane.gearKey] = byLevel[pane.gearKey] or {}
+  byLevel[pane.gearKey][row.slot.key] = i > 1 and row.options[i][1] or nil
   KP.Window.Refresh()
 end
 
@@ -167,8 +168,16 @@ end
 function Pane.Create(parent, width, height)
   local pane = CreateFrame("Frame", nil, parent)
   pane:SetSize(width, height)
-  pane.title = Text(pane, "KorkronPlannerFontNormalLarge", width - 10)
+  pane.title = Text(pane, "KorkronPlannerFontNormalLarge", width - 160)
   pane.title:SetPoint("TOPLEFT", 0, 0)
+  pane.switch = CreateFrame("Button", nil, pane)
+  pane.switch:SetSize(140, 18)
+  Style.Button(pane.switch)
+  pane.switch:SetPoint("TOPRIGHT", -10, 0)
+  pane.switch:SetScript("OnClick", function()
+    KorkronPlannerCharDB.gearRaid = not KorkronPlannerCharDB.gearRaid or nil
+    KP.Window.Refresh()
+  end)
   pane.note = Text(pane, "KorkronPlannerFontDisableSmall", width - 10)
   pane.note:SetPoint("TOPLEFT", pane.title, "BOTTOMLEFT", 0, -2)
   pane.rows = {}
@@ -219,18 +228,24 @@ function Pane.Refresh(pane, build)
     pane.title:SetText(build and "Gear follows the planner's suggested builds" or "Choose a build")
     pane.note:SetText(build and "Choose one on the left to see its gear." or "")
     for _, row in ipairs(pane.rows) do row:Hide() end
+    pane.switch:Hide()
     return
   end
-  pane.buildKey, pane.gearLevel = build.key, entry.level
-  pane.picks = (KorkronPlannerCharDB.gear[build.key] or {})[entry.level] or {}
+  local pre = entry.pre ~= nil and not KorkronPlannerCharDB.gearRaid
+  pane.buildKey, pane.gearKey = build.key, pre and (entry.level .. " pre-raid") or entry.level
+  pane.picks = (KorkronPlannerCharDB.gear[build.key] or {})[pane.gearKey] or {}
   local shown, wearing = 0, 0
   for _, row in ipairs(pane.rows) do
-    local has, worn = ShowRow(row, entry.items[row.slot.key], pane.picks[row.slot.key])
+    local has, worn = ShowRow(row, (pre and entry.pre or entry.items)[row.slot.key], pane.picks[row.slot.key])
     shown, wearing = shown + (has and 1 or 0), wearing + (worn and 1 or 0)
     row:Show()
   end
-  pane.title:SetText(("Gear for level %d and up: you wear %d of %d"):format(entry.level, wearing, shown))
+  pane.switch:SetShown(entry.pre ~= nil)
+  pane.switch:SetText(pre and "Show raid gear" or "Show pre-raid gear")
+  pane.title:SetText((pre and "Pre-raid gear" or ("Gear for level %d and up"):format(entry.level)) ..
+    (": you wear %d of %d"):format(wearing, shown))
   pane.note:SetText("Click a slot for its other options and to choose your own (gold). Link = the item's Wowhead page" ..
     ", which says where to get it. " .. TICK .. " = you're wearing it." ..
+    (pre and " Pre-raid: items of item level " .. PRE_RAID_ILVL .. " and under (dungeons, quests, crafting, reputation)." or "") ..
     (build.path == "pvp" and " PvP: ranked by the planner's questing numbers (it has none for fights against players)." or ""))
 end

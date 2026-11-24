@@ -138,7 +138,9 @@ local scheduled, afterCombat = false, false
 
 local function Loaded()
   local health = UnitHealthMax("player")
-  return not KP.Readable(health) or (health or 0) > 0
+  local _, stamina = UnitStat("player", 3)
+  if not KP.Readable(health) or not KP.Readable(stamina) then return true end
+  return (health or 0) > 0 and (stamina or 0) > 0
 end
 
 local function Take()
