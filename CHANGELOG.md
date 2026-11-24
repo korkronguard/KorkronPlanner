@@ -1,6 +1,19 @@
 # Changelog
 
-## 0.32.0
+## 0.32.1
+
+- **Pre-raid gear no longer lists raid rewards.** Zul'Gurub's reputation gear (the Zandalar sets), its class necklaces
+  (Strength of Mugamba and the rest) and Ahn'Qiraj's Signet Rings of the Bronze Dragonflight slipped in under the item
+  level limit. They're left out now, for every class.
+- **Gear lists respect "Unique-Equipped" families.** The game lets you wear only one of some families: The Watchers'
+  signets, the Arathi Basin talismans, the Bronze Dragonflight rings, and every crafted set piece Forever added ("Artisan's
+  Tier": Battleplate of Glory, Justice, Grovekeeper and the rest). The gear lists used to pick two or even four of them;
+  now they pick one. The game allows a second Artisan's Tier piece under a condition the server keeps to itself, so the
+  planner counts one.
+- **Expertise counts.** Each 10 expertise rating takes 1% off your target's chance to dodge your attacks, and off its
+  chance to parry them when you face it (a tank). Expertise on gear and set bonuses (Battleplate of Glory's four-piece) now
+  counts in the gear lists, on item tooltips and bag arrows, and for Warriors in the DPS, Stats and Abilities tabs, which
+  read your expertise from the game.
 
 - **Set bonuses count.** Item tooltips and bag arrows now count the set pieces you wear. An item that completes a bonus
   says so ("Completes Battlegear of Valor (3)") with what the bonus is worth to you. One that would take a piece off says

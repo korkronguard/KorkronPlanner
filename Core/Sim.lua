@@ -183,8 +183,8 @@ local function AttackTable(ctx, kind, moreMiss)
     return { miss = math.max(1, RULES.spellMiss[d + 1] - sheet.spellHit), dodge = 0, parry = 0 }
   end
   local hit = d >= 3 and math.max(0, sheet.hit - 1) or sheet.hit
-  return { miss = math.max(0, RULES.meleeMiss[d + 1] + (moreMiss or 0) - hit), dodge = 5 + d * 0.5,
-    parry = ctx.beingHit and RULES.meleeParry[d + 1] or 0 }
+  return { miss = math.max(0, RULES.meleeMiss[d + 1] + (moreMiss or 0) - hit), dodge = math.max(0, 5 + d * 0.5 - sheet.expertise),
+    parry = ctx.beingHit and math.max(0, RULES.meleeParry[d + 1] - sheet.expertise) or 0 }
 end
 
 function Sim.HitCaps(target)
@@ -888,11 +888,12 @@ function Sim.Sheet()
   local attackSpeed = Number((UnitAttackSpeed("player")))
   local meleeHit, spellHit = Number(GetHitModifier()), Number(GetSpellHitModifier())
   local meleeRating, spellRating = Number(GetCombatRatingBonus(CR_HIT_MELEE)), Number(GetCombatRatingBonus(CR_HIT_SPELL))
+  local expertise = Number(GetCombatRatingBonus(CR_EXPERTISE))
   local spellCrit = Number(GetSpellCritChance(2))
   local health = Number(UnitHealthMax("player"))
   local strength = Number((select(2, UnitStat("player", 1))))
   if not (base and plus and minus and armor and crit and dodge and parry and block and attackSpeed and meleeHit and spellHit and
-    meleeRating and spellRating and spellCrit and health and strength) then
+    meleeRating and spellRating and expertise and spellCrit and health and strength) then
     return nil
   end
   local mh, oh, rg = Weapon(16), Weapon(17), Weapon(18)
@@ -907,7 +908,7 @@ function Sim.Sheet()
   return {
     ap = (base + plus + minus) * (1 + (racial.apPct or 0) / 100), apPct = racial.apPct or 0,
     crit = crit + (racial.crit or 0), spellCrit = spellCrit + (racial.crit or 0),
-    hit = meleeHit + meleeRating, spellHit = spellHit + spellRating, armor = armor, dodge = dodge, parry = parry, block = block,
+    hit = meleeHit + meleeRating, spellHit = spellHit + spellRating, expertise = expertise, armor = armor, dodge = dodge, parry = parry, block = block,
     defense = 0, health = health, healthPct = racial.healthPct or 0, damageTaken = racial.damageTaken or 0,
     meleeHaste = haste + (racial.meleeHaste or 0),
     castHaste = racial.castHaste or 0, shield = shield, blockValue = blockValue, strength = strength, mh = mh, oh = oh, rg = rg,

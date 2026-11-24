@@ -246,6 +246,6 @@ function Pane.Refresh(pane, build)
     (": you wear %d of %d"):format(wearing, shown))
   pane.note:SetText("Click a slot for its other options and to choose your own (gold). Link = the item's Wowhead page" ..
     ", which says where to get it. " .. TICK .. " = you're wearing it." ..
-    (pre and " Pre-raid: items of item level " .. PRE_RAID_ILVL .. " and under (dungeons, quests, crafting, reputation)." or "") ..
+    (pre and " Pre-raid: items of item level " .. PRE_RAID_ILVL .. " and under (dungeons, quests, crafting, reputation; no raid rewards)." or "") ..
     (build.path == "pvp" and " PvP: ranked by the planner's questing numbers (it has none for fights against players)." or ""))
 end
