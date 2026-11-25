@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.32.2
+
+- **Updated for the Nov 24 patch and the hotfixes of Nov 21 to 24.** The re-statted Grovekeeper and Spiritcaller pieces,
+  Genesis, Oath of Light, Libram of Law and the new Seed of Renewal trinket are in the gear advice and the talent texts.
+- **A Warrior's crit and dodge from Agility are now measured all the way to level 60** (thanks to the guild's
+  snapshots). Agility gives a Warrior more crit at 60 than the original game's rule did, so the planner's Warrior damage
+  at 60 is a few percent higher and the gear lists take more Agility pieces.
+
 ## 0.32.1
 
 - **Pre-raid gear no longer lists raid rewards.** Zul'Gurub's reputation gear (the Zandalar sets), its class necklaces
