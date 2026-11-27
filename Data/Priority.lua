@@ -26,8 +26,9 @@ KP.Priority = {
           { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Wrath", tag = "Filler", text = "The most damage per second of casting.", icon = 136006 },
+          { name = "Wrath", tag = "Filler", text = "The most damage per mana: Starfire hits harder but runs you out of mana over a fight.", icon = 136006 },
           { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 136096 },
+          { name = "Starfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 135753 },
         } },
       } },
       { level = 30, title = "Balance Druid", sections = {
@@ -38,6 +39,7 @@ KP.Priority = {
           { name = "Insect Swarm", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136045 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starfire", tag = "With Eclipse", text = "After a Wrath, your next Starfires cast faster: one Wrath, then two Starfires.", icon = 135753 },
           { name = "Wrath", tag = "Filler", text = "The most damage per mana: Starfire hits harder but runs you out of mana over a fight.", icon = 136006 },
           { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 136096 },
           { name = "Starfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 135753 },
@@ -48,9 +50,10 @@ KP.Priority = {
           { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
         } },
         { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
-          { name = "Insect Swarm", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136045 },
+          { name = "Insect Swarm", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 136045 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starfire", tag = "With Eclipse", text = "After a Wrath, your next Starfires cast faster: one Wrath, then two Starfires.", icon = 135753 },
           { name = "Starfire", tag = "Filler", text = "The most damage per second of casting.", icon = 135753 },
           { name = "Wrath", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136006 },
           { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Starfire, but less per mana: cast it when your mana can spare it.", icon = 136096 },
@@ -61,13 +64,11 @@ KP.Priority = {
           { name = "Moonkin Form", tag = "Always", text = "Your casting form.", icon = 136036 },
           { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
         } },
-        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
-          { name = "Insect Swarm", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136045 },
-        } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Wrath", tag = "Filler", text = "The most damage per mana: Starfire hits harder but runs you out of mana over a fight.", icon = 136006 },
-          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 136096 },
-          { name = "Starfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 135753 },
+          { name = "Starfire", tag = "With Eclipse", text = "After a Wrath, your next Starfires cast faster: one Wrath, then two Starfires.", icon = 135753 },
+          { name = "Starfire", tag = "Filler", text = "The most damage per second of casting.", icon = 135753 },
+          { name = "Wrath", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136006 },
+          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Starfire, but less per mana: cast it when your mana can spare it.", icon = 136096 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Innervate", tag = "When mana runs low", text = "On yourself when your mana runs low, or on a healer who needs it more.", icon = 136048 },
@@ -85,29 +86,9 @@ KP.Priority = {
           { name = "Insect Swarm", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136045 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starfire", tag = "With Eclipse", text = "After a Wrath, your next Starfires cast faster: one Wrath, then two Starfires.", icon = 135753 },
           { name = "Starfire", tag = "Filler", text = "The most damage per second of casting.", icon = 135753 },
           { name = "Wrath", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136006 },
-        } },
-        { title = "Mana", note = "", items = {
-          { name = "Innervate", tag = "When mana runs low", text = "On yourself when your mana runs low, or on a healer who needs it more.", icon = 136048 },
-        } },
-        { title = "Several targets", note = "", items = {
-          { name = "Hurricane", tag = "Packs", text = "Channel it on a pack that stays put; it also slows their attacks.", icon = 136018 },
-        } },
-      } },
-      { level = 50, title = "Balance Druid", sections = {
-        { title = "Before the fight", note = "", items = {
-          { name = "Moonkin Form", tag = "Always", text = "Your casting form.", icon = 136036 },
-          { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
-        } },
-        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
-          { name = "Insect Swarm", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136045 },
-        } },
-        { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Starfire", tag = "With Eclipse", text = "After a Wrath, your next Starfires cast faster: one Wrath, then two Starfires.", icon = 135753 },
-          { name = "Wrath", tag = "Filler", text = "The most damage per mana: Starfire hits harder but runs you out of mana over a fight.", icon = 136006 },
-          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 136096 },
-          { name = "Starfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 135753 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Innervate", tag = "When mana runs low", text = "On yourself when your mana runs low, or on a healer who needs it more.", icon = 136048 },
@@ -517,22 +498,13 @@ KP.Priority = {
           { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Wrath", tag = "Filler", text = "The most damage per second of casting.", icon = 136006 },
+          { name = "Wrath", tag = "Filler", text = "The most damage per mana: Starfire hits harder but runs you out of mana over a fight.", icon = 136006 },
           { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 136096 },
           { name = "Insect Swarm", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 136045 },
+          { name = "Starfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 135753 },
         } },
       } },
       { level = 30, title = "Balance Druid", sections = {
-        { title = "Before the fight", note = "", items = {
-          { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
-        } },
-        { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Starfire", tag = "Filler", text = "The most damage per second of casting.", icon = 135753 },
-          { name = "Wrath", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136006 },
-          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Starfire, but less per mana: cast it when your mana can spare it.", icon = 136096 },
-        } },
-      } },
-      { level = 35, title = "Balance Druid", sections = {
         { title = "Before the fight", note = "", items = {
           { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
         } },
@@ -540,6 +512,21 @@ KP.Priority = {
           { name = "Insect Swarm", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136045 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starfire", tag = "With Eclipse", text = "After a Wrath, your next Starfires cast faster: one Wrath, then two Starfires.", icon = 135753 },
+          { name = "Wrath", tag = "Filler", text = "The most damage per mana: Starfire hits harder but runs you out of mana over a fight.", icon = 136006 },
+          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 136096 },
+          { name = "Starfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 135753 },
+        } },
+      } },
+      { level = 35, title = "Balance Druid", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
+        } },
+        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
+          { name = "Insect Swarm", tag = "Once per mob", text = "Its burn outlasts the fight (about 13 sec a mob): one cast early in the fight.", icon = 136045 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starfire", tag = "With Eclipse", text = "After a Wrath, your next Starfires cast faster: one Wrath, then two Starfires.", icon = 135753 },
           { name = "Starfire", tag = "Filler", text = "The most damage per second of casting.", icon = 135753 },
           { name = "Wrath", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136006 },
           { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Starfire, but less per mana: cast it when your mana can spare it.", icon = 136096 },
@@ -551,6 +538,7 @@ KP.Priority = {
           { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starfire", tag = "With Eclipse", text = "After a Wrath, your next Starfires cast faster: one Wrath, then two Starfires.", icon = 135753 },
           { name = "Starfire", tag = "Filler", text = "The most damage per second of casting.", icon = 135753 },
           { name = "Wrath", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136006 },
           { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Starfire, but less per mana: cast it when your mana can spare it.", icon = 136096 },
@@ -574,7 +562,6 @@ KP.Priority = {
           { name = "Starfire", tag = "With Eclipse", text = "After a Wrath, your next Starfires cast faster: one Wrath, then two Starfires.", icon = 135753 },
           { name = "Starfire", tag = "Filler", text = "The most damage per second of casting.", icon = 135753 },
           { name = "Wrath", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136006 },
-          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Starfire, but less per mana: cast it when your mana can spare it.", icon = 136096 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Innervate", tag = "When mana runs low", text = "On yourself when your mana runs low, or on a healer who needs it more.", icon = 136048 },
@@ -583,28 +570,7 @@ KP.Priority = {
           { name = "Hurricane", tag = "Packs", text = "Channel it on a pack that stays put; it also slows their attacks.", icon = 136018 },
         } },
       } },
-      { level = 50, title = "Balance Druid", sections = {
-        { title = "Before the fight", note = "", items = {
-          { name = "Moonkin Form", tag = "Always", text = "Your casting form.", icon = 136036 },
-          { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
-        } },
-        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
-          { name = "Insect Swarm", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136045 },
-        } },
-        { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Starfire", tag = "With Eclipse", text = "After a Wrath, your next Starfires cast faster: one Wrath, then two Starfires.", icon = 135753 },
-          { name = "Wrath", tag = "Filler", text = "The most damage per mana: Starfire hits harder but runs you out of mana over a fight.", icon = 136006 },
-          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 136096 },
-          { name = "Starfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 135753 },
-        } },
-        { title = "Mana", note = "", items = {
-          { name = "Innervate", tag = "When mana runs low", text = "On yourself when your mana runs low, or on a healer who needs it more.", icon = 136048 },
-        } },
-        { title = "Several targets", note = "", items = {
-          { name = "Hurricane", tag = "Packs", text = "Channel it on a pack that stays put; it also slows their attacks.", icon = 136018 },
-        } },
-      } },
-      { level = 60, title = "Balance Druid", sections = {
+      { level = 55, title = "Balance Druid", sections = {
         { title = "Before the fight", note = "", items = {
           { name = "Moonkin Form", tag = "Always", text = "Your casting form.", icon = 136036 },
           { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
@@ -840,15 +806,6 @@ KP.Priority = {
           { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Starfire, but less per mana: cast it when your mana can spare it.", icon = 136096 },
         } },
       } },
-      { level = 25, title = "Balance Druid", sections = {
-        { title = "Before the fight", note = "", items = {
-          { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
-        } },
-        { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Wrath", tag = "Filler", text = "The most damage per second of casting.", icon = 136006 },
-          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 136096 },
-        } },
-      } },
       { level = 30, title = "Balance Druid", sections = {
         { title = "Before the fight", note = "", items = {
           { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
@@ -976,35 +933,34 @@ KP.Priority = {
           { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 136096 },
         } },
       } },
-      { level = 15, title = "Balance Druid", sections = {
-        { title = "Before the fight", note = "", items = {
-          { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
-        } },
-        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
-          { name = "Moonfire", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136096 },
-        } },
-        { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Wrath", tag = "Filler", text = "The most damage per second of casting.", icon = 136006 },
-        } },
-      } },
       { level = 20, title = "Balance Druid", sections = {
         { title = "Before the fight", note = "", items = {
           { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
           { name = "Starfire", tag = "Filler", text = "The most damage per second of casting.", icon = 135753 },
+          { name = "Wrath", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136006 },
           { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Starfire, but less per mana: cast it when your mana can spare it.", icon = 136096 },
+        } },
+      } },
+      { level = 25, title = "Balance Druid", sections = {
+        { title = "Before the fight", note = "", items = {
+          { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
+        } },
+        { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Wrath", tag = "Filler", text = "The most damage per mana: Starfire hits harder but runs you out of mana over a fight.", icon = 136006 },
+          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 136096 },
+          { name = "Starfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 135753 },
         } },
       } },
       { level = 30, title = "Balance Druid", sections = {
         { title = "Before the fight", note = "", items = {
           { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
         } },
-        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
-          { name = "Insect Swarm", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136045 },
-        } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starfire", tag = "With Eclipse", text = "After a Wrath, your next Starfires cast faster: one Wrath, then two Starfires.", icon = 135753 },
           { name = "Starfire", tag = "Filler", text = "The most damage per second of casting.", icon = 135753 },
+          { name = "Wrath", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136006 },
           { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Starfire, but less per mana: cast it when your mana can spare it.", icon = 136096 },
         } },
       } },
@@ -1013,12 +969,13 @@ KP.Priority = {
           { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
         } },
         { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
-          { name = "Insect Swarm", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136045 },
+          { name = "Insect Swarm", tag = "Once per mob", text = "Its burn outlasts the fight (about 14 sec a mob): one cast early in the fight.", icon = 136045 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Wrath", tag = "Filler", text = "The most damage per mana: Starfire hits harder but runs you out of mana over a fight.", icon = 136006 },
-          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 136096 },
-          { name = "Starfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 135753 },
+          { name = "Starfire", tag = "With Eclipse", text = "After a Wrath, your next Starfires cast faster: one Wrath, then two Starfires.", icon = 135753 },
+          { name = "Starfire", tag = "Filler", text = "The most damage per second of casting.", icon = 135753 },
+          { name = "Wrath", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136006 },
+          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Starfire, but less per mana: cast it when your mana can spare it.", icon = 136096 },
         } },
       } },
       { level = 40, title = "Balance Druid", sections = {
@@ -1026,11 +983,10 @@ KP.Priority = {
           { name = "Moonkin Form", tag = "Always", text = "Your casting form.", icon = 136036 },
           { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
         } },
-        { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
-          { name = "Insect Swarm", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136045 },
-        } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starfire", tag = "With Eclipse", text = "After a Wrath, your next Starfires cast faster: one Wrath, then two Starfires.", icon = 135753 },
           { name = "Starfire", tag = "Filler", text = "The most damage per second of casting.", icon = 135753 },
+          { name = "Wrath", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136006 },
           { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Starfire, but less per mana: cast it when your mana can spare it.", icon = 136096 },
         } },
         { title = "Mana", note = "", items = {
@@ -1049,9 +1005,9 @@ KP.Priority = {
           { name = "Insect Swarm", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136045 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Wrath", tag = "Filler", text = "The most damage per mana: Starfire hits harder but runs you out of mana over a fight.", icon = 136006 },
-          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 136096 },
-          { name = "Starfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 135753 },
+          { name = "Starfire", tag = "With Eclipse", text = "After a Wrath, your next Starfires cast faster: one Wrath, then two Starfires.", icon = 135753 },
+          { name = "Starfire", tag = "Filler", text = "The most damage per second of casting.", icon = 135753 },
+          { name = "Wrath", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136006 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Innervate", tag = "When mana runs low", text = "On yourself when your mana runs low, or on a healer who needs it more.", icon = 136048 },
@@ -1066,11 +1022,13 @@ KP.Priority = {
           { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
         } },
         { title = "Keep up", note = "Damage over time worth keeping on the target.", items = {
-          { name = "Moonfire", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136096 },
           { name = "Insect Swarm", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136045 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
-          { name = "Starfire", tag = "Filler", text = "The most damage per second of casting.", icon = 135753 },
+          { name = "Starfire", tag = "With Eclipse", text = "After a Wrath, your next Starfires cast faster: one Wrath, then two Starfires.", icon = 135753 },
+          { name = "Wrath", tag = "Filler", text = "The most damage per mana: Starfire hits harder but runs you out of mana over a fight.", icon = 136006 },
+          { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 136096 },
+          { name = "Starfire", tag = "Mana to spare", text = "More damage per second of casting than Wrath, but less per mana: cast it when your mana can spare it.", icon = 135753 },
         } },
         { title = "Mana", note = "", items = {
           { name = "Innervate", tag = "When mana runs low", text = "On yourself when your mana runs low, or on a healer who needs it more.", icon = 136048 },
@@ -1079,7 +1037,7 @@ KP.Priority = {
           { name = "Hurricane", tag = "Packs", text = "Channel it on a pack that stays put; it also slows their attacks.", icon = 136018 },
         } },
       } },
-      { level = 55, title = "Balance Druid", sections = {
+      { level = 60, title = "Balance Druid", sections = {
         { title = "Before the fight", note = "", items = {
           { name = "Moonkin Form", tag = "Always", text = "Your casting form.", icon = 136036 },
           { name = "Mark of the Wild", tag = "Keep up", text = "Armor, stats and resistances for you and your group.", icon = 136078 },
@@ -1088,7 +1046,9 @@ KP.Priority = {
           { name = "Insect Swarm", tag = "Keep up", text = "Its damage over time is worth keeping on the target: cast it again as it runs out.", icon = 136045 },
         } },
         { title = "Spell priority", note = "Press the first one that's ready.", items = {
+          { name = "Starfire", tag = "With Eclipse", text = "After a Wrath, your next Starfires cast faster: one Wrath, then two Starfires.", icon = 135753 },
           { name = "Starfire", tag = "Filler", text = "The most damage per second of casting.", icon = 135753 },
+          { name = "Wrath", tag = "When mana runs low", text = "The cheaper filler, mixed in so your mana lasts the fight.", icon = 136006 },
           { name = "Moonfire", tag = "Mana to spare", text = "More damage per second of casting than Starfire, but less per mana: cast it when your mana can spare it.", icon = 136096 },
         } },
         { title = "Mana", note = "", items = {
@@ -13610,6 +13570,35 @@ KP.Priority = {
       { level = 20, title = "Protection Warrior, tanking", sections = {
         { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Sword and board.", items = {
           { name = "Shield Specialization", tag = "Counts", text = "Works with this setup.", icon = 134952 },
+          { name = "Defiance", tag = "Counts", text = "Works with this setup.", icon = 132347 },
+        } },
+        { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", items = {
+          { name = "Charge", tag = "Opener", text = "Out of combat only: rush in for rage and a short stun. Needs Battle Stance: charge, then switch to Defensive Stance.", icon = 132337 },
+          { name = "Bloodrage", tag = "At the pull", text = "Rage to start with; between pulls is best, so the rage isn't lost while you wait.", icon = 132277 },
+        } },
+        { title = "Keep up", note = "", items = {
+          { name = "Battle Shout", tag = "Keep up", text = "Also gives a little threat on every enemy in combat with you.", icon = 132333 },
+          { name = "Demoralizing Shout", tag = "Keep up", text = "Lowers the attack power of enemies near you: less damage to you.", icon = 132366 },
+        } },
+        { title = "Threat priority", note = "Press the first one that's ready. The damage numbers come from your gear; extra threat noted where the game files hold it. Solo, the same order kills fastest: finish a nearly dead mob with plain swings and keep the rage for the next one.", items = {
+          { name = "Victory Rush", tag = "When it lights up", text = "Free, for 20 sec after a kill: use it when you're missing health, or before it runs out.", icon = 132342 },
+          { name = "Shield Block", tag = "On cooldown", text = "Not on the global cooldown (game data): press it alongside your attacks while melee enemies hit you. Fewer big hits and more Revenges; useless against spells.", icon = 132110 },
+          { name = "Revenge", tag = "When it lights up", text = "After you block, dodge or parry. Cheap: use every time.", icon = 132353 },
+          { name = "Thunder Clap", tag = "On cooldown", text = "Hits up to 4 enemies near you and slows their attacks (less damage to you). Solo against a single normal mob, only when it hits hard.", icon = 136105 },
+          { name = "Rend", tag = "If missing", text = "When it isn't on the target and the target will live through most of its 15 sec. Don't renew it on a target that's about to die.", icon = 132155 },
+          { name = "Slam", tag = "Solo", text = "Alone, with rage left after Rend: press it right after a swing, as its cast holds back your next one. Tanking for a group, Sunder Armor is the better use of that rage.", icon = 132340 },
+          { name = "Sunder Armor", tag = "Build to 5, then filler", text = "On bosses and elites, stack it to 5 early (the group's damage goes up), then use it as a filler. Skip it on a mob that's about to die.", icon = 132363 },
+          { name = "Heroic Strike", tag = "Rage dump", text = "Only with spare rage (keep enough for Shield Slam, Revenge and Shield Block).", icon = 132282 },
+        } },
+        { title = "When things go wrong", note = "", items = {
+          { name = "Taunt", tag = "Lost aggro", text = "Pulls the target back to you.", icon = 136080 },
+          { name = "Mocking Blow", tag = "Taunt on cooldown", text = "Needs Battle Stance (game data): a second taunt if Taunt is resisted.", icon = 132350 },
+        } },
+      } },
+      { level = 25, title = "Protection Warrior, tanking", sections = {
+        { title = "Your weapon talents", note = "Talents that depend on what you hold, checked against Sword and board.", items = {
+          { name = "Shield Specialization", tag = "Counts", text = "Works with this setup.", icon = 134952 },
+          { name = "Master of Defense", tag = "Counts", text = "Works with this setup.", icon = 132359 },
           { name = "Defiance", tag = "Counts", text = "Works with this setup.", icon = 132347 },
         } },
         { title = "Start of the fight", note = "Out of combat, with an enemy targeted.", items = {

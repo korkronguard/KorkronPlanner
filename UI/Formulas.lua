@@ -9,20 +9,34 @@ local TICK = "|TInterface\\RaidFrame\\ReadyCheck-Ready:14|t"
 local INDENT = 10
 local LABEL = { level = "level", str = "Strength", agi = "Agility", sta = "Stamina", int = "Intellect", spi = "Spirit",
   gearArmor = "armor on your gear", armor = "your armor", health = "your health", dodge = "dodge %", parry = "parry %",
-  block = "block %", baseHealth = "base health", baseMana = "base mana", hpPerSta = "health per Stamina",
+  block = "block %", blockValue = "Block Value", shieldBlock = "Shield Block's blocks", damageTaken = "damage taken %",
+  baseHealth = "base health", baseMana = "base mana", hpPerSta = "health per Stamina",
   speed = "your swing time", twoHand = "a two-hander (1 yes, 0 no)", agiPerCrit = "Agility per 1% crit at your level" }
 local DIGITS = { dodge = 2, parry = 2, block = 2, speed = 2, agiPerCrit = 2 }
 local MAIN_STATS = { { "str", "strength" }, { "agi", "agility" }, { "sta", "stamina" }, { "int", "intellect" },
   { "spi", "spirit" } }
 
+local function Uses(expr, key)
+  return expr:find("%f[%w]" .. key .. "%f[%W]") ~= nil
+end
+
 local function YourNumbers(expr, inputs)
   local used = {}
-  for _, key in ipairs(KP.Sheet.INPUTS) do
-    if expr:find("%f[%w]" .. key .. "%f[%W]") then
-      table.insert(used, LABEL[key] .. " " .. KP.Num(inputs[key], DIGITS[key] or 0))
+  for _, keys in ipairs({ KP.Sheet.INPUTS, KP.Sheet.SURVIVAL }) do
+    for _, key in ipairs(keys) do
+      if Uses(expr, key) then
+        table.insert(used, LABEL[key] .. " " .. KP.Num(inputs[key], DIGITS[key] or 0))
+      end
     end
   end
   return "Your numbers: " .. table.concat(used, ", ")
+end
+
+local function Known(expr, inputs)
+  for _, key in ipairs(KP.Sheet.SURVIVAL) do
+    if inputs[key] == nil and Uses(expr, key) then return false end
+  end
+  return true
 end
 
 local function ResultLine(f, value, game, level)
@@ -85,6 +99,8 @@ function Pane.Refresh(pane, build)
   local inputs = KP.Sheet.Inputs(class)
   if not inputs then
     L.text("The game hides some of your numbers here (inside a dungeon or raid?).", "KorkronPlannerFontHighlight", 0, 0)
+  else
+    inputs.damageTaken, inputs.shieldBlock = KP.Sim.SurvivalInputs(class)
   end
   StatSection(L, class, inputs, build)
   L.text("How your numbers are worked out", "KorkronPlannerFontNormalLarge", 0, 18)
@@ -96,12 +112,14 @@ function Pane.Refresh(pane, build)
   local game = KP.Sheet.GameNumbers()
   local rules = {}
   for _, f in ipairs(list) do
-    if f.expr and inputs then
+    if f.expr and inputs and Known(f.expr, inputs) then
       L.text(ResultLine(f, KP.Sheet.Work(f.expr, inputs), f.game and game[f.game], inputs.level), "KorkronPlannerFontNormal", 0, 10)
       L.text(f.text, "KorkronPlannerFontHighlightSmall", INDENT, 2)
       L.text(YourNumbers(f.expr, inputs), "KorkronPlannerFontDisableSmall", INDENT, 2)
       if f.note then L.text(f.note, "KorkronPlannerFontDisableSmall", INDENT, 2) end
       Numbers(L, f, INDENT)
+    elseif f.expr and inputs then
+      L.text(f.name .. ": the game hides your stance or talents right now, and this needs them.", "KorkronPlannerFontDisableSmall", 0, 10)
     elseif not f.expr then
       table.insert(rules, f)
     end

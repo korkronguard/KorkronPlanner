@@ -182,14 +182,13 @@ local function AttackTable(ctx, kind, moreMiss)
   if kind == "magic" then
     return { miss = math.max(1, RULES.spellMiss[d + 1] - sheet.spellHit), dodge = 0, parry = 0 }
   end
-  local hit = d >= 3 and math.max(0, sheet.hit - 1) or sheet.hit
-  return { miss = math.max(0, RULES.meleeMiss[d + 1] + (moreMiss or 0) - hit), dodge = math.max(0, 5 + d * 0.5 - sheet.expertise),
+  return { miss = math.max(0, RULES.meleeMiss[d + 1] + (moreMiss or 0) - sheet.hit), dodge = math.max(0, 5 + d * 0.5 - sheet.expertise),
     parry = ctx.beingHit and math.max(0, RULES.meleeParry[d + 1] - sheet.expertise) or 0 }
 end
 
 function Sim.HitCaps(target)
   local d = Clamp(target.diff)
-  local melee = RULES.meleeMiss[d + 1] + (d >= 3 and 1 or 0)
+  local melee = RULES.meleeMiss[d + 1]
   return { melee = melee, dualWhite = melee + RULES.dualWieldMiss, spell = RULES.spellMiss[d + 1] - 1 }
 end
 
@@ -396,18 +395,44 @@ end
 
 local function Avoidance(sheet)
   local o = Outcomes(sheet)
-  return math.min(0.6, o.miss + o.dodge + o.parry + o.block)
+  return math.min(0.6, o.miss + o.dodge + o.parry)
 end
 
-local function MeleeTaken(sheet, tal, level, hitMult)
+local function ShieldBlockOf(ctx)
+  if (ctx.class or "WARRIOR") ~= "WARRIOR" or not ctx.sheet.shield then return nil end
+  local book = DATA.book["Shield Block"]
+  local sb = book.stances[ctx.stance] and BookRank("Shield Block", ctx.level)
+  if not sb or not book.max or (sb.cdMs or 0) == 0 then return nil end
+  return { rank = sb, charges = book.max }
+end
+
+local function SwingShare(sheet, sb, diff, hit, sbUse)
+  local o, landed = Outcomes(sheet), 1 - Avoidance(sheet)
+  local keep = math.max(0, 1 - sheet.blockValue / hit)
+  local block = math.min(landed, o.block)
+  local crush = diff >= 3 and math.min(landed - block, RULES.crushChance) or 0
+  local passive = landed - block * (1 - keep) + crush * (RULES.crushDamage - 1)
+  local covered = sb and math.min(1, sb.charges * sbUse / ((sb.rank.cdMs / 1000 / RULES.mobSwing) * landed)) or 0
+  return covered * landed * keep + (1 - covered) * passive
+end
+
+local function BossSwing(level)
+  local low, high = RULES.bossSwing[1], RULES.bossSwing[2]
+  local ratio = low[2] + (high[2] - low[2]) * math.min(high[1] - low[1], math.max(0, level - low[1])) / (high[1] - low[1])
+  return ratio * MobDps(level) * RULES.mobSwing
+end
+
+local function MeleeTaken(sheet, tal, level, hitMult, diff)
   local armorDR = math.min(0.75, sheet.armor / (sheet.armor + 400 + 85 * level))
-  return MobDps(level) * hitMult * (1 - Avoidance(sheet)) * (1 - armorDR) * (1 + tal.damageTaken / 100)
+  local through = MobDps(level) * hitMult * (1 - armorDR)
+  return through * SwingShare(sheet, nil, diff, through * RULES.mobSwing, 0) * (1 + tal.damageTaken / 100)
 end
 
 function Sim.Survival(ctx)
-  local sheet = ctx.sheet
-  local armorDR = math.min(0.75, sheet.armor / (sheet.armor + 400 + 85 * (ctx.level + 3)))
-  return sheet.health / ((1 - armorDR) * (1 - Avoidance(sheet))) / (1 + TalentEffects(ctx).damageTaken / 100)
+  local sheet, boss = ctx.sheet, ctx.level + 3
+  local armorDR = math.min(0.75, sheet.armor / (sheet.armor + 400 + 85 * boss))
+  local share = SwingShare(sheet, ShieldBlockOf(ctx), 3, BossSwing(boss) * (1 - armorDR), RULES.shieldBlockUse)
+  return sheet.health / ((1 - armorDR) * share) / (1 + TalentEffects(ctx).damageTaken / 100)
 end
 
 local function RageConversion(level)
@@ -424,22 +449,20 @@ local function TankRage(ctx, tal)
     TalentNumber(ctx, "Master of Defense", "generate (%d+) Rage when you Dodge") or 0
   local landed = swings * math.max(0, 1 - o.miss - o.dodge - o.parry)
   local mobLevel = ctx.level + math.max(0, ctx.target.diff)
-  local hits = RULES.rageTakenPerC * MeleeTaken(sheet, tal, mobLevel, ctx.target.hitMult) / RageConversion(ctx.level) +
+  local hits = RULES.rageTakenPerC * MeleeTaken(sheet, tal, mobLevel, ctx.target.hitMult, mobLevel - ctx.level) / RageConversion(ctx.level) +
     RULES.ragePerHitTaken * landed
   local shieldRage = swings * (o.block * perBlock + (o.dodge + o.parry) * perDodge)
   return { o = o, swings = swings, perBlock = perBlock, rage = hits + shieldRage }
 end
 
 local function ShieldBlock(ctx, t, rage)
-  local book = DATA.book["Shield Block"]
-  local sb = ctx.sheet.shield and book.stances[ctx.stance] and BookRank("Shield Block", ctx.level)
-  local max = book.max
-  if not sb or not max or (sb.cdMs or 0) == 0 then return { perSec = 0, rage = 0 } end
-  local cd = sb.cdMs / 1000
-  local swingsIn = math.min(sb.durMs / 1000, cd) * t.swings
-  local blocked = math.min(max, swingsIn * math.max(0, 1 - t.o.miss - t.o.dodge - t.o.parry))
+  local sb = ShieldBlockOf(ctx)
+  if not sb then return { perSec = 0, rage = 0 } end
+  local rank, cd = sb.rank, sb.rank.cdMs / 1000
+  local swingsIn = math.min(rank.durMs / 1000, cd) * t.swings
+  local blocked = math.min(sb.charges, swingsIn * math.max(0, 1 - t.o.miss - t.o.dodge - t.o.parry))
   local extra = math.max(0, blocked - swingsIn * t.o.block)
-  local net = (sb.cost / 10 - extra * t.perBlock) / cd
+  local net = (rank.cost / 10 - extra * t.perBlock) / cd
   local f = net <= 0 and 1 or math.min(1, math.max(0, rage) / net)
   return { perSec = f * extra / cd, rage = f * net }
 end
@@ -879,6 +902,14 @@ local function Number(v)
   return KP.Readable(v) and v or nil
 end
 
+local function Hands(class)
+  local offHand = GetInventoryItemID("player", 17)
+  local offItem = KP.Readable(offHand) and KP.Items[offHand]
+  local _, _, raceID = UnitRace("player")
+  return { mh = Weapon(16), oh = Weapon(17), rg = Weapon(18), shield = offItem and offItem[1] == "shield" or false,
+    race = raceID, racial = Data({ class = class }).racials[raceID] or {} }
+end
+
 function Sim.Sheet()
   local base, plus, minus = UnitAttackPower("player")
   base, plus, minus = Number(base), Number(plus), Number(minus)
@@ -896,14 +927,10 @@ function Sim.Sheet()
     meleeRating and spellRating and expertise and spellCrit and health and strength) then
     return nil
   end
-  local mh, oh, rg = Weapon(16), Weapon(17), Weapon(18)
-  local offHand = GetInventoryItemID("player", 17)
-  local offItem = KP.Readable(offHand) and KP.Items[offHand]
-  local shield = offItem and offItem[1] == "shield" or false
-  local blockValue = shield and GetShieldBlock and Number(GetShieldBlock()) or 0
-  local _, _, raceID = UnitRace("player")
   local _, class = UnitClass("player")
-  local racial = Data({ class = class }).racials[raceID] or {}
+  local hands = Hands(class)
+  local mh, oh, rg, shield, raceID, racial = hands.mh, hands.oh, hands.rg, hands.shield, hands.race, hands.racial
+  local blockValue = shield and GetShieldBlock and Number(GetShieldBlock()) or 0
   local haste = mh and (mh.speed / attackSpeed - 1) * 100 or 0
   return {
     ap = (base + plus + minus) * (1 + (racial.apPct or 0) / 100), apPct = racial.apPct or 0,
@@ -925,6 +952,18 @@ function Sim.Ranks()
     if (byNode[t.id] or 0) > 0 then ranks[t.name] = byNode[t.id] end
   end
   return ranks
+end
+
+function Sim.SurvivalInputs(class)
+  if not Sim.Knows(class) then return 0, 0 end
+  local stance, ranks = Sim.Stances(), Sim.Ranks()
+  if not (stance and ranks) then return nil, nil end
+  local hands = Hands(class)
+  local sheet = { mh = hands.mh, oh = hands.oh, rg = hands.rg, shield = hands.shield, race = hands.race,
+    damageTaken = hands.racial.damageTaken or 0 }
+  local ctx = { class = class, level = UnitLevel("player"), stance = stance, ranks = ranks, sheet = sheet }
+  local sb = ShieldBlockOf(ctx)
+  return TalentEffects(ctx).damageTaken, sb and sb.charges or 0
 end
 
 function Sim.InStance(sheet, from, to)

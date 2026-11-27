@@ -4,7 +4,8 @@ local Sheet = {}
 KP.Sheet = Sheet
 
 Sheet.INPUTS = { "level", "str", "agi", "sta", "int", "spi", "gearArmor", "armor", "health", "dodge", "parry", "block",
-  "baseHealth", "baseMana", "hpPerSta", "speed", "twoHand", "agiPerCrit" }
+  "blockValue", "baseHealth", "baseMana", "hpPerSta", "speed", "twoHand", "agiPerCrit" }
+Sheet.SURVIVAL = { "shieldBlock", "damageTaken" }
 Sheet.EFFECTS = {
   health = { "health", "health" },
   mana = { "mana", "mana" },
@@ -41,9 +42,9 @@ function Sheet.Inputs(class)
   local offHand = Readable(GetInventoryItemID("player", 17))
   local shield = offHand and KP.Items[offHand] and KP.Items[offHand][1] == "shield"
   if shield then
-    inputs.block = Readable(GetBlockChance())
+    inputs.block, inputs.blockValue = Readable(GetBlockChance()), Readable(GetShieldBlock())
   else
-    inputs.block = 0
+    inputs.block, inputs.blockValue = 0, 0
   end
   inputs.speed = Readable((UnitAttackSpeed("player")))
   local mainHand = Readable(GetInventoryItemID("player", 16))

@@ -1,5 +1,32 @@
 # Changelog
 
+## 0.32.3
+
+- **Survival now follows the game's combat rules.** A block takes your Block Value off the hit; it used to count as if
+  you had dodged. Enemies 3 levels above you (raid bosses) land crushing blows, and a Warrior's Shield Block is counted.
+  So for tanks, Block Value (and the Strength that adds to it) now counts for survival, dodge, parry and Defense no longer
+  stop counting at a 60% limit, and more block chance is worth little while Shield Block covers the hits that get through. This changes the tank gear
+  lists, item tooltips, bag arrows and the Stats tab. The numbers come from the guild's combat logs: enemies on Forever
+  almost never crit, so crits aren't counted.
+- **Hit against a raid boss: 8%** (27% for dual-wield white hits), as the game's own Hit Chance tooltip says. The planner
+  used to add the original game's rule that the first 1% of hit doesn't count against an enemy 3 levels above you, and
+  asked for 9%. Hit is now worth something from the first point.
+- **Protection Warriors: the level 60 gear lists reach 8% hit and 3% expertise first.** 8% is the game's own "never miss
+  raid bosses" number, and expertise stops the boss from dodging and parrying your attacks (in the planner's math, against
+  a boss you face a point of expertise is worth about twice a point of hit). After that the lists go for the most survival and damage, as
+  before. The Gear tab says so. Item tooltips and bag arrows still judge by survival and damage alone.
+- **Pre-raid gear now includes Dungeon Set 2's upgraded pieces** (item level 65 and 66, like the Pauldrons and Legguards
+  of Heroism) **and three level 65 items**: Howler's Furs, Cutthroat's Signet and Adaptive Combat Assistant. The item level
+  limit used to leave them out.
+- **"Improves your chance to hit with ranged weapons" no longer counts as melee hit.** It only works with a bow, gun or
+  crossbow. Marksman Bands, Sash of the Grand Hunt, Trueaim Gauntlets, Infernal Trickster Leggings and Stoneshatter were
+  rated too high for melee (the leveling lists picked Infernal Trickster Leggings at 45); their tooltips now list the
+  effect as not counted.
+- **Updated for the Nov 25 patch.** Balance Druid's reworked talents (Starlight Wrath, Moon and Stars, Dreamstate, the new
+  Eclipse and Moonkin Form) are in the Balance builds, and the talent texts follow the patch.
+- **The Formulas tab explains the game's own spell hit tooltip.** Against a raid boss the game says 17% for spells and the
+  planner 16%: the tooltip shows how often you miss, and 1% of spells always miss, so 16% is all the hit you can use.
+
 ## 0.32.2
 
 - **Updated for the Nov 24 patch and the hotfixes of Nov 21 to 24.** The re-statted Grovekeeper and Spiritcaller pieces,

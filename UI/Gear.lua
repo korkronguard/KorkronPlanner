@@ -246,6 +246,9 @@ function Pane.Refresh(pane, build)
     (": you wear %d of %d"):format(wearing, shown))
   pane.note:SetText("Click a slot for its other options and to choose your own (gold). Link = the item's Wowhead page" ..
     ", which says where to get it. " .. TICK .. " = you're wearing it." ..
-    (pre and " Pre-raid: items of item level " .. PRE_RAID_ILVL .. " and under (dungeons, quests, crafting, reputation; no raid rewards)." or "") ..
+    (pre and " Pre-raid: items of item level " .. PRE_RAID_ILVL .. " and under, Dungeon Set 2 and three level 65 items " ..
+      "(dungeons, quests, crafting, reputation; no raid rewards)." or "") ..
+    (entry.floors and (" Reaches %d%% hit and %d%% expertise first, then the most survival and damage."):format(
+      entry.floors.hit, entry.floors.expertise) or "") ..
     (build.path == "pvp" and " PvP: ranked by the planner's questing numbers (it has none for fights against players)." or ""))
 end

@@ -12,7 +12,7 @@ local TURNS_OF = { v = "d", d = "d", e = "e" }
 local SECTION = {
   ["eff. HP"] = { title = "Staying alive", total = "your effective health is %s", unit = "effective health",
     about = "Effective health is how much damage you can take before you die: your health, and what your armor, dodge, parry " ..
-      "and block keep off you, measured against a raid boss." },
+      "and blocks (your Block Value, Shield Block) keep off you, measured against a raid boss and its crushing blows." },
   DPS = { title = "Damage", total = "you do %s a second", unit = "damage a second",
     about = "Your damage a second against this enemy, pressing your abilities whenever they're ready and you have the rage or energy: " ..
       "the DPS tab's math. Buffs count while they're up.",
@@ -76,8 +76,9 @@ local function ComingLine(found)
   if found.spare then return ("More adds nothing: you have %d more than you need."):format(Points(found.spare)) end
   local first, second = found.turns[1], found.turns[2]
   if not first then return nil end
-  local text = ("That holds for the next %d points, then each adds %s"):format(Points(first.at), Worth(first.worth) or "nothing")
-  if second then
+  local worth = Worth(first.worth)
+  local text = ("That holds for the next %d points, then each adds %s"):format(Points(first.at), worth or "nothing")
+  if second and worth then
     text = text .. (" for %d more, then %s"):format(Points(second.at) - Points(first.at), Worth(second.worth) or "nothing")
   end
   return text .. "."
